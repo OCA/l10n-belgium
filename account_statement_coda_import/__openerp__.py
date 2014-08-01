@@ -49,6 +49,9 @@ file (you'll find samples in the 'data' folder). It respects the chosen profile
    `pycoda <https://pypi.python.org/pypi/pycoda>`_
  """,
  'website': 'http://www.acsone.eu',
+ 'external_dependencies': {
+     'python': ['coda'],
+ },
  'init_xml': [],
  'update_xml': [
  ],
