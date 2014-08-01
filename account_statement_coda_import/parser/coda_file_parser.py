@@ -95,7 +95,7 @@ class CodaFileParser(BankStatementImportParser):
 
     def get_st_vals(self):
         """
-        This method return a dict of vals that ca be passed to
+        This method return a dict of vals that can be passed to
         create method of statement.
         :return: dict of vals that represent additional infos for the statement
             found in the file.
