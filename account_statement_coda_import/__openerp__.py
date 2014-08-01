@@ -36,6 +36,10 @@ Bank statement CODA import
 This module brings generic methods and fields on bank statement to deal with
 the importation of coded statement of account from electronic files. **CODA**
 
+This is an alternative to the official l10n_be_coda that leverages the advanced
+bank statement completion framework of the bank-statement-reconcile
+OCA project (https://github.com/OCA/bank-statement-reconcile)
+
 This module allows you to import your bank transactions with a standard **CODA**
 file (you'll find samples in the 'data' folder). It respects the chosen profile
 (model provided by the account_statement_ext module) to generate the entries.
