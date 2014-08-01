@@ -22,7 +22,6 @@
 
 from openerp.osv.orm import Model
 from openerp.osv.osv import except_osv
-from openerp.osv import fields
 from openerp.tools.translate import _
 from openerp.addons.account_statement_coda_import.parser.coda_file_parser \
     import CodaFileParser
@@ -48,23 +47,13 @@ class AccountStatementProfil(Model):
                         'CODA based transaction (L10nBECoda installed)'))
         return res
 
-    _columns = {
-        'import_type': fields.selection(
-            get_import_type_selection,
-            'Type of import',
-            required=True,
-            help="Choose here the method by which you want to import "
-                 "bank statement for this profile."),
-
-    }
-
     def validate_statement(self, cr, uid, profile_id, parser, context=None):
         statement_info = parser.statement
         profile_obj = self.pool.get('account.statement.profile')
         profile = profile_obj.browse(cr, uid, profile_id, context=context)
 
         # Avoid importing statement for a different account number that the
-        # one referencing the  the journal specified in the profile
+        # one referencing the journal specified in the profile
         res_bank_obj = self.pool.get('res.partner.bank')
         acc_number = statement_info.acc_number
         ids = res_bank_obj.search_by_acc_number(cr,
