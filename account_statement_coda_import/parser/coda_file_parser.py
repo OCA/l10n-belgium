@@ -31,10 +31,8 @@ from _collections import deque
 
 
 class CodaFileParser(BankStatementImportParser):
-
     """
-    CODA parser that use a define format in coda to import
-    bank statement.
+    CODA bank statement parser.
     """
     parser_name = 'coda_transaction'
 
@@ -160,8 +158,9 @@ class CodaFileParser(BankStatementImportParser):
 
 class L10NBECodaFileParser(CodaFileParser):
     """
-    CODA parser that use a define format in coda to import
-    bank statement as defined by the l10n_be_coda module.
+    Extension to CODA bank statement parser that also
+    populates the coda_account_number field for compatibility
+    with the bank account updating logic that is in l10n_be_coda.
     """
 
     parser_name = 'l10n_be_coda_transaction'
