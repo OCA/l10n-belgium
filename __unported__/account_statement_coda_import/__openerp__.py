@@ -57,7 +57,7 @@ file (you'll find samples in the 'data' folder). It respects the chosen profile
  ],
  'demo_xml': [],
  'test': [],
- 'installable': True,
+ 'installable': False,
  'images': [],
  'auto_install': False,
  'license': 'AGPL-3',
