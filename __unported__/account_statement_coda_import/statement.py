@@ -32,11 +32,11 @@ from account_statement_coda_import.parser.coda_file_parser \
 class AccountStatementProfil(Model):
     _inherit = "account.statement.profile"
 
-    def get_import_type_selection(self, cr, uid, context=None):
+    def _get_import_type_selection(self, cr, uid, context=None):
         """
         Has to be inherited to add parser
         """
-        res = super(AccountStatementProfil, self).get_import_type_selection(
+        res = super(AccountStatementProfil, self)._get_import_type_selection(
             cr, uid, context=context)
         res.append((CodaFileParser.parser_name,
                     'CODA based transaction'))
