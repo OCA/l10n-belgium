@@ -7,12 +7,12 @@ virtualenv:
   system_site_packages: true
 
 env:
-  - VERSION="7.0" ODOO_REPO="odoo/odoo"
-  - VERSION="7.0" ODOO_REPO="OCA/OCB"
+  - VERSION="8.0" ODOO_REPO="odoo/odoo"
+  - VERSION="8.0" ODOO_REPO="OCA/OCB"
 
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
-  - git clone https://github.com/OCA/bank-statement-reconcile ${HOME}/bank-statement-reconcile -b 7.0
+  - git clone https://github.com/OCA/bank-statement-reconcile ${HOME}/bank-statement-reconcile -b 8.0
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - pip install xlrd pycoda
