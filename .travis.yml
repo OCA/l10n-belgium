@@ -1,26 +1,25 @@
 language: python
+
 python:
   - "2.7"
 
 virtualenv:
   system_site_packages: true
 
-before_install:
- - git clone https://github.com/OCA/maintainer-quality-tools.git $HOME/maintainer-quality-tools
-
 env:
- - PATH=$HOME/maintainer-quality-tools/travis:$PATH
-
-services:
-  - postgresql
+  - VERSION="8.0" ODOO_REPO="odoo/odoo"
+  - VERSION="8.0" ODOO_REPO="OCA/OCB"
 
 install:
-    - $HOME/maintainer-quality-tools/travis/travis_install_nightly 7.0
-    - pip install coveralls flake8
+  - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+  - git clone https://github.com/OCA/bank-statement-reconcile ${HOME}/bank-statement-reconcile -b 8.0
+  - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+  - travis_install_nightly
+  - pip install xlrd pycoda
 
 script:
-    - travis_run_flake8
-    - travis_run_tests 7.0 openerp_test
+  - travis_run_flake8
+  - travis_run_tests
 
 after_success:
   coveralls
