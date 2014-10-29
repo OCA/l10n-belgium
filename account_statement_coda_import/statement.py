@@ -92,4 +92,5 @@ class AccountStatementProfil(Model):
                                    L10NBECodaFileParser.parser_name]:
             self.validate_statement(cr, uid, profile_id, parser, context)
         args = (cr, uid, profile_id, result_row_list, parser, context)
-        return super(AccountStatementProfil, self).prepare_statement_vals(*args)
+        return super(AccountStatementProfil, self)\
+            .prepare_statement_vals(*args)

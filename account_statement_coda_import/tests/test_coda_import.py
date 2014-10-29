@@ -101,7 +101,8 @@ class test_coda_import(common.TransactionCase):
         """
         statement_acc_number = 'BE86407051416150'
         partner_id = self.ref('base.main_partner')
-        file_name = self._to_abs_filename('Coda_iban_v2_3_single_statement.txt')
+        file_name = self._to_abs_filename(
+            'Coda_iban_v2_3_single_statement.txt')
         # try to import a Coda file with a statement bank account not defined
         # in the system
         with self.assertRaisesRegexp(except_osv,
@@ -121,7 +122,8 @@ class test_coda_import(common.TransactionCase):
                                            'partner_id': partner_id})
         with self.assertRaisesRegexp(except_osv,
                                      "(u'Not supported CODA file', u\"No "
-                                     "Account Journal defined for bank account "
+                                     "Account Journal defined for "
+                                     "bank account "
                                      "named \'test\' for account number "
                                      "\'BE86407051416150\'\")"):
             self._import_coda_file(file_name)
@@ -133,7 +135,8 @@ class test_coda_import(common.TransactionCase):
                            res_bank_id,
                            {'journal_id': self.ref('account.cash_journal')})
         with self.assertRaisesRegexp(except_osv,
-                                     "(u'Not supported CODA file', u\"The journ"
+                                     "(u'Not supported CODA file', "
+                                     "u\"The journ"
                                      "al \'Cash Journal - \(test\) \(EUR\)\' "
                                      "on the Bank Account \'test\' doesn\'t "
                                      "match the journal \'Bank Journal - "
@@ -142,7 +145,8 @@ class test_coda_import(common.TransactionCase):
 
     def test_signle_statement_import(self):
         self._add_res_bank('BE86407051416150')
-        file_name = self._to_abs_filename('Coda_iban_v2_3_single_statement.txt')
+        file_name = self._to_abs_filename(
+            'Coda_iban_v2_3_single_statement.txt')
         statements = self._import_coda_file(file_name)
         self.assertEqual(1, len(statements))
         statement = statements[0]
@@ -157,7 +161,8 @@ class test_coda_import(common.TransactionCase):
                 # common infos
                 self.assertEqual(st_line_obj['name'],
                                  'OVERBOEKING NAAR CENTRALE '
-                                 'REKENING\nOVERBOEKING NAAR CENTRALE REKENING')
+                                 'REKENING\nOVERBOEKING NAAR '
+                                 'CENTRALE REKENING')
                 self.assertEqual(st_line_obj['amount'], -15.0)
                 # additional info provided by CODA
                 # check that the bank information are correctly filled
@@ -169,7 +174,8 @@ class test_coda_import(common.TransactionCase):
 
     def test_multi_statements_import(self):
         self._add_res_bank('BE13001676096039')
-        file_name = self._to_abs_filename('Coda_iban_v2_3_multi_statements.txt')
+        file_name = self._to_abs_filename(
+            'Coda_iban_v2_3_multi_statements.txt')
         statements = self._import_coda_file(file_name)
         self.assertEqual(2, len(statements))
         if statements[0].name == '2014/037':
