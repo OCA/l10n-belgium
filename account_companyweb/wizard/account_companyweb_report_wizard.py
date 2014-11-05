@@ -65,10 +65,12 @@ class account_companyweb_report_wizard(orm.TransientModel):
         return Year
 
     def _get_account(self, cr, uid, context=None):
-        user = self.pool['res.users'].browse(cr, uid, uid, context=context)
+        company_id = self.pool['res.company']\
+            ._company_default_get(cr, uid, object='account.account',
+                                  field='company_id', context=context)
         accounts = self.pool['account.account'].search(
             cr, uid, [('parent_id', '=', False),
-                      ('company_id', '=', user.company_id.id)], limit=1)
+                      ('company_id', '=', company_id)], limit=1)
         return accounts and accounts[0] or False
 
     _name = "account.companyweb.report.wizard"
