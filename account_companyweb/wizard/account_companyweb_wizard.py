@@ -66,7 +66,7 @@ class account_companyweb_wizard(orm.TransientModel):
                 }
 
     def update_information(self, cr, uid, ids, context):
-        res_partner_model = self.pool.get('res.partner')
+        res_partner_model = self.pool['res.partner']
         partner_id = context['active_id']
         this = self.browse(cr, uid, ids)[0]
         update_values = self.get_update_values(cr, uid, ids, this,

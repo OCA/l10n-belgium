@@ -65,8 +65,8 @@ class account_companyweb_report_wizard(orm.TransientModel):
         return Year
 
     def _get_account(self, cr, uid, context=None):
-        user = self.pool.get('res.users').browse(cr, uid, uid, context=context)
-        accounts = self.pool.get('account.account').search(
+        user = self.pool['res.users'].browse(cr, uid, uid, context=context)
+        accounts = self.pool['account.account'].search(
             cr, uid, [('parent_id', '=', False),
                       ('company_id', '=', user.company_id.id)], limit=1)
         return accounts and accounts[0] or False
@@ -124,7 +124,7 @@ class account_companyweb_report_wizard(orm.TransientModel):
         maxDayOfMonth = calendar.monthrange(int(this.year), int(this.month))[1]
         maxDayOfMonth = str(maxDayOfMonth)
 
-        move_line_model = self.pool.get("account.move.line")
+        move_line_model = self.pool["account.move.line"]
 
         move_line_ids = move_line_model.search(
             cr, uid,
@@ -209,8 +209,8 @@ class account_companyweb_report_wizard(orm.TransientModel):
         maxDayOfMonth = calendar.monthrange(int(this.year), int(this.month))[1]
         maxDayOfMonth = str(maxDayOfMonth)
 
-        fy_model = self.pool.get('account.fiscalyear')
-        move_line_model = self.pool.get('account.move.line')
+        fy_model = self.pool['account.fiscalyear']
+        move_line_model = self.pool['account.move.line']
 
         r = PartnersOpenInvoicesWebkit(cr, uid, "name", {})
 

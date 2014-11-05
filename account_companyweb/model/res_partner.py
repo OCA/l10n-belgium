@@ -44,9 +44,9 @@ class res_partner(orm.Model):
     _inherit = 'res.partner'
 
     def companyweb_information(self, cr, uid, ids, vat_number, context=None):
-        login = self.pool.get('ir.config_parameter').get_param(
+        login = self.pool['ir.config_parameter'].get_param(
             cr, uid, 'companyweb.login', False)
-        pswd = self.pool.get('ir.config_parameter').get_param(
+        pswd = self.pool['ir.config_parameter'].get_param(
             cr, uid, 'companyweb.pswd', False)
         url = "http://odm.outcome.be/alacarte_onvat.asp?login=" + \
             login + "&pswd=" + pswd + "&vat=" + vat_number
@@ -171,7 +171,7 @@ class res_partner(orm.Model):
             'result': getFloatValue('Rub9904'),
         }
 
-        wizard_id = self.pool.get('account.companyweb.wizard').create(
+        wizard_id = self.pool['account.companyweb.wizard'].create(
             cr, uid, valeur, context=None)
 
         return {

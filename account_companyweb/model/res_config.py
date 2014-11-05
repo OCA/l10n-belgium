@@ -47,7 +47,7 @@ class account_companyweb_config_settings(orm.TransientModel):
     }
 
     def init(self, cr, force=False):
-        config_parameter_model = self.pool.get('ir.config_parameter')
+        config_parameter_model = self.pool['ir.config_parameter']
         for key, value in _parameters.iteritems():
             ids = not force and config_parameter_model.search(
                 cr, SUPERUSER_ID, [('key', '=', key)])
@@ -55,23 +55,23 @@ class account_companyweb_config_settings(orm.TransientModel):
                 config_parameter_model.set_param(cr, SUPERUSER_ID, key, value)
 
     def get_default_companyweb_login(self, cr, uid, fields, context=None):
-        login = self.pool.get('ir.config_parameter').get_param(
+        login = self.pool['ir.config_parameter'].get_param(
             cr, SUPERUSER_ID, 'companyweb.login', False)
         return {'companyweb_login': login}
 
     def get_default_companyweb_pswd(self, cr, uid, fields, context=None):
-        pswd = self.pool.get('ir.config_parameter').get_param(
+        pswd = self.pool['ir.config_parameter'].get_param(
             cr, SUPERUSER_ID, 'companyweb.pswd', False)
         return {'companyweb_pswd': pswd}
 
     def set_default_companyweb_login(self, cr, uid, ids, context=None):
         config = self.browse(cr, uid, ids[0], context)
-        self.pool.get('ir.config_parameter').set_param(
+        self.pool['ir.config_parameter'].set_param(
             cr, SUPERUSER_ID, 'companyweb.login', config.companyweb_login)
         return True
 
     def set_default_companyweb_pswd(self, cr, uid, ids, context=None):
         config = self.browse(cr, uid, ids[0], context)
-        self.pool.get('ir.config_parameter').set_param(
+        self.pool['ir.config_parameter'].set_param(
             cr, SUPERUSER_ID, 'companyweb.pswd', config.companyweb_pswd)
         return True
