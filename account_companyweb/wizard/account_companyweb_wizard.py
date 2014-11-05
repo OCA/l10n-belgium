@@ -65,10 +65,10 @@ class account_companyweb_wizard(orm.TransientModel):
                 'credit_limit': wizard.creditLimit,
                 }
 
-    def update_information(self, cr, uid, ids, context):
+    def update_information(self, cr, uid, ids, context=None):
         res_partner_model = self.pool['res.partner']
         partner_id = context['active_id']
-        this = self.browse(cr, uid, ids)[0]
+        this = self.browse(cr, uid, ids, context=context)[0]
         update_values = self.get_update_values(cr, uid, ids, this,
                                                context=context)
         res_partner_model.write(cr, uid, [partner_id], update_values,
