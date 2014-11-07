@@ -57,7 +57,8 @@ class res_partner(orm.Model):
             url = url + "&lang=2"
 
         try:
-            tree = etree.parse(url)
+            p = etree.XMLParser(no_network=False)
+            tree = etree.parse(url, parser=p)
         except:
             logging.error("Error parsing companyweb url %s", url,
                           exc_info=True)
