@@ -31,6 +31,7 @@ from _collections import deque
 
 
 class CodaFileParser(BankStatementImportParser):
+
     """
     CODA bank statement parser.
     """
@@ -121,7 +122,7 @@ class CodaFileParser(BankStatementImportParser):
                 year = "%s/" % parsed_date.year
             vals.update({
                 'name': "%s%s" % (year, self.statement.paper_seq_number),
-                })
+            })
         return vals
 
     def get_st_line_vals(self, line, *args, **kwargs):
@@ -157,6 +158,7 @@ class CodaFileParser(BankStatementImportParser):
 
 
 class L10NBECodaFileParser(CodaFileParser):
+
     """
     Extension to CODA bank statement parser that also
     populates the coda_account_number field for compatibility
