@@ -28,7 +28,7 @@
  'depends': [
      'account_statement_base_import',
      'account_statement_bankaccount_completion'
-     ],
+ ],
  'description': """
 Bank statement CODA import
 ==========================
