@@ -158,7 +158,6 @@ class CodaFileParser(BankStatementImportParser):
 
 
 class L10NBECodaFileParser(CodaFileParser):
-
     """
     Extension to CODA bank statement parser that also
     populates the coda_account_number field for compatibility
