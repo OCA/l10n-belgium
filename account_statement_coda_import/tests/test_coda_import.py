@@ -136,11 +136,11 @@ class test_coda_import(common.TransactionCase):
                            {'journal_id': self.ref('account.cash_journal')})
         with self.assertRaisesRegexp(except_osv,
                                      "(u'Not supported CODA file', "
-                                     "u\"The journ"
-                                     "al \'Cash Journal - \(test\) \(EUR\)\' "
+                                     "u\"The journal \'Cash Journal - "
+                                     "\\(test\\) \\(EUR\\)\' "
                                      "on the Bank Account \'test\' doesn\'t "
                                      "match the journal \'Bank Journal - "
-                                     "\(test\)\' on the profile\")"):
+                                     "\\(test\\)\' on the profile\")"):
             self._import_coda_file(file_name)
 
     def test_signle_statement_import(self):
