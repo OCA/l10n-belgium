@@ -3,7 +3,6 @@
 #
 # Authors: Laurent Mignon
 # Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-# All Rights Reserved
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,5 +18,5 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-import parser
-import statement
+from . import parser
+from . import statement

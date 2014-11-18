@@ -3,7 +3,6 @@
 #
 # Authors: Laurent Mignon
 # Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-# All Rights Reserved
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -31,6 +30,7 @@ from _collections import deque
 
 
 class CodaFileParser(BankStatementImportParser):
+
     """
     CODA bank statement parser.
     """
@@ -121,7 +121,7 @@ class CodaFileParser(BankStatementImportParser):
                 year = "%s/" % parsed_date.year
             vals.update({
                 'name': "%s%s" % (year, self.statement.paper_seq_number),
-                })
+            })
         return vals
 
     def get_st_line_vals(self, line, *args, **kwargs):

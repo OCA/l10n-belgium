@@ -3,7 +3,6 @@
 #
 # Authors: Laurent Mignon
 # Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-# All Rights Reserved
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -25,7 +24,7 @@ from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
 from openerp.addons.account_statement_coda_import.parser.coda_file_parser \
     import CodaFileParser
-from account_statement_coda_import.parser.coda_file_parser \
+from openerp.addons.account_statement_coda_import.parser.coda_file_parser \
     import L10NBECodaFileParser
 
 
