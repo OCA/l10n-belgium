@@ -47,12 +47,12 @@ class account_companyweb_config_settings(orm.TransientModel):
             if not ids:
                 config_parameter_model.set_param(cr, SUPERUSER_ID, key, value)
 
-    def get_default_companyweb_login(self, cr, uid, fields, context=None):
+    def get_default_companyweb_login(self, cr, uid, fields_name, context=None):
         login = self.pool['ir.config_parameter'].get_param(
             cr, SUPERUSER_ID, 'companyweb.login', False)
         return {'companyweb_login': login}
 
-    def get_default_companyweb_pswd(self, cr, uid, fields, context=None):
+    def get_default_companyweb_pswd(self, cr, uid, fields_name, context=None):
         pswd = self.pool['ir.config_parameter'].get_param(
             cr, SUPERUSER_ID, 'companyweb.pswd', False)
         return {'companyweb_pswd': pswd}

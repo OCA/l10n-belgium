@@ -333,8 +333,7 @@ class companyweb_test(common.TransactionCase):
                 trouve = True
             i += 1
 
-        self.assertFalse
-        (trouve, "Invoice found in xls file")
+        self.assertFalse(trouve, "Invoice found in xls file")
 
     def test_open_doc_openAmount(self):
         partner_id = self.registry('res.partner').create(
