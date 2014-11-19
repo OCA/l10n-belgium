@@ -12,14 +12,13 @@ env:
 
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
-  - git clone https://github.com/OCA/bank-statement-reconcile ${HOME}/bank-statement-reconcile -b 7.0
-  - git clone https://github.com/OCA/account-financial-reporting ${HOME}/account-financial-reporting -b 7.0
+  - git clone https://github.com/OCA/bank-statement-reconcile ${HOME}/bank-statement-reconcile -b ${VERSION}
+  - git clone https://github.com/OCA/account-financial-reporting ${HOME}/account-financial-reporting -b ${VERSION}
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - pip install xlrd pycoda
 
 script:
-  - travis_run_flake8
   - travis_run_tests
 
 after_success:
