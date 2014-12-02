@@ -9,7 +9,7 @@
             <field name="price_include" eval="0"/>
             <field name="amount">8.2645</field>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -23,7 +23,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -37,7 +37,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -51,7 +51,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -65,7 +65,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -79,7 +79,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -93,7 +93,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -107,7 +107,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -121,7 +121,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -135,7 +135,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -149,7 +149,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -163,7 +163,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -177,7 +177,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -191,7 +191,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -205,7 +205,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -219,7 +219,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -233,7 +233,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -247,7 +247,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -261,7 +261,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -275,7 +275,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -289,7 +289,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -303,7 +303,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -317,7 +317,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -331,7 +331,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -345,7 +345,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -359,7 +359,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -373,7 +373,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -387,7 +387,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -401,7 +401,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -415,7 +415,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -429,7 +429,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -443,7 +443,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -457,7 +457,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -471,7 +471,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -485,7 +485,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -499,7 +499,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -513,7 +513,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
@@ -527,7 +527,7 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="type">fixed</field>
-            <field name="type_tax_use">sale</field>
+            <field name="type_tax_use">purchase</field>
             <field name="child_depend" eval="0"/>
             <field name="account_collected_id" ref="recupel_expense_account"/>
             <field name="account_paid_id" ref="recupel_expense_account"/>
