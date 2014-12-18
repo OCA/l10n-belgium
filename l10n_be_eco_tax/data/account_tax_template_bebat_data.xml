@@ -4,7 +4,7 @@
         <record id="bebat_01_out" model="account.tax.template">
             <field name="sequence">1</field>
             <field name="description">BEBAT-75-OUT</field>
-            <field name="name">RECUPEL 0.075 Out</field>
+            <field name="name">BEBAT 0.075 Out</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="amount">0.075</field>
@@ -18,7 +18,7 @@
         <record id="bebat_01_in" model="account.tax.template">
             <field name="sequence">1</field>
             <field name="description">BEBAT-75-IN</field>
-            <field name="name">RECUPEL 0.075 in</field>
+            <field name="name">BEBAT 0.075 in</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="amount">0.075</field>
