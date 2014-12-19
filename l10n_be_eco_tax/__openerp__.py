@@ -30,11 +30,13 @@
     "description": """
 Belgium Eco Tax
 """,
-    "data": ['data/account_account_template_data.xml',
-             'data/account_tax_template_recupel_out_data.xml',
-             'data/account_tax_template_recupel_in_data.xml',
-             'data/account_tax_template_bebat_data.xml',
-             ],
+    "data": [
+        'data/account_tax_code_template.xml',
+        'data/account_account_template_data.xml',
+        'data/account_tax_template_recupel_out_data.xml',
+        'data/account_tax_template_recupel_in_data.xml',
+        'data/account_tax_template_bebat_data.xml',
+    ],
     "demo": [],
     "license": "AGPL-3",
     "installable": True,
