@@ -33,9 +33,10 @@ class test_coda_import(common.TransactionCase):
         self.company_a = self.browse_ref('base.main_company')
         self.profile_obj = self.registry('account.statement.profile')
         self.acc_bk_stm_obj = self.registry('account.bank.statement')
-        # create the 2009 fiscal year since imported coda file reference
-        # statement lines in 2009
+        # create the 2009 and 2014 fiscal year since
+        # they are referenced in imported coda files
         self.fiscalyear_id = self._create_fiscalyear('2009', self.company_a.id)
+        self.fiscalyear_id = self._create_fiscalyear('2014', self.company_a.id)
 
         self.account_id = self.ref('account.a_recv')
         self.journal_id = self.ref('account.bank_journal')
