@@ -26,7 +26,7 @@ import time
 
 import openerp.tests.common as common
 from openerp.tools import convert_xml_import
-from openerp import netsvc
+from openerp import workflow
 from openerp import tools
 
 _logger = logging.getLogger(__name__)
@@ -70,8 +70,7 @@ class companyweb_test(common.TransactionCase):
                                 'quantity': 1,
                                 })
 
-        wf_service = netsvc.LocalService("workflow")
-        wf_service.trg_validate(
+        workflow.trg_validate(
             self.uid, 'account.invoice', in_id, 'invoice_open', self.cr)
 
         return in_id
@@ -94,8 +93,7 @@ class companyweb_test(common.TransactionCase):
                                 'quantity': 1,
                                 })
 
-        wf_service = netsvc.LocalService("workflow")
-        wf_service.trg_validate(
+        workflow.trg_validate(
             self.uid, 'account.invoice', in_id, 'invoice_open', self.cr)
 
         return in_id
