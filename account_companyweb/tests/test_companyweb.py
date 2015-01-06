@@ -20,15 +20,18 @@
 #
 ##############################################################################
 
-import openerp.tests.common as common
-from openerp import netsvc
 import os
 import logging
+import time
 
+import openerp.tests.common as common
 from openerp.tools import convert_xml_import
+from openerp import workflow
 from openerp import tools
 
 _logger = logging.getLogger(__name__)
+
+YEAR = time.strftime('%Y')
 
 
 def get_file(module_name, fp):
@@ -67,8 +70,7 @@ class companyweb_test(common.TransactionCase):
                                 'quantity': 1,
                                 })
 
-        wf_service = netsvc.LocalService("workflow")
-        wf_service.trg_validate(
+        workflow.trg_validate(
             self.uid, 'account.invoice', in_id, 'invoice_open', self.cr)
 
         return in_id
@@ -91,8 +93,7 @@ class companyweb_test(common.TransactionCase):
                                 'quantity': 1,
                                 })
 
-        wf_service = netsvc.LocalService("workflow")
-        wf_service.trg_validate(
+        workflow.trg_validate(
             self.uid, 'account.invoice', in_id, 'invoice_open', self.cr)
 
         return in_id
@@ -197,7 +198,7 @@ class companyweb_test(common.TransactionCase):
                                {'special': False})
 
     def test_created_doc_companyweb(self):
-        date = '2014-01-01'
+        date = YEAR + '-01-01'
         amount = 1000
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
@@ -206,7 +207,7 @@ class companyweb_test(common.TransactionCase):
         invoice = self.registry('account.invoice').browse(
             self.cr, self.uid, in_id)
 
-        wb = self.create_createdSalesDoc("01", "2014")
+        wb = self.create_createdSalesDoc("01", YEAR)
 
         sheet = wb.sheet_by_index(0)
 
@@ -229,10 +230,10 @@ class companyweb_test(common.TransactionCase):
     def test_created_doc_diffrent_month_companyweb(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         invoice = self.registry('account.invoice').browse(
             self.cr, self.uid, in_id)
-        wb = self.create_createdSalesDoc("02", "2014")
+        wb = self.create_createdSalesDoc("02", YEAR)
         sheet = wb.sheet_by_index(0)
         trouve = False
         i = 1
@@ -244,7 +245,7 @@ class companyweb_test(common.TransactionCase):
         self.assertFalse(trouve, "Invoice found in xls file")
 
     def test_open_doc_companyweb(self):
-        date = '2014-01-01'
+        date = YEAR + '-01-01'
         amount = 1000
 
         partner_id = self.registry('res.partner').create(
@@ -252,7 +253,7 @@ class companyweb_test(common.TransactionCase):
         in_id = self.create_invoice(partner_id, date, amount)
         invoice = self.registry('account.invoice').browse(
             self.cr, self.uid, in_id)
-        wb = self.create_openSalesDoc("01", "2014")
+        wb = self.create_openSalesDoc("01", YEAR)
         sheet = wb.sheet_by_index(0)
 
         trouve = False
@@ -275,10 +276,10 @@ class companyweb_test(common.TransactionCase):
     def test_open_doc_complete_reconcile_companyweb(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         inv = self.registry('account.invoice').browse(self.cr, self.uid, in_id)
-        self.create_payment('2014-01-20', 1000, inv)
-        wb = self.create_openSalesDoc("02", "2014")
+        self.create_payment(YEAR + '-01-20', 1000, inv)
+        wb = self.create_openSalesDoc("02", YEAR)
         sheet = wb.sheet_by_index(0)
         trouve = False
         i = 1
@@ -292,10 +293,10 @@ class companyweb_test(common.TransactionCase):
     def test_open_doc_partial_reconcile_1_companyweb(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         inv = self.registry('account.invoice').browse(self.cr, self.uid, in_id)
-        self.create_payment('2014-01-20', 500, inv)
-        wb = self.create_openSalesDoc("02", "2014")
+        self.create_payment(YEAR + '-01-20', 500, inv)
+        wb = self.create_openSalesDoc("02", YEAR)
         sheet = wb.sheet_by_index(0)
         trouve = False
         i = 1
@@ -309,11 +310,11 @@ class companyweb_test(common.TransactionCase):
     def test_open_doc_partial_reconcile_2_companyweb(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         inv = self.registry('account.invoice').browse(self.cr, self.uid, in_id)
-        self.create_payment('2014-01-20', 500, inv)
-        self.create_payment('2014-02-20', 500, inv)
-        wb = self.create_openSalesDoc("01", "2014")
+        self.create_payment(YEAR + '-01-20', 500, inv)
+        self.create_payment(YEAR + '-02-20', 500, inv)
+        wb = self.create_openSalesDoc("01", YEAR)
         sheet = wb.sheet_by_index(0)
         trouve = False
         i = 1
@@ -324,7 +325,7 @@ class companyweb_test(common.TransactionCase):
 
         self.assertTrue(trouve, "Invoice found in xls file")
 
-        wb = self.create_openSalesDoc("02", "2014")
+        wb = self.create_openSalesDoc("02", YEAR)
         sheet = wb.sheet_by_index(0)
         trouve = False
         i = 1
@@ -338,11 +339,11 @@ class companyweb_test(common.TransactionCase):
     def test_open_doc_openAmount(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         inv = self.registry('account.invoice').browse(self.cr, self.uid, in_id)
-        self.create_payment('2014-01-20', 250, inv)
-        self.create_payment('2014-02-20', 750, inv)
-        wb = self.create_openSalesDoc("01", "2014")
+        self.create_payment(YEAR + '-01-20', 250, inv)
+        self.create_payment(YEAR + '-02-20', 750, inv)
+        wb = self.create_openSalesDoc("01", YEAR)
         sheet = wb.sheet_by_index(0)
         trouve = False
         i = 1
@@ -359,14 +360,14 @@ class companyweb_test(common.TransactionCase):
     def test_open_doc_custAcc(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id1 = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id1 = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         inv1 = self.registry('account.invoice').browse(
             self.cr, self.uid, in_id1)
-        in_id2 = self.create_invoice(partner_id, '2014-01-01', 500)
+        in_id2 = self.create_invoice(partner_id, YEAR + '-01-01', 500)
         inv2 = self.registry('account.invoice').browse(
             self.cr, self.uid, in_id2)
 
-        wb = self.create_openSalesDoc("01", "2014")
+        wb = self.create_openSalesDoc("01", YEAR)
         sheet = wb.sheet_by_index(0)
         i = 1
         ligne = list()
@@ -385,13 +386,13 @@ class companyweb_test(common.TransactionCase):
     def test_custAcc_refund(self):
         partner_id = self.registry('res.partner').create(
             self.cr, self.uid, {'name': 'test', 'vat': 'BE0460392583', })
-        in_id = self.create_invoice(partner_id, '2014-01-01', 1000)
+        in_id = self.create_invoice(partner_id, YEAR + '-01-01', 1000)
         inv = self.registry('account.invoice').browse(
             self.cr, self.uid, in_id)
 
-        self.create_refund(partner_id, '2014-02-02', 1000)
+        self.create_refund(partner_id, YEAR + '-02-02', 1000)
 
-        wb = self.create_openSalesDoc("01", "2014")
+        wb = self.create_openSalesDoc("01", YEAR)
         sheet = wb.sheet_by_index(0)
         i = 1
         while (i < sheet.nrows):
@@ -402,7 +403,7 @@ class companyweb_test(common.TransactionCase):
         self.assertAlmostEqual(
             sheet.cell_value(ligne, 10), 1000, 2, 'amount')
 
-        wb = self.create_openSalesDoc("02", "2014")
+        wb = self.create_openSalesDoc("02", YEAR)
         sheet = wb.sheet_by_index(0)
         i = 1
         while (i < sheet.nrows):
