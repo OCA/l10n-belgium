@@ -23,7 +23,7 @@
 {
     "name": "Companyweb",
     "version": "1.0",
-    "author": "ACSONE SA/NV",
+    "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://www.acsone.eu",
     "depends": [
