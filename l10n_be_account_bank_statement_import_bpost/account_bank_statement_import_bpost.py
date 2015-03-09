@@ -48,12 +48,12 @@ class AccountBankStatementImport(models.TransientModel):
         transactions = []
         i = 0
         account_number = currency_code = False
-        start_date_str = end_date_str = False
+        start_date = end_date = False
         diff = 0.0
         for line in unicodecsv.reader(
                 StringIO(data_file), encoding='utf-8', delimiter=';'):
             i += 1
-            _logger.debug("Line %d: %s" % (i, line))
+            _logger.debug("Line %d: %s", i, line)
             if i == 1:
                 account_number = line[1].replace('-', '')
             if i < 3:
@@ -66,21 +66,21 @@ class AccountBankStatementImport(models.TransientModel):
             if line[9]:
                 name += ' ' + line[9]
             date = datetime.strptime(line[1], '%d-%m-%Y')
-            date_str = fields.Date.to_string(date)
             amount = float(line[3].replace(',', '.'))
             diff += amount
             currency_code = line[4]
-            if not start_date_str and not end_date_str:
-                start_date_str = end_date_str = date_str
-            elif start_date_str > date_str:
-                start_date_str = date_str
-            elif end_date_str < date_str:
-                end_date_str = date_str
+            if not start_date and not end_date:
+                start_date = end_date = date
+            elif start_date > date:
+                start_date = date
+            elif end_date < date:
+                end_date = date
             vals_line = {
-                'date': date_str,
+                'date': date,
                 'name': name,
                 'ref': line[10],
-                'unique_import_id': '%s-%s-%s' % (date_str, amount, line[10]),
+                'unique_import_id': '%s-%s-%s' % (
+                    fields.Date.to_string(date), amount, line[10]),
                 'amount': amount,
                 'partner_name': line[7],
                 'account_number': line[6],
@@ -89,7 +89,8 @@ class AccountBankStatementImport(models.TransientModel):
 
         vals_bank_statement = {
             'name': _('Bpost %s %s > %s') % (
-                account_number, start_date_str, end_date_str),
+                account_number, fields.Date.to_string(start_date),
+                fields.Date.to_string(end_date)),
             'balance_start': 0,
             'balance_end_real': 0 + diff,
             'transactions': transactions,
