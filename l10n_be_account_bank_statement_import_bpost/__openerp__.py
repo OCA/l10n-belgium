@@ -28,5 +28,6 @@
     'website': 'http://www.akretion.com',
     'summary': 'Import Bpost (Belgian Post) CSV bank statement files',
     'depends': ['account_bank_statement_import'],
+    'external_dependencies': {'python': ['unicodecsv']},
     'installable': True,
 }
