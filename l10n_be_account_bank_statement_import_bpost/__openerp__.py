@@ -24,7 +24,7 @@
     'name': 'Import Bpost Bank Statements',
     'version': '0.1',
     'license': 'AGPL-3',
-    'author': 'Akretion',
+    'author': 'Akretion,Odoo Community Association (OCA)',
     'website': 'http://www.akretion.com',
     'summary': 'Import Bpost (Belgian Post) CSV bank statement files',
     'depends': ['account_bank_statement_import'],
