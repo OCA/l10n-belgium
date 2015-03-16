@@ -160,9 +160,7 @@ class test_coda_import(common.TransactionCase):
             if st_line_obj['ref'] == '00170005':
                 # common infos
                 self.assertEqual(st_line_obj['name'],
-                                 'OVERBOEKING NAAR CENTRALE '
-                                 'REKENING\nOVERBOEKING NAAR '
-                                 'CENTRALE REKENING')
+                                 'OVERBOEKING NAAR CENTRALE REKENING')
                 self.assertEqual(st_line_obj['amount'], -15.0)
                 # additional info provided by CODA
                 # check that the bank information are correctly filled
