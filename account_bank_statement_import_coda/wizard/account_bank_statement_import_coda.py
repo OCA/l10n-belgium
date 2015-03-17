@@ -54,7 +54,7 @@ class account_bank_statement_import(models.TransientModel):
         try:
             # Matches the first 24 characters of a CODA file, as defined by
             # the febelfin specifications
-            return re.match('0{5}\d{9}05[ D] {7}', data_file) is not None
+            return re.match(r'0{5}\d{9}05[ D] {7}', data_file) is not None
         except:
             return False
 
