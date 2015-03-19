@@ -40,6 +40,19 @@ class TestCodaFile(TransactionCase):
                 13646.05,
                 precision_digits=2),
             0)
+        # check line name
+        self.assertEqual(
+            'MEDEDELING', bank_st_record.line_ids[0].name,
+            'Name should be the communication if no structured communication '
+            'found')
+        self.assertEqual(
+            '+++240/2838/42818+++', bank_st_record.line_ids[1].name,
+            'Name should be the structured communication id provided')
+        for line in bank_st_record.line_ids[2:5]:
+            self.assertEqual(
+                'KBC-INVESTERINGSKREDIET 737-6543210-21', line.name,
+                'Name should be the communication of the related '
+                'globalisation line for details line')
 
     def test_coda_file_import_twice(self):
         self.bank_statement_import.import_file()

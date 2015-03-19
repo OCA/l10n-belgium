@@ -14,7 +14,6 @@ as parser.
 Expected benefits:
 
 * The pycoda parser is a better-tested external python lib.
-* The module only depends of account_bank_statement_import (l10_be_coda on master branch depends of account_voucher, base_iban, l10n_be_invoice_bba, account_bank_statement_import)
 * Better separation between file parsing and mapping of these data in Odoo.
 
 Installation

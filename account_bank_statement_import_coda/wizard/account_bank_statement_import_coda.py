@@ -116,12 +116,17 @@ class account_bank_statement_import(models.TransientModel):
             vals.update({
                 'name': "%s%s" % (year, statement.paper_seq_number),
             })
+
+        globalisation_dict = dict([
+            (st.ref_move, st) for st in statement.movements
+            if st.type == MovementRecordType.GLOBALISATION])
         for sequence, line in enumerate(
-                filter(lambda l: l != MovementRecordType.GLOBALISATION,
+                filter(lambda l: l.type != MovementRecordType.GLOBALISATION,
                        statement.movements)
                 ):
             if line.type != MovementRecordType.GLOBALISATION:
-                info = self.get_st_line_vals(line)
+                info = self.get_st_line_vals(line,
+                                             globalisation_dict)
                 info['sequence'] = sequence
                 transactions.append(info)
         coda_notes = []
@@ -137,8 +142,7 @@ class account_bank_statement_import(models.TransientModel):
         """ This method returns formatted informations from 'free
         commiunication' line
         """
-        return (line.transaction_type .title() +
-                ' with Ref. ' + line.ref +
+        return ('Communication with Ref. ' + line.ref +
                 '\n' +
                 'Communication: ' + line.communication +
                 '\n')
@@ -147,7 +151,10 @@ class account_bank_statement_import(models.TransientModel):
         """ This method returns formatted informations from an information
         line
         """
-        return self.get_st_free_communication_msg(line)
+        return ('Information with Ref. ' + line.ref +
+                '\n' +
+                'Communication: ' + line.communication +
+                '\n')
 
     def get_st_line_note_msg(self, line):
         """This method returns a formatted note from line information
@@ -167,7 +174,19 @@ class account_bank_statement_import(models.TransientModel):
                         line.communication)
         return note and '\n'.join(note) or None
 
-    def get_st_line_vals(self, line):
+    def get_st_line_name(self, line, globalisation_dict):
+        """
+        This method must return a valid name for the statement line
+        The name is the statement communication if exists or
+        the communication of the related globalisation line if exists or
+        '/'
+        """
+        name = line.communication
+        if not name and line.ref_move in globalisation_dict:
+            name = globalisation_dict[line.ref_move].communication
+        return name or '/'
+
+    def get_st_line_vals(self, line, globalisation_dict):
         """
         This method must return a dict of vals that can be passed to create
         method of statement line in order to record it. It is the
@@ -188,9 +207,7 @@ class account_bank_statement_import(models.TransientModel):
         amount = line.transaction_amount
         if line.transaction_amount_sign == AmountSign.DEBIT:
             amount = - amount
-        return {'name': "\n".join(filter(None, [line.counterparty_name,
-                                                line.communication,
-                                                line.payment_reference])),
+        return {'name': self.get_st_line_name(line, globalisation_dict),
                 'date': line.entry_date or datetime.datetime.now().date(),
                 'amount': amount,
                 'ref': line.ref,
