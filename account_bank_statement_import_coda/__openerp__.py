@@ -30,13 +30,11 @@
     'version': '1.0',
     'license': 'AGPL-3',
     'depends': [
-        'account_bank_statement_import'
+        'account_bank_statement_import',
+        'l10n_be_coda'
     ],
     'data': [
         'views/account_bank_statement_view.xml',
-    ],
-    'demo': [
-        'demo/demo_data.xml',
     ],
     'auto_install': False,
     'installable': True,
