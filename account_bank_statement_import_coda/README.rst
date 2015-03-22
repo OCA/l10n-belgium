@@ -15,6 +15,7 @@ Expected benefits:
 
 * The pycoda parser is a better-tested external python lib.
 * Better separation between file parsing and mapping of these data in Odoo.
+* The module only depends of account_bank_statement_import.
 
 Installation
 ============
