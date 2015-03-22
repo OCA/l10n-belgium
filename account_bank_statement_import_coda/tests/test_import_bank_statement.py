@@ -27,7 +27,7 @@ class TestCodaFile(TransactionCase):
     def test_coda_file_import(self):
         self.bank_statement_import.import_file()
         bank_st_record = self.bank_statement_model.search([
-            ('name', '=', '2012/135')])[0]
+            ('name', '=', 'TBNK/2012/135')])[0]
         self.assertEqual(
             float_compare(
                 bank_st_record.balance_start,
