@@ -139,7 +139,7 @@ class account_bank_statement_import(models.TransientModel):
             transactions.append(info)
         return vals
 
-    def get_st_line_note_msg(self, line, information_dict):
+    def get_st_line_note(self, line, information_dict):
         """This method returns a formatted note from line information
         """
         note = []
@@ -202,7 +202,7 @@ class account_bank_statement_import(models.TransientModel):
                 'ref': line.ref,
                 'partner_name': line.counterparty_name or None,
                 'account_number': line.counterparty_number or None,
-                'note': self.get_st_line_note_msg(line, information_dict),
+                'note': self.get_st_line_note(line, information_dict),
                 'unique_import_id': line.ref + line.transaction_ref,
                 }
 
