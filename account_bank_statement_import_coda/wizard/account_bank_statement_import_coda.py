@@ -205,3 +205,13 @@ class account_bank_statement_import(models.TransientModel):
                 'note': self.get_st_line_note_msg(line, information_dict),
                 'unique_import_id': line.ref + line.transaction_ref,
                 }
+
+    @api.model
+    def _complete_stmts_vals(self, stmts_vals, journal_id, account_number):
+        stmts_vals = super(
+            account_bank_statement_import, self)._complete_stmts_vals(
+                stmts_vals, journal_id, account_number)
+        journal = self.env['account.journal'].browse(journal_id)
+        for st_vals in stmts_vals:
+            st_vals['name'] = '%s/%s' % (journal.code, st_vals['name'])
+        return stmts_vals
