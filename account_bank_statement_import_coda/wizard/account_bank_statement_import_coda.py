@@ -102,16 +102,17 @@ class account_bank_statement_import(models.TransientModel):
         if statement.new_balance_amount_sign == AmountSign.DEBIT:
             balance_end_real = - balance_end_real
         transactions = []
+        statement_date = statement.new_balance_date
         vals = {'balance_start': balance_start,
                 'balance_end_real': balance_end_real,
-                'date': statement.creation_date,
+                'date': statement_date,
                 'transactions': transactions
                 }
         name = statement.paper_seq_number
         if name:
             year = ""
-            if statement.creation_date:
-                parsed_date = date_parser.parse(statement.creation_date)
+            if statement_date:
+                parsed_date = date_parser.parse(statement_date)
                 year = "%s/" % parsed_date.year
             vals.update({
                 'name': "%s%s" % (year, statement.paper_seq_number),
@@ -122,20 +123,20 @@ class account_bank_statement_import(models.TransientModel):
             if st.type == MovementRecordType.GLOBALISATION])
         information_dict = {}
         # build a dict of information by transaction_ref. The transaction_ref
-        # refers to the ref of a movement record
+        # refers to the transaction_ref of a movement record
         for info_line in statement.informations:
             infos = information_dict.setdefault(info_line.transaction_ref, [])
             infos.append(info_line)
+
         for sequence, line in enumerate(
                 filter(lambda l: l.type != MovementRecordType.GLOBALISATION,
                        statement.movements)
                 ):
-            if line.type != MovementRecordType.GLOBALISATION:
-                info = self.get_st_line_vals(line,
-                                             globalisation_dict,
-                                             information_dict)
-                info['sequence'] = sequence
-                transactions.append(info)
+            info = self.get_st_line_vals(line,
+                                         globalisation_dict,
+                                         information_dict)
+            info['sequence'] = sequence
+            transactions.append(info)
         return vals
 
     def get_st_line_note_msg(self, line, information_dict):
