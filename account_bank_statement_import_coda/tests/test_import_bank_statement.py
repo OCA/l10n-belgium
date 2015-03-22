@@ -16,7 +16,7 @@ class TestCodaFile(TransactionCase):
         coda_file_path = get_module_resource(
             'account_bank_statement_import_coda',
             'test_coda_file',
-            'Ontvangen_CODA.2013-01-11-18.59.15.txt')
+            'Ontvangen_CODA.2012-01-11-18.59.15.txt')
         self.coda_file = open(coda_file_path, 'rb').read().encode('base64')
         self.context = {
             'journal_id': self.ref('account.bank_journal')
@@ -27,7 +27,7 @@ class TestCodaFile(TransactionCase):
     def test_coda_file_import(self):
         self.bank_statement_import.import_file()
         bank_st_record = self.bank_statement_model.search([
-            ('name', '=', '2011/135')])[0]
+            ('name', '=', '2012/135')])[0]
         self.assertEqual(
             float_compare(
                 bank_st_record.balance_start,

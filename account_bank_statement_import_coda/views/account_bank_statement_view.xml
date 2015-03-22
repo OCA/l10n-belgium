@@ -3,8 +3,7 @@
 
     <data>
         <!-- Delete the menu Import Coda File  -->
-        <menuitem name="to_delete_coda_import" id="l10n_be_coda.menu_account_coda_import"/>
-        <delete model='ir.ui.menu' search="[('name', '=', 'to_delete_coda_import')]"/>
+        <delete model='ir.ui.menu' search="[('name', '=', 'Import CODA File')]"/>
     </data>
 
  </openerp>
