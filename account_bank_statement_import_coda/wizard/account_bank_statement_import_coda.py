@@ -134,8 +134,6 @@ class account_bank_statement_import(models.TransientModel):
             coda_notes.append(self.get_st_information_msg(line))
         for line in statement.free_comunications:
             coda_notes.append(self.get_st_free_communication_msg(line))
-        if coda_notes:
-            vals.update({'coda_note': '\n'.join(coda_notes)})
         return vals
 
     def get_st_free_communication_msg(self, line):
