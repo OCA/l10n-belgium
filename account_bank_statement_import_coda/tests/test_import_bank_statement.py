@@ -54,6 +54,18 @@ class TestCodaFile(TransactionCase):
                 'Name should be the communication of the related '
                 'globalisation line for details line')
 
+        # check the note
+        self.assertEqual(
+            'Counter Party: PARTNER 2\n'
+            'Counter Party Account: BE61310126985517\n'
+            'Communication: +++240/2838/42818+++ '
+            '001PARTNER 2MOLENSTRAAT 60 9340 LEDE',
+            bank_st_record.line_ids[1].note,
+            'The note should contain informations on the counter part '
+            'but also the communication for the information records that '
+            'refer the movement record'
+            )
+
     def test_coda_file_import_twice(self):
         self.bank_statement_import.import_file()
         with self.assertRaises(Exception):
