@@ -38,6 +38,9 @@
     'demo': [
         'demo/demo_data.xml',
     ],
+    'external_dependencies': {
+        'python': ['coda'],
+    },
     'auto_install': False,
     'installable': True,
 }
