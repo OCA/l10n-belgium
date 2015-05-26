@@ -23,7 +23,7 @@ msgstr "Comptes de régularisation [492/3]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr161
 msgid "Accumulated Profits (Losses) [14]"
-msgstr "Accumulated Profits (Losses) [14]"
+msgstr "Bénéfice (Perte) reporté(e) [14]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr245
@@ -188,7 +188,7 @@ msgstr "Charges des dettes [650]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr212
 msgid "Decrease (Increase) in Stocks [609]"
-msgstr "Decrease (Increase) in Stocks [609]"
+msgstr "Stocks: réduction (augmentation) [609]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr146
@@ -268,17 +268,17 @@ msgstr "Produits finis [33]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr200
 msgid "Fiscal Year Profit (Loss) [9904]"
-msgstr "Fiscal Year Profit (Loss) [9904]"
+msgstr "Bénéfice (Perte) de l'exercice [9904]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr201
 msgid "Fiscal Year Profit (Loss) before Taxation [9903]"
-msgstr "Fiscal Year Profit (Loss) before Taxation [9903]"
+msgstr "Bénéfice (Perte) de l'exercice avant impôts [9903]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr199
 msgid "Fiscal Year Profit (Loss) to be allocated [9905]"
-msgstr "Fiscal Year Profit (Loss) to be allocated [9905]"
+msgstr "Bénéfice (Perte) de l'exercice à affecter [9905]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr207
@@ -403,7 +403,7 @@ msgstr "Ventes et prestations [70/74]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr203
 msgid "Operating Profit (Loss) [9901]"
-msgstr "Operating Profit (Loss) [9901]"
+msgstr "Bénéfice (Perte) d'exploitation [9901]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr183
@@ -528,7 +528,7 @@ msgstr "Dettes à plus d'un an échéant dans l'année [42]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr202
 msgid "Profit (Loss) from Normal Operations before Taxation [9902]"
-msgstr "Profit (Loss) from Normal Operations before Taxation [9902]"
+msgstr "Bénéfice (Perte) courant(e) avant impôts [9902]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr237
