@@ -72,8 +72,7 @@ class report_financial_parser(report_account_common):
                 report = self.pool['account.financial.report'].browse(
                     self.cr, self.uid, line['report_id'],
                     context=data['form']['used_context'])
-                name = report.name
-                code = report.code or ''
+                code = report.code
                 if code:
                     line['name'] += ' - (' + code + ')'
         return lines
