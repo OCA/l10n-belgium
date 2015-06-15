@@ -50,7 +50,7 @@ class res_partner(models.Model):
     cweb_warnings = fields.Text('Warnings', readonly=True)
     cweb_url = fields.Char('Detailed Report', readonly=True)
     cweb_vat_liable = fields.Boolean("Subject to VAT", readonly=True)
-    cweb_balance_year = fields.Char("Balance year", readonly=True)
+    cweb_balance_year = fields.Char("Balance Year", readonly=True)
     cweb_equityCapital = fields.Float('Equity Capital', readonly=True)
     cweb_addedValue = fields.Float('Gross Margin (+/-)', readonly=True)
     cweb_turnover = fields.Float('Turnover', readonly=True)
