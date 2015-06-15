@@ -53,7 +53,7 @@ class CwebUpdate(models.TransientModel):
              ('vat', '!=', False)])
         for partner in partners:
             try:
-                partner._cweb_refresh(force_update = not partner.cweb_lastupdate)
+                partner._cweb_refresh(force_update=not partner.cweb_lastupdate)
             except Warning:
                 pass
         return {}

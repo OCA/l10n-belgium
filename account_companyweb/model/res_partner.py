@@ -84,7 +84,6 @@ class res_partner(models.Model):
                 values[key] = v
         return values
 
-
     @api.one
     def button_cweb_fetch(self, force_update=True):
         self._cweb_refresh(force_update=True)
@@ -139,7 +138,6 @@ class res_partner(models.Model):
                 title_id = title_ids[0]
             res['title'] = title_id.id
         return res
-
 
     @api.one
     def button_cweb_apply(self):

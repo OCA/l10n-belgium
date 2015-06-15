@@ -38,7 +38,7 @@ def companyweb_getcompanydata(**params):
     """ Send a GET request to companyweb/outcome to retrieve company data """
 
     url = "http://odm.outcome.be/alacarte_onvat.asp?"
-    url += "&".join(["%s=%s" % (k,v) for k,v in params.iteritems()])
+    url += "&".join(["%s=%s" % (k, v) for k, v in params.iteritems()])
 
     try:
         p = etree.XMLParser(no_network=False)

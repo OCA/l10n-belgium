@@ -4,6 +4,7 @@
 #
 #    Authors: Adrien Peiffer
 #    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
+#    Copyright (c) 2015 BCIM sprl (http://www.bcim.be)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -23,7 +24,7 @@
 {
     "name": "Companyweb",
     "version": "8.0.1.0.0",
-    "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
+    "author": "ACSONE SA/NV,BCIM sprl,Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://www.acsone.eu",
     "depends": [
