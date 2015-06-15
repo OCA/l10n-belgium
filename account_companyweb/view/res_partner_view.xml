@@ -4,12 +4,56 @@
         <record id="partner_form_companyweb" model="ir.ui.view">
             <field name="name">res.partner.form.companyweb.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
             <field name="arch" type="xml">
                 <field name="name" position="after">
-                    <button colspan="2" name="button_companyweb" string="Companyweb..." type="object" class="oe_inline"
-                     attrs="{'invisible': ['|','|',('vat','&lt;','BE'),('vat','>=','BF'),('vat','=',False)]}"/>
+                    <button name="button_cweb_fetch" type="object" class="oe_link" icon="/account_companyweb/static/src/img/cweb-logo.png" string="fetch data from companyweb" style="position:relative;height:15px;top:-8px;font-style:italic" help="You can enter vat number (prefixed by BE) instead of name. This will override data from collected data from companyweb"/>
                 </field>
+                <xpath expr="//page[@name='accounting']" position="after">
+                    <page string="CompanyWeb" attrs="{'invisible': ['|','|',('vat','&lt;','BE'),('vat','>=','BF'),('vat','=',False)]}">
+                        <group col="5">
+                            <group colspan="3">
+                                <field name="cweb_name"/>
+                                <field name="cweb_jur_form"/>
+                                <label for="cweb_street">Address</label>
+                                <div>
+                                    <field name="cweb_street" />
+                                    <field name="cweb_zip" class="oe_inline"/> 
+                                    <field name="cweb_city" class="oe_inline"/>
+                                </div>
+                                <field name="cweb_vat_liable"/>
+                                <field name="cweb_startDate" />
+                                <field name="cweb_endDate"  attrs="{'invisible': [('cweb_endDate', '=', False)]}"/>
+                                <field name="cweb_creditLimit" attrs="{'invisible': [('cweb_creditLimit', '=', 0)]}"/>
+                            </group>
+                            <group colspan="2">
+                                <div style="text-align:center">
+                                    <button name="button_cweb_apply" type="object" class="oe_link" string="⬆ Override ⬆" help="Override company data with those companyweb data" style="font-size:120%%"/>
+                                    <div><field name="cweb_image" widget="image" nolabel="1" readonly="1"/></div>
+                                    <label for="cweb_lastupdate"/>
+                                    <field name="cweb_lastupdate"/>
+                                    <button colspan="2" name="button_cweb_refresh" string="⇒ Refresh data" type="object" class="oe_link" />
+                                </div>
+                            </group>
+                        </group>
+                        <group string="Financial results">
+                            <group>
+                                <field name="cweb_balance_year" />
+                                <field name="cweb_equityCapital" attrs="{'invisible': [('cweb_equityCapital', '=', 0)]}"/>
+                                <field name="cweb_addedValue" attrs="{'invisible': [('cweb_addedValue', '=', 0)]}"/>
+                                <field name="cweb_turnover" attrs="{'invisible': [('cweb_turnover', '=', 0)]}"/>
+                                <field name="cweb_result" attrs="{'invisible': [('cweb_result', '=', 0)]}"/>
+                            </group>
+                            <group>
+                                <field name="cweb_warnings" nolabel="1" style="color:red"/>
+                            </group>
+                        </group>
+
+                        <group string="Premium report">
+                            <field name="cweb_url" widget="url" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
             </field>
         </record>
 

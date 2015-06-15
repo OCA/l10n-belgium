@@ -156,7 +156,7 @@ class account_companyweb_report_wizard(orm.TransientModel):
 
         out = base64.encodestring(file_data.getvalue())
 
-        filename = this.chart_account_id.company_id.vat + \
+        filename = (this.chart_account_id.company_id.vat or '') + \
             '_' + this.year + this.month + '.xls'
         self.write(cr, uid, ids,
                    {'data': out,
@@ -311,7 +311,7 @@ class account_companyweb_report_wizard(orm.TransientModel):
         out = base64.encodestring(file_data.getvalue())
 
         filename = 'OpenSalesDocs_' + \
-                   this.chart_account_id.company_id.vat + \
+                   (this.chart_account_id.company_id.vat or '') + \
                    '_' + \
                    this.year \
                    + \

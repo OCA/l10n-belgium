@@ -29,6 +29,7 @@
     "depends": [
         'account_financial_report_webkit',
         'base_vat',
+        'account',
         # TODO: account voucher is required
         #       for the test suite only
         #       (need to refactor the test suite)
@@ -70,10 +71,9 @@ Contributors
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
 """,
     "data": [
-        "wizard/account_companyweb_report_wizard_view.xml",
-        "wizard/account_companyweb_wizard_view.xml",
         "view/res_config_view.xml",
         "view/res_partner_view.xml",
+        "wizard/partner_update_companyweb.xml",
     ],
     "demo": [],
     "license": "AGPL-3",

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="update_cweb_form">
+            <field name="name">res.partner.cwebupdate.form</field>
+            <field name="model">res.partner.cwebupdate</field>
+            <field name="arch" type="xml">
+                <form string="Fetch/Refresh data from Companyweb">
+                    <p>Your companyweb credit will be consumed to update <field name="count" class="oe_inline"/> client(s). Please confirm operation!</p>
+                    <footer>
+                        <button name="action_update" type="object" string="Update" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="partner_cwebupdate_act">
+            <field name="name">Companyweb Refresh</field>
+            <field name="res_model">res.partner.cwebupdate</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="update_cweb_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window id="action_cwebupdate"
+            multi="True"
+            key2="client_action_multi" name="Companyweb Refresh"
+            res_model="res.partner.cwebupdate" src_model="res.partner"
+            view_mode="form" target="new" view_type="form"
+            groups="base.group_sale_manager"
+            />
+
+    </data>
+</openerp>

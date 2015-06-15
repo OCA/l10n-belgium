@@ -20,5 +20,5 @@
 #
 ##############################################################################
 
-from . import account_companyweb_wizard
 from . import account_companyweb_report_wizard
+from . import partner_update_companyweb
