@@ -26,8 +26,6 @@ virtualenv:
 
 install:
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
-  - git clone --depth=1 https://github.com/OCA/account-financial-reporting ${HOME}/account-financial-reporting -b ${VERSION}
-  - git clone --depth=1 https://github.com/OCA/bank-payment ${HOME}/bank-payment -b ${VERSION}
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - pip install xlrd pycoda unidecode
   - travis_install_nightly
