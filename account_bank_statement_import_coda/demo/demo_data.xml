@@ -3,7 +3,7 @@
     <data>
     	<record id="demo_bank_account" model="res.partner.bank">
             <field name="state">bank</field>
-            <field name="acc_number">BE33737018595246</field>
+            <field name="acc_number">BE33737018594236</field>
             <field name="bank_bic">KREDBEBB</field>
             <field name="journal_id" ref="account.bank_journal"/>
             <field name="partner_id" ref="base.main_partner"/>
