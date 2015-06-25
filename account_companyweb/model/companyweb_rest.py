@@ -84,7 +84,7 @@ def companyweb_getcompanydata(**params):
         im = urllib.urlopen(
             'http://www.companyweb.be/img/barometer/' + fichier)
         source = im.read()
-        score = False
+        score = 'STOP'
     elif len(firm[0].xpath("Score")) > 0:
         score = firm[0].xpath("Score")[0].text
         if score[0] == '-':
@@ -104,6 +104,10 @@ def companyweb_getcompanydata(**params):
         im = urllib.urlopen(
             'http://www.companyweb.be/img/barometer/' + fichier)
         source = im.read()
+        try:
+            score = '%.1f' % (float(score) / 10)
+        except:
+            score = False
     else:
         fichier = "barometer_none.png"
         img_path = openerp.modules.get_module_resource(
