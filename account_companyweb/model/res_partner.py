@@ -35,28 +35,30 @@ logger = logging.getLogger(__name__)
 class res_partner(models.Model):
     _inherit = 'res.partner'
 
-    cweb_lastupdate = fields.Datetime('Last update', readonly=True)
+    # prefix fields by "CompanyWeb" to allow easy identification in export
 
-    cweb_name = fields.Char('Name', readonly=True)
-    cweb_jur_form = fields.Char('Juridical Form', readonly=True)
-    cweb_street = fields.Char('Address', readonly=True)
-    cweb_zip = fields.Char('Postal code', readonly=True)
-    cweb_city = fields.Char('City', readonly=True)
-    cweb_creditLimit = fields.Float('Credit limit', readonly=True)
-    cweb_startDate = fields.Date('Start date', readonly=True)
-    cweb_endDate = fields.Date('End date', readonly=True)
-    cweb_score = fields.Char('Score', readonly=True)
-    cweb_image = fields.Binary('Health barometer', readonly=True)
-    cweb_warnings = fields.Text('Warnings', readonly=True)
-    cweb_url = fields.Char('Detailed Report', readonly=True)
-    cweb_vat_liable = fields.Boolean("Subject to VAT", readonly=True)
-    cweb_balance_year = fields.Char("Balance Year", readonly=True)
-    cweb_equityCapital = fields.Float('Equity Capital', readonly=True)
-    cweb_addedValue = fields.Float('Gross Margin (+/-)', readonly=True)
-    cweb_turnover = fields.Float('Turnover', readonly=True)
-    cweb_result = fields.Float('Fiscal Year Profit/Loss (+/-)', readonly=True)
-    cweb_employees = fields.Float('Number of Employees', readonly=True)
-    cweb_prefLang = fields.Char('Preferred Language', readonly=True)
+    cweb_lastupdate = fields.Datetime('CompanyWeb Last update', readonly=True)
+
+    cweb_name = fields.Char('CompanyWeb Name', readonly=True)
+    cweb_jur_form = fields.Char('CompanyWeb Juridical Form', readonly=True)
+    cweb_street = fields.Char('CompanyWeb Street', readonly=True)
+    cweb_zip = fields.Char('CompanyWeb Postal code', readonly=True)
+    cweb_city = fields.Char('CompanyWeb City', readonly=True)
+    cweb_creditLimit = fields.Float('CompanyWeb Credit limit', readonly=True)
+    cweb_startDate = fields.Date('CompanyWeb Start date', readonly=True)
+    cweb_endDate = fields.Date('CompanyWeb End date', readonly=True)
+    cweb_score = fields.Char('CompanyWeb Score', readonly=True)
+    cweb_image = fields.Binary('CompanyWeb Health barometer', readonly=True)
+    cweb_warnings = fields.Text('CompanyWeb Warnings', readonly=True)
+    cweb_url = fields.Char('CompanyWeb Detailed Report', readonly=True)
+    cweb_vat_liable = fields.Boolean("CompanyWeb Subject to VAT", readonly=True)
+    cweb_balance_year = fields.Char("CompanyWeb Balance Year", readonly=True)
+    cweb_equityCapital = fields.Float('CompanyWeb Equity Capital', readonly=True)
+    cweb_addedValue = fields.Float('CompanyWeb Gross Margin (+/-)', readonly=True)
+    cweb_turnover = fields.Float('CompanyWeb Turnover', readonly=True)
+    cweb_result = fields.Float('CompanyWeb Fiscal Year Profit/Loss (+/-)', readonly=True)
+    cweb_employees = fields.Float('CompanyWeb Number of Employees', readonly=True)
+    cweb_prefLang = fields.Char('CompanyWeb Preferred Language', readonly=True)
 
     def _companyweb_information(self, vat_number):
         login = self.pool['ir.config_parameter'].get_param(
@@ -126,6 +128,7 @@ class res_partner(models.Model):
             'zip': record['cweb_zip'],
             'credit_limit': record['cweb_creditLimit'],
             }
+
         if record['cweb_jur_form']:
             title_ids = self.env['res.partner.title'].search(
                 [('domain', '=', 'partner'), ('name', '=', record['cweb_jur_form'])])
@@ -137,6 +140,13 @@ class res_partner(models.Model):
             else:
                 title_id = title_ids[0]
             res['title'] = title_id.id
+
+        if record['cweb_prefLang']:
+            lang_ids = self.env['res.lang'].search(
+                [('code', '=ilike', '%s%%' % record['cweb_prefLang'])])
+            if lang_ids:
+                res['lang'] = lang_ids[0].code
+
         return res
 
     @api.one

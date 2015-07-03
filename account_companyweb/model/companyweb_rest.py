@@ -129,7 +129,7 @@ def companyweb_getcompanydata(**params):
                 dicoRoot[Element2.tag] = Element2.text
 
     def getValue(attr):
-        return dicoRoot.get(attr, 'N/A')
+        return dicoRoot.get(attr, False)
 
     def getFloatValue(attr):
         r = dicoRoot.get(attr)
@@ -159,5 +159,5 @@ def companyweb_getcompanydata(**params):
         'turnover': getFloatValue('Rub70'),
         'result': getFloatValue('Rub9904'),
         'employees': getFloatValue('Rub9086'),
-        'prefLang': getValue('prefLang'),
+        'prefLang': getValue('PrefLang'),
     }
