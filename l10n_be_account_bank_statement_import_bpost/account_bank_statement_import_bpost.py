@@ -66,7 +66,9 @@ class AccountBankStatementImport(models.TransientModel):
             if line[9]:
                 name += ' ' + line[9]
             date = datetime.strptime(line[1], '%d-%m-%Y')
-            amount = float(line[3].replace(',', '.'))
+            # In Bpost CSV file : decimal separator = ,
+            # thousand separator = .
+            amount = float(line[3].replace('.', '').replace(',', '.'))
             diff += amount
             currency_code = line[4]
             if not start_date and not end_date:
