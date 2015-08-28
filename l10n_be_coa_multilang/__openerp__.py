@@ -48,8 +48,7 @@
         'security/ir.model.access.csv',
         'views/account_view.xml',
         'views/res_config_view.xml',
-        'account_menuitem.xml',
-        'wizard/wizard_multi_charts_accounts.xml',
+        'wizards/wizard_multi_charts_accounts.xml',
     ],
     'installable': True,
 }
