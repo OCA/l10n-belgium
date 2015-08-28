@@ -26,7 +26,7 @@
     'license': 'AGPL-3',
     'author': "Noviat, Odoo Community Association (OCA)",
     'website': 'http://www.noviat.com',
-    'category': 'Localization/Account Charts',
+    'category': 'Localization',
     'depends': [
         'account',
     ],

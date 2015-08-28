@@ -21,12 +21,12 @@
 ##############################################################################
 
 {
-    'name': 'Belgium - VAT Reports',
+    'name': 'Belgium - VAT Declaration',
     'version': '1.6',
     'license': 'AGPL-3',
     'author': "Noviat, Odoo Community Association (OCA)",
     'website': 'http://www.noviat.com',
-    'category': 'Localization/Account Charts',
+    'category': 'Localization',
     'depends': [
         'account',
         'base_vat',

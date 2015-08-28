@@ -26,7 +26,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class wizard_multi_charts_accounts(models.TransientModel):
+class WizardMultiChartsAccounts(models.TransientModel):
     """
     Change wizard that creates a new account chart for a company.
         * update company_id country to Belgium
@@ -75,7 +75,7 @@ class wizard_multi_charts_accounts(models.TransientModel):
     def default_get(self, cr, uid, fields, context=None):
         if not context:
             context = {}
-        res = super(wizard_multi_charts_accounts, self).default_get(
+        res = super(WizardMultiChartsAccounts, self).default_get(
             cr, uid, fields, context)
         if res.get('chart_template_id'):
             chart_template = self.pool['account.chart.template'].browse(
