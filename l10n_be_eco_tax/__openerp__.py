@@ -2,7 +2,7 @@
 #
 ##############################################################################
 #
-#     Authors: Adrien Peiffer
+#    Authors: Adrien Peiffer
 #    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,15 +21,14 @@
 ##############################################################################
 
 {
-    "name": "Belgium Eco Tax",
+    "name": "Belgium Eco Taxes",
+    "summary": "Data module to support BEBAT and RECUPEL taxes",
     "version": "1.0",
-    "author": "ACSONE SA/NV",
+    "author": "ACSONE SA/NV,"
+              "Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://www.acsone.eu",
     "depends": ['account', 'l10n_be'],
-    "description": """
-Belgium Eco Tax
-""",
     "data": [
         'data/account_tax_code_template.xml',
         'data/account_account_template_data.xml',
