@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <menuitem id="menu_finance_belgian_statement"
+        name="Belgium VAT Declaration"
+        parent="account.menu_finance_legal_statement"
+        groups="account.group_account_manager"/>
+  </data>
+</openerp>
