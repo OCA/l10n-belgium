@@ -142,7 +142,7 @@ def companyweb_getcompanydata(**params):
         'name': getValue('Name'),
         'jur_form': getValue('JurForm'),
         'vat_number': "BE0" + getValue('Vat'),
-        'street': getValue('Street') + ", " + getValue('Nr'),
+        'street': ', '.join(filter(None, [getValue('Street'), getValue('Nr')])),
         'zip': getValue('PostalCode'),
         'city': getValue('City'),
         'creditLimit': getFloatValue('CreditLimit'),
