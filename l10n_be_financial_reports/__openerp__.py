@@ -33,6 +33,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/account_financial_report.xml',
+        'data/be_legal_financial_reportscheme.xml',
         'views/menu.xml',
         'views/account_financial_report.xml',
         'views/l10n_be_layouts.xml',

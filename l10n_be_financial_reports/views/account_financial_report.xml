@@ -54,7 +54,7 @@
       <field name="target">new</field>
       <field name="context" eval="{'default_account_report_id':ref('account_financial_report_BE_2_FULL')}"/>
     </record>
-    <menuitem icon="STOCK_PRINT" name="Belgian Balance Sheet" action="action_account_report_be_bs" id="menu_account_report_be_bs" parent="menu_finance_belgian_statement" sequence="1"/>
+    <menuitem icon="STOCK_PRINT" name="Balance Sheet" action="action_account_report_be_bs" id="menu_account_report_be_bs" parent="menu_finance_belgian_statement" sequence="1"/>
 
     <record id="action_account_report_be_pl" model="ir.actions.act_window">
       <field name="name">Belgian Profit And Loss</field>
@@ -67,7 +67,7 @@
       <field name="context">{}</field>
       <field name="context" eval="{'default_account_report_id':ref('account_financial_report_BE_3_FULL')}"/>
     </record>
-    <menuitem icon="STOCK_PRINT" name="Belgian Profit And Loss" action="action_account_report_be_pl" id="menu_account_report_be_pl" parent="menu_finance_belgian_statement" sequence="2"/>   
+    <menuitem icon="STOCK_PRINT" name="Profit And Loss" action="action_account_report_be_pl" id="menu_account_report_be_pl" parent="menu_finance_belgian_statement" sequence="2"/>   
 
     <record id="view_be_legal_financial_reportscheme_tree" model="ir.ui.view">
       <field name="name">be.legal.financial.reportscheme.tree</field>

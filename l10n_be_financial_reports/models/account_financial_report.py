@@ -59,7 +59,7 @@ class AccountFinancialReport(models.Model):
                 order='sequence ASC', context=context)
         else:
             res = super(
-                account_financial_report, self)._get_children_by_order(
+                AccountFinancialReport, self)._get_children_by_order(
                     cr, uid, ids, context)
         return res
 
@@ -100,11 +100,11 @@ class AccountAccount(models.Model):
                 if company.country_id.code in self._be_scheme_countries:
                     be_scheme_company_ids.append(company_id)
             args += [('company_id', 'in', be_scheme_company_ids)]
-        return super(account_account, self).search(
+        return super(AccountAccount, self).search(
             cr, uid, args, offset, limit, order, context, count)
 
     def create(self, cr, uid, vals, context=None):
-        acc_id = super(account_account, self).create(
+        acc_id = super(AccountAccount, self).create(
             cr, uid, vals, context=context)
         scheme_obj = self.pool.get('be.legal.financial.reportscheme')
         scheme_table = scheme_obj.read(
@@ -186,7 +186,7 @@ class AccountAccount(models.Model):
                             ) and not updated:
                         vals.update(
                             {'financial_report_ids': [(4, be_report_id)]})
-        return super(account_account, self).write(
+        return super(AccountAccount, self).write(
             cr, uid, ids, vals, context=context)
 
 
@@ -278,7 +278,7 @@ class L10n_beUpdate_be_reportscheme(models.TransientModel):
         if note:
             self.write(cr, uid, ids[0], {'note': note})
             view = self.env.ref(
-                'l10n_be_coa_multilang.update_be_reportscheme_result_view')
+                'l10n_be_financial_report.update_be_reportscheme_result_view')
             return {
                 'name': _('Results'),
                 'res_id': ids[0],

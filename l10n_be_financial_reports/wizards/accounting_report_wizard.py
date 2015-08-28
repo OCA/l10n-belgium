@@ -34,13 +34,13 @@ class AccountingReport(orm.TransientModel):
     _inherit = 'accounting.report'
 
     def _build_contexts(self, cr, uid, ids, data, context=None):
-        result = super(accounting_report, self)._build_contexts(
+        result = super(AccountingReport, self)._build_contexts(
             cr, uid, ids, data, context=context)
         account_report_id = self.read(
             cr, uid, ids, ['account_report_id'], context=context
             )[0]['account_report_id'][0]
         mod_obj = self.pool.get('ir.model.data')
-        module = 'l10n_be_coa_multilang'
+        module = 'l10n_be_financial_reports'
         xml_ids = [
             'account_financial_report_BE_2_FULL',
             'account_financial_report_BE_3_FULL']
