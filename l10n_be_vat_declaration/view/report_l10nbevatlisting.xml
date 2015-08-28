@@ -5,7 +5,7 @@
     <template id="report_l10nbevatlisting">
       <t t-call="report.html_container">
         <t t-set="data_report_margin_top" t-value="20"/>
-        <t t-call="l10n_be_coa_multilang.l10n_be_layout">
+        <t t-call="l10n_be_vat_declaration.l10n_be_layout">
 
           <div class="page">
             <h3>Annual Listing of VAT-Subjected Customers</h3>

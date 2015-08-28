@@ -34,6 +34,11 @@
         'account_chart',
     ],
     'data': [
+        'data/account_tax_code_template_nov.xml',
+        'data/account_tax_template_nov.xml',
+        'data/account_fiscal_position_template_nov.xml',
+        'data/account_fiscal_position_tax_template_nov.xml',
+
         'security/account_security.xml',
         'security/ir.model.access.csv',
         'account_view.xml',
