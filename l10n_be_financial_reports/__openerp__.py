@@ -27,7 +27,6 @@
     'author': "Noviat, Odoo Community Association (OCA)",
     'website': 'http://www.noviat.com',
     'category': 'Localization/Account Charts',
-    'summary': 'Belgium - Financial Reports',
     'depends': [
         'account',
     ],

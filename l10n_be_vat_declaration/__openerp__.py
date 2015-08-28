@@ -21,13 +21,12 @@
 ##############################################################################
 
 {
-    'name': 'Belgium - Multilingual Chart of Accounts (en/nl/fr)',
+    'name': 'Belgium - VAT Reports',
     'version': '1.6',
     'license': 'AGPL-3',
     'author': "Noviat, Odoo Community Association (OCA)",
     'website': 'http://www.noviat.com',
     'category': 'Localization/Account Charts',
-    'summary': 'Belgium - Multilingual Chart of Accounts (en/nl/fr)',
     'depends': [
         'account',
         'base_vat',
