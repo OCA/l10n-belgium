@@ -393,6 +393,7 @@ class wizard_multi_charts_accounts(models.TransientModel):
             self.copy_xlat(langs, in_field, fpos_tmpls, fpos)
 
         # update the entries in the BNB/NBB legal report scheme
+        """  
         upd_wiz = env['l10n_be.update_be_reportscheme']
         note = upd_wiz._update_be_reportscheme()
         if note:
@@ -409,7 +410,7 @@ class wizard_multi_charts_accounts(models.TransientModel):
                 'target': 'new',
                 'views': [(view.id, 'form')],
                 'type': 'ir.actions.act_window'}
-
+        """
         if not res:
             menu = env.ref('base.menu_administration')
             res = {
