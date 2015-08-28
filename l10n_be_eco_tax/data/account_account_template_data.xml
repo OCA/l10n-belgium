@@ -2,7 +2,7 @@
 <openerp>
     <data noupdate="0">
         <record id="recupel_income_account" model="account.account.template">
-            <field name="name">Vente RECUPEL</field>
+            <field name="name">RECUPEL Sale</field>
             <field name="parent_id" ref="l10n_be.a700"/>
             <field name="code">700920</field>
             <field name="type">other</field>
@@ -11,7 +11,7 @@
         </record>
 
         <record id="recupel_expense_account" model="account.account.template">
-            <field name="name">Achat RECUPEL</field>
+            <field name="name">RECUPEL Purchase</field>
             <field name="parent_id" ref="l10n_be.a601"/>
             <field name="code">601920</field>
             <field name="type">other</field>
@@ -20,7 +20,7 @@
         </record>
 
         <record id="bebat_income_account" model="account.account.template">
-            <field name="name">Vente BEBAT</field>
+            <field name="name">BEBAT Sale</field>
             <field name="parent_id" ref="l10n_be.a700"/>
             <field name="code">700930</field>
             <field name="type">other</field>
@@ -29,7 +29,7 @@
         </record>
 
         <record id="bebat_expense_account" model="account.account.template">
-            <field name="name">Achat BEBAT</field>
+            <field name="name">BEBAT Purchase</field>
             <field name="parent_id" ref="l10n_be.a601"/>
             <field name="code">601930</field>
             <field name="type">other</field>
