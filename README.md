@@ -5,3 +5,8 @@ Odoo modules for Belgium
 ========================
 
 These modules complement the official l10n_be.
+
+
+Translation Status
+------------------
+[![Transifex Status](https://www.transifex.com/projects/p/OCA-l10n-belgium-8-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-l10n-belgium-8-0)
