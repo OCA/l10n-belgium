@@ -20,10 +20,7 @@
 #
 ##############################################################################
 
-from . import wizard_multi_charts_accounts
-from . import res_config
-from . import account
-from . import account_fix
-from . import account_financial_report
-from . import partner
-from . import wizard
+from . import accounting_report_wizard
+from . import l10n_be_vat_declaration
+from . import l10n_be_partner_vat_listing
+from . import l10n_be_vat_intra

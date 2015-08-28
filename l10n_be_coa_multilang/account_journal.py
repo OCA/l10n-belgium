@@ -20,10 +20,9 @@
 #
 ##############################################################################
 
-from . import wizard_multi_charts_accounts
-from . import res_config
-from . import account
-from . import account_fix
-from . import account_financial_report
-from . import partner
-from . import wizard
+from openerp import models, fields
+
+
+class account_journal(models.Model):
+    _inherit = 'account.journal'
+    name = fields.Char(translate=True)
