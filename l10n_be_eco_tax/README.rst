@@ -20,6 +20,9 @@ If you install this module after instanciating the chart of account
 for your company, it is recommanded to use the account_chart_update
 module from the OCA/account-financial-tools repository .
 
+You may also need to constomize your invoice layout to render
+these eco taxes in the desired way.
+
 Usage
 =====
 
@@ -28,7 +31,11 @@ taxes on the products which are subjected to these rules.
 
 You must make sure that the sequences of the BEBAT and RECUPEL taxes
 is smaller than the sequences of the VAT taxes so the VAT is correctly
-computed on top of the BEBAT and RECUPEL taxes.
+computed on top of the BEBAT and RECUPEL taxes. The sequences are correct
+when using l10n_be_taxes.
+
+The module also define a specific tax code template for eco taxes which
+may help in reporting, and specific expense and income account templates.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
