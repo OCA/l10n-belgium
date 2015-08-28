@@ -29,6 +29,7 @@
     'category': 'Localization/Account Charts',
     'summary': 'Belgium - Multilingual Chart of Accounts (en/nl/fr)',
     'depends': [
+        'account',
         'base_vat',
     ],
     'data': [
