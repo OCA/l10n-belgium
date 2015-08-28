@@ -68,6 +68,9 @@ Author
 Contributors
 ------------
 * acsone <info@acsone.eu>
+* adins <info@adins.com>
+* Jacques-Etienne Baudoux <je@bcim.be>
+* niboo <gael@niboo.be>
 
 Maintainer
 ----------
