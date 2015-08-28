@@ -26,7 +26,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class be_legal_financial_reportscheme(models.Model):
+class BeLegalFinancialReportscheme(models.Model):
     _name = 'be.legal.financial.reportscheme'
     _description = 'Belgian Legal Financial Report Scheme (Full)'
     _rec_name = 'account_group'
@@ -44,7 +44,7 @@ class be_legal_financial_reportscheme(models.Model):
          'The General Account Group must be unique !')]
 
 
-class account_financial_report(models.Model):
+class AccountFinancialReport(models.Model):
     _inherit = 'account.financial.report'
 
     code = fields.Char('Code', size=16)
@@ -64,7 +64,7 @@ class account_financial_report(models.Model):
         return res
 
 
-class account_account(models.Model):
+class AccountAccount(models.Model):
     _inherit = 'account.account'
 
     centralized = fields.Boolean(
@@ -190,7 +190,7 @@ class account_account(models.Model):
             cr, uid, ids, vals, context=context)
 
 
-class l10n_be_update_be_reportscheme(models.TransientModel):
+class L10n_beUpdate_be_reportscheme(models.TransientModel):
     _name = 'l10n_be.update_be_reportscheme'
     _description = 'Update BNB/NBB financial reports configuration'
 

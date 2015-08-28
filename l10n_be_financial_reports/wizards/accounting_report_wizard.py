@@ -30,7 +30,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class accounting_report(orm.TransientModel):
+class AccountingReport(orm.TransientModel):
     _inherit = 'accounting.report'
 
     def _build_contexts(self, cr, uid, ids, data, context=None):
