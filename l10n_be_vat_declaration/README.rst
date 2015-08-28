@@ -68,6 +68,7 @@ Author
 Contributors
 ------------
 * acsone <info@acsone.eu>
+* Jacques-Etienne Baudoux <je@bcim.be>
 
 Maintainer
 ----------
