@@ -32,11 +32,12 @@
         'base_vat',
     ],
     'data': [
+        'view/menu.xml',
         'wizard/reports.xml',
         'wizard/l10n_be_vat_declaration_view.xml',
         'wizard/l10n_be_vat_intra_view.xml',
         'wizard/l10n_be_partner_vat_listing.xml',
-        'view/l10n_be_layout.xml',
+        'view/l10n_be_layouts.xml',
         'view/report_l10nbevatdeclaration.xml',
         'view/report_l10nbevatlisting.xml',
         'view/report_l10nbevatintra.xml',
