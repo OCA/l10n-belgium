@@ -29,7 +29,7 @@ from lxml import etree
 
 import openerp
 from openerp import tools, _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning, except_orm
 
 logger = logging.getLogger(__name__)
 
@@ -46,21 +46,20 @@ def companyweb_getcompanydata(**params):
     except:
         logging.error("Error parsing companyweb url %s", url,
                       exc_info=True)
-        raise Warning(_("System error loading Companyweb data.\n"
-                        "Please retry and contact your "
-                        "system administrator if the error persists."))
+        raise except_orm(_("System error loading Companyweb data."),
+                         _("Please retry and contact your "
+                           "system administrator if the error persists."))
 
     message = tree.xpath("/Companies")[0].get("Message")
     if message:
-        raise Warning(_("Error loading Companyweb data:\n%s.\n"
-                        "\n"
-                        "Please check your credentials in settings/"
-                        "configuration/Companyweb. Also ensure, XML"
-                        "Access is enabled for your companyweb account\n"
-                        "\n"
-                        "Login on www.companyweb.be with login "
-                        "'cwacsone' and password 'demo' "
-                        "to obtain test credentials." % message))
+        raise except_orm(_("Error loading Companyweb data:\n%s." % message),
+                         _("Please check your credentials in settings/"
+                           "configuration/Companyweb. Also ensure, XML"
+                           "Access is enabled for your companyweb account\n"
+                           "\n"
+                           "Login on www.companyweb.be with login "
+                           "'cwacsone' and password 'demo' "
+                           "to obtain test credentials."))
 
     if tree.xpath("/Companies")[0].get("Count") == "0":
         raise Warning(_("VAT number of this company is not known in the Companyweb database"))
