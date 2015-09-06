@@ -51,13 +51,19 @@ class res_partner(models.Model):
     cweb_image = fields.Binary('CompanyWeb Health barometer', readonly=True)
     cweb_warnings = fields.Text('CompanyWeb Warnings', readonly=True)
     cweb_url = fields.Char('CompanyWeb Detailed Report', readonly=True)
-    cweb_vat_liable = fields.Boolean("CompanyWeb Subject to VAT", readonly=True)
-    cweb_balance_year = fields.Char("CompanyWeb Balance Year", readonly=True)
-    cweb_equityCapital = fields.Float('CompanyWeb Equity Capital', readonly=True)
-    cweb_addedValue = fields.Float('CompanyWeb Gross Margin (+/-)', readonly=True)
+    cweb_vat_liable = fields.Boolean("CompanyWeb Subject to VAT",
+                                     readonly=True)
+    cweb_balance_year = fields.Char("CompanyWeb Balance Year",
+                                    readonly=True)
+    cweb_equityCapital = fields.Float('CompanyWeb Equity Capital',
+                                      readonly=True)
+    cweb_addedValue = fields.Float('CompanyWeb Gross Margin (+/-)',
+                                   readonly=True)
     cweb_turnover = fields.Float('CompanyWeb Turnover', readonly=True)
-    cweb_result = fields.Float('CompanyWeb Fiscal Year Profit/Loss (+/-)', readonly=True)
-    cweb_employees = fields.Float('CompanyWeb Number of Employees', readonly=True)
+    cweb_result = fields.Float('CompanyWeb Fiscal Year Profit/Loss (+/-)',
+                               readonly=True)
+    cweb_employees = fields.Float('CompanyWeb Number of Employees',
+                                  readonly=True)
     cweb_prefLang = fields.Char('CompanyWeb Preferred Language', readonly=True)
 
     def _companyweb_information(self, vat_number):
@@ -115,7 +121,8 @@ class res_partner(models.Model):
             self.write(values)
             return
 
-        raise Warning(_("Companyweb is only available for companies with a Belgian VAT number"))
+        raise Warning(_("Companyweb is only available for companies with a "
+                        "Belgian VAT number"))
 
     def _companyweb_values_to_update(self, record):
         """ This method is designed to be inherited to add some field to
@@ -131,7 +138,8 @@ class res_partner(models.Model):
 
         if record['cweb_jur_form']:
             title_ids = self.env['res.partner.title'].search(
-                [('domain', '=', 'partner'), ('name', '=', record['cweb_jur_form'])])
+                [('domain', '=', 'partner'),
+                 ('name', '=', record['cweb_jur_form'])])
             if not title_ids:
                 title_id = self.env['res.partner.title'].create({
                     'domain': 'partner',
@@ -151,4 +159,5 @@ class res_partner(models.Model):
 
     @api.one
     def button_cweb_apply(self):
-        self.write(self._companyweb_values_to_update(self.read(load='_classic_write')[0]))
+        self.write(self._companyweb_values_to_update(
+            self.read(load='_classic_write')[0]))

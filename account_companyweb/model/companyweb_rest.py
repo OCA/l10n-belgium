@@ -62,7 +62,8 @@ def companyweb_getcompanydata(**params):
                            "to obtain test credentials."))
 
     if tree.xpath("/Companies")[0].get("Count") == "0":
-        raise Warning(_("VAT number of this company is not known in the Companyweb database"))
+        raise Warning(_("VAT number of this company is not known in the "
+                        "Companyweb database"))
 
     firm = tree.xpath("/Companies/firm")
 
@@ -141,7 +142,8 @@ def companyweb_getcompanydata(**params):
         'name': getValue('Name'),
         'jur_form': getValue('JurForm'),
         'vat_number': "BE0" + getValue('Vat'),
-        'street': ', '.join(filter(None, [getValue('Street'), getValue('Nr')])),
+        'street': ', '.join(filter(None, [getValue('Street'),
+                                          getValue('Nr')])),
         'zip': getValue('PostalCode'),
         'city': getValue('City'),
         'creditLimit': getFloatValue('CreditLimit'),
