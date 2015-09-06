@@ -72,8 +72,8 @@ Contributors
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
 """,
     "data": [
-        "view/res_config_view.xml",
-        "view/res_partner_view.xml",
+        "views/res_config_view.xml",
+        "views/res_partner_view.xml",
         "wizard/partner_update_companyweb.xml",
     ],
     "demo": [],
