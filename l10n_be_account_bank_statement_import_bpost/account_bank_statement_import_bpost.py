@@ -23,7 +23,7 @@
 import logging
 from datetime import datetime
 from StringIO import StringIO
-from openerp import models, fields, _
+from openerp import models, fields, api, _
 import unicodecsv
 
 _logger = logging.getLogger(__name__)
@@ -32,19 +32,20 @@ _logger = logging.getLogger(__name__)
 class AccountBankStatementImport(models.TransientModel):
     _inherit = 'account.bank.statement.import'
 
-    def _check_bpost(self, cr, uid, data_file, context=None):
+    @api.model
+    def _check_bpost(self, data_file):
         return data_file[3:].startswith(
             u'"Numéro de compte :";"'.encode('utf-8'))
         # The file starts with <U+FEFF> = UTF-8 BOM
         # http://en.wikipedia.org/wiki/Byte_order_mark
 
-    def _parse_file(self, cr, uid, data_file, context=None):
+    @api.model
+    def _parse_file(self, data_file):
         """ Import a file in Bpost CSV"""
-        bpost = self._check_bpost(
-            cr, uid, data_file, context=context)
+        bpost = self._check_bpost(data_file)
         if not bpost:
             return super(AccountBankStatementImport, self)._parse_file(
-                cr, uid, data_file, context=context)
+                data_file)
         transactions = []
         i = 0
         account_number = currency_code = False
