@@ -17,6 +17,7 @@ addon | version | summary
 [account_companyweb](account_companyweb/) | 1.0 | Companyweb
 [l10n_be_iso20022_pain](l10n_be_iso20022_pain/) | 1.0 | ISO 20022 PAIN Support for Belgium
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 8.0.1.0 | MIS Builder templates for the Belgium P&L and Balance Sheets
+
 [//]: # (end addons)
 
 Translation Status
