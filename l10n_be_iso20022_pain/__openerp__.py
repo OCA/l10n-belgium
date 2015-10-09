@@ -22,7 +22,7 @@
 
 {
     'name': 'ISO 20022 PAIN Support for Belgium',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'author': 'ACSONE SA/NV,Odoo Community Association (OCA)',
     'category': 'Generic Modules/Accounting',
     'website': 'http://www.acsone.eu',
