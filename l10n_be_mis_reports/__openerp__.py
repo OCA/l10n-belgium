@@ -39,4 +39,5 @@
         'data/mis_report_pl.xml',
         'data/mis_report_bs.xml',
     ],
+    'installable': False,
 }
