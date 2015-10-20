@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields, api, registry
 from openerp.exceptions import Warning
 
 
@@ -46,14 +46,19 @@ class CwebUpdate(models.TransientModel):
     @api.one
     def action_update(self):
         record_ids = self._context.get('active_ids', [])
-        partner_env = self.env['res.partner']
-        partners = partner_env.search(
-            [('is_company', '=', True),
-             ('id', 'in', record_ids),
-             ('vat', '!=', False)])
-        for partner in partners:
-            try:
-                partner._cweb_refresh(force_update=not partner.cweb_lastupdate)
-            except Warning:
-                pass
+
+        # We create a new cursor to ensure we do not loose data already retrieved
+        with registry(self.env.cr.dbname).cursor() as new_cr:
+            uid, context = self.env.uid, self.env.context
+            partner_env = api.Environment(new_cr, uid, context)['res.partner']
+            partners = partner_env.search(
+                [('is_company', '=', True),
+                 ('id', 'in', record_ids),
+                 ('vat', '!=', False)])
+            for partner in partners:
+                try:
+                    partner._cweb_refresh(force_update=not partner.cweb_lastupdate)
+                    new_cr.commit()
+                except Warning:
+                    pass
         return {}
