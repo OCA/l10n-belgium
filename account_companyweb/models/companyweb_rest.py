@@ -72,7 +72,7 @@ def companyweb_getcompanydata(**params):
     if endDate == "0":
         endDate = False
         endOfActivity = False
-    if endDate == "1":
+    elif endDate == "1":
         endDate = False
         endOfActivity = True
     else:
