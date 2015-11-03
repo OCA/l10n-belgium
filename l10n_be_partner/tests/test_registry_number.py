@@ -20,25 +20,21 @@
 #
 ##############################################################################
 
-{
-    'name': 'Belgium - Partner Model customisations',
-    'version': '8.0.1.0.0',
-    'license': 'AGPL-3',
-    'author': 'Noviat,Odoo Community Association (OCA)',
-    'category': 'Localization',
-    'summary': 'Belgium - Partner Model customisations',
-    'depends': [
-        'base_vat',
-        'base_iban',
-    ],
-    'data': [
-        'data/be_base_data.xml',
-        'data/be_banks.xml',
-        'views/res_bank.xml',
-        'views/res_partner.xml',
-    ],
-    'demo': [
-        'demo/res_partner.xml',
-    ],
-    'installable': True,
-}
+from openerp.tests.common import TransactionCase
+
+
+class TestRegistryNumber(TransactionCase):
+
+    def setUp(self):
+        super(TestRegistryNumber, self).setUp()
+        cr, uid = self.cr, self.uid
+        self.rp_model = self.registry('res.partner')
+        self.rp_id = self.registry('ir.model.data').get_object_reference(
+            cr, uid, 'l10n_be_partner', 'res_partner_1')[1]
+
+    def test_registry_number(self):
+        cr, uid = self.cr, self.uid
+        self.rp_model.write(cr, uid, [self.rp_id], {'vat': 'BE 0820 512 013'})
+        rp = self.rp_model.browse(cr, uid, self.rp_id)
+        self.assertEqual(rp.registry_authority, 'kbo_bce')
+        self.assertEqual(rp.registry_number, '0820.512.013')

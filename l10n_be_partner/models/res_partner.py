@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Odoo, Open Source Management Solution
 #
-#    Copyright (c) 2014-2015 Noviat nv/sa (www.noviat.com).
+#    Copyright (c) 2009-2015 Noviat nv/sa (www.noviat.com).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,16 +22,9 @@
 
 from openerp import models, fields, api, _
 from openerp.exceptions import ValidationError, Warning
-import logging
-_logger = logging.getLogger(__name__)
 
 
-class res_partner(models.Model):
-    """
-    TODO:
-    move registry_authority & registry_number fields to separate
-    module for use by localization modules of other countries
-    """
+class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     def _format_registry_number(self, number):
@@ -86,7 +79,6 @@ class res_partner(models.Model):
 
     @api.model
     def create(self, vals):
-        # _logger.warn('create, self=%s, vals=%s', self, vals)
         # update context to avoid useless _field_sync processing
         ctx = dict(self._context, skip_kbo_bce=True)
         if vals.get('is_company'):
@@ -111,14 +103,14 @@ class res_partner(models.Model):
                 if vals['registry_authority'] == 'kbo_bce':
                     if vals.get('country_id') != be.id:
                         vals['country_id'] = be.id
-        return super(res_partner, self.with_context(ctx)).create(vals)
+        return super(ResPartner, self.with_context(ctx)).create(vals)
 
     @api.multi
     def write(self, vals):
         # _logger.warn('write, self=%s, vals=%s', self, vals)
 
         if not self or self._context.get('skip_kbo_bce'):
-            return super(res_partner, self).write(vals)
+            return super(ResPartner, self).write(vals)
 
         check = False
         if 'vat' in vals and vals['vat']:
@@ -126,7 +118,7 @@ class res_partner(models.Model):
         if 'registry_number' in vals:
             check = True
         if not check:
-            return super(res_partner, self).write(vals)
+            return super(ResPartner, self).write(vals)
 
         be = self._get_belgium()
         ctx = dict(self._context, skip_kbo_bce=True)
@@ -169,4 +161,4 @@ class res_partner(models.Model):
             if kbo_number and country_id != be.id:
                 vals['country_id'] = be.id
 
-        return super(res_partner, self.with_context(ctx)).write(vals)
+        return super(ResPartner, self.with_context(ctx)).write(vals)

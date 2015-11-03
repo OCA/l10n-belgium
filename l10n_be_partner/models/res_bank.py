@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Odoo, Open Source Management Solution
 #
-#    Copyright (c) 2014-2015 Noviat nv/sa (www.noviat.com).
+#    Copyright (c) 2009-2015 Noviat nv/sa (www.noviat.com).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,25 +22,9 @@
 
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
-import logging
-_logger = logging.getLogger(__name__)
 
 
-class res_partner_bank(models.Model):
-    _inherit = 'res.partner.bank'
-
-    def create(self, cr, uid, vals, context=None):
-        if vals['state'] != 'iban':
-            env = api.Environment(cr, uid, context)
-            bank = env['res.bank'].browse(vals.get('bank'))
-            if bank.country == env.ref('base.be') and bank.bic and bank.code:
-                vals['state'] = 'iban'
-                vals['acc_number'] = \
-                    env['res.bank'].bban2iban('be', vals['acc_number'])
-        return super(res_partner_bank, self).create(cr, uid, vals, context)
-
-
-class res_bank(models.Model):
+class ResBank(models.Model):
     _inherit = 'res.bank'
 
     code = fields.Char(

@@ -20,25 +20,7 @@
 #
 ##############################################################################
 
-{
-    'name': 'Belgium - Partner Model customisations',
-    'version': '8.0.1.0.0',
-    'license': 'AGPL-3',
-    'author': 'Noviat,Odoo Community Association (OCA)',
-    'category': 'Localization',
-    'summary': 'Belgium - Partner Model customisations',
-    'depends': [
-        'base_vat',
-        'base_iban',
-    ],
-    'data': [
-        'data/be_base_data.xml',
-        'data/be_banks.xml',
-        'views/res_bank.xml',
-        'views/res_partner.xml',
-    ],
-    'demo': [
-        'demo/res_partner.xml',
-    ],
-    'installable': True,
-}
+from . import res_company
+from . import res_bank
+from . import res_partner
+from . import res_partner_bank
