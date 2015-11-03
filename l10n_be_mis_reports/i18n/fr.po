@@ -1,0 +1,755 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * l10n_be_mis_reports
+# 
+# Translators:
+# Stéphane Bidoul, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: l10n-belgium (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-23 16:50+0000\n"
+"PO-Revision-Date: 2015-09-21 15:05+0000\n"
+"Last-Translator: Stéphane Bidoul\n"
+"Language-Team: French (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr197
+msgid "Accrued Charges and Deferred Income [492/3]"
+msgstr "Comptes de régularisation [492/3]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr161
+msgid "Accumulated Profits (Losses) [14]"
+msgstr "Bénéfice (Perte) reporté(e) [14]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr245
+msgid "Adjustment of Income Taxes and Provisions for Taxes [77]"
+msgstr "Régularisations d'impôts et reprises de provisions fiscales [77]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr230
+msgid "Adjustment to Amounts Written Off on Financial Fixed Assets [761]"
+msgstr "Reprises de réductions de valeur sur immobilisations financières [761]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr229
+msgid ""
+"Adjustment to Depreciation and Write Off on Intangible and Tangible Assets "
+"[760]"
+msgstr "Reprises d'amortissements et de réductions de valeur sur immobilisations incorporelles et corporelles [760]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr231
+msgid ""
+"Adjustment to Provisions for Extraordinary Liabilities and Charges [762]"
+msgstr "Reprises de provisions pour risques et charges exceptionnels [762]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr137
+msgid "Advance Payments [36]"
+msgstr "Acomptes versés [36]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr163
+msgid "Advance to Partners on the distribution of the net assets [19]"
+msgstr "Avance aux associés sur répartition de l'actif net [19]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr182
+msgid "Advances received on Contracts in Progress [176]"
+msgstr "Acomptes reçus sur commandes [176]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr192
+msgid "Advances received on Contracts in Progress [46]"
+msgstr "Acomptes reçus sur commandes [46]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr117
+msgid "Affiliated Enterprises [280/1]"
+msgstr "Entreprises liées [280/1]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr172
+msgid "Amounts Payable after one Year [17]"
+msgstr "Dettes à plus d'un an [17]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr184
+msgid "Amounts Payable within one Year [42/48]"
+msgstr "Dettes à un an au plus [42/48]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr119
+msgid "Amounts Receivable [281]"
+msgstr "Créances [281]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr122
+msgid "Amounts Receivable [283]"
+msgstr "Créances [283]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr127
+msgid "Amounts Receivable after One Year [29]"
+msgstr "Créances à plus d'un an [29]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr125
+msgid "Amounts Receivable and Cash Guarantees [285/8]"
+msgstr "Créances et cautionnements en numéraire [285/8]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr139
+msgid "Amounts Receivable within one Year [40/41]"
+msgstr "Créances à un an au plus [40/41]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr236
+msgid "Amounts Written Off on Financial Fixed Assets [661]"
+msgstr "Réductions de valeur sur immobilisations financières [661]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr216
+msgid ""
+"Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase "
+"(Decrease) [631/4]"
+msgstr "Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [631/4]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr226
+msgid ""
+"Amounts Written Off on other than Stocks, Orders in Progress and Trade "
+"Debts: Increase (Decrease) [651]"
+msgstr "Amounts Written Off on other than Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [651]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr115
+msgid "Assets under Construction and Advance Payment [27]"
+msgstr "Immobilisations en cours et acomptes versés [27]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report,name:l10n_be_mis_reports.mis_report_bs
+msgid "Belgium Balance Sheet (Full Model)"
+msgstr "Belgium Balance Sheet (Full Model)"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report,name:l10n_be_mis_reports.mis_report_pl
+msgid "Belgium P&L (Full Model)"
+msgstr "Belgium P&L (Full Model)"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr181
+msgid "Bills of Exchange Payable [1751]"
+msgstr "Effets à payer [1751]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr191
+msgid "Bills of Exchange Payable [441]"
+msgstr "Effets à payer [441]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr126
+msgid "CURRENT ASSETS [29/58]"
+msgstr "ACTIFS CIRCULANTS [29/58]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr149
+msgid "Capital [10]"
+msgstr "Capital [10]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr145
+msgid "Cash at Bank and in Hand [54/58]"
+msgstr "Valeurs disponibles [54/58]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr138
+msgid "Contracts in progress [37]"
+msgstr "Commandes en cours d'exécution [37]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr177
+msgid "Credit Institutions [173]"
+msgstr "Etablissements de crédit [173]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr187
+msgid "Credit Institutions [430/8]"
+msgstr "Etablissements de crédit [430/8]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr171
+msgid "DEBTS [17/49]"
+msgstr "DETTES [17/49]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr225
+msgid "Debt Charges [650]"
+msgstr "Charges des dettes [650]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr212
+msgid "Decrease (Increase) in Stocks [609]"
+msgstr "Stocks: réduction (augmentation) [609]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr146
+msgid "Deferred Charges and Accrued Income [490/1]"
+msgstr "Comptes de régularisation [490/1]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr170
+msgid "Deferred Taxes [168]"
+msgstr "Impôts différés [168]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr215
+msgid ""
+"Depreciation and Amounts Written Off on Formation Expenses, on  Intangible "
+"and  Tangible Assets [630]"
+msgstr "Amortissements et réductions de valeur sur frais d'établissement, sur immobilisations incorporelles et corporelles [630]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr148
+msgid "EQUITY CAPITAL [10/15]"
+msgstr "CAPITAUX PROPRES [10/15]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr120
+msgid "Enterprises Linked by Participating Interests [282/3]"
+msgstr "Autres entreprises avec lesquelles il existe un lien de participation [282/3]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr234
+msgid "Extraordinary Charges [66]"
+msgstr "Charges exceptionnels [66]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr235
+msgid ""
+"Extraordinary Depreciation and Amounts Written Off on Formation Expenses, "
+"Intangible and Tangible Assets [660]"
+msgstr "Amortissements et réductions de valeur exceptionnels sur frais d'établissement, sur immobilisations incorporelles et corporelles [660]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr228
+msgid "Extraordinary Income [76]"
+msgstr "Produits exceptionnels [76]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr106
+msgid "FIXED ASSETS [20/28]"
+msgstr "ACTIFS IMMOBILISES [20/28]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr116
+msgid "Financial Assets [28]"
+msgstr "Immobilisations financières [28]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr224
+msgid "Financial Charges [65]"
+msgstr "Charges financières [65]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr173
+msgid "Financial Debts [170/4]"
+msgstr "Dettes financières [170/4]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr186
+msgid "Financial Debts [43]"
+msgstr "Dettes financières [43]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr220
+msgid "Financial Income [75]"
+msgstr "Produits financiers [75]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr134
+msgid "Finished Goods [33]"
+msgstr "Produits finis [33]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr200
+msgid "Fiscal Year Profit (Loss) [9904]"
+msgstr "Bénéfice (Perte) de l'exercice [9904]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr201
+msgid "Fiscal Year Profit (Loss) before Taxation [9903]"
+msgstr "Bénéfice (Perte) de l'exercice avant impôts [9903]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr199
+msgid "Fiscal Year Profit (Loss) to be allocated [9905]"
+msgstr "Bénéfice (Perte) de l'exercice à affecter [9905]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr207
+msgid "Fixed Assets Own Construction [72]"
+msgstr "Production immobilisée [72]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr107
+msgid "Formation Expenses [20]"
+msgstr "Frais d'établissement [20]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr112
+msgid "Furniture and Vehicles [24]"
+msgstr "Mobilier et matériel roulant [24]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr232
+msgid "Gain on Disposal of Fixed Assets [763]"
+msgstr "Plus-values sur réalisation d'actifs immobilisés [763]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr135
+msgid "Goods purchased for Resale [34]"
+msgstr "Marchandises [34]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr136
+msgid "Imovable Property acquired for Resale [35]"
+msgstr "Immeubles destinés à la vente [35]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr157
+msgid "In respect of own Shares held [1310]"
+msgstr "Pour actions propres [1310]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr243
+msgid "Income Taxes [67/77]"
+msgstr "Impôts sur le résultat [67/77]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr244
+msgid "Income Taxes [670/3]"
+msgstr "Impôts sur le résultat [670/3]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr222
+msgid "Income from Current Assets [751]"
+msgstr "Produits des actifs circulants [751]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr221
+msgid "Income from Financial Fixed Assets [750]"
+msgstr "Produits des immobilisations financières [750]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr206
+msgid "Increase (Decrease) in Stocks, Final Goods, Etc. [71]"
+msgstr "Increase (Decrease) in Stocks, Final Goods, Etc. [71]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr108
+msgid "Intangible Assets [21]"
+msgstr "Immobilisations incorporelles [21]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr162
+msgid "Investment Grants [15]"
+msgstr "Subsides en capital [15]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr142
+msgid "Investments [50/53]"
+msgstr "Placements de trésorerie [50/53]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr150
+msgid "Issued Capital [100]"
+msgstr "Capital souscrit [100]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr110
+msgid "Land and Buildings [22]"
+msgstr "Terrains et constructions [22]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr176
+msgid "Leasing and other similar Obligations [172]"
+msgstr "Dettes de location-financement et assimilées [172]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr113
+msgid "Leasing and other similar Rights [25]"
+msgstr "Location-financement et droits similaires [25]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr155
+msgid "Legal Reserve [130]"
+msgstr "Réserve légale [130]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr238
+msgid "Loss on Disposal of Fixed Assets [663]"
+msgstr "Moins-values sur réalisation d'actifs immobilisés [663]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr168
+msgid "Major Repairs and Maintenance [162]"
+msgstr "Grosses réparations et gros entretien [162]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr209
+msgid "Operating Charges [60/64]"
+msgstr "Coût des ventes et des prestations [60/64]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr204
+msgid "Operating Income [70/74]"
+msgstr "Ventes et prestations [70/74]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr203
+msgid "Operating Profit (Loss) [9901]"
+msgstr "Bénéfice (Perte) d'exploitation [9901]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr183
+msgid "Other Amounts Payable [178/9]"
+msgstr "Autres dettes [178/9]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr196
+msgid "Other Amounts Payable [47/48]"
+msgstr "Autres dettes [47/48]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr129
+msgid "Other Amounts Receivable [291]"
+msgstr "Autres créances [291]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr141
+msgid "Other Amounts Receivable [41]"
+msgstr "Autres créances [41]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr239
+msgid "Other Extraordinary Charges [664/668]"
+msgstr "Autres charges exceptionnelles [664/668]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr233
+msgid "Other Extraordinary Income [764/9]"
+msgstr "Plus-values sur réalisation d'actifs immobilisés [764/9]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr123
+msgid "Other Financial Assets [284/8]"
+msgstr "Autres immobilisations financières [284/8]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr227
+msgid "Other Financial Charges [652/9]"
+msgstr "Autres charges financières [652/9]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr223
+msgid "Other Financial Income [752/9]"
+msgstr "Autres produits financiers [752/9]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr144
+msgid "Other Investments and Deposits [51/53]"
+msgstr "Autres placements [51/53]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr169
+msgid "Other Liabilities and Charges [163/5]"
+msgstr "Autres risques et charges [163/5]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr178
+msgid "Other Loans [174]"
+msgstr "Autres emprunts [174]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr188
+msgid "Other Loans [439]"
+msgstr "Autres emprunts [439]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr218
+msgid "Other Operating Charges [640/8]"
+msgstr "Autres charges d'exploitation [640/8]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr208
+msgid "Other Operating Income [74]"
+msgstr "Autres produits d'exploitation [74]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr114
+msgid "Other Tangible Assets [26]"
+msgstr "Autres immobilisations corporelles [26]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr158
+msgid "Other [1311]"
+msgstr "Autres [1311]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr143
+msgid "Own Shares [50]"
+msgstr "Actions propres [50]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr164
+msgid "PROVISIONS AND DEFERRED TAXES [16]"
+msgstr "PROVISIONS ET IMPOTS DIFFERES [16]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr118
+msgid "Participating Interests [280]"
+msgstr "Participations [280]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr121
+msgid "Participating Interests [282]"
+msgstr "Participations [282]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr166
+msgid "Pensions and similar Obligations [160]"
+msgstr "Pensions et obligations similaires [160]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr111
+msgid "Plant, Machinery and Equipment [23]"
+msgstr "Installations, machines et outillage [23]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr185
+msgid "Portion of amounts Payable after one Year due within the year [42]"
+msgstr "Dettes à plus d'un an échéant dans l'année [42]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr202
+msgid "Profit (Loss) from Normal Operations before Taxation [9902]"
+msgstr "Bénéfice (Perte) courant(e) avant impôts [9902]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr237
+msgid "Provisions for Extraordinary Liabilities and Charges [662]"
+msgstr "Provisions pour risques et charges exceptionnels: dotations (utilisations) [662]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr165
+msgid "Provisions for Liabilities and Charges [160/5]"
+msgstr "Provisions pour risques et charges [160/5]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr217
+msgid "Provisions for Liabilities and Charges: Increase (Decrease) [635/7]"
+msgstr "Provisions for Liabilities and Charges: Increase (Decrease) [635/7]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr211
+msgid "Purchases [600/8]"
+msgstr "Achats [600/8]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr132
+msgid "Raw Materials and Consumables [30/31]"
+msgstr "Approvisionnements [30/31]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr210
+msgid "Raw Materials, Consumables and Goods for Resale [60]"
+msgstr "Approvisionnements et marchandises [60]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr195
+msgid "Remuneration and Social Security [454/9]"
+msgstr "Rémunérations et charges sociales [454/9]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr214
+msgid "Remunerations, Social Security Costs and Pensions [62]"
+msgstr "Rémunérations, charges sociales et pensions [62]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr154
+msgid "Reserves [13]"
+msgstr "Réserves [13]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr160
+msgid "Reserves available for Distribution [133]"
+msgstr "Réserves disponibles [133]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr156
+msgid "Reserves not available for Distribution [131]"
+msgstr "Réserves indisponibles [131]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr240
+msgid "Restructuring Charges activated as Extraordinary Charges [669]"
+msgstr "Charges exceptionnelles portées à l'actif au titre de frais de restructuration [669]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr219
+msgid "Restructuring Charges activated as Operating Charges [649]"
+msgstr "Charges d'exploitation portées à l'actif au titre de frais de restructuration [649]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr153
+msgid "Revaluation Surpluses [12]"
+msgstr "Plus-values de réévaluation [12]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr213
+msgid "Services and Other Goods [61]"
+msgstr "Services et biens divers [61]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr152
+msgid "Share Premium Account [11]"
+msgstr "Primes d'émission [11]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr124
+msgid "Shares [284]"
+msgstr "Actions et parts [284]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr131
+msgid "Stocks [30/36]"
+msgstr "Stocks [30/36]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr130
+msgid "Stocks and Contracts in Progress [3]"
+msgstr "Stocks et commandes en cours d'exécution [3]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr174
+msgid "Subordinated Loans [170]"
+msgstr "Emprunts subordonnés [170]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr180
+msgid "Suppliers [1750]"
+msgstr "Fournisseurs [1750]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr190
+msgid "Suppliers [440/4]"
+msgstr "Fournisseurs [440/4]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr105
+msgid "TOTAL ASSETS [20/58]"
+msgstr "TOTAL DE L'ACTIF [20/58]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr147
+msgid "TOTAL LIABILITIES [10/49]"
+msgstr "TOTAL DU PASSIF [10/49]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr109
+msgid "Tangible Assets [22/27]"
+msgstr "Immobilisations corporelles [22/27]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr167
+msgid "Taxation [161]"
+msgstr "Charges fiscales [161]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr194
+msgid "Taxes [450/3]"
+msgstr "Impôts [450/3]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr193
+msgid "Taxes, Remuneration and Social Security [45]"
+msgstr "Dettes fiscales, salariales et sociales [45]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr128
+msgid "Trade Debtors [290]"
+msgstr "Créances commerciales [290]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr140
+msgid "Trade Debtors [40]"
+msgstr "Créances commerciales [40]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr179
+msgid "Trade Debts [175]"
+msgstr "Dettes commerciales [175]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr189
+msgid "Trade Debts [44]"
+msgstr "Dettes commerciales [44]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr241
+msgid "Transfer from Deferred Taxes [780]"
+msgstr "Prélèvements sur les impôts différés [780]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr246
+msgid "Transfer from Untaxed Reserves [789]"
+msgstr "Prélèvements sur les réserves immunisées [789]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr242
+msgid "Transfer to Deferred Taxes [680]"
+msgstr "Transfert aux impôts différés [680]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr247
+msgid "Transfer to Untaxed Reserves [689]"
+msgstr "Transfert aux réserves immunisées [689]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr205
+msgid "Turnover [70]"
+msgstr "Chiffre d'affaires [70]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr161b
+msgid "Unallocated FY Profits (Losses)"
+msgstr "Bénéfice (perte) de l'exercice à allouer"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr151
+msgid "Uncalled Capital [101]"
+msgstr "Capital non appelé [101]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr175
+msgid "Unsubordinated Debentures [171]"
+msgstr "Emprunts obligataires non subordonnés [171]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr159
+msgid "Untaxed Reserves [132]"
+msgstr "Réserves immunisées [132]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr133
+msgid "Work in Progress [32]"
+msgstr "En-cours de fabrication [32]"

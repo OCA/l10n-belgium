@@ -22,8 +22,8 @@
 
 {
     "name": "Companyweb",
-    "version": "1.0",
-    "author": "ACSONE SA/NV",
+    "version": "8.0.1.0.0",
+    "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://www.acsone.eu",
     "depends": [
@@ -67,7 +67,7 @@ provides an accurate algorithm for open invoices report.
 Contributors
 ------------
 * Stéphane Bidoul <stephane.bidoul@acsone.eu>
-* Adrien Peiffer
+* Adrien Peiffer <adrien.peiffer@acsone.eu>
 """,
     "data": [
         "wizard/account_companyweb_report_wizard_view.xml",
