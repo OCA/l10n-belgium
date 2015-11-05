@@ -107,7 +107,6 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
-        # _logger.warn('write, self=%s, vals=%s', self, vals)
 
         if not self or self._context.get('skip_kbo_bce'):
             return super(ResPartner, self).write(vals)
@@ -139,7 +138,7 @@ class ResPartner(models.Model):
                 vals['registry_authority'] = 'kbo_bce'
                 if not vat:
                     vat_number = vals['registry_number'].replace('.', '')
-                    if self.vies_vat_check(
+                    if self.pool['res.partner'].vies_vat_check(
                             self._cr, self._uid, 'BE', vat_number,
                             context=self._context):
                         vals.update({
