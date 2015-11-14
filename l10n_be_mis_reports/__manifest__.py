@@ -30,7 +30,7 @@
               'Odoo Community Association (OCA)',
     'website': 'http://acsone.eu',
     'category': 'Reporting',
-    'version': '8.0.1.0',
+    'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'depends': [
         'mis_builder',  # OCA/account-financial-reporting
