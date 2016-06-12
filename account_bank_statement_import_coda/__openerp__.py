@@ -35,9 +35,6 @@
     'data': [
         'views/account_bank_statement_view.xml',
     ],
-    'demo': [
-        'demo/demo_data.xml',
-    ],
     'external_dependencies': {
         'python': ['coda'],
     },
