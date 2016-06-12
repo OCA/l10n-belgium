@@ -207,11 +207,10 @@ class account_bank_statement_import(models.TransientModel):
                 }
 
     @api.model
-    def _complete_stmts_vals(self, stmts_vals, journal_id, account_number):
+    def _complete_statement(self, stmts_vals, journal_id, account_number):
         stmts_vals = super(
-            account_bank_statement_import, self)._complete_stmts_vals(
+            account_bank_statement_import, self)._complete_statement(
                 stmts_vals, journal_id, account_number)
         journal = self.env['account.journal'].browse(journal_id)
-        for st_vals in stmts_vals:
-            st_vals['name'] = '%s/%s' % (journal.code, st_vals['name'])
+        stmts_vals['name'] = '%s/%s' % (journal.code, stmts_vals['name'])
         return stmts_vals
