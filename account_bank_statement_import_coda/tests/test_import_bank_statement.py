@@ -10,6 +10,28 @@ class TestCodaFile(TransactionCase):
 
     def setUp(self):
         super(TestCodaFile, self).setUp()
+        self.env['res.partner.bank'].create({
+            'state': 'bank',
+            'acc_number': 'BE46737018594236',
+            'bank_bic': 'KREDBEBB',
+            'journal_id': self.ref('account.bank_journal'),
+            'partner_id': self.ref('base.main_partner'),
+        })
+        fy = self.env['account.fiscalyear'].create({
+            'name': 'FY 2012',
+            'code': '2012',
+            'date_start': '2012-01-01',
+            'date_stop': '2012-12-31',
+            'company_id': self.ref('base.main_company'),
+        })
+        self.env['account.period'].create({
+            'name': 'FP 2012-01',
+            'code': '2012-01',
+            'date_start': '2012-01-01',
+            'date_stop': '2012-01-31',
+            'fiscalyear_id': fy.id,
+            'company_id': self.ref('base.main_company'),
+        })
         self.statement_import_model = self.env[
             'account.bank.statement.import']
         self.bank_statement_model = self.env['account.bank.statement']
