@@ -30,7 +30,7 @@ from dateutil import parser as date_parser
 
 from openerp import api, models
 from openerp.tools.translate import _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -71,7 +71,7 @@ class account_bank_statement_import(models.TransientModel):
                     self.get_st_vals(statement))
         except Exception, e:
             _logger.exception('Error when parsing coda file')
-            raise Warning(
+            raise UserError(
                 _("The following problem occurred during import. "
                   "The file might not be valid.\n\n %s" % e.message))
 
@@ -103,11 +103,12 @@ class account_bank_statement_import(models.TransientModel):
             balance_end_real = - balance_end_real
         transactions = []
         statement_date = statement.new_balance_date
-        vals = {'balance_start': balance_start,
-                'balance_end_real': balance_end_real,
-                'date': statement_date,
-                'transactions': transactions
-                }
+        vals = {
+            'balance_start': balance_start,
+            'balance_end_real': balance_end_real,
+            'date': statement_date,
+            'transactions': transactions
+        }
         name = statement.paper_seq_number
         if name:
             year = ""
@@ -130,8 +131,7 @@ class account_bank_statement_import(models.TransientModel):
 
         for sequence, line in enumerate(
                 filter(lambda l: l.type != MovementRecordType.GLOBALISATION,
-                       statement.movements)
-                ):
+                       statement.movements)):
             info = self.get_st_line_vals(line,
                                          globalisation_dict,
                                          information_dict)
@@ -196,15 +196,16 @@ class account_bank_statement_import(models.TransientModel):
         amount = line.transaction_amount
         if line.transaction_amount_sign == AmountSign.DEBIT:
             amount = - amount
-        return {'name': self.get_st_line_name(line, globalisation_dict),
-                'date': line.entry_date or datetime.datetime.now().date(),
-                'amount': amount,
-                'ref': line.ref,
-                'partner_name': line.counterparty_name or None,
-                'account_number': line.counterparty_number or None,
-                'note': self.get_st_line_note(line, information_dict),
-                'unique_import_id': line.ref + line.transaction_ref,
-                }
+        return {
+            'name': self.get_st_line_name(line, globalisation_dict),
+            'date': line.entry_date or datetime.datetime.now().date(),
+            'amount': amount,
+            'ref': line.ref,
+            'partner_name': line.counterparty_name or None,
+            'account_number': line.counterparty_number or None,
+            'note': self.get_st_line_note(line, information_dict),
+            'unique_import_id': line.ref + line.transaction_ref,
+        }
 
     @api.model
     def _complete_statement(self, stmts_vals, journal_id, account_number):
