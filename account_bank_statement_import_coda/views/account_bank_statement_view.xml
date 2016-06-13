@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<openerp>
+
+    <data>
+        <!-- Delete the menu Import Coda File  -->
+        <delete model='ir.ui.menu' search="[('name', '=', 'Import CODA File')]"/>
+    </data>
+
+ </openerp>
