@@ -1,27 +1,6 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#     This file is part of account_bank_statement_import_coda,
-#     an Odoo module.
-#
-#     Copyright (c) 2015 ACSONE SA/NV (<http://acsone.eu>)
-#
-#     account_bank_statement_import_coda is free software:
-#     you can redistribute it and/or modify it under the terms of the GNU
-#     Affero General Public License as published by the Free Software
-#     Foundation,either version 3 of the License, or (at your option) any
-#     later version.
-#
-#     account_bank_statement_import_coda is distributed
-#     in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-#     even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-#     PURPOSE.  See the GNU Affero General Public License for more details.
-#
-#     You should have received a copy of the GNU Affero General Public License
-#     along with account_bank_statement_import_coda.
-#     If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2015-2016 ACSONE SA/NV (<http://acsone.eu>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import re
 import datetime
@@ -45,7 +24,7 @@ except ImportError:
     Parser = None
 
 
-class account_bank_statement_import(models.TransientModel):
+class AccountBankStatementImport(models.TransientModel):
     _inherit = 'account.bank.statement.import'
 
     def _check_coda(self, data_file):
@@ -61,7 +40,7 @@ class account_bank_statement_import(models.TransientModel):
     @api.model
     def _parse_file(self, data_file):
         if not self._check_coda(data_file):
-            return super(account_bank_statement_import, self)._parse_file(
+            return super(AccountBankStatementImport, self)._parse_file(
                 data_file)
         vals_bank_statements = []
         try:
@@ -210,7 +189,7 @@ class account_bank_statement_import(models.TransientModel):
     @api.model
     def _complete_statement(self, stmts_vals, journal_id, account_number):
         stmts_vals = super(
-            account_bank_statement_import, self)._complete_statement(
+            AccountBankStatementImport, self)._complete_statement(
                 stmts_vals, journal_id, account_number)
         journal = self.env['account.journal'].browse(journal_id)
         stmts_vals['name'] = '%s/%s' % (journal.code, stmts_vals['name'])
