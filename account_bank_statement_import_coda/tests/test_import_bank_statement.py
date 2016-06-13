@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# Copyright 2015-2016 ACSONE SA/NV (<http://acsone.eu>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 from openerp.tests.common import TransactionCase
 from openerp.modules.module import get_module_resource
 from openerp.tools import float_compare
