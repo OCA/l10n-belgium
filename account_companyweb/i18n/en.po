@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-28 13:32+0000\n"
-"PO-Revision-Date: 2015-06-22 13:21+0000\n"
+"POT-Creation-Date: 2016-06-14 00:46+0000\n"
+"PO-Revision-Date: 2016-06-13 11:49+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: English (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -116,6 +116,13 @@ msgid "Detailed Report"
 msgstr "Detailed Report"
 
 #. module: account_companyweb
+#: field:account.companyweb.config.settings,display_name:0
+#: field:account.companyweb.report.wizard,display_name:0
+#: field:account.companyweb.wizard,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: account_companyweb
 #: field:account.companyweb.wizard,endDate:0
 msgid "End date"
 msgstr "End date"
@@ -171,6 +178,13 @@ msgstr "ID"
 #: field:account.companyweb.wizard,jur_form:0
 msgid "Juridical Form"
 msgstr "Juridical Form"
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,__last_update:0
+#: field:account.companyweb.report.wizard,__last_update:0
+#: field:account.companyweb.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_uid:0
