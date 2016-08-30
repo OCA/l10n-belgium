@@ -1,11 +1,12 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
-l10n_be_iso20022_pain
-=====================
+==============
+ISO 20022 PAIN Support for Belgium
+==============
 
-This modules adds Belgium-specific support to OCA/bank-payment
-payment initiation modules (account_banking_pain_base).
+This module adds Belgium-specific support to OCA/bank-payment/account_payment_order.
 
 * support of the BBA structured communication type [1]
 
@@ -24,11 +25,6 @@ It is recommended to install l10n_be_invoice_bba, and you will
 probably want to use account_banking_sepa_credit_transfer and/or
 account_banking_sepa_direct_debit.
 
-Configuration
-=============
-
-None.
-
 Usage
 =====
 
@@ -36,12 +32,6 @@ This module adds a new 'Belgium BBA' communication types on payment lines.
 When adding invoices to payment orders, invoices having this BBA communication type
 automatically put the correct communication type on payment lines. Generated
 PAIN files then use the correct communication type.
-
-Known issues / Roadmap
-======================
-
-None.
-
 
 Bug Tracker
 ===========
@@ -51,24 +41,32 @@ In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
 `here <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20l10n_be_iso20022_pain%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
-
 Credits
 =======
+
+Images
+------
+
+* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
 
 * Stéphane Bidoul <stephane.bidoul@acsone.eu>
+* Thomas Binsfeld <thomas.binsfeld@acsone.eu>
 
 Maintainer
 ----------
 
-.. image:: http://odoo-community.org/logo.png
+.. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
-   :target: http://odoo-community.org
+   :target: https://odoo-community.org
 
 This module is maintained by the OCA.
 
-OCA, or the Odoo Community Association, is a nonprofit organization whose mission is to support the collaborative development of Odoo features and promote its widespread use.
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
+
