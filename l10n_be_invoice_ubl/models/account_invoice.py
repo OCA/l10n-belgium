@@ -10,12 +10,16 @@ class AccountInvoice(models.Model):
     _name = 'account.invoice'
     _inherit = ['account.invoice', 'base.ubl']
 
-    # TODO: maybe we will have to switch from UBL 2.1 to UBL 2.0...
-    # to be e-fff compliant
     @api.multi
-    def _ubl_add_header(self, parent_node, ns):
+    def get_ubl_version(self):
+        '''e-fff is based on UBL 2.0, not UBL 2.1'''
+        return '2.0'
+
+    @api.multi
+    def _ubl_add_header(self, parent_node, ns, version='2.1'):
         '''Add mandatory fields ProfileID + CustomizationID'''
-        res = super(AccountInvoice, self)._ubl_add_header(parent_node, ns)
+        res = super(AccountInvoice, self)._ubl_add_header(
+            parent_node, ns, version=version)
         namespaces = parent_node.nsmap
         namespaces.pop(None)
         version_node_find = parent_node.find(
@@ -31,7 +35,7 @@ class AccountInvoice(models.Model):
         return res
 
     @api.multi
-    def get_ubl_filename(self):
+    def get_ubl_filename(self, version='2.1'):
         '''Read from http://www.e-fff.be/FR/doc03.php :
         The e-fff community recommends to use the following file naming:
         efff_BE0123456789_AlphaNumericCharactersFreeOfChoice.xml'''
