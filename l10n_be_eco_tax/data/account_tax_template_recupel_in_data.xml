@@ -8,13 +8,12 @@
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
             <field name="amount">8.2645</field>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_01_02_in" model="account.tax.template">
             <field name="description">RECUPEL-01-02-IN</field>
@@ -23,13 +22,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_01_03_in" model="account.tax.template">
             <field name="description">RECUPEL-01-03-IN</field>
@@ -38,13 +36,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_01_50_in" model="account.tax.template">
             <field name="description">RECUPEL-01-50-IN</field>
@@ -53,13 +50,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_01_51_in" model="account.tax.template">
             <field name="description">RECUPEL-01-51-IN</field>
@@ -68,13 +64,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_02_01_in" model="account.tax.template">
             <field name="description">RECUPEL-02-01-IN</field>
@@ -83,13 +78,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_02_02_in" model="account.tax.template">
             <field name="description">RECUPEL-02-02-IN</field>
@@ -98,13 +92,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_02_50_in" model="account.tax.template">
             <field name="description">RECUPEL-02-50-IN</field>
@@ -113,13 +106,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_03_01_in" model="account.tax.template">
             <field name="description">RECUPEL-03-01-IN</field>
@@ -128,13 +120,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_03_02_in" model="account.tax.template">
             <field name="description">RECUPEL-03-02-IN</field>
@@ -143,13 +134,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_03_50_in" model="account.tax.template">
             <field name="description">RECUPEL-03-50-IN</field>
@@ -158,13 +148,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_04_01_in" model="account.tax.template">
             <field name="description">RECUPEL-04-01-IN</field>
@@ -173,13 +162,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_04_02_in" model="account.tax.template">
             <field name="description">RECUPEL-04-02-IN</field>
@@ -188,13 +176,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_04_50_in" model="account.tax.template">
             <field name="description">RECUPEL-04-50-IN</field>
@@ -203,13 +190,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_05_01_in" model="account.tax.template">
             <field name="description">RECUPEL-05-01-IN</field>
@@ -218,13 +204,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_05_02_in" model="account.tax.template">
             <field name="description">RECUPEL-05-02-IN</field>
@@ -233,13 +218,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_05_03_in" model="account.tax.template">
             <field name="description">RECUPEL-05-03-IN</field>
@@ -248,13 +232,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_05_50_in" model="account.tax.template">
             <field name="description">RECUPEL-05-50-IN</field>
@@ -263,13 +246,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_05_51_in" model="account.tax.template">
             <field name="description">RECUPEL-05-51-IN</field>
@@ -278,13 +260,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_06_01_in" model="account.tax.template">
             <field name="description">RECUPEL-06-01-IN</field>
@@ -293,13 +274,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_06_50_in" model="account.tax.template">
             <field name="description">RECUPEL-06-50-IN</field>
@@ -308,13 +288,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_07_01_in" model="account.tax.template">
             <field name="description">RECUPEL-07-01-IN</field>
@@ -323,13 +302,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_07_02_in" model="account.tax.template">
             <field name="description">RECUPEL-07-02-IN</field>
@@ -338,13 +316,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_08_01_in" model="account.tax.template">
             <field name="description">RECUPEL-08-01-IN</field>
@@ -353,13 +330,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_08_50_in" model="account.tax.template">
             <field name="description">RECUPEL-08-50-IN</field>
@@ -368,13 +344,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_08_51_in" model="account.tax.template">
             <field name="description">RECUPEL-08-51-IN</field>
@@ -383,13 +358,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_01_in" model="account.tax.template">
             <field name="description">RECUPEL-09-01-IN</field>
@@ -398,13 +372,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_02_in" model="account.tax.template">
             <field name="description">RECUPEL-09-02-IN</field>
@@ -413,13 +386,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_03_in" model="account.tax.template">
             <field name="description">RECUPEL-09-03-IN</field>
@@ -428,13 +400,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_04_in" model="account.tax.template">
             <field name="description">RECUPEL-09-04-IN</field>
@@ -443,13 +414,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_05_in" model="account.tax.template">
             <field name="description">RECUPEL-09-05-IN</field>
@@ -458,13 +428,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_06_in" model="account.tax.template">
             <field name="description">RECUPEL-09-06-IN</field>
@@ -473,13 +442,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_50_in" model="account.tax.template">
             <field name="description">RECUPEL-09-50-IN</field>
@@ -488,13 +456,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_51_in" model="account.tax.template">
             <field name="description">RECUPEL-09-51-IN</field>
@@ -503,13 +470,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_52_in" model="account.tax.template">
             <field name="description">RECUPEL-09-52-IN</field>
@@ -518,13 +484,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_09_53_in" model="account.tax.template">
             <field name="description">RECUPEL-09-53-IN</field>
@@ -533,13 +498,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_10_50_in" model="account.tax.template">
             <field name="description">RECUPEL-10-50-IN</field>
@@ -548,13 +512,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
         <record id="recupel_10_51_in" model="account.tax.template">
             <field name="description">RECUPEL-10-51-IN</field>
@@ -563,13 +526,12 @@
             <field name="sequence">1</field>
             <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
             <field name="price_include" eval="0"/>
-            <field name="type">fixed</field>
+            <field name="amount_type">fixed</field>
             <field name="type_tax_use">purchase</field>
-            <field name="child_depend" eval="0"/>
-            <field name="account_collected_id" ref="recupel_expense_account"/>
-            <field name="account_paid_id" ref="recupel_expense_account"/>
+            <field name="account_id" ref="recupel_expense_account"/>
+            <field name="refund_account_id" ref="recupel_expense_account"/>
             <field name="include_base_amount" eval="1" />
-            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+            <field name="tag_ids" eval="[(6,0,[ref('tax_tag_ecotax')])]"/>
         </record>
     </data>
 </openerp>
