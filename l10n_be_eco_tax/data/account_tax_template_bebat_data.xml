@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="bebat_01_out" model="account.tax.template">
+            <field name="sequence">1</field>
+            <field name="description">BEBAT-75-OUT</field>
+            <field name="name">BEBAT 0.075 Out</field>
+            <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+            <field name="price_include" eval="0"/>
+            <field name="amount">0.075</field>
+            <field name="type">fixed</field>
+            <field name="type_tax_use">sale</field>
+            <field name="child_depend" eval="0"/>
+            <field name="account_collected_id" ref="bebat_income_account"/>
+            <field name="account_paid_id" ref="bebat_income_account"/>
+            <field name="include_base_amount" eval="1" />
+            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+        </record>
+        <record id="bebat_01_in" model="account.tax.template">
+            <field name="sequence">1</field>
+            <field name="description">BEBAT-75-IN</field>
+            <field name="name">BEBAT 0.075 in</field>
+            <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+            <field name="price_include" eval="0"/>
+            <field name="amount">0.075</field>
+            <field name="type">fixed</field>
+            <field name="type_tax_use">sale</field>
+            <field name="child_depend" eval="0"/>
+            <field name="account_collected_id" ref="bebat_expense_account"/>
+            <field name="account_paid_id" ref="bebat_expense_account"/>
+            <field name="include_base_amount" eval="1" />
+            <field name="tax_code_id" ref="l10n_be_eco_tax.tax_code_ecotax"/>
+        </record>
+    </data>
+</openerp>
