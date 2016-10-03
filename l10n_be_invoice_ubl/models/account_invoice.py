@@ -39,7 +39,7 @@ class AccountInvoice(models.Model):
         '''Read from http://www.e-fff.be/FR/doc03.php :
         The e-fff community recommends to use the following file naming:
         efff_BE0123456789_AlphaNumericCharactersFreeOfChoice.xml'''
-        filename = 'efff_%s_Invoice_%s' % (
+        filename = 'efff_%s_Invoice_%s.xml' % (
             self.commercial_partner_id.sanitized_vat,
             self.number and self.number.replace('/', '-') or 'draft')
         return filename
