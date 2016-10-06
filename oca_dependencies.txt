@@ -1,4 +1,4 @@
 account-financial-reporting
 bank-payment
 bank-statement-import
-edi https://github.com/edi-sprint/edi 8.0-edi-incubator
+edi
