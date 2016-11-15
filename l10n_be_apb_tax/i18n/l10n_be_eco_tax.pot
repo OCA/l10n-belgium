@@ -1,0 +1,432 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_be_eco_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-28 12:02+0000\n"
+"PO-Revision-Date: 2015-08-28 12:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.bebat_01_out
+msgid "BEBAT 0.075 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.bebat_01_in
+msgid "BEBAT 0.075 in"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.account.template,name:l10n_be_eco_tax.bebat_expense_account
+msgid "BEBAT Purchase"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.account.template,name:l10n_be_eco_tax.bebat_income_account
+msgid "BEBAT Sale"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.code.template,name:l10n_be_eco_tax.tax_code_ecotax
+msgid "Eco Taxes"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_01_in
+msgid "RECUPEL 01.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_01_out
+msgid "RECUPEL 01.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_02_in
+msgid "RECUPEL 01.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_02_out
+msgid "RECUPEL 01.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_03_in
+msgid "RECUPEL 01.03 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_03_out
+msgid "RECUPEL 01.03 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_50_in
+msgid "RECUPEL 01.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_50_out
+msgid "RECUPEL 01.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_51_in
+msgid "RECUPEL 01.51 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_01_51_out
+msgid "RECUPEL 01.51 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_02_01_in
+msgid "RECUPEL 02.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_02_01_out
+msgid "RECUPEL 02.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_02_02_in
+msgid "RECUPEL 02.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_02_02_out
+msgid "RECUPEL 02.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_02_50_in
+msgid "RECUPEL 02.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_02_50_out
+msgid "RECUPEL 02.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_03_01_in
+msgid "RECUPEL 03.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_03_01_out
+msgid "RECUPEL 03.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_03_02_in
+msgid "RECUPEL 03.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_03_02_out
+msgid "RECUPEL 03.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_03_50_in
+msgid "RECUPEL 03.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_03_50_out
+msgid "RECUPEL 03.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_04_01_in
+msgid "RECUPEL 04.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_04_01_out
+msgid "RECUPEL 04.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_04_02_in
+msgid "RECUPEL 04.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_04_02_out
+msgid "RECUPEL 04.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_04_50_in
+msgid "RECUPEL 04.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_04_50_out
+msgid "RECUPEL 04.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_01_in
+msgid "RECUPEL 05.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_01_out
+msgid "RECUPEL 05.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_02_in
+msgid "RECUPEL 05.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_02_out
+msgid "RECUPEL 05.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_03_in
+msgid "RECUPEL 05.03 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_03_out
+msgid "RECUPEL 05.03 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_50_in
+msgid "RECUPEL 05.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_50_out
+msgid "RECUPEL 05.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_51_in
+msgid "RECUPEL 05.51 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_05_51_out
+msgid "RECUPEL 05.51 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_06_01_in
+msgid "RECUPEL 06.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_06_01_out
+msgid "RECUPEL 06.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_06_50_in
+msgid "RECUPEL 06.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_06_50_out
+msgid "RECUPEL 06.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_07_01_in
+msgid "RECUPEL 07.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_07_01_out
+msgid "RECUPEL 07.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_07_02_in
+msgid "RECUPEL 07.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_07_02_out
+msgid "RECUPEL 07.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_08_01_in
+msgid "RECUPEL 08.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_08_01_out
+msgid "RECUPEL 08.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_08_50_in
+msgid "RECUPEL 08.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_08_50_out
+msgid "RECUPEL 08.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_08_51_in
+msgid "RECUPEL 08.51 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_08_51_out
+msgid "RECUPEL 08.51 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_01_in
+msgid "RECUPEL 09.01 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_01_out
+msgid "RECUPEL 09.01 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_02_in
+msgid "RECUPEL 09.02 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_02_out
+msgid "RECUPEL 09.02 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_03_in
+msgid "RECUPEL 09.03 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_03_out
+msgid "RECUPEL 09.03 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_04_in
+msgid "RECUPEL 09.04 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_04_out
+msgid "RECUPEL 09.04 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_05_in
+msgid "RECUPEL 09.05 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_05_out
+msgid "RECUPEL 09.05 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_06_in
+msgid "RECUPEL 09.06 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_06_out
+msgid "RECUPEL 09.06 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_50_in
+msgid "RECUPEL 09.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_50_out
+msgid "RECUPEL 09.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_51_in
+msgid "RECUPEL 09.51 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_51_out
+msgid "RECUPEL 09.51 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_52_in
+msgid "RECUPEL 09.52 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_52_out
+msgid "RECUPEL 09.52 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_53_in
+msgid "RECUPEL 09.53 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_09_53_out
+msgid "RECUPEL 09.53 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_10_50_in
+msgid "RECUPEL 10.50 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_10_50_out
+msgid "RECUPEL 10.50 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_10_51_in
+msgid "RECUPEL 10.51 In"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.tax.template,name:l10n_be_eco_tax.recupel_10_51_out
+msgid "RECUPEL 10.51 Out"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.account.template,name:l10n_be_eco_tax.recupel_expense_account
+msgid "RECUPEL Purchase"
+msgstr ""
+
+#. module: l10n_be_eco_tax
+#: model:account.account.template,name:l10n_be_eco_tax.recupel_income_account
+msgid "RECUPEL Sale"
+msgstr ""
+
