@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 06:40+0000\n"
-"PO-Revision-Date: 2016-09-16 21:45+0000\n"
+"POT-Creation-Date: 2016-09-17 14:06+0000\n"
+"PO-Revision-Date: 2016-11-28 06:20+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "Cancel"
-msgstr ""
+msgstr "Preklic"
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,chart_account_id:0
@@ -213,7 +213,7 @@ msgstr "Mesec"
 #. module: account_companyweb
 #: field:account.companyweb.wizard,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
@@ -278,7 +278,7 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "or"
-msgstr ""
+msgstr "ali"
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb

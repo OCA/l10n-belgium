@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 06:40+0000\n"
-"PO-Revision-Date: 2016-09-09 12:27+0000\n"
+"POT-Creation-Date: 2016-09-17 14:06+0000\n"
+"PO-Revision-Date: 2016-11-25 14:58+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,city:0
 msgid "City"
-msgstr ""
+msgstr "Cidade"
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
@@ -120,7 +120,7 @@ msgstr ""
 #: field:account.companyweb.report.wizard,display_name:0
 #: field:account.companyweb.wizard,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,endDate:0
@@ -184,7 +184,7 @@ msgstr ""
 #: field:account.companyweb.report.wizard,__last_update:0
 #: field:account.companyweb.wizard,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Modificado a última vez por"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_uid:0
@@ -213,12 +213,12 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Parceiro"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0
@@ -278,7 +278,7 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "or"
-msgstr ""
+msgstr "ou"
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-17 14:06+0000\n"
-"PO-Revision-Date: 2016-11-25 14:58+0000\n"
+"PO-Revision-Date: 2016-11-22 16:25+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Lithuanian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/lt/)\n"
+"Language-Team: Macedonian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/mk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: mk\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
@@ -36,7 +36,7 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "Cancel"
-msgstr "Atšaukti"
+msgstr "Откажи"
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,chart_account_id:0
@@ -91,14 +91,14 @@ msgstr ""
 #: field:account.companyweb.report.wizard,create_uid:0
 #: field:account.companyweb.wizard,create_uid:0
 msgid "Created by"
-msgstr "Sukūrė"
+msgstr "Креирано од"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,create_date:0
 #: field:account.companyweb.report.wizard,create_date:0
 #: field:account.companyweb.wizard,create_date:0
 msgid "Created on"
-msgstr "Sukurta"
+msgstr "Креирано на"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,creditLimit:0
@@ -120,7 +120,7 @@ msgstr ""
 #: field:account.companyweb.report.wizard,display_name:0
 #: field:account.companyweb.wizard,display_name:0
 msgid "Display Name"
-msgstr "Vaizduojamas pavadinimas"
+msgstr "Прикажи име"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,endDate:0
@@ -184,21 +184,21 @@ msgstr ""
 #: field:account.companyweb.report.wizard,__last_update:0
 #: field:account.companyweb.wizard,__last_update:0
 msgid "Last Modified on"
-msgstr "Paskutinį kartą keista"
+msgstr "Последна промена на"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_uid:0
 #: field:account.companyweb.report.wizard,write_uid:0
 #: field:account.companyweb.wizard,write_uid:0
 msgid "Last Updated by"
-msgstr "Paskutinį kartą atnaujino"
+msgstr "Последно ажурирање од"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_date:0
 #: field:account.companyweb.report.wizard,write_date:0
 #: field:account.companyweb.wizard,write_date:0
 msgid "Last Updated on"
-msgstr "Paskutinį kartą atnaujinta"
+msgstr "Последно ажурирање на"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_login:0
@@ -213,7 +213,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,name:0
 msgid "Name"
-msgstr "Pavadinimas"
+msgstr "Име"
 
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
@@ -278,7 +278,7 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "or"
-msgstr "arba"
+msgstr "или"
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
