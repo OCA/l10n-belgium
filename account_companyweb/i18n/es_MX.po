@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 14:06+0000\n"
-"PO-Revision-Date: 2016-11-25 14:57+0000\n"
+"POT-Creation-Date: 2016-12-03 02:06+0000\n"
+"PO-Revision-Date: 2016-12-05 09:23+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
@@ -218,7 +218,7 @@ msgstr "Nombre"
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Compañero"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0
