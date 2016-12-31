@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 14:06+0000\n"
-"PO-Revision-Date: 2016-11-25 14:56+0000\n"
+"POT-Creation-Date: 2016-12-24 02:23+0000\n"
+"PO-Revision-Date: 2016-12-27 08:22+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Russian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -91,14 +91,14 @@ msgstr ""
 #: field:account.companyweb.report.wizard,create_uid:0
 #: field:account.companyweb.wizard,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Создано"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,create_date:0
 #: field:account.companyweb.report.wizard,create_date:0
 #: field:account.companyweb.wizard,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Создан"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,creditLimit:0
@@ -172,7 +172,7 @@ msgstr ""
 #: field:account.companyweb.report.wizard,id:0
 #: field:account.companyweb.wizard,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,jur_form:0
@@ -191,14 +191,14 @@ msgstr ""
 #: field:account.companyweb.report.wizard,write_uid:0
 #: field:account.companyweb.wizard,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Последний раз обновлено"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_date:0
 #: field:account.companyweb.report.wizard,write_date:0
 #: field:account.companyweb.wizard,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Последний раз обновлено"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_login:0
@@ -218,7 +218,7 @@ msgstr "Название"
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Контрагент"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0

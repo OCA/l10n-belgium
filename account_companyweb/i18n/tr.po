@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 14:06+0000\n"
-"PO-Revision-Date: 2016-11-25 14:57+0000\n"
+"POT-Creation-Date: 2016-12-24 02:23+0000\n"
+"PO-Revision-Date: 2016-12-30 21:47+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr ""
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #. module: account_companyweb
 #: model:ir.ui.menu,name:account_companyweb.menu_account_companyweb_config_settings
@@ -120,12 +120,12 @@ msgstr ""
 #: field:account.companyweb.report.wizard,display_name:0
 #: field:account.companyweb.wizard,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Görünen İsim"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,endDate:0
 msgid "End date"
-msgstr ""
+msgstr "Bitiş Zamanı"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,equityCapital:0
@@ -184,7 +184,7 @@ msgstr ""
 #: field:account.companyweb.report.wizard,__last_update:0
 #: field:account.companyweb.wizard,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Son değişiklik"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_uid:0
@@ -218,7 +218,7 @@ msgstr "Adı"
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "İş Ortağı"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0
@@ -233,7 +233,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,startDate:0
 msgid "Start date"
-msgstr ""
+msgstr "Başlama zamanı"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,vat_liable:0
