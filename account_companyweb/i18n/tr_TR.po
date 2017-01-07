@@ -1,0 +1,286 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * account_companyweb
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: l10n-belgium (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-24 02:23+0000\n"
+"PO-Revision-Date: 2017-01-04 14:44+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: account_companyweb
+#: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
+#: field:account.companyweb.wizard,street:0
+msgid "Address"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+msgid "Apply"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,balance_year:0
+msgid "Balance year"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+msgid "Cancel"
+msgstr "İptal et"
+
+#. module: account_companyweb
+#: field:account.companyweb.report.wizard,chart_account_id:0
+msgid "Chart of Account"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,city:0
+msgid "City"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
+#: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
+msgid "Close"
+msgstr ""
+
+#. module: account_companyweb
+#: model:ir.ui.menu,name:account_companyweb.menu_account_companyweb_config_settings
+msgid "Companyweb"
+msgstr ""
+
+#. module: account_companyweb
+#: model:ir.actions.act_window,name:account_companyweb.action_report
+#: model:ir.ui.menu,name:account_companyweb.companyweb_report_menu
+msgid "Companyweb Report"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+msgid "Companyweb identification"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "Companyweb..."
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+#: model:ir.actions.act_window,name:account_companyweb.account_companyweb_config_settings
+msgid "Configure Companyweb"
+msgstr ""
+
+#. module: account_companyweb
+#: model:ir.model,name:account_companyweb.model_account_companyweb_report_wizard
+msgid "Create Report for Companyweb"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,create_uid:0
+#: field:account.companyweb.report.wizard,create_uid:0
+#: field:account.companyweb.wizard,create_uid:0
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,create_date:0
+#: field:account.companyweb.report.wizard,create_date:0
+#: field:account.companyweb.wizard,create_date:0
+msgid "Created on"
+msgstr "Oluşturulma tarihi"
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,creditLimit:0
+msgid "Credit limit"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
+msgid "Custom Report"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,url:0
+msgid "Detailed Report"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,display_name:0
+#: field:account.companyweb.report.wizard,display_name:0
+#: field:account.companyweb.wizard,display_name:0
+msgid "Display Name"
+msgstr "Görünen ad"
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,endDate:0
+msgid "End date"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,equityCapital:0
+msgid "Equity Capital"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.report.wizard,export_filename:0
+msgid "Export CSV Filename"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
+msgid "Financial results"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,result:0
+msgid "Fiscal Year Profit/Loss (+/-)"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
+msgid "Generate CreatedSalesDocs Report"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
+msgid "Generate OpenSalesDocs Report"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,addedValue:0
+msgid "Gross Margin (+/-)"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,image:0
+msgid "Health barometer"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,id:0
+#: field:account.companyweb.report.wizard,id:0
+#: field:account.companyweb.wizard,id:0
+msgid "ID"
+msgstr "Kimlik"
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,jur_form:0
+msgid "Juridical Form"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,__last_update:0
+#: field:account.companyweb.report.wizard,__last_update:0
+#: field:account.companyweb.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "En son güncelleme tarihi"
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,write_uid:0
+#: field:account.companyweb.report.wizard,write_uid:0
+#: field:account.companyweb.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "En son güncelleyen "
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,write_date:0
+#: field:account.companyweb.report.wizard,write_date:0
+#: field:account.companyweb.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "En son güncelleme tarihi"
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,companyweb_login:0
+msgid "Login"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.report.wizard,month:0
+msgid "Month"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,name:0
+msgid "Name"
+msgstr "Ad"
+
+#. module: account_companyweb
+#: model:ir.model,name:account_companyweb.model_res_partner
+msgid "Partner"
+msgstr "Ortak"
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,companyweb_pswd:0
+msgid "Password"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,zip:0
+msgid "Postal code"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,startDate:0
+msgid "Start date"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,vat_liable:0
+msgid "Subject to VAT"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
+msgid "Subject to VAT)"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,turnover:0
+msgid "Turnover"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
+msgid "Update"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,vat_number:0
+msgid "VAT number"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.wizard,warnings:0
+msgid "Warnings"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.report.wizard,data:0
+msgid "XLS"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.report.wizard,year:0
+msgid "Year"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+msgid "or"
+msgstr "ya da "
+
+#. module: account_companyweb
+#: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
+msgid "wizard account companyweb"
+msgstr ""
