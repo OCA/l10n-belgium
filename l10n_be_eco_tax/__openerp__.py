@@ -23,7 +23,7 @@
 {
     "name": "Belgium Eco Taxes",
     "summary": "Data module to support BEBAT and RECUPEL taxes",
-    "version": "1.0",
+    "version": "8.0.1.0.0",
     "author": "ACSONE SA/NV,"
               "Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
