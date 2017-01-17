@@ -4,7 +4,7 @@
 {
     'name': 'Belgium Partner Identification Numbers',
     'category': 'Customer Relationship Management',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'depends': [
         'partner_identification',
     ],
