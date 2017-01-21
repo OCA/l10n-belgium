@@ -22,7 +22,7 @@ msgstr ""
 #: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:141
 #, python-format
 msgid "Communication"
-msgstr ""
+msgstr "Viestintä"
 
 #. module: account_bank_statement_import_coda
 #: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:126
