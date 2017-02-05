@@ -36,6 +36,7 @@
         'mis_builder',  # OCA/account-financial-reporting
     ],
     'data': [
+        'data/mis_report_styles.xml',
         'data/mis_report_pl.xml',
         'data/mis_report_bs.xml',
     ],
