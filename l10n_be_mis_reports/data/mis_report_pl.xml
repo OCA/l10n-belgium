@@ -9,7 +9,6 @@
       <field name="name">fr204</field>
       <field name="description">Operating Income [70/74]</field>
       <field name="expression">-(-fr205 -fr206 -fr207 -fr208)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
@@ -20,7 +19,6 @@
       <field name="name">fr205</field>
       <field name="description">Turnover [70]</field>
       <field name="expression">-balp[70%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -31,7 +29,6 @@
       <field name="name">fr206</field>
       <field name="description">Increase (Decrease) in Stocks, Final Goods, Etc. [71]</field>
       <field name="expression">-balp[71%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -42,7 +39,6 @@
       <field name="name">fr207</field>
       <field name="description">Fixed Assets Own Construction [72]</field>
       <field name="expression">-balp[72%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -53,7 +49,6 @@
       <field name="name">fr208</field>
       <field name="description">Other Operating Income [74]</field>
       <field name="expression">-balp[74%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -64,7 +59,6 @@
       <field name="name">fr209</field>
       <field name="description">Operating Charges [60/64]</field>
       <field name="expression">+fr210 +fr213 +fr214 +fr215 +fr216 +fr217 +fr218 +fr219</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
@@ -75,7 +69,6 @@
       <field name="name">fr210</field>
       <field name="description">Raw Materials, Consumables and Goods for Resale [60]</field>
       <field name="expression">+fr211 +fr212</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -86,7 +79,6 @@
       <field name="name">fr211</field>
       <field name="description">Purchases [600/8]</field>
       <field name="expression">balp[600%,601%,602%,603%,604%,605%,606%,607%,608%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
@@ -97,7 +89,6 @@
       <field name="name">fr212</field>
       <field name="description">Decrease (Increase) in Stocks [609]</field>
       <field name="expression">balp[609%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
@@ -108,7 +99,6 @@
       <field name="name">fr213</field>
       <field name="description">Services and Other Goods [61]</field>
       <field name="expression">balp[61%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -119,7 +109,6 @@
       <field name="name">fr214</field>
       <field name="description">Remunerations, Social Security Costs and Pensions [62]</field>
       <field name="expression">balp[62%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -130,7 +119,6 @@
       <field name="name">fr215</field>
       <field name="description">Depreciation and Amounts Written Off on Formation Expenses, on  Intangible and  Tangible Assets [630]</field>
       <field name="expression">balp[630%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -141,7 +129,6 @@
       <field name="name">fr216</field>
       <field name="description">Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [631/4]</field>
       <field name="expression">balp[631%,632%,633%,634%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -152,7 +139,6 @@
       <field name="name">fr217</field>
       <field name="description">Provisions for Liabilities and Charges: Increase (Decrease) [635/7]</field>
       <field name="expression">balp[635%,636%,637%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -163,7 +149,6 @@
       <field name="name">fr218</field>
       <field name="description">Other Operating Charges [640/8]</field>
       <field name="expression">balp[640%,641%,642%,643%,644%,645%,646%,647%,648%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -174,7 +159,6 @@
       <field name="name">fr219</field>
       <field name="description">Restructuring Charges activated as Operating Charges [649]</field>
       <field name="expression">balp[649%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -185,7 +169,6 @@
       <field name="name">fr203</field>
       <field name="description">Operating Profit (Loss) [9901]</field>
       <field name="expression">-(-fr204 +fr209)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2i"/>
@@ -196,7 +179,6 @@
       <field name="name">fr220</field>
       <field name="description">Financial Income [75]</field>
       <field name="expression">-(-fr221 -fr222 -fr223)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
@@ -207,7 +189,6 @@
       <field name="name">fr221</field>
       <field name="description">Income from Financial Fixed Assets [750]</field>
       <field name="expression">-balp[750%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -218,7 +199,6 @@
       <field name="name">fr222</field>
       <field name="description">Income from Current Assets [751]</field>
       <field name="expression">-balp[751%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -229,7 +209,6 @@
       <field name="name">fr223</field>
       <field name="description">Other Financial Income [752/9]</field>
       <field name="expression">-balp[752%,753%,754%,755%,756%,757%,758%,759%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -240,7 +219,6 @@
       <field name="name">fr224</field>
       <field name="description">Financial Charges [65]</field>
       <field name="expression">+fr225 +fr226 +fr227</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
@@ -251,7 +229,6 @@
       <field name="name">fr225</field>
       <field name="description">Debt Charges [650]</field>
       <field name="expression">balp[650%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -262,7 +239,6 @@
       <field name="name">fr226</field>
       <field name="description">Amounts Written Off on other than Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [651]</field>
       <field name="expression">balp[651%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -273,7 +249,6 @@
       <field name="name">fr227</field>
       <field name="description">Other Financial Charges [652/9]</field>
       <field name="expression">balp[652%,653%,654%,655%,656%,657%,658%,659%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -284,7 +259,6 @@
       <field name="name">fr202</field>
       <field name="description">Profit (Loss) from Normal Operations before Taxation [9902]</field>
       <field name="expression">-(-fr203 -fr220 +fr224)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2i"/>
@@ -295,7 +269,6 @@
       <field name="name">fr228</field>
       <field name="description">Extraordinary Income [76]</field>
       <field name="expression">-(-fr229 -fr230 -fr231 -fr232 -fr233)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
@@ -306,7 +279,6 @@
       <field name="name">fr229</field>
       <field name="description">Adjustment to Depreciation and Write Off on Intangible and Tangible Assets [760]</field>
       <field name="expression">-balp[760%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -317,7 +289,6 @@
       <field name="name">fr230</field>
       <field name="description">Adjustment to Amounts Written Off on Financial Fixed Assets [761]</field>
       <field name="expression">-balp[761%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -328,7 +299,6 @@
       <field name="name">fr231</field>
       <field name="description">Adjustment to Provisions for Extraordinary Liabilities and Charges [762]</field>
       <field name="expression">-balp[762%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -339,7 +309,6 @@
       <field name="name">fr232</field>
       <field name="description">Gain on Disposal of Fixed Assets [763]</field>
       <field name="expression">-balp[763%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -350,7 +319,6 @@
       <field name="name">fr233</field>
       <field name="description">Other Extraordinary Income [764/9]</field>
       <field name="expression">-balp[764%,765%,766%,767%,768%,769%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -361,7 +329,6 @@
       <field name="name">fr234</field>
       <field name="description">Extraordinary Charges [66]</field>
       <field name="expression">+fr235 +fr236 +fr237 +fr238 +fr239 +fr240</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
@@ -372,7 +339,6 @@
       <field name="name">fr235</field>
       <field name="description">Extraordinary Depreciation and Amounts Written Off on Formation Expenses, Intangible and Tangible Assets [660]</field>
       <field name="expression">balp[660%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -383,7 +349,6 @@
       <field name="name">fr236</field>
       <field name="description">Amounts Written Off on Financial Fixed Assets [661]</field>
       <field name="expression">balp[661%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -394,7 +359,6 @@
       <field name="name">fr237</field>
       <field name="description">Provisions for Extraordinary Liabilities and Charges [662]</field>
       <field name="expression">balp[662%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -405,7 +369,6 @@
       <field name="name">fr238</field>
       <field name="description">Loss on Disposal of Fixed Assets [663]</field>
       <field name="expression">balp[663%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -416,7 +379,6 @@
       <field name="name">fr239</field>
       <field name="description">Other Extraordinary Charges [664/668]</field>
       <field name="expression">balp[664%,665%,666%,667%,668%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -427,7 +389,6 @@
       <field name="name">fr240</field>
       <field name="description">Restructuring Charges activated as Extraordinary Charges [669]</field>
       <field name="expression">balp[669%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -438,7 +399,6 @@
       <field name="name">fr201</field>
       <field name="description">Fiscal Year Profit (Loss) before Taxation [9903]</field>
       <field name="expression">-(-fr202 -fr228 +fr234)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2i"/>
@@ -449,7 +409,6 @@
       <field name="name">fr241</field>
       <field name="description">Transfer from Deferred Taxes [780]</field>
       <field name="expression">-balp[780%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -460,7 +419,6 @@
       <field name="name">fr242</field>
       <field name="description">Transfer to Deferred Taxes [680]</field>
       <field name="expression">balp[680%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -471,7 +429,6 @@
       <field name="name">fr243</field>
       <field name="description">Income Taxes [67/77]</field>
       <field name="expression">+fr244 -fr245</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -482,7 +439,6 @@
       <field name="name">fr244</field>
       <field name="description">Income Taxes [670/3]</field>
       <field name="expression">balp[670%,671%,672%,673%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
@@ -493,7 +449,6 @@
       <field name="name">fr245</field>
       <field name="description">Adjustment of Income Taxes and Provisions for Taxes [77]</field>
       <field name="expression">-balp[77%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
@@ -504,7 +459,6 @@
       <field name="name">fr200</field>
       <field name="description">Fiscal Year Profit (Loss) [9904]</field>
       <field name="expression">-(-fr201 -fr241 +fr242 +fr243)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2i"/>
@@ -515,7 +469,6 @@
       <field name="name">fr246</field>
       <field name="description">Transfer from Untaxed Reserves [789]</field>
       <field name="expression">-balp[789%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -526,7 +479,6 @@
       <field name="name">fr247</field>
       <field name="description">Transfer to Untaxed Reserves [689]</field>
       <field name="expression">balp[689%]</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -537,7 +489,6 @@
       <field name="name">fr199</field>
       <field name="description">Fiscal Year Profit (Loss) to be allocated [9905]</field>
       <field name="expression">-(-fr200 -fr246 +fr247)</field>
-      <field name="suffix">€</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_1"/>
