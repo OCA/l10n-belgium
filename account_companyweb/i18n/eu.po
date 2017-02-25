@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 02:23+0000\n"
-"PO-Revision-Date: 2016-12-27 08:26+0000\n"
+"POT-Creation-Date: 2017-02-04 02:35+0000\n"
+"PO-Revision-Date: 2017-02-23 15:58+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Basque (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 #: field:account.companyweb.wizard,street:0
 msgid "Address"
-msgstr ""
+msgstr "Helbidea"
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
@@ -46,13 +46,13 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,city:0
 msgid "City"
-msgstr ""
+msgstr "Hiria"
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Close"
-msgstr ""
+msgstr "Itxi"
 
 #. module: account_companyweb
 #: model:ir.ui.menu,name:account_companyweb.menu_account_companyweb_config_settings
@@ -208,7 +208,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,month:0
 msgid "Month"
-msgstr ""
+msgstr "Hilabete"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,name:0
@@ -218,7 +218,7 @@ msgstr "Izena"
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Kidea"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0
@@ -273,7 +273,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,year:0
 msgid "Year"
-msgstr ""
+msgstr "Urtea"
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
