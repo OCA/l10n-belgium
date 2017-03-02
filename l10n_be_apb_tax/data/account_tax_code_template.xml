@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="tax_tag_apbtax" model="account.account.tag">
+            <field name="name">APB Taxes</field>
+        </record>
+
+    </data>
+</openerp>
