@@ -16,6 +16,9 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 10.0.1.0.0 | MIS Builder templates for the Belgium P&L and Balance Sheets
+[l10n_be_antibiotic_tax](l10n_be_antibiotic_tax) | 10.0.1.0.0 | Data module to support antibiotics taxes
+[l10b_be_apb_tax](l10n_be_apb_tax) | 10.0.1.0.0 | Data module to support APB taxes
+[l10b_be_eco_tax](l10n_be_eco_tax) | 10.0.1.0.0 | Data module to support BEBAT and RECUPEL taxes
 
 
 Unported addons
