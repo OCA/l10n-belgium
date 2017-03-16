@@ -25,7 +25,7 @@
     "summary": "Data module to support APB taxes",
     "version": "10.0.1.0.0",
     "author": "BCIM sprl, "
-              "Sylvain Van Hoof, "
+              "Okia, "
               "Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://odoo-community.org",
