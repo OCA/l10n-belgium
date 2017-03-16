@@ -26,7 +26,7 @@
     "version": "10.0.1.0.0",
     "author": "ACSONE SA/NV,"
               "BCIM sprl, "
-              "Sylvain Van Hoof, "
+              "Okia, "
               "Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://odoo-community.org",
