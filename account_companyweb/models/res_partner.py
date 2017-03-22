@@ -1,38 +1,18 @@
 # -*- coding: utf-8 -*-
-#
-##############################################################################
-#
-#    Author: Adrien Peiffer
-#    Contributor: Jacques-Etienne Baudoux <je@bcim.be> BCIM sprl
-#    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-#    Copyright (c) 2015 BCIM sprl (http://www.bcim.be)
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
+# Copyright (c) 2015-2017 BCIM sprl (http://www.bcim.be)
 
 import logging
 
 from openerp import models, fields, api, _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 from . import companyweb_rest
 
 logger = logging.getLogger(__name__)
 
 
-class res_partner(models.Model):
+class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     # prefix fields by "CompanyWeb" to allow easy identification in export
@@ -112,7 +92,7 @@ class res_partner(models.Model):
                 int(vat_number)
                 # IMP: call check vat number before
             except ValueError:
-                raise Warning(_("This company has no VAT number"))
+                raise UserError(_("This company has no VAT number"))
             values = self._companyweb_information(vat_number)
             if force_update:
                 values.update(self._companyweb_values_to_update(values))
@@ -121,7 +101,7 @@ class res_partner(models.Model):
             self.write(values)
             return
 
-        raise Warning(_("Companyweb is only available for companies with a "
+        raise UserError(_("Companyweb is only available for companies with a "
                         "Belgian VAT number"))
 
     def _companyweb_values_to_update(self, record):

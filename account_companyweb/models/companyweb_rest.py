@@ -30,7 +30,7 @@ from lxml import etree
 
 import openerp
 from openerp import tools, _
-from openerp.exceptions import Warning, except_orm
+from openerp.exceptions import Warning as UserError, except_orm
 
 logger = logging.getLogger(__name__)
 
@@ -173,7 +173,7 @@ def companyweb_getcompanydata(**params):
     tree = _execute_request(base_url, 'Companies', **params)
 
     if tree.xpath("/Companies")[0].get("Count") == "0":
-        raise Warning(_("VAT number of this company is not known in the "
+        raise UserError(_("VAT number of this company is not known in the "
                         "Companyweb database"))
 
     firm = tree.xpath("/Companies/firm")
@@ -214,7 +214,7 @@ def companyweb_get_last_change(**params):
     tree = _execute_request(base_url, 'Companies', **params)
 
     if tree.xpath("/Companies")[0].get("Count") == "0":
-        raise Warning(_("VAT number of this company is not known in the "
+        raise UserError(_("VAT number of this company is not known in the "
                         "Companyweb database"))
 
     firm = tree.xpath("/Companies/firm")

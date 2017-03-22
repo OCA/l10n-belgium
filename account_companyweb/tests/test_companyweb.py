@@ -51,7 +51,7 @@ def load_data(cr, module_name, fp, idref=None, mode='init',
     convert_xml_import(cr, module_name, fp, idref, mode, noupdate, report)
 
 
-class companyweb_test(common.TransactionCase):
+class CompanywebTest(common.TransactionCase):
 
     def create_invoice(self, partner_id, date, amount):
 
@@ -183,7 +183,7 @@ class companyweb_test(common.TransactionCase):
         return xlrd.open_workbook(file_path)
 
     def setUp(self):
-        super(companyweb_test, self).setUp()
+        super(CompanywebTest, self).setUp()
         company_id = self.ref('base.main_company')
         company_model = self.registry('res.company')
         company_model.write(

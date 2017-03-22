@@ -17,6 +17,7 @@ Main Features
   credit limit, health barometer, financial informations
   such as turnover or equity capital, and more.
 * Fetch or update name, address and credit limit of your customers.
+* Follow a list of customers and automatically receive updates.
 * Generate reports about payment habits of your customers.
 * Access to detailed company information on www.companyweb.be.
 
@@ -63,6 +64,7 @@ Credits
 Contributors
 ------------
 * Jacques-Etienne Baudoux <je@bcim.be> (BCIM sprl)
+* Sylvain Van Hoof <sylvain@okia.be>
 * Stéphane Bidoul <stephane.bidoul@acsone.eu>
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
 

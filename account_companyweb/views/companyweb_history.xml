@@ -63,6 +63,6 @@
 
         <menuitem id="main_menu_companyweb" name="Companyweb" parent="base.menu_administration" sequence="6"/>
         <menuitem id="menu_companyweb_history" name="History"
-			parent="main_menu_companyweb" action="action_companyweb_history" sequence="5"/>
+            parent="main_menu_companyweb" action="action_companyweb_history" sequence="5"/>
     </data>
 </openerp>

@@ -1,26 +1,9 @@
 # -*- coding: utf-8 -*-
-#
-##############################################################################
-#
-#    Authors: Adrien Peiffer
-#    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
+# Copyright (c) 2015-2017 BCIM sprl (http://www.bcim.be)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp.osv import fields, orm
+from openerp import fields, models
 from openerp import SUPERUSER_ID
 
 
@@ -30,14 +13,12 @@ _parameters = {
 }
 
 
-class account_companyweb_config_settings(orm.TransientModel):
+class AccountCompanywebConfigSettings(models.TransientModel):
     _name = 'account.companyweb.config.settings'
     _inherit = 'res.config.settings'
 
-    _columns = {
-        'companyweb_login': fields.char('Login', 16),
-        'companyweb_pswd': fields.char('Password', 16),
-    }
+    companyweb_login = fields.Char('Login', 16),
+    companyweb_pswd = fields.Char('Password', 16),
 
     def init(self, cr, force=False):
         config_parameter_model = self.pool['ir.config_parameter']

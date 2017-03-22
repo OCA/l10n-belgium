@@ -1,24 +1,6 @@
 # -*- coding: utf-8 -*-
-#
-##############################################################################
-#
-#    Authors: Adrien Peiffer
-#    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from cStringIO import StringIO
 import base64
@@ -27,7 +9,9 @@ import calendar
 
 import xlwt
 
-from openerp.osv import fields, orm
+from openerp import fields, models, _
+from openerp.exceptions import Warning
+
 try:
     from openerp.addons.account_financial_report_webkit.report.open_invoices \
         import PartnersOpenInvoicesWebkit
@@ -42,7 +26,9 @@ except ImportError:
     pass
 
 
-class account_companyweb_report_wizard(orm.TransientModel):
+class account_companyweb_report_wizard(models.TransientModel):
+    _name = "account.companyweb.report.wizard"
+    _description = "Create Report for Companyweb"
 
     def _getListeOfMonth(self, cursor, user_id, context=None):
         Month = []
@@ -66,23 +52,18 @@ class account_companyweb_report_wizard(orm.TransientModel):
                       ('company_id', '=', company_id)], limit=1)
         return accounts and accounts[0] or False
 
-    _name = "account.companyweb.report.wizard"
-    _description = "Create Report for Companyweb"
-    _columns = {
-        'chart_account_id': fields.many2one(
-            'account.account', 'Chart of Account', required=True,
-            domain=[('parent_id', '=', False)]),
-        'month': fields.selection(_getListeOfMonth, 'Month', required=True),
-        'year': fields.selection(_getListeOfYear, 'Year', required=True),
-        'data': fields.binary('XLS', readonly=True),
-        'export_filename': fields.char('Export CSV Filename', size=128),
-    }
-
-    _defaults = {
-        'chart_account_id': _get_account,
-        'month': lambda *a: time.strftime('%m'),
-        'year': lambda *a: time.strftime('%Y'),
-    }
+    chart_account_id = fields.Many2one(
+       'account.account', 'Chart of Account', required=True,
+       domain=[('parent_id', '=', False)],
+       default=_get_account)
+    month = fields.Selection(
+        _getListeOfMonth, 'Month', required=True,
+        default=lambda *a: time.strftime('%m'))
+    year = fields.Selection(
+        _getListeOfYear, 'Year', required=True,
+        default=lambda *a: time.strftime('%Y'))
+    data = fields.Binary('XLS', readonly=True)
+    export_filename = fields.Char('Export CSV Filename', size=128)
 
     def create_createdSalesDocs(self, cr, uid, ids, context=None):
         if context is None:
@@ -214,7 +195,7 @@ class account_companyweb_report_wizard(orm.TransientModel):
             cr, uid, [('date_start', '<=', date_until),
                       ('date_stop', '>=', date_until)])
         if (len(fy_model.browse(cr, uid, fy_ids)) == 0):
-            raise orm.except_orm('No fiscal year ' + this.year + ' found', '')
+            raise Warning(_('No fiscal year %s found') % this.year)
         else:
             fy = fy_model.browse(cr, uid, fy_ids)[0]
 

@@ -1,27 +1,8 @@
 # -*- coding: utf-8 -*-
-#
-##############################################################################
-#
-#    Author: Adrien Peiffer
-#    Contributor: Jacques-Etienne Baudoux <je@bcim.be> BCIM sprl
-#    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
-#    Copyright (c) 2015 BCIM sprl (http://www.bcim.be)
-#    Copyright (c) 2017 Okia SPRL (https://okia.be)
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (c) 2015-2017 BCIM sprl (http://www.bcim.be)
+# Copyright (c) 2017 Okia SPRL (https://okia.be)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from datetime import datetime
 import logging
 
@@ -110,7 +91,8 @@ class CompanywebHistory(models.Model):
         missing_partners = []
         duplicate_partners = []
         for vat in vats:
-            partner = self.env['res.partner'].search([('vat', 'ilike', 'BE' + vat)])
+            partner = self.env['res.partner'].search(
+                [('vat', 'ilike', 'BE' + vat)])
             if not partner:
                 missing_partners.append(vat)
                 continue
