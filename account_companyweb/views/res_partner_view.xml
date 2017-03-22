@@ -9,6 +9,11 @@
                 <field name="name" position="after">
                     <button name="button_cweb_fetch" type="object" class="oe_link" icon="/account_companyweb/static/src/img/cweb-logo.png" string="fetch data from companyweb" style="position:relative;height:15px;top:-8px;font-style:italic" help="You can enter vat number (prefixed by BE) instead of name. This will override data from collected data from companyweb"/>
                 </field>
+                <xpath expr="//h1" position="after">
+                    <field name="cweb_follow_customer" invisible="1" />
+                    <span attrs="{'invisible': [('cweb_follow_customer', '=', True)]}"><i class="fa fa-times" aria-hidden="true"></i> Not followed on Companyweb</span>
+                    <span attrs="{'invisible': [('cweb_follow_customer', '=', False)]}"><i class="fa fa-check" aria-hidden="true"></i> Followed on Companyweb</span>
+                </xpath>
                 <xpath expr="//page[@name='accounting']" position="after">
                     <page string="CompanyWeb" attrs="{'invisible': ['|','|',('vat','&lt;','BE'),('vat','>=','BF'),('vat','=',False)]}">
                         <group col="5">

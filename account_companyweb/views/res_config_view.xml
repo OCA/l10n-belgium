@@ -29,8 +29,9 @@
 			<field name="target">inline</field>
 		</record>
 
-		<menuitem id="menu_account_companyweb_config_settings" name="Companyweb"
-			parent="base.menu_config" action="account_companyweb_config_settings" />
+
+		<menuitem id="menu_account_companyweb_config_settings" name="Configure"
+			parent="main_menu_companyweb" action="account_companyweb_config_settings" sequence="10"/>
 
 	</data>
 </openerp>

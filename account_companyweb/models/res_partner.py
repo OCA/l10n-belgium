@@ -27,7 +27,7 @@ import logging
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
-from .companyweb_rest import companyweb_getcompanydata
+from . import companyweb_rest
 
 logger = logging.getLogger(__name__)
 
@@ -65,12 +65,12 @@ class res_partner(models.Model):
     cweb_employees = fields.Float('CompanyWeb Number of Employees',
                                   readonly=True)
     cweb_prefLang = fields.Char('CompanyWeb Preferred Language', readonly=True)
+    cweb_follow_customer = fields.Boolean('CompanyWeb follow customer',
+                                          readonly=True)
 
     def _companyweb_information(self, vat_number):
-        login = self.pool['ir.config_parameter'].get_param(
-            self._cr, self._uid, 'companyweb.login', False)
-        pswd = self.pool['ir.config_parameter'].get_param(
-            self._cr, self._uid, 'companyweb.pswd', False)
+        login = self.env['ir.config_parameter'].get_param('companyweb.login')
+        pswd = self.env['ir.config_parameter'].get_param('companyweb.pswd')
 
         params = {
             'login': login,
@@ -83,7 +83,7 @@ class res_partner(models.Model):
         elif self._context.get('lang', '').startswith('nl'):
             params['lang'] = 2
 
-        data = companyweb_getcompanydata(**params)
+        data = companyweb_rest.companyweb_getcompanydata(**params)
 
         values = {'cweb_lastupdate': fields.Datetime.now()}
         for k, v in data.iteritems():
@@ -93,11 +93,11 @@ class res_partner(models.Model):
         return values
 
     @api.one
-    def button_cweb_fetch(self, force_update=True):
+    def button_cweb_fetch(self):
         self._cweb_refresh(force_update=True)
 
     @api.one
-    def button_cweb_refresh(self, force_update=False):
+    def button_cweb_refresh(self):
         self._cweb_refresh(force_update=False)
 
     @api.one
@@ -161,3 +161,27 @@ class res_partner(models.Model):
     def button_cweb_apply(self):
         self.write(self._companyweb_values_to_update(
             self.read(load='_classic_write')[0]))
+
+    @api.multi
+    def add_customer_to_companyvat(self):
+        """
+        Add new customers to Companyweb followers.
+        :return:
+        """
+        login = self.env['ir.config_parameter'].get_param('companyweb.login')
+        pswd = self.env['ir.config_parameter'].get_param('companyweb.pswd')
+
+        for customer in self:
+            if not customer.vat:
+                continue
+
+            params = {
+                'login': login,
+                'pswd': pswd,
+                'vat': customer.vat,
+            }
+
+            companyweb_rest.companyweb_add_vat(**params)
+
+        # Set the flag "CompanyWeb follow customer"
+        self.write({'cweb_follow_customer': True})

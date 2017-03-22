@@ -5,6 +5,7 @@
 #    Authors: Adrien Peiffer
 #    Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
 #    Copyright (c) 2015 BCIM sprl (http://www.bcim.be)
+#    Copyright (c) 2017 Okia SPRL (https://okia.be)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -57,6 +58,7 @@ Main Features
   based on their VAT number: name, address,
   credit limit, health barometer, financial informations
   such as turnover or equity capital, and more.
+* Automatically follow a list of customers
 * Update address and credit limit in your OpenERP database.
 * Generate reports about payment habits of your customers.
 * Access to detailed company information on www.companyweb.be.
@@ -70,11 +72,15 @@ Contributors
 ------------
 * Stéphane Bidoul <stephane.bidoul@acsone.eu>
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
+* Jacques-Etienne Baudoux <je@bcim.be>
+* Sylvain Van Hoof <sylvain@okia.be>
 """,
     "data": [
+        "views/companyweb_history.xml",
         "views/res_config_view.xml",
         "views/res_partner_view.xml",
         "wizard/partner_update_companyweb.xml",
+        "wizard/companyweb_follow_customer.xml",
     ],
     "demo": [],
     "license": "AGPL-3",
