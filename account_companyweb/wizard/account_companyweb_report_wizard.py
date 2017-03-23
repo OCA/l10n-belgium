@@ -10,7 +10,7 @@ import calendar
 import xlwt
 
 from openerp import fields, models, _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 try:
     from openerp.addons.account_financial_report_webkit.report.open_invoices \
@@ -195,7 +195,7 @@ class account_companyweb_report_wizard(models.TransientModel):
             cr, uid, [('date_start', '<=', date_until),
                       ('date_stop', '>=', date_until)])
         if (len(fy_model.browse(cr, uid, fy_ids)) == 0):
-            raise Warning(_('No fiscal year %s found') % this.year)
+            raise UserError(_('No fiscal year %s found') % this.year)
         else:
             fy = fy_model.browse(cr, uid, fy_ids)[0]
 

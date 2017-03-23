@@ -10,5 +10,5 @@ class AccountCompanywebConfigSettings(models.TransientModel):
     _name = 'account.companyweb.config.settings'
     _inherit = 'res.config.settings'
 
-    companyweb_login = fields.Char('Login', 16)
-    companyweb_pswd = fields.Char('Password', 16)
+    companyweb_login = fields.Char('Login', size=16)
+    companyweb_pswd = fields.Char('Password', size=16)
