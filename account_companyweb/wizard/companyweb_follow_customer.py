@@ -25,7 +25,7 @@ class CompanywebFollowCustomer(models.TransientModel):
         partners = partner_env.search(
             [('is_company', '=', True),
              ('id', 'in', record_ids),
-             ('vat', '!=', False),
+             ('vat', 'ilike', 'be%'),
              ('cweb_follow_customer', '=', False)])
 
         count_ignored = len(record_ids) - len(partners)
@@ -46,7 +46,7 @@ class CompanywebFollowCustomer(models.TransientModel):
         partners = partner_env.search(
             [('is_company', '=', True),
              ('id', 'in', record_ids),
-             ('vat', '!=', False),
+             ('vat', 'ilike', 'be%'),
              ('cweb_follow_customer', '=', False)])
 
         if not partners:
