@@ -17,8 +17,8 @@ class AccountCompanywebConfigSettings(models.TransientModel):
     _name = 'account.companyweb.config.settings'
     _inherit = 'res.config.settings'
 
-    companyweb_login = fields.Char('Login', 16),
-    companyweb_pswd = fields.Char('Password', 16),
+    companyweb_login = fields.Char('Login', 16)
+    companyweb_pswd = fields.Char('Password', 16)
 
     def init(self, cr, force=False):
         config_parameter_model = self.pool['ir.config_parameter']
