@@ -10,6 +10,7 @@ These modules complement the official l10n_be.
 
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
