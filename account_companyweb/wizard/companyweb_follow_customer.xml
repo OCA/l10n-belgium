@@ -6,11 +6,11 @@
             <field name="model">companyweb.follow.customer</field>
             <field name="arch" type="xml">
                 <form string="Follow customers">
-                    <p>You will add these customers to yours Companyweb followers. Don't forget that it'll automatically consume more credit.</p>
+                    <p>You will add these customers to yours Companyweb followers.</p>
                     <p>Customers already followed will be ignored.</p>
                     <ul>
                         <li>
-                            <strong><field name="count" class="oe_inline" /> customers</strong> will be add <span attrs="{'invisible': [('count_ignored', '=', 0)]}"> (<field name="count_ignored" class="oe_inline" /> ignored).</span>
+                            <strong><field name="count" class="oe_inline" /> customers</strong> will be added <span attrs="{'invisible': [('count_ignored', '=', 0)]}"> (<field name="count_ignored" class="oe_inline" /> ignored).</span>
                         </li>
                     </ul>
                     <footer>
