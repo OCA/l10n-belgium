@@ -28,6 +28,7 @@
         "views/res_partner_view.xml",
         "wizard/partner_update_companyweb.xml",
         "wizard/companyweb_follow_customer.xml",
+        "data/cron_fetch_new_modification.xml",
     ],
     "demo": [],
     "license": "AGPL-3",

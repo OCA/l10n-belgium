@@ -193,7 +193,7 @@ def companyweb_get_summary(**params):
             'nbr': modification.get('aantal')
         })
 
-    return  results
+    return results
 
 
 def companyweb_get_allchange(**params):

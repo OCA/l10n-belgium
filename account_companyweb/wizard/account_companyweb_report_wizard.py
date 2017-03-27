@@ -9,8 +9,8 @@ import calendar
 
 import xlwt
 
-from openerp import fields, models, _
-from openerp.exceptions import Warning
+from openerp import fields, models, api, _
+from openerp.exceptions import Warning as UserError
 
 try:
     from openerp.addons.account_financial_report_webkit.report.open_invoices \
@@ -26,49 +26,54 @@ except ImportError:
     pass
 
 
-class account_companyweb_report_wizard(models.TransientModel):
+class AccountCompanywebReportWizard(models.TransientModel):
     _name = "account.companyweb.report.wizard"
     _description = "Create Report for Companyweb"
 
-    def _getListeOfMonth(self, cursor, user_id, context=None):
+    def _get_account(self):
+        company_id = self.pool['res.company']._company_default_get(
+            self._cr, self._uid,
+            object='account.account', field='company_id',
+            context=self._context)
+        accounts = self.env['account.account'].search([
+            ('parent_id', '=', False),
+            ('company_id', '=', company_id)],
+            limit=1)
+        return accounts
+
+    chart_account_id = fields.Many2one(
+        'account.account', 'Chart of Account', required=True,
+        domain=[('parent_id', '=', False)],
+        default=_get_account)
+
+    @api.model
+    def _getListeOfMonth(self):
         Month = []
         for i in range(1, 13):
             Month.append((str(i).zfill(2), str(i).zfill(2)))
         return Month
 
-    def _getListeOfYear(self, cursor, user_id, context=None):
+    month = fields.Selection(
+        '_getListeOfMonth', 'Month', required=True,
+        default=lambda *a: time.strftime('%m'))
+
+    @api.model
+    def _getListeOfYear(self):
         Year = []
         for i in range(int(time.strftime('%Y', time.localtime())) - 1,
                        int(time.strftime('%Y', time.localtime())) + 1):
             Year.append((str(i), str(i)))
         return Year
 
-    def _get_account(self, cr, uid, context=None):
-        company_id = self.pool['res.company']\
-            ._company_default_get(cr, uid, object='account.account',
-                                  field='company_id', context=context)
-        accounts = self.pool['account.account'].search(
-            cr, uid, [('parent_id', '=', False),
-                      ('company_id', '=', company_id)], limit=1)
-        return accounts and accounts[0] or False
-
-    chart_account_id = fields.Many2one(
-       'account.account', 'Chart of Account', required=True,
-       domain=[('parent_id', '=', False)],
-       default=_get_account)
-    month = fields.Selection(
-        _getListeOfMonth, 'Month', required=True,
-        default=lambda *a: time.strftime('%m'))
     year = fields.Selection(
-        _getListeOfYear, 'Year', required=True,
+        '_getListeOfYear', 'Year', required=True,
         default=lambda *a: time.strftime('%Y'))
     data = fields.Binary('XLS', readonly=True)
     export_filename = fields.Char('Export CSV Filename', size=128)
 
-    def create_createdSalesDocs(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        this = self.browse(cr, uid, ids)[0]
+    @api.multi
+    def create_createdSalesDocs(self):
+        this = self[0]
 
         wbk = xlwt.Workbook()
 
@@ -92,7 +97,7 @@ class account_companyweb_report_wizard(models.TransientModel):
         sheet1.write(pos, 10, "YEAR")
         sheet1.write(pos, 11, "REPORTDATE")
 
-        r = PartnersOpenInvoicesWebkit(cr, uid, "name", {})
+        r = PartnersOpenInvoicesWebkit(self._cr, self._uid, "name", {})
         account_ids = r.get_all_accounts(
             this.chart_account_id.id, exclude_type=['view'],
             only_type=['receivable'])
@@ -100,20 +105,17 @@ class account_companyweb_report_wizard(models.TransientModel):
         maxDayOfMonth = calendar.monthrange(int(this.year), int(this.month))[1]
         maxDayOfMonth = str(maxDayOfMonth)
 
-        move_line_model = self.pool["account.move.line"]
+        move_line_model = self.env["account.move.line"]
 
-        move_line_ids = move_line_model.search(
-            cr, uid,
+        move_lines = move_line_model.search(
             [('account_id.id', 'in', account_ids),
              ('journal_id.type', 'in', ('sale', 'sale_refund')),
              ('date', '>=', this.year + '-' + this.month + '-01'),
              ('date', '<=', this.year + '-' + this.month + '-' + maxDayOfMonth)
-             ],
-            context=context)
+             ])
 
         pos += 1
-        for element in move_line_model.browse(cr, uid, move_line_ids,
-                                              context=context):
+        for element in move_lines:
             sheet1.write(pos, 0, element.company_id.vat)
             sheet1.write(pos, 1, element.period_id.name)
             sheet1.write(pos, 2, element.journal_id.name)
@@ -139,10 +141,8 @@ class account_companyweb_report_wizard(models.TransientModel):
 
         filename = (this.chart_account_id.company_id.vat or '') + \
             '_' + this.year + this.month + '.xls'
-        self.write(cr, uid, ids,
-                   {'data': out,
-                    'export_filename': 'CreatedSalesDocs_' + filename},
-                   context=context)
+        self.write({'data': out,
+                    'export_filename': 'CreatedSalesDocs_' + filename})
 
         return {
             'name': 'Companyweb Report',
@@ -155,10 +155,9 @@ class account_companyweb_report_wizard(models.TransientModel):
             'target': 'new',
         }
 
-    def create_openSalesDocs(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        this = self.browse(cr, uid, ids)[0]
+    @api.multi
+    def create_openSalesDocs(self):
+        this = self[0]
 
         wbk = xlwt.Workbook()
         sheet1 = wbk.add_sheet('openSalesDocs')
@@ -185,19 +184,18 @@ class account_companyweb_report_wizard(models.TransientModel):
         maxDayOfMonth = calendar.monthrange(int(this.year), int(this.month))[1]
         maxDayOfMonth = str(maxDayOfMonth)
 
-        fy_model = self.pool['account.fiscalyear']
-        move_line_model = self.pool['account.move.line']
+        fy_model = self.env['account.fiscalyear']
+        move_line_model = self.env['account.move.line']
 
-        r = PartnersOpenInvoicesWebkit(cr, uid, "name", {})
+        r = PartnersOpenInvoicesWebkit(self._cr, self._uid, "name", {})
 
         date_until = this.year + '-' + this.month + '-' + maxDayOfMonth
-        fy_ids = fy_model.search(
-            cr, uid, [('date_start', '<=', date_until),
-                      ('date_stop', '>=', date_until)])
-        if (len(fy_model.browse(cr, uid, fy_ids)) == 0):
-            raise Warning(_('No fiscal year %s found') % this.year)
-        else:
-            fy = fy_model.browse(cr, uid, fy_ids)[0]
+        fys = fy_model.search([
+            ('date_start', '<=', date_until),
+            ('date_stop', '>=', date_until)])
+        if (not len(fys)):
+            raise UserError(_('No fiscal year %s found') % this.year)
+        fy = fys[0]
 
         start_period = r.get_first_fiscalyear_period(fy)
 
@@ -226,43 +224,34 @@ class account_companyweb_report_wizard(models.TransientModel):
             for data in mids:
                 move_line_ids.extend(data)
 
-        move_line_sales_refund_ids = move_line_model.search(
-            cr, uid, [('id', 'in', move_line_ids),
-                      ('journal_id.type', 'in', ('sale', 'sale_refund'))])
+        move_line_sales_refunds = move_line_model.search([
+            ('id', 'in', move_line_ids),
+            ('journal_id.type', 'in', ('sale', 'sale_refund'))])
 
         pos += 1
-        for element in move_line_model.browse(cr, uid,
-                                              move_line_sales_refund_ids):
+        for element in move_line_sales_refunds:
             amount_residual = element.debit - element.credit
             if element.reconcile_id.id or element.reconcile_partial_id.id:
                 if element.reconcile_id.id:
-                    move_line_ids_reconcile = move_line_model.search(
-                        cr, uid,
+                    move_lines = move_line_model.search(
                         [('reconcile_id', '=', element.reconcile_id.id),
                          ('id', '!=', element.id),
-                         ('id', 'in', move_line_ids)],
-                        context=context)
+                         ('id', 'in', move_line_ids)])
                 else:
                     partial_id = element.reconcile_partial_id.id
-                    move_line_ids_reconcile = move_line_model.search(
-                        cr, uid,
+                    move_lines = move_line_model.search(
                         [('reconcile_partial_id', '=', partial_id),
                          ('id', '!=', element.id),
-                         ('id', 'in', move_line_ids)],
-                        context=context)
-                move_lines = move_line_model.browse(
-                    cr, uid, move_line_ids_reconcile, context=context)
+                         ('id', 'in', move_line_ids)])
                 for move_line_reconcile in move_lines:
                     amount_reconcile = move_line_reconcile.credit - \
                         move_line_reconcile.debit
                     amount_residual = amount_residual - amount_reconcile
 
             partner_credit = 0
-            move_line_partner_ids = move_line_model.search(
-                cr, uid, [('partner_id', '=', element.partner_id.id),
-                          ('id', 'in', move_line_ids)])
-            move_lines = move_line_model.browse(
-                cr, uid, move_line_partner_ids, context=context)
+            move_lines = move_line_model.search([
+                ('partner_id', '=', element.partner_id.id),
+                ('id', 'in', move_line_ids)])
             for move_line in move_lines:
                 partner_credit = partner_credit + \
                     (move_line.debit - move_line.credit)
@@ -298,8 +287,7 @@ class account_companyweb_report_wizard(models.TransientModel):
                    + \
                    this.month + \
                    '.xls'
-        self.write(cr, uid, ids,
-                   {'data': out, 'export_filename': filename}, context=context)
+        self.write({'data': out, 'export_filename': filename})
 
         return {
             'name': 'Companyweb Report',
