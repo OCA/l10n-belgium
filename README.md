@@ -19,6 +19,7 @@ addon | version | summary
 [l10n_be_apb_tax](l10n_be_apb_tax/) | 9.0.1.0.0 | Data module to support APB taxes
 [l10n_be_eco_tax](l10n_be_eco_tax/) | 9.0.1.0.0 | Data module to support BEBAT and RECUPEL taxes
 
+
 Unported addons
 ---------------
 addon | version | summary
