@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 ========================
-l10n_be Antibiotic Taxes
+Belgium Antibiotic Taxes
 ========================
 
 This is a data module which extends the l10n_be chart of taxes
