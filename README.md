@@ -18,6 +18,7 @@ addon | version | summary
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 10.0.1.0.0 | MIS Builder templates for the Belgium P&L and Balance Sheets
 
 
+
 Unported addons
 ---------------
 addon | version | summary

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="fiscal_position_template_wholesaler" model="account.fiscal.position.template">
+        <field name="name">Régime National (Grossiste sans APB)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+    </record>
+
+    <record id="afpttn_wholesaler_1" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fiscal_position_template_wholesaler"/>
+        <field name="tax_src_id" ref="apb_01_out"/>
+    </record>
+
+    <record id="afpttn_intracom" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="l10n_be.fiscal_position_template_3"/>
+        <field name="tax_src_id" ref="apb_01_out"/>
+    </record>
+
+    <record id="afpttn_extracom" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="l10n_be.fiscal_position_template_2"/>
+        <field name="tax_src_id" ref="apb_01_out"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="antibiotic_001_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.01 IN</field>
+        <field name="description">Contribution antibiotique (0.01)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.01</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_002_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.02 IN</field>
+        <field name="description">Contribution antibiotique (0.02)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.02</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_003_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.03 IN</field>
+        <field name="description">Contribution antibiotique (0.03)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.03</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_004_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.04 IN</field>
+        <field name="description">Contribution antibiotique (0.04)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.04</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_005_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.05 IN</field>
+        <field name="description">Contribution antibiotique (0.05)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.05</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_006_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.06 IN</field>
+        <field name="description">Contribution antibiotique (0.06)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.06</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_007_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.07 IN</field>
+        <field name="description">Contribution antibiotique (0.07)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.07</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_008_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.08 IN</field>
+        <field name="description">Contribution antibiotique (0.08)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.08</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_009_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.09 IN</field>
+        <field name="description">Contribution antibiotique (0.09)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.09</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_010_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.10 IN</field>
+        <field name="description">Contribution antibiotique (0.10)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.10</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_011_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.11 IN</field>
+        <field name="description">Contribution antibiotique (0.11)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.11</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_013_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.13 IN</field>
+        <field name="description">Contribution antibiotique (0.13)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.13</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_014_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.14 IN</field>
+        <field name="description">Contribution antibiotique (0.14)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.14</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_016_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.16 IN</field>
+        <field name="description">Contribution antibiotique (0.16)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.16</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_017_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.17 IN</field>
+        <field name="description">Contribution antibiotique (0.17)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.17</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_018_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.18 IN</field>
+        <field name="description">Contribution antibiotique (0.18)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.18</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_020_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.20 IN</field>
+        <field name="description">Contribution antibiotique (0.20)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.20</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_026_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.26 IN</field>
+        <field name="description">Contribution antibiotique (0.26)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.26</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_031_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.31 IN</field>
+        <field name="description">Contribution antibiotique (0.31)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.31</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_032_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.32 IN</field>
+        <field name="description">Contribution antibiotique (0.32)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.32</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_035_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.35 IN</field>
+        <field name="description">Contribution antibiotique (0.35)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.35</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_037_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.37 IN</field>
+        <field name="description">Contribution antibiotique (0.37)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.37</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_039_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.39 IN</field>
+        <field name="description">Contribution antibiotique (0.39)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.39</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_041_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.41 IN</field>
+        <field name="description">Contribution antibiotique (0.41)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.41</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_042_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.42 IN</field>
+        <field name="description">Contribution antibiotique (0.42)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.42</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_050_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.50 IN</field>
+        <field name="description">Contribution antibiotique (0.50)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.50</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_053_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.53 IN</field>
+        <field name="description">Contribution antibiotique (0.53)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.53</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_061_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.61 IN</field>
+        <field name="description">Contribution antibiotique (0.61)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.61</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_063_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.63 IN</field>
+        <field name="description">Contribution antibiotique (0.63)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.63</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_079_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.79 IN</field>
+        <field name="description">Contribution antibiotique (0.79)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.79</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_088_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.88 IN</field>
+        <field name="description">Contribution antibiotique (0.88)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.88</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_090_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.90 IN</field>
+        <field name="description">Contribution antibiotique (0.90)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.90</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_092_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 0.92 IN</field>
+        <field name="description">Contribution antibiotique (0.92)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.92</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_105_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 1.05 IN</field>
+        <field name="description">Contribution antibiotique (1.05)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">1.05</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_123_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 1.23 IN</field>
+        <field name="description">Contribution antibiotique (1.23)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">1.23</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_131_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 1.31 IN</field>
+        <field name="description">Contribution antibiotique (1.31)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">1.31</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_140_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 1.40 IN</field>
+        <field name="description">Contribution antibiotique (1.40)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">1.40</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_158_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 1.58 IN</field>
+        <field name="description">Contribution antibiotique (1.58)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">1.58</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_175_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 1.75 IN</field>
+        <field name="description">Contribution antibiotique (1.75)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">1.75</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_204_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 2.04 IN</field>
+        <field name="description">Contribution antibiotique (2.04)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">2.04</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+    <record id="antibiotic_263_in" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="name">ANTIBIO 2.63 IN</field>
+        <field name="description">Contribution antibiotique (2.63)</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">2.63</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="account_id" ref="antibiotic_expense_account"/>
+        <field name="refund_account_id" ref="antibiotic_expense_account"/>
+        <field name="include_base_amount" eval="1" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]"/>
+    </record>
+
+</odoo>

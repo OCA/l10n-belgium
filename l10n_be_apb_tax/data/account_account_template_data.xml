@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="apb_income_account" model="account.account.template">
+        <field name="name">APB Sale</field>
+        <field name="code">70095</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue" />
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template" />
+        <field name="tag_ids" eval="[(6,0,[ref('account.account_tag_operating')])]"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="apb_01_out" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="description">APB-OUT</field>
+        <field name="name">APB Out</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0.0224</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">sale</field>
+        <field name="account_id" ref="apb_income_account"/>
+        <field name="refund_account_id" ref="apb_income_account"/>
+        <field name="include_base_amount" eval="0" />
+        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_apbtax')])]"/>
+    </record>
+
+</odoo>
