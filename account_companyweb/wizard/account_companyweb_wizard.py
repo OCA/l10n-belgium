@@ -47,9 +47,10 @@ class account_companyweb_wizard(orm.TransientModel):
         'result': fields.float('Fiscal Year Profit/Loss (+/-)', readonly=True),
     }
 
-    def get_update_values(self, cr, uid, ids, wizard, context=None):
+    def get_update_values(self, cr, uid, ids, context=None):
         """ This method is designed to be inherited to add some field to
             update on res.partner"""
+        wizard = self.browse(cr, uid, ids)
         return {'name': wizard.name,
                 'is_company': True,
                 'street': wizard.street,
@@ -62,7 +63,7 @@ class account_companyweb_wizard(orm.TransientModel):
         res_partner_model = self.pool['res.partner']
         partner_id = context['active_id']
         this = self.browse(cr, uid, ids, context=context)[0]
-        update_values = self.get_update_values(cr, uid, ids, this,
+        update_values = self.get_update_values(cr, uid, ids,
                                                context=context)
         res_partner_model.write(cr, uid, [partner_id], update_values,
                                 context=context)

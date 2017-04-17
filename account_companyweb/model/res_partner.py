@@ -37,6 +37,8 @@ class res_partner(orm.Model):
     _inherit = 'res.partner'
 
     def companyweb_information(self, cr, uid, ids, vat_number, context=None):
+        if not context:
+            context = {}
         login = self.pool['ir.config_parameter'].get_param(
             cr, uid, 'companyweb.login', False)
         pswd = self.pool['ir.config_parameter'].get_param(
