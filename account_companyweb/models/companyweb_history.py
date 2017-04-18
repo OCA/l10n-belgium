@@ -92,7 +92,7 @@ class CompanywebHistory(models.Model):
         duplicate_partners = []
         for vat in vats:
             partner = self.env['res.partner'].search(
-                [('vat', 'ilike', 'BE' + vat)])
+                [('vat', 'ilike', 'BE0' + vat)])
             if not partner:
                 missing_partners.append(vat)
                 continue
