@@ -25,6 +25,7 @@ class CompanywebHistory(models.Model):
     nbr_of_customers = fields.Integer(string='Number of customers',
                                       compute='_compute_nbr_of_customers',
                                       readonly=True)
+    nbr_of_errors = fields.Integer('Number of errors', readonly=True)
     line_ids = fields.One2many('companyweb.history.line',
                                'history_id',
                                string='Lines',
@@ -92,7 +93,7 @@ class CompanywebHistory(models.Model):
         duplicate_partners = []
         for vat in vats:
             partner = self.env['res.partner'].search(
-                [('vat', 'ilike', 'BE0' + vat)])
+                [('vat', 'ilike', 'BE0' + vat), ('is_company', '=', True)])
             if not partner:
                 missing_partners.append(vat)
                 continue
@@ -121,17 +122,21 @@ class CompanywebHistory(models.Model):
                 'data': data,
             })
 
-        info = ''
+        info = []
+        nbr_of_errors = 0
         if missing_partners:
-            info += '\nSome customers were not found:\n{}'\
-                .format('\n'.join(missing_partners))
+            info += ['Some customers were not found:']
+            info += missing_partners
+            nbr_of_errors += len(missing_partners)
 
         if duplicate_partners:
-            info += '\nSome customers have the same vat number:\n{}' \
-                .format('\n'.join(missing_partners))
+            info += ['Some customers have the same vat number:']
+            info += duplicate_partners
+            nbr_of_errors += len(duplicate_partners)
 
         if info:
-            self.info = info
+            self.info = '\n'.join(info)
+            self.nbr_of_errors = nbr_of_errors
 
 
 class CompanywebHistoryLine(models.Model):

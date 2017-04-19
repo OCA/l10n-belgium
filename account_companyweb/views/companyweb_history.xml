@@ -10,6 +10,7 @@
                         <field name="create_date" string="Execution date"/>
                         <field name="date" />
                         <field name="nbr_of_customers" />
+                        <field name="nbr_of_errors" />
                         <field name="state" />
                     </group>
                     <separator for="info" string="Info" />
@@ -33,6 +34,7 @@
                     <field name="create_date" string="Execution date"/>
                     <field name="date" />
                     <field name="nbr_of_customers" />
+                    <field name="nbr_of_errors" />
                     <field name="state" />
                 </tree>
             </field>
