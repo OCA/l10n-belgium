@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-10 03:47+0000\n"
-"PO-Revision-Date: 2017-01-17 19:17+0000\n"
+"POT-Creation-Date: 2017-03-25 05:47+0000\n"
+"PO-Revision-Date: 2017-04-21 08:13+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -125,7 +125,7 @@ msgstr "Veure el nom"
 #. module: account_companyweb
 #: field:account.companyweb.wizard,endDate:0
 msgid "End date"
-msgstr ""
+msgstr "Data final "
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,equityCapital:0
@@ -203,7 +203,7 @@ msgstr "Darrera Actualització el"
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_login:0
 msgid "Login"
-msgstr ""
+msgstr "Entrada "
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,month:0
@@ -223,7 +223,7 @@ msgstr "Empresa"
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0
 msgid "Password"
-msgstr ""
+msgstr "Contrasenya "
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,zip:0
@@ -233,7 +233,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,startDate:0
 msgid "Start date"
-msgstr ""
+msgstr "Data d'inici "
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,vat_liable:0

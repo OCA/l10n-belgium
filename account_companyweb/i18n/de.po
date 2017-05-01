@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-25 03:15+0000\n"
-"PO-Revision-Date: 2017-03-10 13:16+0000\n"
+"POT-Creation-Date: 2017-03-25 05:47+0000\n"
+"PO-Revision-Date: 2017-04-19 11:44+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 #: field:account.companyweb.wizard,street:0
 msgid "Address"
-msgstr ""
+msgstr "Anschrift"
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
@@ -46,7 +46,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,city:0
 msgid "City"
-msgstr ""
+msgstr "Stadt"
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
@@ -253,7 +253,7 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Update"
-msgstr ""
+msgstr "Aktualisierung"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,vat_number:0
