@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 02:35+0000\n"
-"PO-Revision-Date: 2017-02-20 12:40+0000\n"
+"POT-Creation-Date: 2017-05-01 18:41+0000\n"
+"PO-Revision-Date: 2017-05-31 21:52+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -273,7 +273,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,year:0
 msgid "Year"
-msgstr ""
+msgstr "Año"
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
