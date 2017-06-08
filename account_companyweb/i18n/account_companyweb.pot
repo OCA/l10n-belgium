@@ -1,13 +1,13 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* account_companyweb
+#   * account_companyweb
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-03 12:27+0000\n"
-"PO-Revision-Date: 2014-04-03 12:27+0000\n"
+"POT-Creation-Date: 2015-07-03 11:52+0000\n"
+"PO-Revision-Date: 2015-07-03 11:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_companyweb
-#: view:account.companyweb.wizard:0
-#: field:account.companyweb.wizard,street:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Address"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.config.settings:0
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "Apply"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,balance_year:0
-msgid "Balance year"
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "Balance Year"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.config.settings:0
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+#: view:res.partner.cwebupdate:account_companyweb.update_cweb_form
 msgid "Cancel"
 msgstr ""
 
@@ -42,14 +42,108 @@ msgid "Chart of Account"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,city:0
-msgid "City"
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "CompanyWeb"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.report.wizard:0
-#: view:account.companyweb.wizard:0
-msgid "Close"
+#: field:res.partner,cweb_balance_year:0
+msgid "CompanyWeb Balance Year"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_city:0
+msgid "CompanyWeb City"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_creditLimit:0
+msgid "CompanyWeb Credit limit"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_url:0
+msgid "CompanyWeb Detailed Report"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_endDate:0
+msgid "CompanyWeb End date"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_equityCapital:0
+msgid "CompanyWeb Equity Capital"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_result:0
+msgid "CompanyWeb Fiscal Year Profit/Loss (+/-)"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_addedValue:0
+msgid "CompanyWeb Gross Margin (+/-)"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_image:0
+msgid "CompanyWeb Health barometer"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_jur_form:0
+msgid "CompanyWeb Juridical Form"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_lastupdate:0
+msgid "CompanyWeb Last update"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_name:0
+msgid "CompanyWeb Name"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_employees:0
+msgid "CompanyWeb Number of Employees"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_zip:0
+msgid "CompanyWeb Postal code"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_prefLang:0
+msgid "CompanyWeb Preferred Language"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_startDate:0
+msgid "CompanyWeb Start date"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_street:0
+msgid "CompanyWeb Street"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_vat_liable:0
+msgid "CompanyWeb Subject to VAT"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_turnover:0
+msgid "CompanyWeb Turnover"
+msgstr ""
+
+#. module: account_companyweb
+#: field:res.partner,cweb_warnings:0
+msgid "CompanyWeb Warnings"
 msgstr ""
 
 #. module: account_companyweb
@@ -58,57 +152,76 @@ msgid "Companyweb"
 msgstr ""
 
 #. module: account_companyweb
-#: model:ir.actions.act_window,name:account_companyweb.action_report
-#: model:ir.ui.menu,name:account_companyweb.companyweb_report_menu
-msgid "Companyweb Report"
+#: model:ir.actions.act_window,name:account_companyweb.action_cwebupdate
+#: model:ir.actions.act_window,name:account_companyweb.partner_cwebupdate_act
+msgid "Companyweb Refresh"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.config.settings:0
-msgid "Companyweb identification "
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+msgid "Companyweb identification"
 msgstr ""
 
 #. module: account_companyweb
-#: view:res.partner:0
-msgid "Companyweb..."
+#: code:addons/account_companyweb/model/res_partner.py:118
+#, python-format
+msgid "Companyweb is only available for companies with a Belgian VAT number"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.config.settings:0
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 #: model:ir.actions.act_window,name:account_companyweb.account_companyweb_config_settings
 msgid "Configure Companyweb"
 msgstr ""
 
 #. module: account_companyweb
-#: code:_description:0
+#: field:res.partner.cwebupdate,count:0
+msgid "Count"
+msgstr ""
+
+#. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_account_companyweb_report_wizard
-#, python-format
 msgid "Create Report for Companyweb"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,creditLimit:0
+#: field:account.companyweb.config.settings,create_uid:0
+#: field:account.companyweb.report.wizard,create_uid:0
+#: field:res.partner.cwebupdate,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,create_date:0
+#: field:account.companyweb.report.wizard,create_date:0
+#: field:res.partner.cwebupdate,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Credit limit"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.report.wizard:0
-msgid "Custom Report"
-msgstr ""
-
-#. module: account_companyweb
-#: field:account.companyweb.wizard,url:0
-msgid "Detailed Report"
-msgstr ""
-
-#. module: account_companyweb
-#: field:account.companyweb.wizard,endDate:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "End date"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,equityCapital:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Equity Capital"
+msgstr ""
+
+#. module: account_companyweb
+#: code:addons/account_companyweb/model/companyweb_rest.py:55
+#, python-format
+msgid "Error loading Companyweb data:\n"
+"%s.\n"
+"\n"
+"Please check your credentials in settings/configuration/Companyweb. Also ensure, XMLAccess is enabled for your companyweb account\n"
+"\n"
+"Login on www.companyweb.be with login 'cwacsone' and password 'demo' to obtain test credentials."
 msgstr ""
 
 #. module: account_companyweb
@@ -117,38 +230,49 @@ msgid "Export CSV Filename"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.wizard:0
+#: view:res.partner.cwebupdate:account_companyweb.update_cweb_form
+msgid "Fetch/Refresh data from Companyweb"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Financial results"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,result:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Fiscal Year Profit/Loss (+/-)"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.report.wizard:0
-msgid "Generate CreatedSalesDocs Report"
-msgstr ""
-
-#. module: account_companyweb
-#: view:account.companyweb.report.wizard:0
-msgid "Generate OpenSalesDocs Report"
-msgstr ""
-
-#. module: account_companyweb
-#: field:account.companyweb.wizard,addedValue:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Gross Margin (+/-)"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,image:0
-msgid "Health barometer"
+#: field:account.companyweb.config.settings,id:0
+#: field:account.companyweb.report.wizard,id:0
+#: field:res.partner.cwebupdate,id:0
+msgid "ID"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,jur_form:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Juridical Form"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,write_uid:0
+#: field:account.companyweb.report.wizard,write_uid:0
+#: field:res.partner.cwebupdate,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: account_companyweb
+#: field:account.companyweb.config.settings,write_date:0
+#: field:account.companyweb.report.wizard,write_date:0
+#: field:res.partner.cwebupdate,write_date:0
+msgid "Last Updated on"
 msgstr ""
 
 #. module: account_companyweb
@@ -162,14 +286,22 @@ msgid "Month"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,name:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Name"
 msgstr ""
 
 #. module: account_companyweb
-#: code:_description:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "Number of Employees"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "Override company data with those companyweb data"
+msgstr ""
+
+#. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
-#, python-format
 msgid "Partner"
 msgstr ""
 
@@ -179,43 +311,52 @@ msgid "Password"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,zip:0
-msgid "Postal code"
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "Preferred Language"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,startDate:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "Premium report"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Start date"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,vat_liable:0
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Subject to VAT"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.wizard:0
-msgid "Subject to VAT)"
+#: code:addons/account_companyweb/model/companyweb_rest.py:49
+#, python-format
+msgid "System error loading Companyweb data.\n"
+"Please retry and contact your system administrator if the error persists."
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,turnover:0
+#: code:addons/account_companyweb/model/res_partner.py:109
+#, python-format
+msgid "This company has no VAT number"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Turnover"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.wizard:0
+#: view:res.partner.cwebupdate:account_companyweb.update_cweb_form
 msgid "Update"
 msgstr ""
 
 #. module: account_companyweb
-#: field:account.companyweb.wizard,vat_number:0
-msgid "VAT number"
-msgstr ""
-
-#. module: account_companyweb
-#: field:account.companyweb.wizard,warnings:0
-msgid "Warnings"
+#: code:addons/account_companyweb/model/companyweb_rest.py:66
+#, python-format
+msgid "VAT number of this company is not known in the Companyweb database"
 msgstr ""
 
 #. module: account_companyweb
@@ -229,26 +370,37 @@ msgid "Year"
 msgstr ""
 
 #. module: account_companyweb
-#: code:_description:0
-#: model:ir.model,name:account_companyweb.model_account_companyweb_config_settings
-#, python-format
-msgid "account.companyweb.config.settings"
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "You can enter vat number (prefixed by BE) instead of name. This will override data from collected data from companyweb"
 msgstr ""
 
 #. module: account_companyweb
-#: code:_description:0
-#: model:ir.model,name:account_companyweb.model_account_companyweb_wizard
-#, python-format
-msgid "account.companyweb.wizard"
+#: view:res.partner.cwebupdate:account_companyweb.update_cweb_form
+msgid "Your companyweb credit will be consumed to update"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.config.settings:0
+#: view:res.partner.cwebupdate:account_companyweb.update_cweb_form
+msgid "client(s). Please confirm operation!"
+msgstr ""
+
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "fetch data from companyweb"
+msgstr ""
+
+#. module: account_companyweb
+#: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
+#: view:res.partner.cwebupdate:account_companyweb.update_cweb_form
 msgid "or"
 msgstr ""
 
 #. module: account_companyweb
-#: view:account.companyweb.wizard:0
-msgid "wizard account companyweb"
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "⇒ Refresh data"
 msgstr ""
 
+#. module: account_companyweb
+#: view:res.partner:account_companyweb.partner_form_companyweb
+msgid "⬆ Override ⬆"
+msgstr ""

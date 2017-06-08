@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="partner_form_companyweb" model="ir.ui.view">
+            <field name="name">res.partner.form.companyweb.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <button name="button_cweb_fetch" type="object" class="oe_link" icon="/account_companyweb/static/src/img/cweb-logo.png" string="fetch data from companyweb" style="position:relative;height:15px;top:-8px;font-style:italic" help="You can enter vat number (prefixed by BE) instead of name. This will override data from collected data from companyweb"/>
+                </field>
+                <xpath expr="//h1" position="after">
+                    <field name="cweb_follow_customer" invisible="1" />
+                    <span attrs="{'invisible': [('cweb_follow_customer', '=', True)]}"><i class="fa fa-times" aria-hidden="true"></i> Not followed on Companyweb</span>
+                    <span attrs="{'invisible': [('cweb_follow_customer', '=', False)]}"><i class="fa fa-check" aria-hidden="true"></i> Followed on Companyweb</span>
+                </xpath>
+                <xpath expr="//page[@name='accounting']" position="after">
+                    <page string="CompanyWeb" attrs="{'invisible': ['|','|',('vat','&lt;','BE'),('vat','>=','BF'),('vat','=',False)]}">
+                        <group col="5">
+                            <group colspan="3">
+                                <field name="cweb_name" string="Name"/>
+                                <field name="cweb_jur_form" string="Juridical Form"/>
+                                <label for="cweb_street" string="Address"/>
+                                <div>
+                                    <field name="cweb_street" />
+                                    <field name="cweb_zip" class="oe_inline"/>
+                                    <field name="cweb_city" class="oe_inline"/>
+                                </div>
+                                <field name="cweb_vat_liable" string="Subject to VAT"/>
+                                <field name="cweb_startDate" string="Start date"/>
+                                <field name="cweb_endDate" string="End date" attrs="{'invisible': [('cweb_endDate', '=', False)]}"/>
+                                <field name="cweb_creditLimit" string="Credit limit" attrs="{'invisible': [('cweb_creditLimit', '=', 0)]}"/>
+                                <field name="cweb_prefLang" string="Preferred Language"/>
+                            </group>
+                            <group colspan="2">
+                                <div style="text-align:center">
+                                    <button name="button_cweb_apply" type="object" class="oe_link" string="⬆ Override ⬆" help="Override company data with those companyweb data" style="font-size:120%%"/>
+                                    <div><field name="cweb_image" widget="image" nolabel="1" readonly="1"/></div>
+                                    <label for="cweb_lastupdate" string="Last update"/>
+                                    <field name="cweb_lastupdate"/>
+                                    <button colspan="2" name="button_cweb_refresh" string="⇒ Refresh data" type="object" class="oe_link" />
+                                </div>
+                            </group>
+                        </group>
+                        <group string="Financial results">
+                            <group>
+                                <field name="cweb_balance_year" string="Balance Year"/>
+                                <field name="cweb_equityCapital" string="Equity Capital" attrs="{'invisible': [('cweb_equityCapital', '=', 0)]}"/>
+                                <field name="cweb_addedValue" string="Gross Margin (+/-)" attrs="{'invisible': [('cweb_addedValue', '=', 0)]}"/>
+                                <field name="cweb_turnover" string="Turnover" attrs="{'invisible': [('cweb_turnover', '=', 0)]}"/>
+                                <field name="cweb_result" string="Fiscal Year Profit/Loss (+/-)" attrs="{'invisible': [('cweb_result', '=', 0)]}"/>
+                                <field name="cweb_employees" string="Number of Employees"/>
+                            </group>
+                            <group>
+                                <field name="cweb_warnings" nolabel="1" style="color:red"/>
+                            </group>
+                        </group>
+
+                        <group string="Premium report">
+                            <field name="cweb_url" widget="url" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+

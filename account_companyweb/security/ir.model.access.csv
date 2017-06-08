@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"history","history","model_companyweb_history","base.group_system",1,0,0,0
+"history_lines","history.line","model_companyweb_history_line","base.group_system",1,0,0,0
+

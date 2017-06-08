@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_companyweb_follow_customer_form" model="ir.ui.view">
+            <field name="name">view.companyweb.follow.customer.form</field>
+            <field name="model">companyweb.follow.customer</field>
+            <field name="arch" type="xml">
+                <form string="Follow customers">
+                    <p>You will add these customers to yours Companyweb followers. Don't forget that it'll automatically consume more credit.</p>
+                    <p>Customers already followed will be ignored.</p>
+                    <ul>
+                        <li>
+                            <strong><field name="count" class="oe_inline" /> customers</strong> will be add <span attrs="{'invisible': [('count_ignored', '=', 0)]}"> (<field name="count_ignored" class="oe_inline" /> ignored).</span>
+                        </li>
+                    </ul>
+                    <footer>
+                        <button name="action_add" type="object" string="Follow" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_companyweb_follow_customer" model="ir.actions.act_window">
+            <field name="name">Follow customers</field>
+            <field name="res_model">companyweb.follow.customer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_companyweb_follow_customer_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window id="action_companyweb_follow_customer"
+            multi="True"
+            key2="client_action_multi" name="Companyweb follow customers"
+            res_model="companyweb.follow.customer" src_model="res.partner"
+            view_mode="form" target="new" view_type="form"
+            groups="base.group_sale_manager"
+            />
+
+    </data>
+</openerp>

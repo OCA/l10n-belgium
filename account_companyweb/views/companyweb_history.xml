@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_companyweb_history_form" model="ir.ui.view">
+            <field name="name">view.companyweb.history.form</field>
+            <field name="model">companyweb.history</field>
+            <field name="arch" type="xml">
+                <form string="CompanyWeb history">
+                    <group>
+                        <field name="create_date" string="Execution date"/>
+                        <field name="date" />
+                        <field name="nbr_of_customers" />
+                        <field name="state" />
+                    </group>
+                    <separator for="info" string="Info" />
+                    <field name="info" />
+                    <separator for="line_ids" string="Customers" />
+                    <field name="line_ids">
+                        <tree>
+                            <field name="partner_id"/>
+                            <field name="partner_vat"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_companyweb_history_tree" model="ir.ui.view">
+            <field name="name">view.companyweb.history.tree</field>
+            <field name="model">companyweb.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_date" string="Execution date"/>
+                    <field name="date" />
+                    <field name="nbr_of_customers" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_companyweb_history" model="ir.actions.act_window">
+            <field name="name">Companyweb history</field>
+            <field name="res_model">companyweb.history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_companyweb_history_tree"/>
+        </record>
+
+        <record id="view_companyweb_history_line_form" model="ir.ui.view">
+            <field name="name">view.companyweb.history.line.form</field>
+            <field name="model">companyweb.history.line</field>
+            <field name="arch" type="xml">
+                <form string="CompanyWeb history line">
+                    <group>
+                        <field name="history_id" />
+                        <field name="partner_id" />
+                    </group>
+                    <separator for="data" string="Data" />
+                    <field name="data"/>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="main_menu_companyweb" name="Companyweb" parent="base.menu_administration" sequence="6"/>
+        <menuitem id="menu_companyweb_history" name="History"
+            parent="main_menu_companyweb" action="action_companyweb_history" sequence="5"/>
+    </data>
+</openerp>
