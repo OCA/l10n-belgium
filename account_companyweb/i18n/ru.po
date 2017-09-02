@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-01 18:41+0000\n"
-"PO-Revision-Date: 2017-05-11 14:11+0000\n"
+"POT-Creation-Date: 2017-08-19 03:37+0000\n"
+"PO-Revision-Date: 2017-08-21 07:18+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Russian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr "Город"
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #. module: account_companyweb
 #: model:ir.ui.menu,name:account_companyweb.menu_account_companyweb_config_settings

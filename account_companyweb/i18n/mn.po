@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 02:23+0000\n"
-"PO-Revision-Date: 2016-12-27 08:25+0000\n"
+"POT-Creation-Date: 2017-08-19 03:37+0000\n"
+"PO-Revision-Date: 2017-08-21 07:24+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Mongolian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/mn/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr ""
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Close"
-msgstr ""
+msgstr "Хаах"
 
 #. module: account_companyweb
 #: model:ir.ui.menu,name:account_companyweb.menu_account_companyweb_config_settings
