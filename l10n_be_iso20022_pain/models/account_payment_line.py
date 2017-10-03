@@ -13,7 +13,7 @@ class AccountPaymentLine(models.Model):
 
     communication_type = fields.Selection(
         selection_add=[
-            ('bba', 'BBA Structured Communication'),
+            ('bba', _('BBA Structured Communication')),
         ],
     )
 
