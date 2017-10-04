@@ -18,6 +18,7 @@ addon | version | summary
 [l10n_be_antibiotic_tax](l10n_be_antibiotic_tax/) | 9.0.1.0.0 | Data module to support antibiotics taxes
 [l10n_be_apb_tax](l10n_be_apb_tax/) | 9.0.1.0.0 | Data module to support APB taxes
 [l10n_be_eco_tax](l10n_be_eco_tax/) | 9.0.1.0.0 | Data module to support BEBAT and RECUPEL taxes
+[l10n_be_iso20022_pain](l10n_be_iso20022_pain/) | 9.0.1.0.0 | This module adds Belgium-specific support to account_payment_order.
 
 
 Unported addons
@@ -25,7 +26,6 @@ Unported addons
 addon | version | summary
 --- | --- | ---
 [account_companyweb](account_companyweb/) | 8.0.1.0.0 (unported) | Companyweb
-[l10n_be_iso20022_pain](l10n_be_iso20022_pain/) | 8.0.1.0.0 (unported) | ISO 20022 PAIN Support for Belgium
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 8.0.1.0 (unported) | MIS Builder templates for the Belgium P&L and Balance Sheets
 
 [//]: # (end addons)
