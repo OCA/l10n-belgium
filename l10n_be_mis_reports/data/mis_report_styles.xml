@@ -4,6 +4,12 @@
 <odoo>
   <data>
 
+    <record id="mis_report_style_l10n_be_base" model="mis.report.style">
+      <field name="name">l10n_be base</field>
+      <field name="dp_inherit" eval="0"/>
+      <field name="dp">2</field>
+    </record>
+
     <record id="mis_report_style_l10n_be_1" model="mis.report.style">
       <field name="name">l10n_be 1</field>
       <field name="background_color_inherit" eval="0"/>
