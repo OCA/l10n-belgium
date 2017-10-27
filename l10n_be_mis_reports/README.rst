@@ -7,6 +7,8 @@ Belgium MIS reports
 
 This modules provides MIS Builder Report templates for the Belgium
 P&L and Balance Sheet according to the official models.
+It also provides a MIS Builder Report template for the Belgium VAT
+Declaration.
 
 Installation
 ============
@@ -27,9 +29,12 @@ templates provided by this module:
 
 * Belgium Profit & Loss
 * Belgium Balance Sheet
+* Belgium VAT Declaration
 
 To obtain correct results, the account codes prefixes must match the official
 Belgium chart of account.
+The tags on the belgian taxes must be set (account_tax_template.xml from odoo/addons/l10n_be).
+
 
 Usage
 =====
