@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 03:37+0000\n"
-"PO-Revision-Date: 2017-08-21 07:21+0000\n"
+"POT-Creation-Date: 2017-09-02 06:43+0000\n"
+"PO-Revision-Date: 2017-10-27 11:29+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr ""
 #. module: account_companyweb
 #: field:account.companyweb.wizard,city:0
 msgid "City"
-msgstr ""
+msgstr "Cidade"
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
