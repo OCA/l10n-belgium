@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
+    <!-- wizard and menu -->
+    <record id="action_mis_report_vat" model="ir.actions.server">
+      <field name="name">VAT Declaration</field>
+      <field name="model_id" ref="account.model_account_chart_template"/>
+      <field name="state">code</field>
+      <field name="code">action = model.env.ref('l10n_be_mis_reports.mis_report_vat').get_wizard_report_action()</field>
+      <field name="type">ir.actions.server</field>
+      <field name="condition">True</field>
+    </record>
+    <menuitem action="action_mis_report_vat" id="menu_mis_report_vat" parent="l10n_be.account_reports_be_statements_menu"/>
+
+    <!-- mis.report -->
     <record model="mis.report" id="mis_report_vat">
       <field name="name">Belgium Value Added Tax Report Sheet</field>
       <field name="style_id" ref="mis_report_style_l10n_be_base"/>
