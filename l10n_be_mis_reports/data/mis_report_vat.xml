@@ -377,5 +377,96 @@
       <field name="style_id" ref="mis_report_style_l10n_be_1"/>
       <field name="sequence">320</field>
     </record>
+          <!-- controls -->
+      <record model="mis.report.kpi" id="mis_report_vat_control">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">control</field>
+      <field name="description">Control</field>
+      <field name="expression"></field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">900</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_control_85">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_85</field>
+      <field name="description">Control Grid 85: [85] x 0.21 >= [63]</field>
+      <field name="expression">min(grid_85*0.21-grid_63,AccountingNone)</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">901</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_control_49">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_49</field>
+      <field name="description">Control Grid 49: [49] x 0.21 >= [64]</field>
+      <field name="expression">min(grid_49*0.21-grid_64,AccountingNone)</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">902</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_54">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_54</field>
+      <field name="description">Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 - [54]</field>
+      <field name="expression">(+grid_01*0.06+grid_02*0.12+grid_03*0.21)-grid_54</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">903</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_55">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_55</field>
+      <field name="description">Control Grid 55: [84] + [86] + [88] x 0.21 >= [55]</field>
+      <field name="expression">min((grid_84 + grid_86 + grid_88)*0.21-grid_55,AccountingNone)</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">904</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_87">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_87</field>
+      <field name="description">Control Grid 87: [85] + [87] x 0.21 >= [56] + [57]</field>
+      <field name="expression">min((grid_85 + grid_87)*0.21-grid_57-grid_56,AccountingNone)</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">905</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_59">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_59</field>
+      <field name="description">Control Grid 59: [81] + [82] + [83] + [84] + [85] x 0.5 >= [59]</field>
+      <field name="expression">min((grid_81 + grid_82 + grid_83 + grid_84 + grid_85)*0.5-grid_59,AccountingNone)</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">906</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_70">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_70</field>
+      <field name="description">Control 70 vs Cadre II</field>
+      <field name="expression">abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%])</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">907</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_60">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_60</field>
+      <field name="description">Control 60 vs [81]</field>
+      <field name="expression">abs(grid_81 - balp[60%])</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">908</field>
+    </record>
   </data>
 </openerp>
