@@ -22,7 +22,7 @@
       <field name="name">cadre_2</field>
       <field name="description">Cadre II</field>
       <field name="expression"></field>
-      <field name="type">num</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
       <field name="sequence">1</field>
@@ -31,7 +31,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_00</field>
       <field name="description">Grid 00</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', '=', 'Belgium VAT Form: grid 0')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_00').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -41,7 +41,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_01</field>
       <field name="description">Grid 01</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 01')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_01').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -51,7 +51,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_02</field>
       <field name="description">Grid 02</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 02')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_02').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -61,7 +61,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_03</field>
       <field name="description">Grid 03</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 03')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_03').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -71,7 +71,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_44</field>
       <field name="description">Grid 44</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 44')] </field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_44').id)] </field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -81,7 +81,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_45</field>
       <field name="description">Grid 45</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 45')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_45').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -91,7 +91,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_46</field>
       <field name="description">Grid 46</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 46')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_46L').id)]+crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_46T').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -101,7 +101,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_47</field>
       <field name="description">Grid 47</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 47')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_47').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -111,7 +111,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_48</field>
       <field name="description">Grid 48</field>
-      <field name="expression">deb[][('tax_ids.tag_ids.name', 'like', '% 48')]</field>
+      <field name="expression">deb[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_48s44').id)]+deb[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_48s46T').id)]+deb[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_48s46L').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -121,7 +121,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_49</field>
       <field name="description">Grid 49</field>
-      <field name="expression">deb[][('tax_ids.tag_ids.name', 'like', '% 49')]</field>
+      <field name="expression">deb[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_49').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -132,7 +132,7 @@
       <field name="name">cadre_3</field>
       <field name="description">Cadre III</field>
       <field name="expression"></field>
-      <field name="type">num</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
       <field name="sequence">101</field>
@@ -141,7 +141,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_81</field>
       <field name="description">Grid 81</field>
-      <field name="expression">bal[][('tax_ids.tag_ids.name', 'like', '% 81')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_81').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -151,7 +151,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_82</field>
       <field name="description">Grid 82</field>
-      <field name="expression">bal[][('tax_ids.tag_ids.name', 'like', '% 82')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_82').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -161,7 +161,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_83</field>
       <field name="description">Grid 83</field>
-      <field name="expression">bal[][('tax_ids.tag_ids.name', 'like', '% 83')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_83').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -171,7 +171,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_84</field>
       <field name="description">Grid 84</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 84')] </field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_84').id)] </field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -181,7 +181,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_85</field>
       <field name="description">Grid 85</field>
-      <field name="expression">crd[][('tax_ids.tag_ids.name', 'like', '% 85')]</field>
+      <field name="expression">crd[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_85').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -191,7 +191,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_86</field>
       <field name="description">Grid 86</field>
-      <field name="expression">bal[][('tax_ids.tag_ids.name', 'like', '% 86')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_86').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -201,7 +201,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_87</field>
       <field name="description">Grid 87</field>
-      <field name="expression">bal[][('tax_ids.tag_ids.name', 'like', '% 87')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_87').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -211,7 +211,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_88</field>
       <field name="description">Grid 88</field>
-      <field name="expression">bal[][('tax_ids.tag_ids.name', 'like', '% 88')]</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=',ref('l10n_be.tax_tag_88').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -222,7 +222,7 @@
       <field name="name">cadre_4</field>
       <field name="description">Cadre IV</field>
       <field name="expression"></field>
-      <field name="type">num</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
       <field name="sequence">181</field>
@@ -231,7 +231,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_54</field>
       <field name="description">Grid 54</field>
-      <field name="expression">crd[][('tax_line_id.tag_ids.name', 'like', '% 54')] </field>
+      <field name="expression">crd[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_54').id)] </field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -241,7 +241,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_55</field>
       <field name="description">Grid 55</field>
-      <field name="expression">deb[][('tax_line_id.tag_ids.name', 'like', '% 55')]</field>
+      <field name="expression">deb[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_55').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -251,7 +251,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_56</field>
       <field name="description">Grid 56</field>
-      <field name="expression">deb[][('tax_line_id.tag_ids.name', 'like', '% 56')]</field>
+      <field name="expression">deb[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_56').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -261,7 +261,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_57</field>
       <field name="description">Grid 57</field>
-      <field name="expression">deb[][('tax_line_id.tag_ids.name', 'like', '% 57')]</field>
+      <field name="expression">deb[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_57').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -271,7 +271,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_61</field>
       <field name="description">Grid 61</field>
-      <field name="expression">crd[][('tax_line_id.tag_ids.name', 'like', '% 61')] </field>
+      <field name="expression">crd[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_61').id)] </field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -281,7 +281,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_63</field>
       <field name="description">Grid 63</field>
-      <field name="expression">crd[][('tax_line_id.tag_ids.name', 'like', '% 63')] </field>
+      <field name="expression">crd[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_63').id)] </field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -302,7 +302,7 @@
       <field name="name">cadre_5</field>
       <field name="description">Cadre V</field>
       <field name="expression"></field>
-      <field name="type">num</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
       <field name="sequence">261</field>
@@ -311,7 +311,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_59</field>
       <field name="description">Grid 59</field>
-      <field name="expression">deb[][('tax_line_id.tag_ids.name', 'like', '% 59')]</field>
+      <field name="expression">deb[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_59').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -321,7 +321,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_62</field>
       <field name="description">Grid 62</field>
-      <field name="expression">crd[][('tax_line_id.tag_ids.name', 'like', '% 62')]</field>
+      <field name="expression">crd[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_62').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -331,7 +331,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_64</field>
       <field name="description">Grid 64</field>
-      <field name="expression">deb[][('tax_line_id.tag_ids.name', 'like', '% 64')]</field>
+      <field name="expression">deb[][('tax_line_id.tag_ids.id', '=',ref('l10n_be.tax_tag_64').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -352,7 +352,7 @@
       <field name="name">cadre_6</field>
       <field name="description">Cadre VI</field>
       <field name="expression"></field>
-      <field name="type">num</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
       <field name="sequence">301</field>
@@ -383,7 +383,7 @@
       <field name="name">control</field>
       <field name="description">Control</field>
       <field name="expression"></field>
-      <field name="type">num</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
       <field name="sequence">900</field>
@@ -392,8 +392,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_85</field>
       <field name="description">Control Grid 85: [85] x 0.21 >= [63]</field>
-      <field name="expression">min(grid_85*0.21-grid_63,AccountingNone)</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if (grid_85)*0.21 >= (grid_63) else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">901</field>
@@ -402,8 +402,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_49</field>
       <field name="description">Control Grid 49: [49] x 0.21 >= [64]</field>
-      <field name="expression">min(grid_49*0.21-grid_64,AccountingNone)</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if (grid_49)*0.21 >= (grid_64) else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">902</field>
@@ -411,9 +411,9 @@
      <record model="mis.report.kpi" id="mis_report_vat_control_54">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_54</field>
-      <field name="description">Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 - [54]</field>
-      <field name="expression">(+grid_01*0.06+grid_02*0.12+grid_03*0.21)-grid_54</field>
-      <field name="type">num</field>
+      <field name="description">Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]</field>
+      <field name="expression">'V' if ((grid_01*0.21)+(grid_02*0.12)+(grid_03*0.21)) >= (grid_54) else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">903</field>
@@ -422,8 +422,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_55</field>
       <field name="description">Control Grid 55: [84] + [86] + [88] x 0.21 >= [55]</field>
-      <field name="expression">min((grid_84 + grid_86 + grid_88)*0.21-grid_55,AccountingNone)</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if (grid_84 + grid_86 + grid_88)*0.21 >= (grid_55) else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">904</field>
@@ -432,8 +432,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_87</field>
       <field name="description">Control Grid 87: [85] + [87] x 0.21 >= [56] + [57]</field>
-      <field name="expression">min((grid_85 + grid_87)*0.21-grid_57-grid_56,AccountingNone)</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if (grid_85) + (grid_87*0.21) >= (grid_56 + grid_57) else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">905</field>
@@ -442,8 +442,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_59</field>
       <field name="description">Control Grid 59: [81] + [82] + [83] + [84] + [85] x 0.5 >= [59]</field>
-      <field name="expression">min((grid_81 + grid_82 + grid_83 + grid_84 + grid_85)*0.5-grid_59,AccountingNone)</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if (grid_81 + grid_82 + grid_83 + grid_84 + grid_85)*0.5 >= grid_59 else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">906</field>
@@ -452,8 +452,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_70</field>
       <field name="description">Control 70 vs Cadre II</field>
-      <field name="expression">abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%])</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%]) >= 0 else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">907</field>
@@ -462,8 +462,8 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_60</field>
       <field name="description">Control 60 vs [81]</field>
-      <field name="expression">abs(grid_81 - balp[60%])</field>
-      <field name="type">num</field>
+      <field name="expression">'V' if abs(grid_81 - balp[60%])>= 0 else 'X'</field>
+      <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">908</field>
