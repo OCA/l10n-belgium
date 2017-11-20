@@ -977,9 +977,9 @@ msgstr "Contrôle Grille 59 : [81] + [82] + [83] + [84] + [85] x 0.5 >= [59]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_70
 msgid "ctrl_70"
-msgstr "Contrôle Grille 70 vs Cadre II"
+msgstr "Contrôle Compte 70 vs Cadre II"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_60
 msgid "ctrl_60"
-msgstr "Contrôle Grille 60 vs [81]"
+msgstr "Contrôle Compte 60 vs [81]"
