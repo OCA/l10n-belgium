@@ -962,17 +962,17 @@ msgstr "Contrôle Grille 54 : [01] x 0.06 + [02] x 0.12 + [03] x 0.21 - [54]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_55
 msgid "ctrl_55"
-msgstr "Contrôle Grille 55 : [84] + [86] + [88] x 0.21 >= [55]"
+msgstr "Contrôle Grille 55 : ([84] + [86] + [88]) x 0.21 >= [55]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_87
 msgid "ctrl_87"
-msgstr "Contrôle Grille 87 : [85] + [87] x 0.21 >= [56] + [57]"
+msgstr "Contrôle Grille 87 : ([85] + [87]) x 0.21 >= [56] + [57]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_59
 msgid "ctrl_59"
-msgstr "Contrôle Grille 59 : [81] + [82] + [83] + [84] + [85] x 0.5 >= [59]"
+msgstr "Contrôle Grille 59 : ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_70
