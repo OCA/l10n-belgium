@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
+==================================
 ISO 20022 PAIN Support for Belgium
-==============
+==================================
 
 This module adds Belgium-specific support to OCA/bank-payment/account_payment_order.
 
