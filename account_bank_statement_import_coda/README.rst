@@ -9,8 +9,8 @@ Import CODA Bank Statement
 This module allows you to import your bank transactions with a standard
 **CODA** file (you'll find samples in the 'data' folder).
 
-This is an alternative to the official l10n_be_coda that uses the 
-external python lib pycoda_ as parser.
+This is an alternative to the l10n_be_coda module in Odoo Enterprise.
+It uses the external python lib pycoda_ as parser.
 
 Expected benefits:
 

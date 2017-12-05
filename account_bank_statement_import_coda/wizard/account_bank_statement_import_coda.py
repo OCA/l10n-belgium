@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2015-2016 ACSONE SA/NV (<http://acsone.eu>)
+# Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import re
@@ -7,9 +7,9 @@ import datetime
 import logging
 from dateutil import parser as date_parser
 
-from openerp import api, models
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from odoo import api, models
+from odoo.tools.translate import _
+from odoo.exceptions import Warning as UserError
 
 _logger = logging.getLogger(__name__)
 
