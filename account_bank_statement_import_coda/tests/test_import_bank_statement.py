@@ -2,9 +2,10 @@
 # Copyright 2015-2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests.common import TransactionCase
-from openerp.modules.module import get_module_resource
-from openerp.tools import float_compare
+from odoo.tests.common import TransactionCase
+from odoo.modules.module import get_module_resource
+from odoo.tools import float_compare
+from odoo.exceptions import UserError
 
 
 class TestCodaFile(TransactionCase):
@@ -14,46 +15,34 @@ class TestCodaFile(TransactionCase):
 
     def setUp(self):
         super(TestCodaFile, self).setUp()
-        self.env['res.partner.bank'].create({
-            'state': 'bank',
+        bank_account = self.env['res.partner.bank'].create({
             'acc_number': 'BE46737018594236',
             'bank_bic': 'KREDBEBB',
-            'journal_id': self.ref('account.bank_journal'),
-            'partner_id': self.ref('base.main_partner'),
+            'partner_id': self.env.ref('base.main_partner').id,
+            'company_id': self.env.ref('base.main_company').id,
+            'bank_id': self.env.ref('base.res_bank_1').id,
         })
-        fy = self.env['account.fiscalyear'].create({
-            'name': 'FY 2012',
-            'code': '2012',
-            'date_start': '2012-01-01',
-            'date_stop': '2012-12-31',
-            'company_id': self.ref('base.main_company'),
+        self.journal = self.env['account.journal'].create({
+            'name': 'Bank Journal - (test coda)',
+            'code': 'TBNK',
+            'type': 'bank',
+            'bank_account_id': bank_account.id,
         })
-        self.env['account.period'].create({
-            'name': 'FP 2012-01',
-            'code': '2012-01',
-            'date_start': '2012-01-01',
-            'date_stop': '2012-01-31',
-            'fiscalyear_id': fy.id,
-            'company_id': self.ref('base.main_company'),
-        })
-        self.statement_import_model = self.env[
-            'account.bank.statement.import']
+        self.statement_import_model = self.env['account.bank.statement.import']
         self.bank_statement_model = self.env['account.bank.statement']
         coda_file_path = get_module_resource(
             'account_bank_statement_import_coda',
             'test_coda_file',
             'Ontvangen_CODA.2012-01-11-18.59.15.txt')
         self.coda_file = open(coda_file_path, 'rb').read().encode('base64')
-        self.context = {
-            'journal_id': self.ref('account.bank_journal')
-        }
-        self.bank_statement_import = self.statement_import_model.create(
-            {'data_file': self.coda_file})
 
     def test_coda_file_import(self):
-        self.bank_statement_import.import_file()
+        bank_statement_import = self.statement_import_model.\
+            create({'data_file': self.coda_file})
+        bank_statement_import.\
+            with_context(journal_id=self.journal.id).import_file()
         bank_st_record = self.bank_statement_model.search([
-            ('name', '=', 'TBNK/2012/135')])[0]
+            ('name', '=', '2012/135')])[0]
         self.assertEqual(
             float_compare(
                 bank_st_record.balance_start,
@@ -93,15 +82,19 @@ class TestCodaFile(TransactionCase):
             )
 
     def test_coda_file_import_twice(self):
-        self.bank_statement_import.import_file()
-        with self.assertRaises(Exception):
-            self.bank_statement_import.import_file()
+        bank_statement_import = self.statement_import_model.\
+            create({'data_file': self.coda_file})
+        bank_statement_import.import_file()
+        with self.assertRaises(UserError):
+            bank_statement_import.import_file()
 
     def test_coda_file_wrong_journal(self):
         """ The demo account used by the CODA file is linked to the
         demo bank_journal """
-        bank_statement_import = self.statement_import_model.create(
-            {'data_file': self.coda_file}).with_context(
-                journal_id=self.ref('account.check_journal'))
+        cash_journal = self.env['account.journal'].\
+            search([('type', '=', 'cash')])[0]
+        bank_statement_import = self.statement_import_model.\
+            create({'data_file': self.coda_file})
         with self.assertRaises(Exception):
-            bank_statement_import.import_file()
+            bank_statement_import.\
+                with_context(journal_id=cash_journal.id).import_file()
