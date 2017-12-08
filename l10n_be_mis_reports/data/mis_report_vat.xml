@@ -391,7 +391,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_85</field>
       <field name="description">Control Grid 85: [85] x 0.21 >= [63]</field>
-      <field name="expression">'V' if (grid_85)*0.21 >= (grid_63) else 'X'</field>
+      <field name="expression">u'✔' if (grid_85)*0.21 >= (grid_63) else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -401,7 +401,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_49</field>
       <field name="description">Control Grid 49: [49] x 0.21 >= [64]</field>
-      <field name="expression">'V' if (grid_49)*0.21 >= (grid_64) else 'X'</field>
+      <field name="expression">u'✔' if (grid_49)*0.21 >= (grid_64) else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -411,7 +411,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_54</field>
       <field name="description">Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]</field>
-      <field name="expression">'V' if ((grid_01*0.21)+(grid_02*0.12)+(grid_03*0.21)) >= (grid_54) else 'X'</field>
+      <field name="expression">u'✔' if ((grid_01*0.21)+(grid_02*0.12)+(grid_03*0.21)) >= (grid_54) else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -421,7 +421,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_55</field>
       <field name="description">Control Grid 55: ([84] + [86] + [88]) x 0.21 >= [55]</field>
-      <field name="expression">'V' if (grid_84 + grid_86 + grid_88)*0.21 >= (grid_55) else 'X'</field>
+      <field name="expression">u'✔' if (grid_84 + grid_86 + grid_88)*0.21 >= (grid_55) else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -431,7 +431,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_87</field>
       <field name="description">Control Grid 87: ([85] + [87]) x 0.21 >= [56] + [57]</field>
-      <field name="expression">'V' if (grid_85 + grid_87)*0.21 >= (grid_56 + grid_57) else 'X'</field>
+      <field name="expression">u'✔' if (grid_85 + grid_87)*0.21 >= (grid_56 + grid_57) else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -441,7 +441,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_59</field>
       <field name="description">Control Grid 59: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]</field>
-      <field name="expression">'V' if (grid_81 + grid_82 + grid_83 + grid_84 + grid_85)*0.5 >= grid_59 else 'X'</field>
+      <field name="expression">u'✔' if (grid_81 + grid_82 + grid_83 + grid_84 + grid_85)*0.5 >= grid_59 else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -451,7 +451,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_70</field>
       <field name="description">Control 70 vs Cadre II</field>
-      <field name="expression">'V' if abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%]) >= 0 else 'X'</field>
+      <field name="expression">u'✔' if abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%]) >= 0 else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
@@ -461,7 +461,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_60</field>
       <field name="description">Control 60 vs [81]</field>
-      <field name="expression">'V' if abs(grid_81 - balp[60%])>= 0 else 'X'</field>
+      <field name="expression">u'✔' if abs(grid_81 - balp[60%])>= 0 else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
