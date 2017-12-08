@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data>
+<odoo>
     <!-- wizard and menu -->
     <record id="action_mis_report_vat" model="ir.actions.server">
       <field name="name">VAT Declaration</field>
@@ -468,5 +467,4 @@
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
       <field name="sequence">908</field>
     </record>
-  </data>
-</openerp>
+</odoo>
