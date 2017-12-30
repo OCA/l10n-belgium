@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-01 18:41+0000\n"
-"PO-Revision-Date: 2017-05-31 21:52+0000\n"
+"POT-Creation-Date: 2017-09-02 06:43+0000\n"
+"PO-Revision-Date: 2017-12-22 09:49+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "Actualizar"
 #. module: account_companyweb
 #: field:account.companyweb.wizard,vat_number:0
 msgid "VAT number"
-msgstr ""
+msgstr "NIF"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,warnings:0
