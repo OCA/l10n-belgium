@@ -26,7 +26,7 @@ class ResPartnerIdCategory(models.Model):
         if not num.isdigit():
             return failed
         seq = int(num[0:9])
-        YY = num[:2]
+        YY = int(num[:2])
         pivot_YY = datetime.date.today().year - 2000
         if YY <= pivot_YY:
             # the person is born after 31/12/1999
