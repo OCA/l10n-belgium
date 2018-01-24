@@ -20,9 +20,9 @@ class TestL10nBePartnerIdentification(common.TransactionCase):
         id_number = partner_1.id_numbers[0]
         self.assertEqual(id_number.name, '85.01.01-002.14')
         # born after 2000
-        id_number.write({'name': '07.01.16-234.22',
+        id_number.write({'name': '08.03.25-264.77',
                          'category_id': partner_id_category.id})
-        self.assertEqual(id_number.name, '07.01.16-234.22')
+        self.assertEqual(id_number.name, '08.03.25-264.77')
         with self.assertRaises(ValidationError), self.env.cr.savepoint():
             # check invalid for a person born before 2000
             id_number.name = '85.01.01-002.03'
