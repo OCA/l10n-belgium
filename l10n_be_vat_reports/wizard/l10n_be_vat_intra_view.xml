@@ -9,16 +9,16 @@
                 <form string="Partner VAT intra">
                     <group>
                         <separator string="Intracom VAT Declaration"/>
-                    </group>   
+                    </group>
                     <notebook colspan="4">
                         <page string="General Information">
                             <group>
                                 <field name="period_code"/>
-                                <field name="tax_code_id" string="Company" widget="selection" groups="base.group_multi_company"/>
                                 <field name="mand_id"/>
                             </group>
-                            <separator string="Periods"/>
-                            <field name="period_ids"/>
+                            <separator string="Dates"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
                             <separator string="Comments"/>
                             <field name="comments"/>
                         </page>
