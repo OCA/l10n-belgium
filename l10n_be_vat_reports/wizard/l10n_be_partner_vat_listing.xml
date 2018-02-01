@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
   <data>
+
+    <menuitem
+        id="l10n_be.menu_finance_belgian_statement"
+        name="Belgium Statements"
+        parent="account.menu_finance_reports" groups="account.group_account_manager"/>
+
     <record id="l10n_be.view_partner_vat_listing" model="ir.ui.view">
       <field name="name">Partner VAT Listing</field>
       <field name="model">partner.vat</field>
@@ -15,7 +21,7 @@
           </group>
           <footer>
             <button name="get_partner" string="View Customers" type="object"  class="oe_highlight"  />
-            or 
+            or
             <button string="Cancel" class="oe_link" special="cancel" />
           </footer>
         </form>
@@ -52,8 +58,8 @@
               </notebook>
               <separator colspan="4"/>
               <group colspan="4">
-                <button colspan="2" name="create_xml" string="Create XML" type="object" icon="gtk-execute"/>
-                <button colspan="2" name="print_vatlist" string="Print" type="object"  icon="gtk-print"/>
+                <button colspan="2" name="create_xml" string="Create XML" type="object" icon="fa-cogs"/>
+                <button colspan="2" name="print_vatlist" string="Print" type="object"  icon="fa-print"/>
               </group>
           </group>
         </form>
@@ -68,7 +74,7 @@
         <form string="XML File has been Created.">
             <header>
                 <button name="print_vatlist" string="Print" type="object" class="oe_highlight"  />
-                or 
+                or
                 <button string="Cancel" class="oe_link" special="cancel" />
             </header>
             <separator string="XML File has been Created." colspan="4"/>
