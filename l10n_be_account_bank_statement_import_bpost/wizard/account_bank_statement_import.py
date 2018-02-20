@@ -53,18 +53,18 @@ class AccountBankStatementImport(models.TransientModel):
                 continue  # skip 2 first lines
             if not line:
                 continue
-            name = line[1].strip()
-            if line[6] and line[6].strip():
-                name = '%s - %s' % (name, line[6].strip())
+            name = line[2].strip()
             if line[7] and line[7].strip():
                 name = '%s - %s' % (name, line[7].strip())
-            date = datetime.strptime(line[0], '%Y-%m-%d')
+            if line[8] and line[8].strip():
+                name = '%s - %s' % (name, line[8].strip())
+            date = datetime.strptime(line[1], '%Y-%m-%d')
             # In Bpost CSV file : decimal separator = ,
             # thousand separator = .
-            amount = float(line[2].replace('.', '').replace(',', '.'))
+            amount = float(line[3].replace('.', '').replace(',', '.'))
             diff += amount
-            currency_code = line[3]
-            ref = line[8]
+            currency_code = line[4]
+            ref = line[9]
             vals_line = {
                 'date': date,
                 'name': name,
@@ -72,8 +72,8 @@ class AccountBankStatementImport(models.TransientModel):
                 'unique_import_id': '%s-%s-%s' % (
                     fields.Date.to_string(date), amount, ref),
                 'amount': amount,
-                'partner_name': line[7],
-                'account_number': line[6],
+                'partner_name': line[8],
+                'account_number': line[7],
                 }
             transactions.append(vals_line)
         fu.close()
