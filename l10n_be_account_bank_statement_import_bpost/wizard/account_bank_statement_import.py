@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2015-2018 Akretion (http://www.akretion.com)
+# Copyright 2015-2018 Akretion (http://www.akretion.com)
 # @author Alexis de Lattre <alexis.delattre@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -7,7 +7,7 @@
 import logging
 from tempfile import NamedTemporaryFile
 from datetime import datetime
-from openerp import models, fields, api, _
+from odoo import api, fields, models
 import unicodecsv
 
 _logger = logging.getLogger(__name__)
@@ -28,7 +28,6 @@ class AccountBankStatementImport(models.TransientModel):
         # The file starts with <U+FEFF> = UTF-8 BOM
         # http://en.wikipedia.org/wiki/Byte_order_mark
 
-    @api.model
     def _parse_file(self, data_file):
         """ Import a file in Bpost CSV"""
         bpost = self._check_bpost(data_file)
@@ -80,7 +79,7 @@ class AccountBankStatementImport(models.TransientModel):
         fileobj.close()
 
         vals_bank_statement = {
-            'name': _('Bpost %s') % account_number,
+            'name': 'Bpost %s' % account_number,
             'balance_start': 0,
             'balance_end_real': 0 + diff,
             'transactions': transactions,

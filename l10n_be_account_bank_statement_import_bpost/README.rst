@@ -9,23 +9,14 @@ Import Bpost CSV bank statements
 This module allows you to import the CSV bank statement files from `Bpost
 <http://www.bpost.be/>`_ in Odoo.
 
-Installation
-============
-
-This module depends on the module *account_bank_statement_import* which
-is available:
-
-* for Odoo version 8: in the OCA project `bank-statement-import <https://github.com/OCA/bank-statement-import>`_.
-* for Odoo version 9: it is an official module.
-
 Usage
 =====
 
-Start the bank statement import wizard from the menu *Accounting > Bank and Cash > Import*.
+Start the bank statement import wizard from the menu *Accounting > Dashboard > Bpost bank journal > Import Statement*.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/119/8.0
+   :target: https://runbot.odoo-community.org/runbot/119/10.0
 
 Bug Tracker
 ===========
