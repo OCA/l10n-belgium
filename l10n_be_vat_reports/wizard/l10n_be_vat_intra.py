@@ -27,7 +27,7 @@ import base64
 
 from openerp import api, models, fields, _
 from openerp.report import report_sxw
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 
 class PartnerVATIntra(models.TransientModel):
@@ -109,19 +109,19 @@ class PartnerVATIntra(models.TransientModel):
         # Get Company vat
         company_vat = data_company.partner_id.vat
         if not company_vat:
-            raise Warning(_('No VAT number associated with your company.'))
+            raise UserError(_('No VAT number associated with your company.'))
         company_vat = company_vat.replace(' ', '').upper()
         issued_by = company_vat[:2]
 
         if len(wiz_data.period_code) != 6:
-            raise Warning(_('Period code is not valid.'))
+            raise UserError(_('Period code is not valid.'))
 
         if not wiz_data.date_start > wiz_data.date_end:
-            raise Warning(_('Start date cannot be after the end date.'))
+            raise UserError(_('Start date cannot be after the end date.'))
 
         p_id_list = obj_partner.search([('vat', '!=', False)])
         if not p_id_list:
-            raise Warning(
+            raise UserError(
                 _('No partner has a VAT number associated with him.'))
 
         seq_declarantnum = obj_sequence.get('declarantnum')
@@ -146,9 +146,9 @@ class PartnerVATIntra(models.TransientModel):
         if not country:
             country = company_vat[:2]
         if not email:
-            raise Warning(_('No email address associated with the company.'))
+            raise UserError(_('No email address associated with the company.'))
         if not phone:
-            raise Warning(_('No phone associated with the company.'))
+            raise UserError(_('No phone associated with the company.'))
         phone = phone.replace('/', '')\
                      .replace('.', '')\
                      .replace('(', '')\
@@ -176,32 +176,32 @@ class PartnerVATIntra(models.TransientModel):
         # tax code 46T: ABC good deliveries
         # tax code 48xxx: credite note on tax code xxx
         tags_xmlids = (
-            'l10n_be.tax_tag_44',
-            'l10n_be.tax_tag_46L',
-            'l10n_be.tax_tag_46T',
-            'l10n_be.tax_tag_48s44',
-            'l10n_be.tax_tag_48s46L',
-            'l10n_be.tax_tag_48s46T',
+            'tax_tag_44',
+            'tax_tag_46L',
+            'tax_tag_46T',
+            'tax_tag_48s44',
+            'tax_tag_48s46L',
+            'tax_tag_48s46T',
         )
         self.env.cr.execute('''
+WITH taxes AS
+  (SELECT tagsrel.account_tax_id
+   FROM account_tax_account_tag tagsrel
+   INNER JOIN ir_model_data tag_xmlid ON (
+       tag_xmlid.model = 'account.account.tag'
+       AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
+   WHERE tag_xmlid.NAME IN %s)
           SELECT p.name As partner_name,
                  l.partner_id AS partner_id, p.vat AS vat,
           (CASE WHEN t.name = 'tax_tag_48s44' THEN 'tax_tag_44'
                 WHEN t.name = 'tax_tag_48s46L' THEN 'tax_tag_46L'
                 WHEN t.name = 'tax_tag_48s46T' THEN 'tax_tag_46T'
            ELSE t.name END) AS intra_code,
-          SUM(CASE WHEN tag_xmlid.name in (
-                'tax_tag_48s44','tax_tag_48s46L','tax_tag_48s46T'
-          ) THEN -ABS(l.balance) ELSE ABS(l.balance) END) AS amount
+          SUM(-l.balance) AS amount
           FROM account_move_line l
           LEFT JOIN account_tax t ON l.tax_line_id = t.id
-          LEFT JOIN account_tax_account_tag tagsrel
-              ON t.id = tagsrel.account_tax_id
-          LEFT JOIN ir_model_data tag_xmlid ON (
-              tag_xmlid.model = 'account.account.tag'
-              AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
           LEFT JOIN res_partner p ON (l.partner_id = p.id)
-          WHERE tag_xmlid.name IN %s
+          WHERE l.tax_line_id IN (SELECT account_tax_id FROM taxes)
            AND l.date BETWEEN %s AND %s
            AND t.company_id = %s
           GROUP BY p.name, l.partner_id, p.vat, intra_code''',
@@ -309,7 +309,7 @@ class PartnerVATIntra(models.TransientModel):
         for client in xml_data['clientlist']:
             if not client['vatnum']:
                 msg = _('No vat number defined for %s.')
-                raise Warning(msg % client['partner_name'])
+                raise UserError(msg % client['partner_name'])
             data_clientinfo += (
                 '\n\t\t<ns2:IntraClient SequenceNumber="%(seq)s">\n\t\t\t'
                 '<ns2:CompanyVATNumber issuedBy="%(country)s">%(vatnum)s'
