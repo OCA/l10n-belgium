@@ -29,7 +29,7 @@ import base64
 
 from openerp import fields, models, api, _
 from openerp.report import report_sxw
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 
 class VATListingClients(models.TransientModel):
@@ -59,48 +59,64 @@ class PartnerVAT(models.TransientModel):
         partners = obj_vat_lclient.browse([])
         be_partners = obj_partner.search([('vat', 'ilike', 'BE%')])
         if not be_partners:
-            raise Warning(_('No belgium contact with a VAT number '
+            raise UserError(_('No belgium contact with a VAT number '
                             'in your database.'))
         query = """
-            SELECT sub1.partner_id, sub1.name, sub1.vat,
-                   COALESCE(sub1.turnover, 0) as turnover,
-                   COALESCE(sub2.vat_amount, 0) as vat_amount
-            FROM (SELECT l.partner_id, p.name, p.vat,
-                         SUM(CASE WHEN tag_xmlid.name = 'tax_tag_49'
-                             THEN -ABS(l.balance)
-                             ELSE ABS(l.balance) END)
-                         as turnover
-                  FROM account_move_line l
-                  LEFT JOIN res_partner p ON l.partner_id = p.id
-                  LEFT JOIN account_tax t ON l.tax_line_id = t.id
-                  LEFT JOIN account_tax_account_tag tagsrel
-                      ON t.id = tagsrel.account_tax_id
-                  LEFT JOIN ir_model_data tag_xmlid ON (
-                      tag_xmlid.model = 'account.account.tag'
-                      AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
-                  WHERE tag_xmlid.name IN (
-                      'tax_tag_00', 'tax_tag_01', 'tax_tag_02',
-                      'tax_tag_03', 'tax_tag_45', 'tax_tag_49')
-                  AND l.partner_id IN %s
-                  AND l.date BETWEEN %s AND %s
-                  GROUP BY l.partner_id, p.name, p.vat) AS sub1
-            LEFT JOIN (SELECT l2.partner_id,
-                              SUM(CASE WHEN tag_xmlid2.name ='tax_tag_64'
-                                  THEN -ABS(l2.balance)
-                                  ELSE ABS(l2.balance) END)
-                              as vat_amount
-                  FROM account_move_line l2
-                  LEFT JOIN account_tax t2 ON l2.tax_line_id = t2.id
-                  LEFT JOIN account_tax_account_tag tagsrel2
-                      ON t2.id = tagsrel2.account_tax_id
-                  LEFT JOIN ir_model_data tag_xmlid2 ON (
-                      tag_xmlid2.model = 'account.account.tag'
-                      AND tagsrel2.account_account_tag_id = tag_xmlid2.res_id)
-                  WHERE tag_xmlid2.name IN ('tax_tag_54','tax_tag_64')
-                  AND l2.partner_id IN %s
-                  AND l2.date BETWEEN %s AND %s
-                  GROUP BY l2.partner_id) AS sub2
-                      ON sub1.partner_id = sub2.partner_id
+WITH turnover_tags AS
+  (SELECT tagsrel.account_tax_id
+   FROM account_tax_account_tag tagsrel
+   INNER JOIN ir_model_data tag_xmlid ON (
+       tag_xmlid.model = 'account.account.tag'
+       AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
+   WHERE tag_xmlid.NAME IN ('tax_tag_00',
+                            'tax_tag_01',
+                            'tax_tag_02',
+                            'tax_tag_03',
+                            'tax_tag_45',
+                            'tax_tag_49'))
+, vat_amount_tags AS
+  (SELECT tagsrel.account_tax_id
+   FROM account_tax_account_tag tagsrel
+   INNER JOIN ir_model_data tag_xmlid ON (
+       tag_xmlid.model = 'account.account.tag'
+       AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
+   WHERE tag_xmlid.NAME IN ('tax_tag_54',
+                            'tax_tag_64'))
+SELECT sub1.partner_id,
+       sub1.NAME,
+       sub1.vat,
+       COALESCE(sub1.turnover, 0) AS turnover,
+       COALESCE(sub2.vat_amount, 0) AS vat_amount
+FROM
+  (SELECT l.partner_id,
+          p.NAME,
+          p.vat,
+          Sum(-l.balance) AS turnover
+   FROM account_move_line l
+   LEFT JOIN res_partner p ON l.partner_id = p.id
+   WHERE l.partner_id IN %s
+         AND l.date BETWEEN %s AND %s
+         AND EXISTS
+           (SELECT 1
+            FROM account_move_line_account_tax_rel taxrel
+            WHERE taxrel.account_move_line_id = l.id
+              AND taxrel.account_tax_id IN
+                (SELECT account_tax_id
+                 FROM turnover_tags) )
+   GROUP BY l.partner_id,
+            p.NAME,
+            p.vat) AS sub1
+LEFT JOIN
+  (SELECT l2.partner_id,
+          Sum(-l2.balance) AS vat_amount
+   FROM account_move_line l2
+   WHERE l2.partner_id IN %s
+         AND l2.date BETWEEN %s AND %s
+         AND EXISTS
+           (SELECT 1
+            FROM vat_amount_tags
+            WHERE account_tax_id = l2.tax_line_id)
+   GROUP BY partner_id) AS sub2 ON sub1.partner_id = sub2.partner_id;
         """
         args = (
             tuple(be_partners.ids),
@@ -117,7 +133,7 @@ class PartnerVAT(models.TransientModel):
                 partners |= obj_vat_lclient.create(record)
 
         if not partners:
-            raise Warning(_('No data found for the selected year.'))
+            raise UserError(_('No data found for the selected year.'))
         context.update({
             'partner_ids': partners.ids,
             'year': data['year'],
@@ -202,7 +218,7 @@ class PartnerVATList(models.TransientModel):
         company_vat = obj_cmpny.partner_id.vat
 
         if not company_vat:
-            raise Warning(_('No VAT number associated with the company.'))
+            raise UserError(_('No VAT number associated with the company.'))
 
         company_vat = company_vat.replace(' ', '').upper()
         SenderId = company_vat[2:]
@@ -230,9 +246,9 @@ class PartnerVATList(models.TransientModel):
         comp_name = obj_cmpny.name
 
         if not email:
-            raise Warning(_('No email address associated with the company.'))
+            raise UserError(_('No email address associated with the company.'))
         if not phone:
-            raise Warning(_('No phone associated with the company.'))
+            raise UserError(_('No phone associated with the company.'))
         annual_listing_data = {
             'issued_by': issued_by,
             'company_vat': company_vat,
@@ -284,7 +300,7 @@ class PartnerVATList(models.TransientModel):
         # Turnover and Farmer tags are not included
         client_datas = self._get_datas()
         if not client_datas:
-            raise Warning(_('No data available for the client.'))
+            raise UserError(_('No data available for the client.'))
         data_client_info = ''
         for amount_data in client_datas:
             data_client_info += """
@@ -338,7 +354,7 @@ class PartnerVATList(models.TransientModel):
         datas['limit_amount'] = self.env.context['limit_amount']
         datas['client_datas'] = self._get_datas()
         if not datas['client_datas']:
-            raise Warning(_('No record to print.'))
+            raise UserError(_('No record to print.'))
         return self.env['report'].get_action(
             [], 'l10n_be_vat_reports.report_l10nvatpartnerlisting', data=datas)
 
