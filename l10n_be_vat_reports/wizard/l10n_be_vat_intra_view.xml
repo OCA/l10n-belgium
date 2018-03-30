@@ -61,9 +61,9 @@
 
         <menuitem
             name="Partner VAT Intra"
-            parent="l10n_be.menu_finance_belgian_statement"
+            parent="menu_finance_belgian_statement"
             action="action_vat_intra"
-            id="l10n_be.l10_be_vat_intra"/>
+            id="l10_be_vat_intra"/>
 
     </data>
 </openerp>
