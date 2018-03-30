@@ -82,8 +82,7 @@ WITH turnover_tags AS
        AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
    WHERE tag_xmlid.NAME IN ('tax_tag_54',
                             'tax_tag_64'))
-SELECT sub1.partner_id,
-       sub1.NAME,
+SELECT sub1.NAME,
        sub1.vat,
        COALESCE(sub1.turnover, 0) AS turnover,
        COALESCE(sub2.vat_amount, 0) AS vat_amount
@@ -361,9 +360,9 @@ class PartnerVATList(models.TransientModel):
 
 class PartnerVATListingPrint(report_sxw.rml_parse):
 
-    @api.model
-    def __init__(self, name):
-        super(PartnerVATListingPrint, self).__init__(name)
+    def __init__(self, cr, uid, name, context=None):
+        super(PartnerVATListingPrint, self).__init__(
+            cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
         })
