@@ -3,11 +3,11 @@
   <data>
 
     <menuitem
-        id="l10n_be.menu_finance_belgian_statement"
+        id="menu_finance_belgian_statement"
         name="Belgium Statements"
         parent="account.menu_finance_reports" groups="account.group_account_manager"/>
 
-    <record id="l10n_be.view_partner_vat_listing" model="ir.ui.view">
+    <record id="view_partner_vat_listing" model="ir.ui.view">
       <field name="name">Partner VAT Listing</field>
       <field name="model">partner.vat</field>
       <field name="arch" type="xml">
@@ -28,19 +28,19 @@
       </field>
     </record>
 
-    <record id="l10n_be.action_partner_vat_listing" model="ir.actions.act_window">
+    <record id="action_partner_vat_listing" model="ir.actions.act_window">
       <field name="name">Partner VAT Listing</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">partner.vat</field>
       <field name="view_type">form</field>
       <field name="view_mode">form</field>
-      <field name="view_id" ref="l10n_be.view_partner_vat_listing"/>
+      <field name="view_id" ref="view_partner_vat_listing"/>
       <field name="target">new</field>
     </record>
 
-    <menuitem name="Annual Listing Of VAT-Subjected Customers" parent="l10n_be.menu_finance_belgian_statement" action="l10n_be.action_partner_vat_listing" id="l10n_be.partner_vat_listing"/>
+    <menuitem name="Annual Listing Of VAT-Subjected Customers" parent="menu_finance_belgian_statement" action="action_partner_vat_listing" id="partner_vat_listing"/>
 
-    <record id="l10n_be.view_vat_listing" model="ir.ui.view">
+    <record id="view_vat_listing" model="ir.ui.view">
       <field name="name">Vat Listing</field>
       <field name="model">partner.vat.list</field>
       <field name="arch" type="xml">
@@ -66,7 +66,7 @@
       </field>
     </record>
 
-    <record id="l10n_be.view_vat_listing_result" model="ir.ui.view">
+    <record id="view_vat_listing_result" model="ir.ui.view">
       <field name="name">VAT List - XML File Created</field>
       <field name="model">partner.vat.list</field>
       <field name="priority" eval="1"/>
@@ -86,7 +86,7 @@
     </record>
 
     <!-- osv_memory for vat listing of clients -->
-    <record id="l10n_be.view_vat_listing_form" model="ir.ui.view">
+    <record id="view_vat_listing_form" model="ir.ui.view">
       <field name="name">step.vat.listing</field>
       <field name="model">vat.listing.clients</field>
       <field name="arch" type="xml">
@@ -101,7 +101,7 @@
       </field>
     </record>
 
-    <record id="l10n_be.view_vat_listing_tree" model="ir.ui.view">
+    <record id="view_vat_listing_tree" model="ir.ui.view">
       <field name="name">step.vat.listing</field>
       <field name="model">vat.listing.clients</field>
       <field name="arch" type="xml">
