@@ -354,8 +354,10 @@ class PartnerVATList(models.TransientModel):
         datas['client_datas'] = self._get_datas()
         if not datas['client_datas']:
             raise UserError(_('No record to print.'))
+        empty = self.env['partner.vat.intra']
         return self.env['report'].get_action(
-            [], 'l10n_be_vat_reports.report_l10nvatpartnerlisting', data=datas)
+            empty, 'l10n_be_vat_reports.report_l10nvatpartnerlisting',
+            data=datas)
 
 
 class PartnerVATListingPrint(report_sxw.rml_parse):
