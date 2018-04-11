@@ -61,7 +61,7 @@
 
         <menuitem
             name="Partner VAT Intra"
-            parent="menu_finance_belgian_statement"
+            parent="l10n_be.account_reports_be_statements_menu"
             action="action_vat_intra"
             id="l10_be_vat_intra"/>
 
