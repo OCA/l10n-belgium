@@ -263,7 +263,7 @@ class PartnerVATList(models.TransientModel):
             'comments': data['comments'] or ''
         }
 
-        data_file = """<?xml version="1.0" encoding="ISO-8859-1"?>
+        data_file = """<?xml version="1.0" encoding="UTF-8"?>
 <ns2:ClientListingConsignment xmlns="http://www.minfin.fgov.be/InputCommon"
  xmlns:ns2="http://www.minfin.fgov.be/ClientListingConsignment"
  ClientListingsNbr="1">
