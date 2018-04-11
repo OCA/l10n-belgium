@@ -2,11 +2,6 @@
 <openerp>
   <data>
 
-    <menuitem
-        id="menu_finance_belgian_statement"
-        name="Belgium Statements"
-        parent="account.menu_finance_reports" groups="account.group_account_manager"/>
-
     <record id="view_partner_vat_listing" model="ir.ui.view">
       <field name="name">Partner VAT Listing</field>
       <field name="model">partner.vat</field>
@@ -38,7 +33,7 @@
       <field name="target">new</field>
     </record>
 
-    <menuitem name="Annual Listing Of VAT-Subjected Customers" parent="menu_finance_belgian_statement" action="action_partner_vat_listing" id="partner_vat_listing"/>
+    <menuitem name="Annual Listing Of VAT-Subjected Customers" parent="l10n_be.account_reports_be_statements_menu" action="action_partner_vat_listing" id="partner_vat_listing"/>
 
     <record id="view_vat_listing" model="ir.ui.view">
       <field name="name">Vat Listing</field>
