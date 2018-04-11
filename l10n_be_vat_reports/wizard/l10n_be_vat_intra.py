@@ -124,7 +124,7 @@ class PartnerVATIntra(models.TransientModel):
             raise UserError(
                 _('No partner has a VAT number associated with him.'))
 
-        seq_declarantnum = obj_sequence.get('declarantnum')
+        seq_declarantnum = obj_sequence.next_by_code('declarantnum')
         dnum = company_vat[2:] + seq_declarantnum[-4:]
 
         addr = data_company.partner_id.address_get(['invoice'])
