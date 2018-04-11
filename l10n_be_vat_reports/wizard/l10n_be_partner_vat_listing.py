@@ -212,7 +212,7 @@ class PartnerVATList(models.TransientModel):
         obj_sequence = self.env['ir.sequence']
         obj_partner = self.env['res.partner']
         obj_model_data = self.env['ir.model.data']
-        seq_declarantnum = obj_sequence.get('declarantnum')
+        seq_declarantnum = obj_sequence.next_by_code('declarantnum')
         obj_cmpny = self.env.user.company_id
         company_vat = obj_cmpny.partner_id.vat
 
@@ -222,7 +222,7 @@ class PartnerVATList(models.TransientModel):
         company_vat = company_vat.replace(' ', '').upper()
         SenderId = company_vat[2:]
         issued_by = company_vat[:2]
-        seq_declarantnum = obj_sequence.get('declarantnum')
+        seq_declarantnum = obj_sequence.next_by_code('declarantnum')
         dnum = company_vat[2:] + seq_declarantnum[-4:]
         street = city = country = ''
         addr = obj_cmpny.partner_id.address_get(['invoice'])
