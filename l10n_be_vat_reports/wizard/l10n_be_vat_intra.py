@@ -38,13 +38,6 @@ class PartnerVATIntra(models.TransientModel):
     _description = 'Partner VAT Intra'
 
     @api.model
-    def _get_xml_data(self):
-        context = self.env.context
-        if context.get('file_save', False):
-            return base64.encodestring(context['file_save'].encode('utf8'))
-        return ''
-
-    @api.model
     def _get_europe_country(self):
         return self.env['res.country'].search([
             ('code', 'in', ['AT', 'BG', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
@@ -78,7 +71,7 @@ class PartnerVATIntra(models.TransientModel):
         help="The Partner whose VAT number is not defined and they are not "
              "included in XML File.")
     file_save = fields.Binary(
-        'Save File', readonly=True, default=_get_xml_data)
+        'Save File', readonly=True)
     country_ids = fields.Many2many(
         'res.country', 'vat_country_rel', 'vat_id', 'country_id',
         'European Countries', default=_get_europe_country)
@@ -116,7 +109,7 @@ class PartnerVATIntra(models.TransientModel):
         if len(wiz_data.period_code) != 6:
             raise UserError(_('Period code is not valid.'))
 
-        if not wiz_data.date_start > wiz_data.date_end:
+        if not wiz_data.date_start <= wiz_data.date_end:
             raise UserError(_('Start date cannot be after the end date.'))
 
         p_id_list = obj_partner.search([('vat', '!=', False)])
@@ -327,8 +320,7 @@ WITH taxes AS
             data_head + data_decl + data_comp_period + data_clientinfo +
             '\n\t\t<ns2:Comment>%(comments)s</ns2:Comment>\n\t'
             '</ns2:IntraListing>\n</ns2:IntraConsignment>') % (xml_data)
-        context = dict(self.env.context)
-        context['file_save'] = data_file
+        self.write({'file_save': base64.b64encode(data_file)})
 
         model_data = mod_obj.search([
             ('model', '=', 'ir.ui.view'),
@@ -338,7 +330,7 @@ WITH taxes AS
 
         return {
             'name': _('Save'),
-            'context': context,
+            'context': self.env.context,
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'partner.vat.intra',
@@ -346,6 +338,7 @@ WITH taxes AS
             'view_id': 'view_vat_intra_save',
             'type': 'ir.actions.act_window',
             'target': 'new',
+            'res_id': self.id,
         }
 
     @api.multi
@@ -361,9 +354,8 @@ WITH taxes AS
 
 
 class VATIntraPrint(report_sxw.rml_parse):
-    @api.model
-    def __init__(self, name):
-        super(VATIntraPrint, self).__init__(name)
+    def __init__(self, cr, uid, name, context=None):
+        super(VATIntraPrint, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
         })
