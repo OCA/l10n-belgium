@@ -172,13 +172,10 @@ class PartnerVATIntra(models.TransientModel):
             'tax_tag_44',
             'tax_tag_46L',
             'tax_tag_46T',
-            'tax_tag_48s44',
-            'tax_tag_48s46L',
-            'tax_tag_48s46T',
         )
         self.env.cr.execute('''
 WITH taxes AS
-  (SELECT tagsrel.account_tax_id
+  (SELECT tag_xmlid.name, tagsrel.account_tax_id
    FROM account_tax_account_tag tagsrel
    INNER JOIN ir_model_data tag_xmlid ON (
        tag_xmlid.model = 'account.account.tag'
@@ -186,17 +183,15 @@ WITH taxes AS
    WHERE tag_xmlid.NAME IN %s)
           SELECT p.name As partner_name,
                  l.partner_id AS partner_id, p.vat AS vat,
-          (CASE WHEN t.name = 'tax_tag_48s44' THEN 'tax_tag_44'
-                WHEN t.name = 'tax_tag_48s46L' THEN 'tax_tag_46L'
-                WHEN t.name = 'tax_tag_48s46T' THEN 'tax_tag_46T'
-           ELSE t.name END) AS intra_code,
+          t.name AS intra_code,
           SUM(-l.balance) AS amount
           FROM account_move_line l
-          LEFT JOIN account_tax t ON l.tax_line_id = t.id
+          INNER JOIN account_move_line_account_tax_rel taxrel
+            ON (taxrel.account_move_line_id = l.id)
+          INNER JOIN taxes t ON (taxrel.account_tax_id = t.account_tax_id)
           LEFT JOIN res_partner p ON (l.partner_id = p.id)
-          WHERE l.tax_line_id IN (SELECT account_tax_id FROM taxes)
            AND l.date BETWEEN %s AND %s
-           AND t.company_id = %s
+           AND l.company_id = %s
           GROUP BY p.name, l.partner_id, p.vat, intra_code''',
                             (tags_xmlids, wiz_data.date_start,
                              wiz_data.date_end, data_company.id))
