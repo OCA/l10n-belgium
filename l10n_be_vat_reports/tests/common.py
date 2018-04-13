@@ -4,8 +4,6 @@
 
 from odoo.tests.common import TransactionCase
 
-import unittest
-
 
 class TestVatReportsCommon(TransactionCase):
 
@@ -37,4 +35,3 @@ class TestVatReportsCommon(TransactionCase):
             'partner_id': self.partner.id,
         })
         invoice.action_invoice_open()
-

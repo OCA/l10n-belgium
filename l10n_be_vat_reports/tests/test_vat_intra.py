@@ -36,7 +36,6 @@ class TestVatIntra(TestVatReportsCommon):
     @unittest.skipIf(report.wkhtmltopdf_state == 'install',
                      'wkhtmltopdf not available')
     def test_pdf_list(self):
-        return
         full_list = self._prepare_listing()
         report_action = full_list.print_vatlist()
         context = full_list.env.context
