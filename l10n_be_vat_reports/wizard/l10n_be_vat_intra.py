@@ -315,7 +315,7 @@ WITH taxes AS
             data_head + data_decl + data_comp_period + data_clientinfo +
             '\n\t\t<ns2:Comment>%(comments)s</ns2:Comment>\n\t'
             '</ns2:IntraListing>\n</ns2:IntraConsignment>') % (xml_data)
-        self.write({'file_save': base64.b64encode(data_file)})
+        self.write({'file_save': base64.b64encode(data_file.encode('utf-8'))})
 
         model_data = mod_obj.search([
             ('model', '=', 'ir.ui.view'),
@@ -348,16 +348,8 @@ WITH taxes AS
             [], 'l10n_be_vat_reports.report_l10nvatintraprint', data=datas)
 
 
-class VATIntraPrint(report_sxw.rml_parse):
-    def __init__(self, cr, uid, name, context=None):
-        super(VATIntraPrint, self).__init__(cr, uid, name, context=context)
-        self.localcontext.update({
-            'time': time,
-        })
-
-
 class WrappedVATIntraPrint(models.AbstractModel):
     _name = 'report.l10n_be_vat_reports.report_l10nvatintraprint'
     _inherit = 'report.abstract_report'
     _template = 'l10n_be_vat_reports.report_l10nvatintraprint'
-    _wrapped_report_class = VATIntraPrint
+    _wrapped_report_class = report_sxw.rml_parse

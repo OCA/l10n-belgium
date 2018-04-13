@@ -362,13 +362,6 @@ class PartnerVATList(models.TransientModel):
 
 class PartnerVATListingPrint(report_sxw.rml_parse):
 
-    def __init__(self, cr, uid, name, context=None):
-        super(PartnerVATListingPrint, self).__init__(
-            cr, uid, name, context=context)
-        self.localcontext.update({
-            'time': time,
-        })
-
     def set_context(self, objects, data, ids, report_type=None):
         client_datas = data['client_datas']
         self.localcontext.update({
