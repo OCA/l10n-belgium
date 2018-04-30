@@ -207,10 +207,11 @@ WITH taxes AS
             amt = row['amount'] or 0.0
             amount_sum += amt
 
-            intra_code = row['intra_code'] == (
-                '44' and 'S' or
-                (row['intra_code'] == '46L' and 'L' or
-                 (row['intra_code'] == '46T' and 'T' or '')))
+            intra_code = {
+                'tax_tag_44': 'S',
+                'tax_tag_46L': 'L',
+                'tax_tag_46T': 'T',
+            }.get(row['intra_code'], '')
 
             xmldict['clientlist'].append({
                 'partner_name': row['partner_name'],
@@ -344,8 +345,9 @@ WITH taxes AS
             'model': 'partner.vat.intra',
             'form': xml_data
         }
+        empty = self.env['partner.vat.intra']
         return self.env['report'].get_action(
-            [], 'l10n_be_vat_reports.report_l10nvatintraprint', data=datas)
+            empty, 'l10n_be_vat_reports.report_l10nvatintraprint', data=datas)
 
 
 class WrappedVATIntraPrint(models.AbstractModel):
