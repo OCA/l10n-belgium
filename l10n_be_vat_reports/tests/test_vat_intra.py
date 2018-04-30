@@ -31,13 +31,21 @@ class TestVatIntra(TestVatReportsCommon):
         xml_vat_amount = xml.xpath(
             '//ns2:IntraListing',
             namespaces=ns)[0].attrib['AmountSum']
+        codes = xml.xpath(
+            '//ns2:IntraListing/ns2:IntraClient/ns2:Code',
+            namespaces=ns)
+        for code in codes:
+            self.assertTrue(code.text)
         self.assertEqual('450.00', xml_vat_amount)
 
     @unittest.skipIf(report.wkhtmltopdf_state == 'install',
                      'wkhtmltopdf not available')
     def test_pdf_list(self):
-        full_list = self._prepare_listing()
-        report_action = full_list.print_vatlist()
-        context = full_list.env.context
-        self.env['report'].with_context(context).get_pdf(
+        wizard = self.env['partner.vat.intra'].create({
+            'period_code': time.strftime('00%Y'),
+            'date_start': time.strftime('%Y-01-01'),
+            'date_end': time.strftime('%Y-12-31'),
+        })
+        report_action = wizard.preview()
+        self.env['report'].get_pdf(
             [], report_action['report_name'], data=report_action['data'])
