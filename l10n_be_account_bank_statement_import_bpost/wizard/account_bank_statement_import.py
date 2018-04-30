@@ -8,9 +8,12 @@ import logging
 from tempfile import NamedTemporaryFile
 from datetime import datetime
 from odoo import api, fields, models
-import unicodecsv
+logger = logging.getLogger(__name__)
 
-_logger = logging.getLogger(__name__)
+try:
+    import unicodecsv
+except ImportError:
+    logger.debug('Cannot import unicodecsv')
 
 
 class AccountBankStatementImport(models.TransientModel):
@@ -45,7 +48,7 @@ class AccountBankStatementImport(models.TransientModel):
         fu = open(fileobj.name, 'rU')
         for line in unicodecsv.reader(fu, encoding='utf-8', delimiter=';'):
             i += 1
-            _logger.debug("Line %d: %s", i, line)
+            logger.debug("Line %d: %s", i, line)
             if i == 1:
                 account_number = line[1].replace('-', '')
             if i < 3:
