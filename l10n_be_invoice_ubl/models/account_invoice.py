@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
-# © 2016 Akretion (Alexis de Lattre <alexis.delattre@akretion.com>)
+# Copyright 2016-2018 Akretion
+# @author: Alexis de Lattre <alexis.delattre@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, api, release
+from odoo import models, release
 from lxml import etree
 
 
 class AccountInvoice(models.Model):
-    _name = 'account.invoice'
-    _inherit = ['account.invoice', 'base.ubl']
+    _inherit = 'account.invoice'
 
-    @api.multi
     def get_ubl_version(self):
         '''e-fff is based on UBL 2.0, not UBL 2.1'''
         return '2.0'
 
-    @api.multi
     def _ubl_add_header(self, parent_node, ns, version='2.1'):
         '''Add mandatory fields ProfileID + CustomizationID'''
         res = super(AccountInvoice, self)._ubl_add_header(
@@ -34,12 +32,11 @@ class AccountInvoice(models.Model):
             parent_node.index(version_node_find) + 2, profile_id)
         return res
 
-    @api.multi
     def get_ubl_filename(self, version='2.1'):
         '''Read from http://www.e-fff.be/FR/doc03.php :
         The e-fff community recommends to use the following file naming:
         efff_BE0123456789_AlphaNumericCharactersFreeOfChoice.xml'''
         filename = 'efff_%s_Invoice_%s.xml' % (
-            self.commercial_partner_id.sanitized_vat,
+            self.commercial_partner_id.sanitized_vat or '',
             self.number and self.number.replace('/', '-') or 'draft')
         return filename
