@@ -2,3 +2,5 @@ account-financial-reporting
 bank-payment
 mis-builder
 partner-contact
+edi
+community-data-files
