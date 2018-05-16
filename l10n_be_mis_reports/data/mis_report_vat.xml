@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-2018 ACSONE SA/NV
+     Copyright 2017-2018 Coop IT Easy
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <!-- wizard and menu -->
     <record id="action_mis_report_vat" model="ir.actions.server">
