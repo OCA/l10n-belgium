@@ -68,6 +68,7 @@ Contributors
 ------------
 
 * Stéphane Bidoul at ACSONE <stephane.bidoul@acsone.eu>
+* Virgine Dewulf <virginie@coopiteasy.be>
 
 Maintainer
 ----------
