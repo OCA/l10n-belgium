@@ -19,7 +19,7 @@ addon | version | summary
 [l10n_be_apb_tax](l10n_be_apb_tax/) | 10.0.1.0.0 | Data module to support APB taxes
 [l10n_be_eco_tax](l10n_be_eco_tax/) | 10.0.1.0.0 | Data module to support BEBAT and RECUPEL taxes
 [l10n_be_iso20022_pain](l10n_be_iso20022_pain/) | 10.0.1.0.0 | This module adds Belgium-specific support to account_payment_order.
-[l10n_be_mis_reports](l10n_be_mis_reports/) | 10.0.1.1.0 | MIS Builder templates for the Belgium P&L and Balance Sheets
+[l10n_be_mis_reports](l10n_be_mis_reports/) | 10.0.1.1.0 | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 
 
 Unported addons
