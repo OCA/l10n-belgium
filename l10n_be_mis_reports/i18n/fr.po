@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * l10n_be_mis_reports
-# 
+#
 # Translators:
 # Stéphane Bidoul, 2015
 msgid ""
@@ -11,11 +11,12 @@ msgstr ""
 "POT-Creation-Date: 2015-09-23 16:50+0000\n"
 "PO-Revision-Date: 2015-09-21 15:05+0000\n"
 "Last-Translator: Stéphane Bidoul\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/"
+"language/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: l10n_be_mis_reports
@@ -43,7 +44,9 @@ msgstr "Reprises de réductions de valeur sur immobilisations financières [761]
 msgid ""
 "Adjustment to Depreciation and Write Off on Intangible and Tangible Assets "
 "[760]"
-msgstr "Reprises d'amortissements et de réductions de valeur sur immobilisations incorporelles et corporelles [760]"
+msgstr ""
+"Reprises d'amortissements et de réductions de valeur sur immobilisations "
+"incorporelles et corporelles [760]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr231
@@ -121,14 +124,18 @@ msgstr "Réductions de valeur sur immobilisations financières [661]"
 msgid ""
 "Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase "
 "(Decrease) [631/4]"
-msgstr "Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [631/4]"
+msgstr ""
+"Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase "
+"(Decrease) [631/4]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr226
 msgid ""
 "Amounts Written Off on other than Stocks, Orders in Progress and Trade "
 "Debts: Increase (Decrease) [651]"
-msgstr "Amounts Written Off on other than Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [651]"
+msgstr ""
+"Amounts Written Off on other than Stocks, Orders in Progress and Trade "
+"Debts: Increase (Decrease) [651]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr115
@@ -215,7 +222,9 @@ msgstr "Impôts différés [168]"
 msgid ""
 "Depreciation and Amounts Written Off on Formation Expenses, on  Intangible "
 "and  Tangible Assets [630]"
-msgstr "Amortissements et réductions de valeur sur frais d'établissement, sur immobilisations incorporelles et corporelles [630]"
+msgstr ""
+"Amortissements et réductions de valeur sur frais d'établissement, sur "
+"immobilisations incorporelles et corporelles [630]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr148
@@ -225,7 +234,8 @@ msgstr "CAPITAUX PROPRES [10/15]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr120
 msgid "Enterprises Linked by Participating Interests [282/3]"
-msgstr "Autres entreprises avec lesquelles il existe un lien de participation [282/3]"
+msgstr ""
+"Autres entreprises avec lesquelles il existe un lien de participation [282/3]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr234
@@ -237,7 +247,9 @@ msgstr "Charges exceptionnels [66]"
 msgid ""
 "Extraordinary Depreciation and Amounts Written Off on Formation Expenses, "
 "Intangible and Tangible Assets [660]"
-msgstr "Amortissements et réductions de valeur exceptionnels sur frais d'établissement, sur immobilisations incorporelles et corporelles [660]"
+msgstr ""
+"Amortissements et réductions de valeur exceptionnels sur frais "
+"d'établissement, sur immobilisations incorporelles et corporelles [660]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr228
@@ -547,7 +559,9 @@ msgstr "Bénéfice (Perte) courant(e) avant impôts [9902]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr237
 msgid "Provisions for Extraordinary Liabilities and Charges [662]"
-msgstr "Provisions pour risques et charges exceptionnels: dotations (utilisations) [662]"
+msgstr ""
+"Provisions pour risques et charges exceptionnels: dotations (utilisations) "
+"[662]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr165
@@ -602,12 +616,16 @@ msgstr "Réserves indisponibles [131]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr240
 msgid "Restructuring Charges activated as Extraordinary Charges [669]"
-msgstr "Charges exceptionnelles portées à l'actif au titre de frais de restructuration [669]"
+msgstr ""
+"Charges exceptionnelles portées à l'actif au titre de frais de "
+"restructuration [669]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr219
 msgid "Restructuring Charges activated as Operating Charges [649]"
-msgstr "Charges d'exploitation portées à l'actif au titre de frais de restructuration [649]"
+msgstr ""
+"Charges d'exploitation portées à l'actif au titre de frais de "
+"restructuration [649]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr153
