@@ -124,6 +124,16 @@ msgid "ANTIBIO 0.11 OUT"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_012_in
+msgid "ANTIBIO 0.12 IN"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_012_out
+msgid "ANTIBIO 0.12 OUT"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_013_in
 msgid "ANTIBIO 0.13 IN"
 msgstr ""
@@ -184,6 +194,16 @@ msgid "ANTIBIO 0.20 OUT"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_024_in
+msgid "ANTIBIO 0.24 IN"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_024_out
+msgid "ANTIBIO 0.24 OUT"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_026_in
 msgid "ANTIBIO 0.26 IN"
 msgstr ""
@@ -211,6 +231,16 @@ msgstr ""
 #. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_032_out
 msgid "ANTIBIO 0.32 OUT"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_033_in
+msgid "ANTIBIO 0.33 IN"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_033_out
+msgid "ANTIBIO 0.33 OUT"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
@@ -301,6 +331,16 @@ msgstr ""
 #. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_063_out
 msgid "ANTIBIO 0.63 OUT"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_065_out
+msgid "ANTIBIO 0.65 OUT"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_066_in
+msgid "ANTIBIO 0.66 IN"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
@@ -414,6 +454,16 @@ msgid "ANTIBIO 2.04 OUT"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_244_in
+msgid "ANTIBIO 2.14 IN"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_214_out
+msgid "ANTIBIO 2.14 OUT"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,name:l10n_be_antibiotic_tax.antibiotic_263_in
 msgid "ANTIBIO 2.63 IN"
 msgstr ""
@@ -505,6 +555,12 @@ msgid "Contribution antibiotique (0.11)"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_012_in
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_012_out
+msgid "Contribution antibiotique (0.12)"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_013_in
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_013_out
 msgid "Contribution antibiotique (0.13)"
@@ -541,6 +597,12 @@ msgid "Contribution antibiotique (0.20)"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_024_in
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_024_out
+msgid "Contribution antibiotique (0.24)"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_026_in
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_026_out
 msgid "Contribution antibiotique (0.26)"
@@ -556,6 +618,12 @@ msgstr ""
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_032_in
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_032_out
 msgid "Contribution antibiotique (0.32)"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_033_in
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_033_out
+msgid "Contribution antibiotique (0.33)"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
@@ -610,6 +678,16 @@ msgstr ""
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_063_in
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_063_out
 msgid "Contribution antibiotique (0.63)"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_065_out
+msgid "Contribution antibiotique (0.65)"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_066_in
+msgid "Contribution antibiotique (0.66)"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
@@ -676,6 +754,12 @@ msgstr ""
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_204_in
 #: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_204_out
 msgid "Contribution antibiotique (2.04)"
+msgstr ""
+
+#. module: l10n_be_antibiotic_tax
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_214_out
+#: model:account.tax.template,description:l10n_be_antibiotic_tax.antibiotic_244_in
+msgid "Contribution antibiotique (2.14)"
 msgstr ""
 
 #. module: l10n_be_antibiotic_tax
