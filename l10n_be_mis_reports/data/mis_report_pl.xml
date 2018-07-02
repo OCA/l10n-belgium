@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2015-2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
-  <data>
+<odoo>
     <record model="mis.report" id="mis_report_pl">
       <field name="name">Belgium P&amp;L (Full Model)</field>
       <field name="style_id" ref="mis_report_style_l10n_be_base"/>
@@ -497,5 +496,4 @@
       <field name="style_id" ref="mis_report_style_l10n_be_1"/>
       <field name="sequence">490</field>
     </record>
-  </data>
-</openerp>
+</odoo>
