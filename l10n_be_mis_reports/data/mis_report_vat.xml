@@ -414,7 +414,7 @@
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">ctrl_54</field>
       <field name="description">Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]</field>
-      <field name="expression">u'✔' if round(grid_01*0.21, 2) + round(grid_02*0.12, 2) + round(grid_03*0.21, 2) >= round(grid_54, 2) else u'✘'</field>
+      <field name="expression">u'✔' if abs(grid_01*0.6 + grid_02*0.12 + grid_03*0.21 - grid_54) &lt; 62 else u'✘'</field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
