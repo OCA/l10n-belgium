@@ -214,47 +214,47 @@ msgstr "Commandes en cours d'exécution [37]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control
 msgid "Control"
-msgstr ""
+msgstr "Contrôles"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_60
 msgid "Control 60 vs [81]"
-msgstr ""
+msgstr "Contrôle 60 vs [81]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_70
 msgid "Control 70 vs Cadre II"
-msgstr ""
+msgstr "Contrôle 70 vs Cadre II"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_49
-msgid "Control Grid 49: [49] x 0.21 >= [64]"
-msgstr ""
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_U
+msgid "Control U: [49] x 0.21 >= [64]"
+msgstr "Contrôle U: [49] x 0.21 >= [64]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_54
-msgid "Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]"
-msgstr ""
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_O
+msgid "Control O: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]"
+msgstr "Contrôle O: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_55
-msgid "Control Grid 55: ([84] + [86] + [88]) x 0.21 >= [55]"
-msgstr ""
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_P
+msgid "Control P: ([84] + [86] + [88]) x 0.21 >= [55]"
+msgstr "Contrôle P: ([84] + [86] + [88]) x 0.21 >= [55]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_59
-msgid "Control Grid 59: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
-msgstr ""
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_S
+msgid "Control S: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
+msgstr "Contrôle S: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_85
-msgid "Control Grid 85: [85] x 0.21 >= [63]"
-msgstr ""
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_T
+msgid "Control T: [85] x 0.21 >= [63]"
+msgstr "Contrôle T: [85] x 0.21 >= [63]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_87
-msgid "Control Grid 87: ([85] + [87]) x 0.21 >= [56] + [57]"
-msgstr ""
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_Q
+msgid "Control Q: ([85] + [87]) x 0.21 >= [56] + [57]"
+msgstr "Contrôle Q: ([85] + [87]) x 0.21 >= [56] + [57]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr177
