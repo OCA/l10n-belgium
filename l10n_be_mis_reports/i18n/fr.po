@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-29 01:43+0000\n"
-"PO-Revision-Date: 2017-11-29 01:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2018-08-27 09:03+0000\n"
+"Last-Translator: vdewulf <virginie@coopiteasy.be>\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.1.1\n"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr197
@@ -154,7 +155,7 @@ msgstr "Belgium P&L (Full Model)"
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.mis_report_vat
 msgid "Belgium Value Added Tax Report Sheet"
-msgstr ""
+msgstr "Déclaration TVA belge"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr181
@@ -174,27 +175,27 @@ msgstr "ACTIFS CIRCULANTS [29/58]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_2
 msgid "Cadre II"
-msgstr ""
+msgstr "Cadre II : Opérations à la sortie"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_3
 msgid "Cadre III"
-msgstr ""
+msgstr "Cadre III : Opérations à l'entrée"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_4
 msgid "Cadre IV"
-msgstr ""
+msgstr "Cadre IV : Taxes dues"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_5
 msgid "Cadre V"
-msgstr ""
+msgstr "Cadre V : Taxes déductibles"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_6
 msgid "Cadre VI"
-msgstr ""
+msgstr "Cadre VI : Solde"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr149
@@ -219,42 +220,44 @@ msgstr "Contrôles"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_60
 msgid "Control 60 vs [81]"
-msgstr "Contrôle 60 vs [81]"
+msgstr "Contrôles comptes 6 versus grille 81"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_70
 msgid "Control 70 vs Cadre II"
-msgstr "Contrôle 70 vs Cadre II"
+msgstr "Contrôles comptes 7 versus Cadre II"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_U
-msgid "Control U: [49] x 0.21 >= [64]"
-msgstr "Contrôle U: [49] x 0.21 >= [64]"
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_49
+msgid "Control Grid 49: [49] x 0.21 >= [64]"
+msgstr "Contrôle U :   [49] x 0.21 >= [64] (tolérance de 62€)"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_O
-msgid "Control O: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]"
-msgstr "Contrôle O: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]"
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_54
+msgid "Control Grid 54: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54]"
+msgstr ""
+"Contrôle O :  [01] x 0.06 + [02] x 0.12 + [03] x 0.21 >= [54] (tolérance de "
+"62€)"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_P
-msgid "Control P: ([84] + [86] + [88]) x 0.21 >= [55]"
-msgstr "Contrôle P: ([84] + [86] + [88]) x 0.21 >= [55]"
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_55
+msgid "Control Grid 55: ([84] + [86] + [88]) x 0.21 >= [55]"
+msgstr "Contrôle P : ([84] + [86] + [88]) x 0.21 >= [55] (tolérance de 62€)"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_S
-msgid "Control S: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
-msgstr "Contrôle S: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_59
+msgid "Control Grid 59: ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
+msgstr "Contrôle S : ([81] + [82] + [83] + [84] + [85]) x 0.5 >= [59]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_T
-msgid "Control T: [85] x 0.21 >= [63]"
-msgstr "Contrôle T: [85] x 0.21 >= [63]"
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_85
+msgid "Control Grid 85: [85] x 0.21 >= [63]"
+msgstr "Contrôle T : [85] x 0.21 >= [63] (tolérance de 62€)"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_Q
-msgid "Control Q: ([85] + [87]) x 0.21 >= [56] + [57]"
-msgstr "Contrôle Q: ([85] + [87]) x 0.21 >= [56] + [57]"
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_87
+msgid "Control Grid 87: ([85] + [87]) x 0.21 >= [56] + [57]"
+msgstr "Contrôle Q : ([85] + [87]) x 0.21 >= [56] + [57] (tolérance de 62€)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr177
@@ -408,157 +411,157 @@ msgstr "Marchandises [34]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_00
 msgid "Grid 00"
-msgstr ""
+msgstr "Grille 00 : opérations soumises à un régime particulier"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_01
 msgid "Grid 01"
-msgstr ""
+msgstr "Grille 01 : opérations pour lesquelles la TVA est due (6 p.c.)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_02
 msgid "Grid 02"
-msgstr ""
+msgstr "Grille 02 : opérations pour lesquelles la TVA est due (12 p.c.)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_03
 msgid "Grid 03"
-msgstr ""
+msgstr "Grille 03 : opérations pour lesquelles la TVA est due (21 p.c.)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_44
 msgid "Grid 44"
-msgstr ""
+msgstr "Grille 44 : services pour lesquels la TVA étrangère est due par le coc"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_45
 msgid "Grid 45"
-msgstr ""
+msgstr "Grille 45 : opérations pour lesquelles la TVA est due par le cocontrac"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_46
 msgid "Grid 46"
-msgstr ""
+msgstr "Grille 46 : livraisons intracommunautaires exemptées effectuées en Bel"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_47
 msgid "Grid 47"
-msgstr ""
+msgstr "Grille 47 : autres opérations exemptées, autres op. à l'étranger"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_48
 msgid "Grid 48"
-msgstr ""
+msgstr "Grille 48 : montant des NC délivrées (grilles 44/46)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_49
 msgid "Grid 49"
-msgstr ""
+msgstr "Grille 49 : montant des NC (autres opérations cadre II)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_54
 msgid "Grid 54"
-msgstr ""
+msgstr "Grille 54: TVA relative aux opérations déclarées en grilles 01, 02, 03"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_55
 msgid "Grid 55"
-msgstr ""
+msgstr "Grille 55 : TVA relative aux opérations déclarées en grilles 86 et 88"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_56
 msgid "Grid 56"
-msgstr ""
+msgstr "Grille 56 : TVA relative aux opérations déclarées en grille 87"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_57
 msgid "Grid 57"
-msgstr ""
+msgstr "Grille 57 : TVA relative aux importations avec report de perception"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_59
 msgid "Grid 59"
-msgstr ""
+msgstr "Grille 59 : TVA déductible"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_61
 msgid "Grid 61"
-msgstr ""
+msgstr "Grille 61 : diverses régularisations TVA en faveur de l'Etat"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_62
 msgid "Grid 62"
-msgstr ""
+msgstr "Grille 62 : diverses régularisations TVA en faveur du déclarant"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_63
 msgid "Grid 63"
-msgstr ""
+msgstr "Grille 63 : TVA à reverser mentionnée sur les notes de crédit reçues"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_64
 msgid "Grid 64"
-msgstr ""
+msgstr "Grille 64 : TVA à récupérer mentionnée sur les NC délivrées"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_71
 msgid "Grid 71 : Taxes due to the State"
-msgstr ""
+msgstr "Grille 71 : Taxe due à l'Etat"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_72
 msgid "Grid 72 : Taxes due by the State"
-msgstr ""
+msgstr "Grille 72 : Taxe due par l'Etat"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_81
 msgid "Grid 81"
-msgstr ""
+msgstr "Grille 81 : montant HTVA des opérations à l'entrée (compte tenu de NC)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_82
 msgid "Grid 82"
-msgstr ""
+msgstr "Grille 82 : montant HTVA des opérations à l'entrée (compte tenu de NC)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_83
 msgid "Grid 83"
-msgstr ""
+msgstr "Grille 83 : montant HTVA des opérations à l'entrée (investissements)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_84
 msgid "Grid 84"
-msgstr ""
+msgstr "Grille 84 : montant des NC reçues (grilles 86 et 88)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_85
 msgid "Grid 85"
-msgstr ""
+msgstr "Grille 85 : montant des NC reçues (autres op. du cadre III)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_86
 msgid "Grid 86"
-msgstr ""
+msgstr "Grille 86 : acquisitions intracommunautaires effectuées en Belgique"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_87
 msgid "Grid 87"
-msgstr ""
+msgstr "Grille 87 : autres op. à l'entrée pour lesquelles la TVA est due"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_88
 msgid "Grid 88"
-msgstr ""
+msgstr "Grille 88 : services intracommunautaires avec report de perception"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_xx
 msgid "Grid xx (sum of 54, 55, 56, 57, 61, 63)"
-msgstr ""
+msgstr "Grille xx (somme des grilles 54, 55, 56, 57, 61, 63)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_yy
 msgid "Grid yy (sum of grid 59, 62, 64)"
-msgstr ""
+msgstr "Grille yy (somme des grilles  59, 62, 64)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr136
@@ -1000,7 +1003,7 @@ msgstr "Réserves immunisées [132]"
 #: model:ir.actions.server,name:l10n_be_mis_reports.action_mis_report_vat
 #: model:ir.ui.menu,name:l10n_be_mis_reports.menu_mis_report_vat
 msgid "VAT Declaration"
-msgstr ""
+msgstr "Déclaration TVA"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr133
