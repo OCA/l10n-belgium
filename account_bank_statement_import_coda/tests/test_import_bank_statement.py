@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015-2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import base64
 from odoo.tests.common import TransactionCase
 from odoo.modules.module import get_module_resource
 from odoo.tools import float_compare
@@ -14,7 +14,7 @@ class TestCodaFile(TransactionCase):
     """
 
     def setUp(self):
-        super(TestCodaFile, self).setUp()
+        super().setUp()
         bank_account = self.env['res.partner.bank'].create({
             'acc_number': 'BE46737018594236',
             'bank_bic': 'KREDBEBB',
@@ -27,6 +27,7 @@ class TestCodaFile(TransactionCase):
             'code': 'TBNK',
             'type': 'bank',
             'bank_account_id': bank_account.id,
+            'currency_id': self.env.ref("base.EUR").id,
         })
         self.statement_import_model = self.env['account.bank.statement.import']
         self.bank_statement_model = self.env['account.bank.statement']
@@ -34,7 +35,7 @@ class TestCodaFile(TransactionCase):
             'account_bank_statement_import_coda',
             'test_coda_file',
             'Ontvangen_CODA.2012-01-11-18.59.15.txt')
-        self.coda_file = open(coda_file_path, 'rb').read().encode('base64')
+        self.coda_file = base64.b64encode(open(coda_file_path, 'rb').read())
 
     def test_coda_file_import(self):
         bank_statement_import = self.statement_import_model.\
@@ -96,5 +97,8 @@ class TestCodaFile(TransactionCase):
         bank_statement_import = self.statement_import_model.\
             create({'data_file': self.coda_file})
         with self.assertRaises(Exception):
+            # the following method breaks a unique constraint, which is log as
+            # error by default.
+            self.env.cr._default_log_exceptions = False
             bank_statement_import.\
                 with_context(journal_id=cash_journal.id).import_file()
