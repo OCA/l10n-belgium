@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -33,22 +32,21 @@ class AccountBankStatementImport(models.TransientModel):
         try:
             # Matches the first 24 characters of a CODA file, as defined by
             # the febelfin specifications
-            return re.match(r'0{5}\d{9}05[ D] {7}', data_file) is not None
+            return re.match(rb'0{5}\d{9}05[ D] {7}', data_file) is not None
         except:
             return False
 
     @api.model
     def _parse_file(self, data_file):
         if not self._check_coda(data_file):
-            return super(AccountBankStatementImport, self)._parse_file(
-                data_file)
+            return super()._parse_file(data_file)
         vals_bank_statements = []
         try:
             statements = Parser().parse(data_file)
             for statement in statements:
                 vals_bank_statements.append(
                     self.get_st_vals(statement))
-        except Exception, e:
+        except Exception as e:
             _logger.exception('Error when parsing coda file')
             raise UserError(
                 _("The following problem occurred during import. "
@@ -188,9 +186,8 @@ class AccountBankStatementImport(models.TransientModel):
 
     @api.model
     def _complete_statement(self, stmts_vals, journal_id, account_number):
-        stmts_vals = super(
-            AccountBankStatementImport, self)._complete_statement(
-                stmts_vals, journal_id, account_number)
+        stmts_vals = super()._complete_statement(
+            stmts_vals, journal_id, account_number)
         journal = self.env['account.journal'].browse(journal_id)
         stmts_vals['name'] = '%s/%s' % (journal.code, stmts_vals['name'])
         return stmts_vals
