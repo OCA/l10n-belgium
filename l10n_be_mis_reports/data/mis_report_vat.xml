@@ -36,6 +36,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">10</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_01">
@@ -46,6 +48,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">20</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_02">
@@ -56,6 +60,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">30</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_03">
@@ -66,6 +72,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">40</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_44">
@@ -76,6 +84,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">50</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_45">
@@ -86,6 +96,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">60</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_46">
@@ -96,6 +108,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">70</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_47">
@@ -106,6 +120,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">80</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_48">
@@ -116,6 +132,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">90</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_49">
@@ -126,6 +144,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">100</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_cadre_3">
@@ -146,6 +166,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">110</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_82">
@@ -156,6 +178,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">120</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_83">
@@ -166,6 +190,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">130</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_84">
@@ -176,6 +202,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">140</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_85">
@@ -186,6 +214,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">150</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_86">
@@ -196,6 +226,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">160</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_87">
@@ -206,6 +238,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">170</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_88">
@@ -216,6 +250,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">180</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_cadre_4">
@@ -236,6 +272,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">190</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_55">
@@ -246,6 +284,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">210</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_56">
@@ -256,6 +296,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">220</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_57">
@@ -266,6 +308,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">230</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_61">
@@ -276,6 +320,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">240</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_63">
@@ -286,6 +332,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">250</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_xx">
@@ -316,6 +364,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">270</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_62">
@@ -326,6 +376,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">280</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_64">
@@ -336,6 +388,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">290</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_grid_yy">
