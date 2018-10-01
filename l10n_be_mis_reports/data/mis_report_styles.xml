@@ -2,7 +2,6 @@
 <!-- Copyright 2015-2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-  <data>
 
     <record id="mis_report_style_l10n_be_base" model="mis.report.style">
       <field name="name">l10n_be base</field>
@@ -50,5 +49,14 @@
       <field name="indent_level">3</field>
     </record>
 
-  </data>
+    <record id="mis_report_style_l10n_be_acc_det" model="mis.report.style">
+      <field name="name">l10n_be account detail</field>
+      <field name="indent_level_inherit" eval="0"/>
+      <field name="indent_level">4</field>
+      <field name="font_style_inherit" eval="0"/>
+      <field name="font_style">italic</field>
+      <field name="font_size_inherit" eval="0"/>
+      <field name="font_size">small</field>
+    </record>
+
 </odoo>

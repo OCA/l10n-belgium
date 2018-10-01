@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2015-2018 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
-  <data>
+<odoo>
     <record model="mis.report" id="mis_report_pl">
       <field name="name">Belgium P&amp;L (Full Model)</field>
       <field name="style_id" ref="mis_report_style_l10n_be_base"/>
@@ -25,6 +24,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">20</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr206">
@@ -35,6 +36,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">30</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr207">
@@ -45,6 +48,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">40</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr208">
@@ -55,6 +60,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">50</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr209">
@@ -85,6 +92,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">80</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr212">
@@ -95,6 +104,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">90</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr213">
@@ -105,6 +116,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">100</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr214">
@@ -115,6 +128,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">110</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr215">
@@ -125,6 +140,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">120</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr216">
@@ -135,6 +152,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">130</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr217">
@@ -145,6 +164,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">140</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr218">
@@ -155,6 +176,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">150</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr219">
@@ -165,6 +188,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">160</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr203">
@@ -195,6 +220,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">190</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr222">
@@ -205,6 +232,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">200</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr223">
@@ -215,6 +244,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">210</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr224">
@@ -225,6 +256,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">220</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr225">
@@ -235,6 +268,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">230</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr226">
@@ -245,6 +280,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">240</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr227">
@@ -255,6 +292,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">250</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr202">
@@ -285,6 +324,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">280</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr230">
@@ -295,6 +336,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">290</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr231">
@@ -305,6 +348,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">300</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr232">
@@ -315,6 +360,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">310</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr233">
@@ -325,6 +372,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">320</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr234">
@@ -345,6 +394,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">340</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr236">
@@ -355,6 +406,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">350</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr237">
@@ -365,6 +418,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">360</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr238">
@@ -375,6 +430,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">370</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr239">
@@ -385,6 +442,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">380</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr240">
@@ -395,6 +454,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">390</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr201">
@@ -415,6 +476,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">410</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr242">
@@ -425,6 +488,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">420</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr243">
@@ -445,6 +510,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">440</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr245">
@@ -455,6 +522,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">450</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr200">
@@ -475,6 +544,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">470</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr247">
@@ -485,6 +556,8 @@
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">480</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_pl_fr199">
@@ -497,5 +570,4 @@
       <field name="style_id" ref="mis_report_style_l10n_be_1"/>
       <field name="sequence">490</field>
     </record>
-  </data>
-</openerp>
+</odoo>
