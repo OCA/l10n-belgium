@@ -23,7 +23,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_2">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">cadre_2</field>
-      <field name="description">Cadre II</field>
+      <field name="description">Cadre II - Outgoing Operations</field>
       <field name="expression"></field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -33,7 +33,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_00">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_00</field>
-      <field name="description">Grid 00</field>
+      <field name="description">Grid 00 - Operations subject to a special arrangement</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_00').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -45,7 +45,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_01">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_01</field>
-      <field name="description">Grid 01</field>
+      <field name="description">Grid 01 - Operations subject to 6% VAT</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_01').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -57,7 +57,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_02">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_02</field>
-      <field name="description">Grid 02</field>
+      <field name="description">Grid 02 - Operations subject to 12% VAT</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_02').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -69,7 +69,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_03">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_03</field>
-      <field name="description">Grid 03</field>
+      <field name="description">Grid 03 - Operations subject to 21% VAT</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_03').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -81,7 +81,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_44">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_44</field>
-      <field name="description">Grid 44</field>
+      <field name="description">Grid 44 - Intra Community Services</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_44').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)] </field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -93,7 +93,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_45">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_45</field>
-      <field name="description">Grid 45</field>
+      <field name="description">Grid 45 - VAT due by the Cocontractant</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_45').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -105,7 +105,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_46">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_46</field>
-      <field name="description">Grid 46</field>
+      <field name="description">Grid 46 - VAT exempt Intra Community and ABC Supplies</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', 'in', (ref('l10n_be.tax_tag_46L').id, ref('l10n_be.tax_tag_46T').id)), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -117,7 +117,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_47">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_47</field>
-      <field name="description">Grid 47</field>
+      <field name="description">Grid 47 - Other VAT exempt Operations</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_47').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -129,7 +129,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_48">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_48</field>
-      <field name="description">Grid 48</field>
+      <field name="description">Grid 48 - Issued Credit Notes Operations Grid [44] and [46]</field>
       <field name="expression">bal[][('tax_ids.tag_ids.id', 'in', (ref('l10n_be.tax_tag_48s44').id, ref('l10n_be.tax_tag_48s46L').id, ref('l10n_be.tax_tag_48s46T').id)), '|', ('invoice_id.type', '=', 'out_refund'), '&amp;', ('invoice_id', '=', False), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -141,7 +141,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_49">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_49</field>
-      <field name="description">Grid 49</field>
+      <field name="description">Grid 49 - Issued Credit Notes Other Operations Section II</field>
       <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_49').id), '|', ('invoice_id.type', '=', 'out_refund'), '&amp;', ('invoice_id', '=', False),  ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -153,7 +153,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_3">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">cadre_3</field>
-      <field name="description">Cadre III</field>
+      <field name="description">Cadre III - Incoming Operations</field>
       <field name="expression"></field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -163,7 +163,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_81">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_81</field>
-      <field name="description">Grid 81</field>
+      <field name="description">Grid 81 - Purchases of Goods, Raw Materials and Consumables</field>
       <field name="expression">bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_81').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_81_not_deductible').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -175,7 +175,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_82">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_82</field>
-      <field name="description">Grid 82</field>
+      <field name="description">Grid 82 - Purchases of various Goods and Services</field>
       <field name="expression">bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_82').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_82_not_deductible').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -187,7 +187,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_83">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_83</field>
-      <field name="description">Grid 83</field>
+      <field name="description">Grid 83 - Purchases of Assets</field>
       <field name="expression">bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_83').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_83_not_deductible').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -199,7 +199,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_84">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_84</field>
-      <field name="description">Grid 84</field>
+      <field name="description">Grid 84 - Incoming Credit Notes Operations Grid [86] and [88]</field>
       <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_84').id), '|', ('invoice_id.type', '=', 'in_refund'), '&amp;', ('invoice_id', '=', False),  ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -211,7 +211,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_85">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_85</field>
-      <field name="description">Grid 85</field>
+      <field name="description">Grid 85 - Incoming Credit Notes other Operations</field>
       <field name="expression">-bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_85').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_85_not_deductible').id), '|', ('invoice_id.type', '=', 'in_refund'), '&amp;', ('invoice_id', '=', False),  ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -223,7 +223,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_86">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_86</field>
-      <field name="description">Grid 86</field>
+      <field name="description">Grid 86 - Intra Community and ABC Acquisitions</field>
       <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_86').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -235,7 +235,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_87">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_87</field>
-      <field name="description">Grid 87</field>
+      <field name="description">Grid 87 - Other Incoming Operations</field>
       <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_87').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -247,7 +247,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_88">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_88</field>
-      <field name="description">Grid 88</field>
+      <field name="description">Grid 88 - Intra Community Services</field>
       <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_88').id)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -259,7 +259,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_4">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">cadre_4</field>
-      <field name="description">Cadre IV</field>
+      <field name="description">Cadre IV - Balance</field>
       <field name="expression"></field>
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -269,7 +269,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_54">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_54</field>
-      <field name="description">Grid 54</field>
+      <field name="description">Grid 54 - VAT on Operations Grids [01], [02], [03]</field>
       <field name="expression">-bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_54').id), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -281,7 +281,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_55">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_55</field>
-      <field name="description">Grid 55</field>
+      <field name="description">Grid 55 - VAT on Operations Grids [86] and [88]</field>
       <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_55').id), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -293,7 +293,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_56">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_56</field>
-      <field name="description">Grid 56</field>
+      <field name="description">Grid 56 - VAT on Operations Grid [87]</field>
       <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_56').id), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -305,7 +305,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_57">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_57</field>
-      <field name="description">Grid 57</field>
+      <field name="description">Grid 57 - VAT on Imports</field>
       <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_57').id), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -317,7 +317,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_61">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_61</field>
-      <field name="description">Grid 61</field>
+      <field name="description">Grid 61 - VAT adjustments in favor of the Tax Authority</field>
       <field name="expression">-bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_61').id), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -329,7 +329,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_63">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_63</field>
-      <field name="description">Grid 63</field>
+      <field name="description">Grid 63 - VAT Debt from Incoming Credit Notes</field>
       <field name="expression">-bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_63').id), ('debit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -361,7 +361,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_59">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_59</field>
-      <field name="description">Grid 59</field>
+      <field name="description">Grid 59 - Deductible VAT</field>
       <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_59').id), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -373,7 +373,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_62">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_62</field>
-      <field name="description">Grid 62</field>
+      <field name="description">Grid 62 - VAT adjustments in favor of the Declarant</field>
       <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_62').id), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -385,7 +385,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_64">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_64</field>
-      <field name="description">Grid 64</field>
+      <field name="description">Grid 64 - Deductible VAT from Outgoing Credit Notes</field>
       <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_64').id), ('credit', '=', 0)]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
