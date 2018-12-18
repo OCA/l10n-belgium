@@ -20,6 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: account_bank_statement_import_coda
+#: model:ir.ui.view,arch_db:account_bank_statement_import_coda.account_bank_statement_import_view
+msgid "Coded statement of account (.coda)"
+msgstr "Relev?? de compte cod?? (.coda)"
+
+#. module: account_bank_statement_import_coda
 #: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:141
 #, python-format
 msgid "Communication"
