@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * account_bank_statement_import_coda
-# 
+#
 # Translators:
 # Jarmo Kortetj??rvi <jarmo.kortetjarvi@gmail.com>, 2017
 msgid ""
@@ -12,32 +12,37 @@ msgstr ""
 "PO-Revision-Date: 2017-01-10 03:47+0000\n"
 "Last-Translator: Jarmo Kortetj??rvi <jarmo.kortetjarvi@gmail.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/oca/teams/23907/fi/)\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:141
+#: model:ir.ui.view,arch_db:account_bank_statement_import_coda.account_bank_statement_import_view
+msgid "Coded statement of account (.coda)"
+msgstr ""
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:138
 #, python-format
 msgid "Communication"
 msgstr "Viestint??"
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:126
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:123
 #, python-format
 msgid "Counter Party"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:129
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:126
 #, python-format
 msgid "Counter Party Account"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:132
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:129
 #, python-format
 msgid "Counter Party Address"
 msgstr ""
@@ -48,7 +53,7 @@ msgid "Import Bank Statement"
 msgstr "Tuo pankkiaineisto"
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:54
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:51
 #, python-format
 msgid ""
 "The following problem occurred during import. The file might not be valid.\n"
