@@ -4,9 +4,11 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 import logging
 
 from openerp import fields, models, api
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 from . import companyweb_rest
 
@@ -138,13 +140,21 @@ class CompanywebHistory(models.Model):
             self.info = '\n'.join(info)
             self.nbr_of_errors = nbr_of_errors
 
+    @api.model
+    def vacuum(self, days):
+        date = datetime.now() - relativedelta(days=days)
+        h = self.search([
+            ('date', '<', date.strftime(DEFAULT_SERVER_DATE_FORMAT))])
+        h.unlink()
+
 
 class CompanywebHistoryLine(models.Model):
     _name = 'companyweb.history.line'
 
     history_id = fields.Many2one('companyweb.history',
                                  string='History',
-                                 required=True)
+                                 required=True,
+                                 ondelete='cascade')
     partner_id = fields.Many2one('res.partner',
                                  string='Customer',
                                  required=True)

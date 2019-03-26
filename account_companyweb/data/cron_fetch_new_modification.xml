@@ -13,5 +13,18 @@
             <field name="function" eval="'fetch_new_modification'" />
             <field name="args" eval="'()'"/>
         </record>
+
+        <record id="companyweb_fetch_new_modification" model="ir.cron">
+            <field name="name">Vacuum Companyweb History</field>
+            <field name="active" eval="False"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'companyweb.history'"/>
+            <field name="function" eval="'vacuum'" />
+            <field name="args" eval="'(10,)'"/>
+        </record>
     </data>
 </openerp>
