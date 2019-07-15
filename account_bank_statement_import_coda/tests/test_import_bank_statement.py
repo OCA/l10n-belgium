@@ -2,6 +2,7 @@
 # Copyright 2015-2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import base64
 from odoo.tests.common import TransactionCase
 from odoo.modules.module import get_module_resource
 from odoo.tools import float_compare
@@ -22,19 +23,26 @@ class TestCodaFile(TransactionCase):
             'company_id': self.env.ref('base.main_company').id,
             'bank_id': self.env.ref('base.res_bank_1').id,
         })
-        self.journal = self.env['account.journal'].create({
+        eur = self.env.ref("base.EUR")
+        journal_vals = {
             'name': 'Bank Journal - (test coda)',
             'code': 'TBNK',
             'type': 'bank',
             'bank_account_id': bank_account.id,
-        })
+        }
+        if self.env.user.company_id.currency_id != eur:
+            # coda files are in EUR
+            journal_vals.update({
+                'currency_id': eur.id,
+            })
+        self.journal = self.env['account.journal'].create(journal_vals)
         self.statement_import_model = self.env['account.bank.statement.import']
         self.bank_statement_model = self.env['account.bank.statement']
         coda_file_path = get_module_resource(
             'account_bank_statement_import_coda',
             'test_coda_file',
             'Ontvangen_CODA.2012-01-11-18.59.15.txt')
-        self.coda_file = open(coda_file_path, 'rb').read().encode('base64')
+        self.coda_file = base64.b64encode(open(coda_file_path, 'rb').read())
 
     def test_coda_file_import(self):
         bank_statement_import = self.statement_import_model.\

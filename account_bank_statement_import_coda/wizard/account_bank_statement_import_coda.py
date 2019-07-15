@@ -48,7 +48,7 @@ class AccountBankStatementImport(models.TransientModel):
             for statement in statements:
                 vals_bank_statements.append(
                     self.get_st_vals(statement))
-        except Exception, e:
+        except Exception as e:
             _logger.exception('Error when parsing coda file')
             raise UserError(
                 _("The following problem occurred during import. "

@@ -9,7 +9,7 @@
     'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'depends': [
-        'account_bank_statement_import'
+        'account_bank_statement_import',
     ],
     'data': [
     ],
