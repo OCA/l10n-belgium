@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-l10n-belgium Odoo addons",
     version=version,
     install_requires=[
+        'odoo10-addon-account_bank_statement_import_coda',
         'odoo10-addon-l10n_be_antibiotic_tax',
         'odoo10-addon-l10n_be_apb_tax',
         'odoo10-addon-l10n_be_eco_tax',
