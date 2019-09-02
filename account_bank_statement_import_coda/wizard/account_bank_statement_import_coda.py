@@ -7,9 +7,9 @@ import datetime
 import logging
 from dateutil import parser as date_parser
 
-from odoo import api, models
-from odoo.tools.translate import _
-from odoo.exceptions import Warning as UserError
+from openerp import api, models
+from openerp.tools.translate import _
+from openerp.exceptions import Warning as UserError
 
 _logger = logging.getLogger(__name__)
 

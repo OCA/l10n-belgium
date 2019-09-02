@@ -3,10 +3,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import base64
-from odoo.tests.common import TransactionCase
-from odoo.modules.module import get_module_resource
-from odoo.tools import float_compare
-from odoo.exceptions import UserError
+from openerp.tests.common import TransactionCase
+from openerp.modules.module import get_module_resource
+from openerp.tools import float_compare
+from openerp.exceptions import UserError
 
 
 class TestCodaFile(TransactionCase):
