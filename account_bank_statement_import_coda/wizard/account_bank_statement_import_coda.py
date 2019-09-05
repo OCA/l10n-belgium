@@ -112,10 +112,7 @@ class AccountBankStatementImport(models.TransientModel):
                                          globalisation_dict,
                                          information_dict)
             info['sequence'] = sequence
-            info['unique_import_id']: statement.coda_seq_number + '-' \
-                + statement.old_balance_date + '-' \
-                + statement.new_balance_date + '-' \
-                + info['unique_import_id']
+            info['unique_import_id']: statement.coda_seq_number + '-' + statement.old_balance_date + '-' + statement.new_balance_date + '-' + info['unique_import_id'] #noqa
             transactions.append(info)
         return vals
 
