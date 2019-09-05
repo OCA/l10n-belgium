@@ -32,7 +32,7 @@ class AccountBankStatementImport(models.TransientModel):
             # Matches the first 24 characters of a CODA file, as defined by
             # the febelfin specifications
             return re.match(rb'0{5}\d{9}05[ D] {7}', data_file) is not None
-        except:
+        except Exception:
             return False
 
     @api.model
