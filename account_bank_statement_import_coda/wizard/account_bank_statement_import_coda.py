@@ -49,7 +49,7 @@ class AccountBankStatementImport(models.TransientModel):
             _logger.exception('Error when parsing coda file')
             raise UserError(
                 _("The following problem occurred during import. "
-                  "The file might not be valid.\n\n %s" % e.message))
+                  "The file might not be valid.\n\n %s" % e))
 
         acc_number = None
         currency = None
