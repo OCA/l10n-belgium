@@ -112,6 +112,10 @@ class AccountBankStatementImport(models.TransientModel):
                                          globalisation_dict,
                                          information_dict)
             info['sequence'] = sequence
+            info['unique_import_id']: statement.coda_seq_number + '-' \
+                + statement.old_balance_date + '-' \
+                + statement.new_balance_date + '-' \
+                + info['unique_import_id']
             transactions.append(info)
         return vals
 
@@ -180,7 +184,8 @@ class AccountBankStatementImport(models.TransientModel):
             'partner_name': line.counterparty_name or None,
             'account_number': line.counterparty_number or None,
             'note': self.get_st_line_note(line, information_dict),
-            'unique_import_id': line.ref + line.transaction_ref,
+            'unique_import_id': line.ref + '-' + line.transaction_ref + '-'
+            + line.transaction_date,
         }
 
     @api.model
