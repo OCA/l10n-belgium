@@ -15,6 +15,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 9.0.1.0.0 | Import CODA Bank Statement
 [l10n_be_antibiotic_tax](l10n_be_antibiotic_tax/) | 9.0.1.0.0 | Data module to support antibiotics taxes
 [l10n_be_apb_tax](l10n_be_apb_tax/) | 9.0.1.0.0 | Data module to support APB taxes
 [l10n_be_eco_tax](l10n_be_eco_tax/) | 9.0.1.0.0 | Data module to support BEBAT and RECUPEL taxes
