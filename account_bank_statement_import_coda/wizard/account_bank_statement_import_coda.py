@@ -35,6 +35,18 @@ class AccountBankStatementImport(models.TransientModel):
         except Exception:
             return False
 
+    def _get_acc_number(self, acc_number):
+        # fix for Triodos Bank coda file
+        # Check if we match the exact acc_number or the end of an acc number
+        # in order to return the iban number when the coda
+        journal = self.env['account.journal'].search([
+                            ('bank_acc_number', '=like', '%' + acc_number)])
+        # if not found or ambiguious
+        if not journal or len(journal) > 1:
+            return acc_number
+
+        return journal.bank_acc_number
+
     @api.model
     def _parse_file(self, data_file):
         if not self._check_coda(data_file):
@@ -56,7 +68,7 @@ class AccountBankStatementImport(models.TransientModel):
         if statements:
             acc_number = statements[0].acc_number
             currency = statement.currency
-        return currency, acc_number, vals_bank_statements
+        return currency, self._get_acc_number(acc_number), vals_bank_statements
 
     def get_st_vals(self, statement):
         """
