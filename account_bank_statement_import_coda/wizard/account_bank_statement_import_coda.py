@@ -40,7 +40,7 @@ class AccountBankStatementImport(models.TransientModel):
         # Check if we match the exact acc_number or the end of an acc number
         # in order to return the iban number when the coda
         journal = self.env['account.journal'].search([
-                            ('bank_acc_number', '=like', '%' + acc_number)])
+            ('bank_acc_number', '=like', '%' + acc_number)])
         # if not found or ambiguious
         if not journal or len(journal) > 1:
             return acc_number
