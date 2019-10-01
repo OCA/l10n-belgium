@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015-2018 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
@@ -10,7 +9,7 @@
               'Odoo Community Association (OCA)',
     'website': 'http://acsone.eu',
     'category': 'Reporting',
-    'version': '11.0.1.1.0',
+    'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'depends': [
         'mis_builder',  # OCA/account-financial-reporting
