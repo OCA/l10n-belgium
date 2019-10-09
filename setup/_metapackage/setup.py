@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-l10n-belgium Odoo addons",
     version=version,
     install_requires=[
+        'odoo12-addon-account_bank_statement_import_coda',
         'odoo12-addon-l10n_be_mis_reports',
     ],
     classifiers=[
