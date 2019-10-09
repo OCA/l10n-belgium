@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-2018 ACSONE SA/NV
+     Copyright 2017-2018 Coop IT Easy
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- wizard and menu -->
+    <record id="action_mis_report_vat" model="ir.actions.server">
+      <field name="name">VAT Declaration</field>
+      <field name="model_id" ref="account.model_account_chart_template"/>
+      <field name="state">code</field>
+      <field name="code">action = model.env.ref('l10n_be_mis_reports.mis_report_vat').get_wizard_report_action()</field>
+      <field name="type">ir.actions.server</field>
+    </record>
+    <menuitem action="action_mis_report_vat" id="menu_mis_report_vat" parent="l10n_be.account_reports_be_statements_menu"/>
+
+    <!-- mis.report -->
+    <record model="mis.report" id="mis_report_vat">
+      <field name="name">Belgium Value Added Tax Report Sheet</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_base"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_cadre_2">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">cadre_2</field>
+      <field name="description">Cadre II</field>
+      <field name="expression"></field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">1</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_00">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_00</field>
+      <field name="description">Grid 00</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_00').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">10</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_01">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_01</field>
+      <field name="description">Grid 01</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_01').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">20</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_02">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_02</field>
+      <field name="description">Grid 02</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_02').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">30</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_03">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_03</field>
+      <field name="description">Grid 03</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_03').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">40</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_44">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_44</field>
+      <field name="description">Grid 44</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_44').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)] </field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">50</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_45">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_45</field>
+      <field name="description">Grid 45</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_45').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">60</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_46">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_46</field>
+      <field name="description">Grid 46</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', 'in', (ref('l10n_be.tax_tag_46L').id, ref('l10n_be.tax_tag_46T').id)), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">70</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_47">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_47</field>
+      <field name="description">Grid 47</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_47').id), '|', ('invoice_id.type', '=', 'out_invoice'), '&amp;', ('invoice_id', '=', False), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">80</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_48">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_48</field>
+      <field name="description">Grid 48</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', 'in', (ref('l10n_be.tax_tag_48s44').id, ref('l10n_be.tax_tag_48s46L').id, ref('l10n_be.tax_tag_48s46T').id)), '|', ('invoice_id.type', '=', 'out_refund'), '&amp;', ('invoice_id', '=', False), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">90</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_49">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_49</field>
+      <field name="description">Grid 49</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_49').id), '|', ('invoice_id.type', '=', 'out_refund'), '&amp;', ('invoice_id', '=', False),  ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">100</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_cadre_3">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">cadre_3</field>
+      <field name="description">Cadre III</field>
+      <field name="expression"></field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">101</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_81">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_81</field>
+      <field name="description">Grid 81</field>
+      <field name="expression">bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_81').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_81_not_deductible').id)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">110</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_82">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_82</field>
+      <field name="description">Grid 82</field>
+      <field name="expression">bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_82').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_82_not_deductible').id)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">120</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_83">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_83</field>
+      <field name="description">Grid 83</field>
+      <field name="expression">bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_83').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_83_not_deductible').id)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">130</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_84">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_84</field>
+      <field name="description">Grid 84</field>
+      <field name="expression">-bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_84').id), '|', ('invoice_id.type', '=', 'in_refund'), '&amp;', ('invoice_id', '=', False),  ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">140</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_85">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_85</field>
+      <field name="description">Grid 85</field>
+      <field name="expression">-bal[]['|', ('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_85').id), ('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_85_not_deductible').id), '|', ('invoice_id.type', '=', 'in_refund'), '&amp;', ('invoice_id', '=', False),  ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">150</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_86">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_86</field>
+      <field name="description">Grid 86</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_86').id)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">160</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_87">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_87</field>
+      <field name="description">Grid 87</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_87').id)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">170</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_88">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_88</field>
+      <field name="description">Grid 88</field>
+      <field name="expression">bal[][('tax_ids.tag_ids.id', '=', ref('l10n_be.tax_tag_88').id)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">180</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_cadre_4">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">cadre_4</field>
+      <field name="description">Cadre IV</field>
+      <field name="expression"></field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">181</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_54">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_54</field>
+      <field name="description">Grid 54</field>
+      <field name="expression">-bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_54').id), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">190</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_55">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_55</field>
+      <field name="description">Grid 55</field>
+      <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_55').id), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">210</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_56">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_56</field>
+      <field name="description">Grid 56</field>
+      <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_56').id), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">220</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_57">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_57</field>
+      <field name="description">Grid 57</field>
+      <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_57').id), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">230</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_61">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_61</field>
+      <field name="description">Grid 61</field>
+      <field name="expression">-bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_61').id), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">240</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_63">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_63</field>
+      <field name="description">Grid 63</field>
+      <field name="expression">-bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_63').id), ('debit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">250</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_xx">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_xx</field>
+      <field name="description">Grid xx (sum of 54, 55, 56, 57, 61, 63)</field>
+      <field name="expression">+grid_54+grid_55+grid_56+grid_57+grid_61+grid_63</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="sequence">260</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_cadre_5">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">cadre_5</field>
+      <field name="description">Cadre V</field>
+      <field name="expression"></field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">261</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_59">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_59</field>
+      <field name="description">Grid 59</field>
+      <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_59').id), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">270</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_62">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_62</field>
+      <field name="description">Grid 62</field>
+      <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_62').id), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">280</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_64">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_64</field>
+      <field name="description">Grid 64</field>
+      <field name="expression">bal[][('tax_line_id.tag_ids.id', '=', ref('l10n_be.tax_tag_64').id), ('credit', '=', 0)]</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="auto_expand_accounts" eval="True"/>
+      <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
+      <field name="sequence">290</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_yy">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_yy</field>
+      <field name="description">Grid yy (sum of grid 59, 62, 64)</field>
+      <field name="expression">grid_59+grid_62+grid_64</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="sequence">300</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_cadre_6">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">cadre_6</field>
+      <field name="description">Cadre VI</field>
+      <field name="expression"></field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">301</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_71">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_71</field>
+      <field name="description">Grid 71 : Taxes due to the State</field>
+      <field name="expression">abs(max(grid_xx - grid_yy, AccountingNone))</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_1"/>
+      <field name="sequence">310</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_grid_72">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">grid_72</field>
+      <field name="description">Grid 72 : Taxes due by the State</field>
+      <field name="expression">abs(max(grid_yy - grid_xx, AccountingNone))</field>
+      <field name="type">num</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_1"/>
+      <field name="sequence">320</field>
+    </record>
+          <!-- controls -->
+      <record model="mis.report.kpi" id="mis_report_vat_control">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">control</field>
+      <field name="description">Control</field>
+      <field name="expression"></field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_2"/>
+      <field name="sequence">900</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_control_T">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_T</field>
+      <field name="description">Control T: [85] x 0.21 >= [63]</field>
+      <field name="expression">u'✔' if grid_63 &lt; grid_85*0.21 + 62 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">901</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_control_U">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_U</field>
+      <field name="description">Control U: [49] x 0.21 >= [64]</field>
+      <field name="expression">u'✔' if grid_64 &lt; grid_49*0.21 + 62 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">902</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_O">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_O</field>
+      <field name="description">Control O: [01] x 0.06 + [02] x 0.12 + [03] x 0.21 = [54]</field>
+      <field name="expression">u'✔' if abs(grid_01*0.06 + grid_02*0.12 + grid_03*0.21 - grid_54) &lt; 62 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">903</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_P">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_P</field>
+      <field name="description">Control P: ([84] + [86] + [88]) x 0.21 >= [55]</field>
+      <field name="expression">u'✔' if grid_55 &lt; (grid_84 + grid_86 + grid_88)*0.21 + 62 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">904</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_Q">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_Q</field>
+      <field name="description">Control Q: ([85] + [87]) x 0.21 >= [56] + [57]</field>
+      <field name="expression">u'✔' if grid_56 + grid_57 &lt; (grid_85 + grid_87)*0.21 + 62 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">905</field>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_vat_control_S">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_S</field>
+      <field name="description">Control S: ([81]+[82]+[83]+[84]+[85])*0.5 > [59]</field>
+      <field name="expression">u'✔' if (grid_81 + grid_82 + grid_83 + grid_84 + grid_85)*0.5 > grid_59 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">906</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_70">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_70</field>
+      <field name="description">Control 70 vs Cadre II</field>
+      <field name="expression">u'✔' if abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%]) >= 0 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">907</field>
+    </record>
+     <record model="mis.report.kpi" id="mis_report_vat_control_60">
+      <field name="report_id" ref="mis_report_vat"/>
+      <field name="name">ctrl_60</field>
+      <field name="description">Control 60 vs [81]</field>
+      <field name="expression">u'✔' if abs(grid_81 - balp[60%])>= 0 else u'✘'</field>
+      <field name="type">str</field>
+      <field name="compare_method">pct</field>
+      <field name="style_id" ref="mis_report_style_l10n_be_3"/>
+      <field name="sequence">908</field>
+    </record>
+</odoo>
