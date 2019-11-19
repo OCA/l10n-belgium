@@ -19,30 +19,30 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: account_bank_statement_import_coda
-#: model:ir.ui.view,arch_db:account_bank_statement_import_coda.account_bank_statement_import_view
+#: model_terms:ir.ui.view,arch_db:account_bank_statement_import_coda.account_bank_statement_import_view
 msgid "Coded statement of account (.coda)"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:138
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:154
 #, python-format
 msgid "Communication"
 msgstr "Viestint??"
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:123
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:139
 #, python-format
 msgid "Counter Party"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:126
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:142
 #, python-format
 msgid "Counter Party Account"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:129
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:145
 #, python-format
 msgid "Counter Party Address"
 msgstr ""
@@ -53,7 +53,12 @@ msgid "Import Bank Statement"
 msgstr "Tuo pankkiaineisto"
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:51
+#: model:ir.model,name:account_bank_statement_import_coda.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:63
 #, python-format
 msgid ""
 "The following problem occurred during import. The file might not be valid.\n"
