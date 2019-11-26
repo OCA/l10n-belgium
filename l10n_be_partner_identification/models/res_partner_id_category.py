@@ -19,7 +19,7 @@ class ResPartnerIdCategory(models.Model):
         """
         # replace all non digit char since on an identity card, the number is
         # formatted as 85.01.01-002.00
-        num = re.sub('[^0-9]', '', id_number.name)
+        num = re.sub("[^0-9]", "", id_number.name)
         failed = True
         if len(num) != 11:
             return failed
@@ -46,7 +46,7 @@ class ResPartnerIdCategory(models.Model):
         """
         # replace all non digit char since on an identity card, the number is
         # formatted as 000-00000000-97
-        num = re.sub('[^0-9]', '', id_number.name)
+        num = re.sub("[^0-9]", "", id_number.name)
         failed = True
         if len(num) != 12:
             return failed
@@ -56,8 +56,9 @@ class ResPartnerIdCategory(models.Model):
         suffix = int(num[-2:])
         to_check = 97 - (prefix % 97)
 
-        if (to_check == 97 and to_check == suffix) or\
-                (int(suffix) + int(to_check) == 97):
+        if (to_check == 97 and to_check == suffix) or (
+            int(suffix) + int(to_check) == 97
+        ):
             return not failed
         else:
             return failed
