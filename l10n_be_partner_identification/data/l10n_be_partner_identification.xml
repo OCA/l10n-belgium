@@ -4,14 +4,14 @@
     <field name="name">Belgium national registration number</field>
     <field name="code">L10n_be_id_number</field>
     <field name="validation_code"><![CDATA[
-failed = self.validate_l10n_be_national_registry_number(id_number) 
+failed = self.validate_l10n_be_national_registry_number(id_number)
 ]]></field>
   </record>
   <record model="res.partner.id_category" id="l10n_be_id_card_category">
     <field name="name">Belgium ID Card</field>
     <field name="code">L10n_be_id_number_card</field>
     <field name="validation_code"><![CDATA[
-failed = self.validate_l10n_be_id_card(id_number) 
+failed = self.validate_l10n_be_id_card(id_number)
 ]]></field>
   </record>
 </odoo>
