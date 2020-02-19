@@ -2,6 +2,7 @@
 ##############################################################################
 #
 #    Copyright (c) 2018 ACSONE SA/NV (<http://acsone.eu>)
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #    Adapted by Noviat to
