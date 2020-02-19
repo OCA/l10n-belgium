@@ -21,7 +21,7 @@ class TestVatIntra(TestVatReportsCommon):
         wizard = self.env["partner.vat.intra"].create(
             {
                 "period_code": time.strftime("00%Y"),
-                "date_start": time.strftime("%Y-01-01"),
+                "date_start": time.strftime("%Y-01-01"),  # todo use native date
                 "date_end": time.strftime("%Y-12-31"),
             }
         )
@@ -45,10 +45,11 @@ class TestVatIntra(TestVatReportsCommon):
         wizard = self.env["partner.vat.intra"].create(
             {
                 "period_code": time.strftime("00%Y"),
-                "date_start": time.strftime("%Y-01-01"),
+                "date_start": time.strftime("%Y-01-01"),  # todo use native date
                 "date_end": time.strftime("%Y-12-31"),
             }
         )
+        # todo  If you need to generate a PDF in tests, you have to pass the context key force_report_rendering=True for getting that instead of an HTML, as now the method qweb_render_pdf defaults to qweb_render_html on test environment.
         report_action = wizard.preview()
         self.env["report"].get_pdf(
             [], report_action["report_name"], data=report_action["data"]
