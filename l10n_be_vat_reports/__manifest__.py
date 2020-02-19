@@ -4,7 +4,9 @@
 #     This file is part of l10n_be_mis_reports,
 #     an Odoo module.
 #
-#     Copyright (c) 2018 ACSONE SA/NV (<http://acsone.eu>)
+#    Copyright (c) 2018 ACSONE SA/NV (<http://acsone.eu>)
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #     l10n_be_mis_reports is free software:
 #     you can redistribute it and/or modify it under the terms of the GNU
