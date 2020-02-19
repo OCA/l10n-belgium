@@ -33,34 +33,36 @@ from openerp.exceptions import Warning as UserError
 
 
 class VATListingClients(models.TransientModel):
-    _name = 'vat.listing.clients'
+    _name = "vat.listing.clients"
 
-    name = fields.Char('Client Name')
-    vat = fields.Char('VAT')
-    turnover = fields.Float('Base Amount')
-    vat_amount = fields.Float('VAT Amount')
+    name = fields.Char("Client Name")
+    vat = fields.Char("VAT")
+    turnover = fields.Float("Base Amount")
+    vat_amount = fields.Float("VAT Amount")
 
 
 class PartnerVAT(models.TransientModel):
     """ Vat Listing """
+
     _name = "partner.vat"
 
     @api.multi
     def get_partner(self):
         context = dict(self.env.context)
-        obj_partner = self.env['res.partner']
-        obj_vat_lclient = self.env['vat.listing.clients']
-        obj_model_data = self.env['ir.model.data']
+        obj_partner = self.env["res.partner"]
+        obj_vat_lclient = self.env["vat.listing.clients"]
+        obj_model_data = self.env["ir.model.data"]
         data = self.read()[0]
-        year = data['year']
-        date_start = year + '-01-01'
-        date_stop = year + '-12-31'
+        year = data["year"]
+        date_start = year + "-01-01"
+        date_stop = year + "-12-31"
 
         partners = obj_vat_lclient.browse([])
-        be_partners = obj_partner.search([('vat', 'ilike', 'BE%')])
+        be_partners = obj_partner.search([("vat", "ilike", "BE%")])
         if not be_partners:
-            raise UserError(_('No belgium contact with a VAT number '
-                            'in your database.'))
+            raise UserError(
+                _("No belgium contact with a VAT number " "in your database.")
+            )
         query = """
 WITH turnover_tags AS
   (SELECT tagsrel.account_tax_id
@@ -127,56 +129,66 @@ LEFT JOIN
         )
         self.env.cr.execute(query, args)
         for record in self.env.cr.dictfetchall():
-            record['vat'] = record['vat'].replace(' ', '').upper()
-            if record['turnover'] >= data['limit_amount']:
+            record["vat"] = record["vat"].replace(" ", "").upper()
+            if record["turnover"] >= data["limit_amount"]:
                 partners |= obj_vat_lclient.create(record)
 
         if not partners:
-            raise UserError(_('No data found for the selected year.'))
-        context.update({
-            'partner_ids': partners.ids,
-            'year': data['year'],
-            'limit_amount': data['limit_amount'],
-        })
-        model_datas = obj_model_data.search([
-            ('model', '=', 'ir.ui.view'),
-            ('name', '=', 'view_vat_listing'),
-        ], limit=1)
+            raise UserError(_("No data found for the selected year."))
+        context.update(
+            {
+                "partner_ids": partners.ids,
+                "year": data["year"],
+                "limit_amount": data["limit_amount"],
+            }
+        )
+        model_datas = obj_model_data.search(
+            [("model", "=", "ir.ui.view"), ("name", "=", "view_vat_listing")],
+            limit=1,
+        )
         resource_id = model_datas.res_id
         return {
-            'name': _('Vat Listing'),
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'partner.vat.list',
-            'views': [(resource_id, 'form')],
-            'context': context,
-            'type': 'ir.actions.act_window',
-            'target': 'inline',
+            "name": _("Vat Listing"),
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "partner.vat.list",
+            "views": [(resource_id, "form")],
+            "context": context,
+            "type": "ir.actions.act_window",
+            "target": "inline",
         }
 
     year = fields.Char(
-        'Year', size=4, required=True,
-        default=lambda *a: str(int(time.strftime('%Y'))-1))
-    limit_amount = fields.Integer('Limit Amount', required=True, default=250)
+        "Year",
+        size=4,
+        required=True,
+        default=lambda *a: str(int(time.strftime("%Y")) - 1),
+    )
+    limit_amount = fields.Integer("Limit Amount", required=True, default=250)
 
 
 class PartnerVATList(models.TransientModel):
     """ Partner Vat Listing """
+
     _name = "partner.vat.list"
 
     @api.model
     def _get_partners(self):
-        return self.env.context.get('partner_ids', [])
+        return self.env.context.get("partner_ids", [])
 
     partner_ids = fields.Many2many(
-        'vat.listing.clients', 'vat_partner_rel', 'vat_id',
-        'partner_id', 'Clients',
-        help='You can remove clients/partners which you do '
-             'not want to show in xml file',
-        default=_get_partners)
-    name = fields.Char('File Name')
-    file_save = fields.Binary('Save File', readonly=True)
-    comments = fields.Text('Comments')
+        "vat.listing.clients",
+        "vat_partner_rel",
+        "vat_id",
+        "partner_id",
+        "Clients",
+        help="You can remove clients/partners which you do "
+        "not want to show in xml file",
+        default=_get_partners,
+    )
+    name = fields.Char("File Name")
+    file_save = fields.Binary("Save File", readonly=True)
+    comments = fields.Text("Comments")
 
     @api.multi
     def _get_datas(self):
@@ -191,53 +203,53 @@ class PartnerVATList(models.TransientModel):
             if not line:
                 continue
             seq += 1
-            sum_tax += line['vat_amount']
-            sum_turnover += line['turnover']
-            vat = line['vat'].replace(' ', '').upper()
+            sum_tax += line["vat_amount"]
+            sum_turnover += line["turnover"]
+            vat = line["vat"].replace(" ", "").upper()
             amount_data = {
-                'seq': str(seq),
-                'vat': vat,
-                'only_vat': vat[2:],
-                'turnover': '%.2f' % line['turnover'],
-                'vat_amount': '%.2f' % line['vat_amount'],
-                'sum_tax': '%.2f' % sum_tax,
-                'sum_turnover': '%.2f' % sum_turnover,
-                'partner_name': line['name'],
+                "seq": str(seq),
+                "vat": vat,
+                "only_vat": vat[2:],
+                "turnover": "%.2f" % line["turnover"],
+                "vat_amount": "%.2f" % line["vat_amount"],
+                "sum_tax": "%.2f" % sum_tax,
+                "sum_turnover": "%.2f" % sum_turnover,
+                "partner_name": line["name"],
             }
             client_datas += [amount_data]
         return client_datas
 
     @api.multi
     def create_xml(self):
-        obj_sequence = self.env['ir.sequence']
-        obj_partner = self.env['res.partner']
-        obj_model_data = self.env['ir.model.data']
-        seq_declarantnum = obj_sequence.next_by_code('declarantnum')
+        obj_sequence = self.env["ir.sequence"]
+        obj_partner = self.env["res.partner"]
+        obj_model_data = self.env["ir.model.data"]
+        seq_declarantnum = obj_sequence.next_by_code("declarantnum")
         obj_cmpny = self.env.user.company_id
         company_vat = obj_cmpny.partner_id.vat
 
         if not company_vat:
-            raise UserError(_('No VAT number associated with the company.'))
+            raise UserError(_("No VAT number associated with the company."))
 
-        company_vat = company_vat.replace(' ', '').upper()
+        company_vat = company_vat.replace(" ", "").upper()
         SenderId = company_vat[2:]
         issued_by = company_vat[:2]
-        seq_declarantnum = obj_sequence.next_by_code('declarantnum')
+        seq_declarantnum = obj_sequence.next_by_code("declarantnum")
         dnum = company_vat[2:] + seq_declarantnum[-4:]
-        street = city = country = ''
-        addr = obj_cmpny.partner_id.address_get(['invoice'])
-        if addr.get('invoice', False):
-            ads = obj_partner.browse([addr['invoice']])
-            phone = ads.phone and ads.phone.replace(' ', '') or ''
-            email = ads.email or ''
-            city = ads.city or ''
-            _zip = ads.zip or ''
+        street = city = country = ""
+        addr = obj_cmpny.partner_id.address_get(["invoice"])
+        if addr.get("invoice", False):
+            ads = obj_partner.browse([addr["invoice"]])
+            phone = ads.phone and ads.phone.replace(" ", "") or ""
+            email = ads.email or ""
+            city = ads.city or ""
+            _zip = ads.zip or ""
             if not city:
-                city = ''
+                city = ""
             if ads.street:
                 street = ads.street
             if ads.street2:
-                street += ' ' + ads.street2
+                street += " " + ads.street2
             if ads.country_id:
                 country = ads.country_id.code
 
@@ -245,22 +257,22 @@ class PartnerVATList(models.TransientModel):
         comp_name = obj_cmpny.name
 
         if not email:
-            raise UserError(_('No email address associated with the company.'))
+            raise UserError(_("No email address associated with the company."))
         if not phone:
-            raise UserError(_('No phone associated with the company.'))
+            raise UserError(_("No phone associated with the company."))
         annual_listing_data = {
-            'issued_by': issued_by,
-            'company_vat': company_vat,
-            'comp_name': comp_name,
-            'street': street,
-            'zip': _zip,
-            'city': city,
-            'country': country,
-            'email': email,
-            'phone': phone,
-            'SenderId': SenderId,
-            'period': self.env.context['year'],
-            'comments': data['comments'] or ''
+            "issued_by": issued_by,
+            "company_vat": company_vat,
+            "comp_name": comp_name,
+            "street": street,
+            "zip": _zip,
+            "city": city,
+            "country": country,
+            "email": email,
+            "phone": phone,
+            "SenderId": SenderId,
+            "period": self.env.context["year"],
+            "comments": data["comments"] or "",
         }
 
         data_file = """<?xml version="1.0" encoding="UTF-8"?>
@@ -274,7 +286,7 @@ class PartnerVATList(models.TransientModel):
         <Street>%(street)s</Street>
         <PostCode>%(zip)s</PostCode>
         <City>%(city)s</City>"""
-        if annual_listing_data['country']:
+        if annual_listing_data["country"]:
             data_file += "\n\t\t<CountryCode>%(country)s</CountryCode>"
         data_file += """
         <EmailAddress>%(email)s</EmailAddress>
@@ -282,7 +294,8 @@ class PartnerVATList(models.TransientModel):
     </ns2:Representative>"""
         data_file = data_file % annual_listing_data
 
-        data_comp = """
+        data_comp = (
+            """
         <ns2:Declarant>
             <VATNumber>%(SenderId)s</VATNumber>
             <Name>%(comp_name)s</Name>
@@ -294,88 +307,106 @@ class PartnerVATList(models.TransientModel):
             <Phone>%(phone)s</Phone>
         </ns2:Declarant>
         <ns2:Period>%(period)s</ns2:Period>
-        """ % annual_listing_data
+        """
+            % annual_listing_data
+        )
 
         # Turnover and Farmer tags are not included
         client_datas = self._get_datas()
         if not client_datas:
-            raise UserError(_('No data available for the client.'))
-        data_client_info = ''
+            raise UserError(_("No data available for the client."))
+        data_client_info = ""
         for amount_data in client_datas:
-            data_client_info += """
+            data_client_info += (
+                """
     <ns2:Client SequenceNumber="%(seq)s">
         <ns2:CompanyVATNumber issuedBy="BE">%(only_vat)s</ns2:CompanyVATNumber>
         <ns2:TurnOver>%(turnover)s</ns2:TurnOver>
         <ns2:VATAmount>%(vat_amount)s</ns2:VATAmount>
-    </ns2:Client>""" % amount_data
+    </ns2:Client>"""
+                % amount_data
+            )
 
         amount_data_begin = client_datas[-1]
-        amount_data_begin.update({'dnum': dnum})
-        data_begin = """
+        amount_data_begin.update({"dnum": dnum})
+        data_begin = (
+            """
     <ns2:ClientListing SequenceNumber="1" ClientsNbr="%(seq)s"
      DeclarantReference="%(dnum)s"
         TurnOverSum="%(sum_turnover)s" VATAmountSum="%(sum_tax)s">
-""" % amount_data_begin
+"""
+            % amount_data_begin
+        )
 
-        data_end = """
+        data_end = (
+            """
 
         <ns2:Comment>%(comments)s</ns2:Comment>
     </ns2:ClientListing>
 </ns2:ClientListingConsignment>
-""" % annual_listing_data
+"""
+            % annual_listing_data
+        )
 
         data_file += data_begin + data_comp + data_client_info + data_end
-        file_save = base64.encodestring(data_file.encode('utf8'))
-        self.write({'file_save': file_save, 'name': 'vat_list.xml'})
-        model_datas = obj_model_data.search([
-            ('model', '=', 'ir.ui.view'),
-            ('name', '=', 'view_vat_listing_result'),
-        ], limit=1)
+        file_save = base64.encodestring(data_file.encode("utf8"))
+        self.write({"file_save": file_save, "name": "vat_list.xml"})
+        model_datas = obj_model_data.search(
+            [
+                ("model", "=", "ir.ui.view"),
+                ("name", "=", "view_vat_listing_result"),
+            ],
+            limit=1,
+        )
         resource_id = model_datas.res_id
 
         return {
-            'name': _('XML File has been Created'),
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'partner.vat.list',
-            'views': [(resource_id, 'form')],
-            'context': self.env.context,
-            'type': 'ir.actions.act_window',
-            'target': 'new',
+            "name": _("XML File has been Created"),
+            "res_id": self.id,
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "partner.vat.list",
+            "views": [(resource_id, "form")],
+            "context": self.env.context,
+            "type": "ir.actions.act_window",
+            "target": "new",
         }
 
     @api.multi
     def print_vatlist(self):
-        datas = {'ids': []}
-        datas['model'] = 'res.company'
-        datas['year'] = self.env.context['year']
-        datas['limit_amount'] = self.env.context['limit_amount']
-        datas['client_datas'] = self._get_datas()
-        if not datas['client_datas']:
-            raise UserError(_('No record to print.'))
-        empty = self.env['partner.vat.intra']
-        return self.env['report'].get_action(
-            empty, 'l10n_be_vat_reports.report_l10nvatpartnerlisting',
-            data=datas)
+        datas = {"ids": []}
+        datas["model"] = "res.company"
+        datas["year"] = self.env.context["year"]
+        datas["limit_amount"] = self.env.context["limit_amount"]
+        datas["client_datas"] = self._get_datas()
+        if not datas["client_datas"]:
+            raise UserError(_("No record to print."))
+        empty = self.env["partner.vat.intra"]
+        return self.env["report"].get_action(
+            empty,
+            "l10n_be_vat_reports.report_l10nvatpartnerlisting",
+            data=datas,
+        )
 
 
 class PartnerVATListingPrint(report_sxw.rml_parse):
-
     def set_context(self, objects, data, ids, report_type=None):
-        client_datas = data['client_datas']
-        self.localcontext.update({
-            'year': data['year'],
-            'sum_turnover': client_datas[-1]['sum_turnover'],
-            'sum_tax': client_datas[-1]['sum_tax'],
-            'client_list': client_datas,
-        })
+        client_datas = data["client_datas"]
+        self.localcontext.update(
+            {
+                "year": data["year"],
+                "sum_turnover": client_datas[-1]["sum_turnover"],
+                "sum_tax": client_datas[-1]["sum_tax"],
+                "client_list": client_datas,
+            }
+        )
         return super(PartnerVATListingPrint, self).set_context(
-            objects, data, ids)
+            objects, data, ids
+        )
 
 
 class WrappedVATListingPrint(models.AbstractModel):
-    _name = 'report.l10n_be_vat_reports.report_l10nvatpartnerlisting'
-    _inherit = 'report.abstract_report'
-    _template = 'l10n_be_vat_reports.report_l10nvatpartnerlisting'
+    _name = "report.l10n_be_vat_reports.report_l10nvatpartnerlisting"
+    _inherit = "report.abstract_report"
+    _template = "l10n_be_vat_reports.report_l10nvatpartnerlisting"
     _wrapped_report_class = PartnerVATListingPrint
