@@ -1,10 +1,12 @@
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.addons.report.models import report
+import odoo.addons.base.models.ir_actions_report as report
+from odoo import fields
 
 from lxml.etree import XML
 import unittest
+import base64
 
 from .common import TestVatReportsCommon
 
@@ -17,32 +19,22 @@ class TestVatListing(TestVatReportsCommon):
         self._create_test_data(tax)
 
     def _prepare_listing(self):
+        year = fields.Date.today().year
         wizard = self.env["partner.vat"].create(
-            {"year": "2018", "limit_amount": 1}
+            {"year": str(year), "limit_amount": 1}
         )
-        action = wizard.get_partner()
-        vat_listings_ids = action["context"]["partner_ids"]
-        vat_listings = self.env["vat.listing.clients"].browse(vat_listings_ids)
-        vat_listing = next(
-            vl for vl in vat_listings if vl.vat == self.partner.vat
-        )
-        self.assertEqual(94.5, vat_listing.vat_amount)
-        context = dict(
-            self.env.context,
-            partner_ids=[vat_listing.id],
-            year="2018",
-            limit_amount=1,
-        )
-        full_list = (
-            self.env["partner.vat.list"].with_context(context).create({})
-        )
-        return full_list
+        action = wizard.get_partners()
+        vat_list_id = action["res_id"]
+        vat_list = self.env["partner.vat.list"].browse(vat_list_id)
+
+        self.assertEqual(94.5, vat_list.total_vat)
+        return vat_list
 
     def test_xml_list(self):
         full_list = self._prepare_listing()
         full_list.create_xml()
         ns = {"ns2": "http://www.minfin.fgov.be/ClientListingConsignment"}
-        xml = XML(full_list.file_save.decode("base64"))
+        xml = XML(base64.b64decode(full_list.file_save))
         xml_vat_amount = xml.xpath(
             '//ns2:Client[ns2:CompanyVATNumber[text() = "0477472701"]]'
             "/ns2:VATAmount",
@@ -50,13 +42,6 @@ class TestVatListing(TestVatReportsCommon):
         )[0].text
         self.assertEqual("94.50", xml_vat_amount)
 
-    @unittest.skipIf(
-        report.wkhtmltopdf_state == "install", "wkhtmltopdf not available"
-    )
     def test_pdf_list(self):
         full_list = self._prepare_listing()
-        report_action = full_list.print_vatlist()
-        context = full_list.env.context
-        self.env["report"].with_context(context).get_pdf(
-            [], report_action["report_name"], data=report_action["data"]
-        )
+        full_list.print_vatlist()
