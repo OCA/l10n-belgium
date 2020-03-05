@@ -33,9 +33,7 @@ class TestVatReportsCommon(TransactionCase):
                             "product_id": self.env.ref(
                                 "product.product_product_3"
                             ).id,
-                            "uom_id": self.env.ref(
-                                "product.product_uom_unit"
-                            ).id,
+                            "uom_id": self.env.ref("uom.product_uom_unit").id,
                             "invoice_line_tax_ids": [(6, 0, [invoice_tax.id])],
                             "account_id": account_line.id,
                         },

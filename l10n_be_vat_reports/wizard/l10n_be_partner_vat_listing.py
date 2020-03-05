@@ -27,14 +27,15 @@
 import time
 import base64
 
-from openerp import fields, models, api, _
-from openerp.report import report_sxw
-from openerp.exceptions import Warning as UserError
+from odoo import fields, models, api, _
+from odoo.exceptions import Warning as UserError
 
 
 class VATListingClients(models.TransientModel):
     _name = "vat.listing.clients"
+    _description = "VAT Listing Clients"
 
+    seq = fields.Integer("Sequence")
     name = fields.Char("Client Name")
     vat = fields.Char("VAT")
     turnover = fields.Float("Base Amount")
@@ -45,20 +46,24 @@ class PartnerVAT(models.TransientModel):
     """ Vat Listing """
 
     _name = "partner.vat"
+    _description = "Partner VAT"
+
+    year = fields.Char(
+        "Year",
+        size=4,
+        required=True,
+        default=lambda *a: str(int(time.strftime("%Y")) - 1),
+    )
+    limit_amount = fields.Integer("Limit Amount", required=True, default=250)
 
     @api.multi
-    def get_partner(self):
-        context = dict(self.env.context)
-        obj_partner = self.env["res.partner"]
-        obj_vat_lclient = self.env["vat.listing.clients"]
-        obj_model_data = self.env["ir.model.data"]
-        data = self.read()[0]
-        year = data["year"]
+    def get_partners(self):
+        year = self.year
         date_start = year + "-01-01"
         date_stop = year + "-12-31"
 
-        partners = obj_vat_lclient.browse([])
-        be_partners = obj_partner.search([("vat", "ilike", "BE%")])
+        partners = self.env["vat.listing.clients"].browse([])
+        be_partners = self.env["res.partner"].search([("vat", "ilike", "BE%")])
         if not be_partners:
             raise UserError(
                 _("No belgium contact with a VAT number " "in your database.")
@@ -128,67 +133,74 @@ LEFT JOIN
             date_stop,
         )
         self.env.cr.execute(query, args)
+        seq = 0
         for record in self.env.cr.dictfetchall():
             record["vat"] = record["vat"].replace(" ", "").upper()
-            if record["turnover"] >= data["limit_amount"]:
-                partners |= obj_vat_lclient.create(record)
+            if record["turnover"] >= self.limit_amount:
+                seq += 1
+                record["seq"] = seq
+                partners |= self.env["vat.listing.clients"].create(record)
 
         if not partners:
             raise UserError(_("No data found for the selected year."))
-        context.update(
-            {
-                "partner_ids": partners.ids,
-                "year": data["year"],
-                "limit_amount": data["limit_amount"],
-            }
-        )
-        model_datas = obj_model_data.search(
+
+        model_datas = self.env["ir.model.data"].search(
             [("model", "=", "ir.ui.view"), ("name", "=", "view_vat_listing")],
             limit=1,
         )
         resource_id = model_datas.res_id
+        partner_vat_list = self.env["partner.vat.list"].create(
+            {
+                "name": _("%s Annual Listing Preview") % self.year,
+                "year": self.year,
+                "limit_amount": self.limit_amount,
+                "partner_ids": [(6, 0, partners.ids)],
+            }
+        )
         return {
             "name": _("Vat Listing"),
+            "res_id": partner_vat_list.id,
             "view_type": "form",
             "view_mode": "form",
             "res_model": "partner.vat.list",
             "views": [(resource_id, "form")],
-            "context": context,
             "type": "ir.actions.act_window",
             "target": "inline",
         }
-
-    year = fields.Char(
-        "Year",
-        size=4,
-        required=True,
-        default=lambda *a: str(int(time.strftime("%Y")) - 1),
-    )
-    limit_amount = fields.Integer("Limit Amount", required=True, default=250)
 
 
 class PartnerVATList(models.TransientModel):
     """ Partner Vat Listing """
 
     _name = "partner.vat.list"
-
-    @api.model
-    def _get_partners(self):
-        return self.env.context.get("partner_ids", [])
+    _description = "Partner VAT list"
 
     partner_ids = fields.Many2many(
-        "vat.listing.clients",
-        "vat_partner_rel",
-        "vat_id",
-        "partner_id",
-        "Clients",
+        comodel_name="vat.listing.clients",
+        relation="vat_partner_rel",
+        column1="vat_id",
+        column2="partner_id",
+        string="Clients",
         help="You can remove clients/partners which you do "
         "not want to show in xml file",
-        default=_get_partners,
     )
     name = fields.Char("File Name")
+    year = fields.Char("Year")
+    limit_amount = fields.Float("Limit Amount")
     file_save = fields.Binary("Save File", readonly=True)
     comments = fields.Text("Comments")
+    total_turnover = fields.Float("Total Turnover", compute="_compute_totals")
+    total_vat = fields.Float("Total VAT", compute="_compute_totals")
+
+    @api.multi
+    def _compute_totals(self):
+        for vat_list in self:
+            vat_list.total_turnover = sum(
+                p.turnover for p in vat_list.partner_ids
+            )
+            vat_list.total_vat = sum(
+                p.vat_amount for p in vat_list.partner_ids
+            )
 
     @api.multi
     def _get_datas(self):
@@ -253,7 +265,6 @@ class PartnerVATList(models.TransientModel):
             if ads.country_id:
                 country = ads.country_id.code
 
-        data = self.read()[0]
         comp_name = obj_cmpny.name
 
         if not email:
@@ -271,8 +282,8 @@ class PartnerVATList(models.TransientModel):
             "email": email,
             "phone": phone,
             "SenderId": SenderId,
-            "period": self.env.context["year"],
-            "comments": data["comments"] or "",
+            "period": self.year,
+            "comments": self.comments if self.comments else "",
         }
 
         data_file = """<?xml version="1.0" encoding="UTF-8"?>
@@ -349,7 +360,7 @@ class PartnerVATList(models.TransientModel):
         )
 
         data_file += data_begin + data_comp + data_client_info + data_end
-        file_save = base64.encodestring(data_file.encode("utf8"))
+        file_save = base64.b64encode(data_file.encode("utf8"))
         self.write({"file_save": file_save, "name": "vat_list.xml"})
         model_datas = obj_model_data.search(
             [
@@ -374,39 +385,11 @@ class PartnerVATList(models.TransientModel):
 
     @api.multi
     def print_vatlist(self):
-        datas = {"ids": []}
-        datas["model"] = "res.company"
-        datas["year"] = self.env.context["year"]
-        datas["limit_amount"] = self.env.context["limit_amount"]
-        datas["client_datas"] = self._get_datas()
-        if not datas["client_datas"]:
+        self.ensure_one()
+
+        if not self.partner_ids:
             raise UserError(_("No record to print."))
-        empty = self.env["partner.vat.intra"]
-        return self.env["report"].get_action(
-            empty,
-            "l10n_be_vat_reports.report_l10nvatpartnerlisting",
-            data=datas,
-        )
 
-
-class PartnerVATListingPrint(report_sxw.rml_parse):
-    def set_context(self, objects, data, ids, report_type=None):
-        client_datas = data["client_datas"]
-        self.localcontext.update(
-            {
-                "year": data["year"],
-                "sum_turnover": client_datas[-1]["sum_turnover"],
-                "sum_tax": client_datas[-1]["sum_tax"],
-                "client_list": client_datas,
-            }
-        )
-        return super(PartnerVATListingPrint, self).set_context(
-            objects, data, ids
-        )
-
-
-class WrappedVATListingPrint(models.AbstractModel):
-    _name = "report.l10n_be_vat_reports.report_l10nvatpartnerlisting"
-    _inherit = "report.abstract_report"
-    _template = "l10n_be_vat_reports.report_l10nvatpartnerlisting"
-    _wrapped_report_class = PartnerVATListingPrint
+        return self.env.ref(
+            "l10n_be_vat_reports.action_report_l10nvatpartnerlisting"
+        ).report_action(self)

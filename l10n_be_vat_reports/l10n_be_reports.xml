@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
+<odoo>
     <data>
         <report
             id="action_report_l10nvatintraprint"
@@ -12,7 +12,7 @@
         />
         <report
             id="action_report_l10nvatpartnerlisting"
-            model="partner.vat.intra"
+            model="partner.vat.list"
             string="Annual Listing of VAT-Subjected"
             report_type="qweb-pdf"
             name="l10n_be_vat_reports.report_l10nvatpartnerlisting"
@@ -20,4 +20,4 @@
             menu="False"
         />
     </data>
-</openerp>
+</odoo>
