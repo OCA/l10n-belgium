@@ -3,11 +3,12 @@
     <data>
         <template id="report_l10nvatpartnerlisting">
             <t t-call="web.html_container">
-                <t t-call="report.internal_layout">
+                <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
                     <div class="page">
                         <div class="oe_structure"/>
                         <h2>Annual Listing of VAT-Subjected</h2>
-                        <p><span t-esc="res_company.name"/> (<span t-esc="year"/>)</p>
+                        <p><span t-esc="res_company.name"/> (<span t-field="o.year"/>)</p>
 
                         <table class="table table-condensed">
                             <thead>
@@ -24,19 +25,20 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td><span t-esc="sum_turnover"/></td>
-                                    <td><span t-esc="sum_tax"/></td>
+                                    <td><span t-esc="o.total_turnover"/></td>
+                                    <td><span t-esc="o.total_vat"/></td>
                                 </tr>
-                                <tr t-foreach="client_list" t-as="l">
-                                    <td><span t-esc="l['seq']"/></td>
-                                    <td><span t-esc="l['partner_name']"/></td>
-                                    <td><span t-esc="l['vat']"/></td>
-                                    <td><span t-esc="l['turnover']"/></td>
-                                    <td><span t-esc="l['vat_amount']"/></td>
+                                <tr t-foreach="o.partner_ids" t-as="l">
+                                    <td><span t-field="l.seq"/></td>
+                                    <td><span t-field="l.name"/></td>
+                                    <td><span t-field="l.vat"/></td>
+                                    <td><span t-field="l.turnover"/></td>
+                                    <td><span t-field="l.vat_amount"/></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </t>
                 </t>
             </t>
         </template>
