@@ -233,10 +233,8 @@ class PartnerVATList(models.TransientModel):
 
     @api.multi
     def create_xml(self):
-        obj_sequence = self.env["ir.sequence"]
-        obj_partner = self.env["res.partner"]
-        obj_model_data = self.env["ir.model.data"]
-        seq_declarantnum = obj_sequence.next_by_code("declarantnum")
+        # why is the sequence number skipped here?
+        self.env["ir.sequence"].next_by_code("declarantnum")
         obj_cmpny = self.env.user.company_id
         company_vat = obj_cmpny.partner_id.vat
 
@@ -246,12 +244,12 @@ class PartnerVATList(models.TransientModel):
         company_vat = company_vat.replace(" ", "").upper()
         SenderId = company_vat[2:]
         issued_by = company_vat[:2]
-        seq_declarantnum = obj_sequence.next_by_code("declarantnum")
+        seq_declarantnum = self.env["ir.sequence"].next_by_code("declarantnum")
         dnum = company_vat[2:] + seq_declarantnum[-4:]
         street = city = country = ""
         addr = obj_cmpny.partner_id.address_get(["invoice"])
         if addr.get("invoice", False):
-            ads = obj_partner.browse([addr["invoice"]])
+            ads = self.env["res.partner"].browse([addr["invoice"]])
             phone = ads.phone and ads.phone.replace(" ", "") or ""
             email = ads.email or ""
             city = ads.city or ""
@@ -360,6 +358,7 @@ class PartnerVATList(models.TransientModel):
         )
 
         data_file += data_begin + data_comp + data_client_info + data_end
+
         file_save = base64.b64encode(data_file.encode("utf8"))
         self.write({"file_save": file_save, "name": "vat_list.xml"})
         model_datas = obj_model_data.search(
