@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo10-addon-l10n_be_eco_tax',
         'odoo10-addon-l10n_be_iso20022_pain',
         'odoo10-addon-l10n_be_mis_reports',
+        'odoo10-addon-l10n_be_partner_kbo_bce',
     ],
     classifiers=[
         'Programming Language :: Python',
