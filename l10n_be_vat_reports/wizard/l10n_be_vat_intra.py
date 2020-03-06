@@ -25,14 +25,43 @@
 import time
 import base64
 
-from openerp import api, models, fields, _
-from openerp.report import report_sxw
-from openerp.exceptions import Warning as UserError
+from odoo import api, models, fields, _
+from odoo.exceptions import UserError
+
+
+class VATIntraClient(models.TransientModel):
+    _name = "vat.intra.client"
+    _description = "Vat Intra Client"
+
+    seq = fields.Integer("Sequence")
+    partner_name = fields.Char("Client Name")
+    vatnum = fields.Char("VAT number")
+    vat = fields.Char("VAT")
+    country = fields.Char("Country")
+    intra_code = fields.Char("Intra Code")
+    code = fields.Char("Code")
+    amount = fields.Float(string="Amount")
+
+    @api.multi
+    def to_dict(self):
+        return [
+            {
+                "partner_name": client.partner_name,
+                "seq": client.seq,
+                "vatnum": client.vatnum,
+                "vat": client.vat,
+                "country": client.country,
+                "amount": client.amount,
+                "intra_code": client.intra_code,
+                "code": client.code,
+            }
+            for client in self
+        ]
 
 
 class PartnerVATIntra(models.TransientModel):
     """
-    Partner Vat Intra
+    Partner Vat Intra Wizard
     """
 
     _name = "partner.vat.intra"
@@ -84,12 +113,12 @@ class PartnerVATIntra(models.TransientModel):
         required=True,
         help="""This is where you have to set the period code for the """
         """intracom declaration using the format: ppyyyy
-          PP can stand for a month: from '01' to '12'.
-          PP can stand for a trimester: '31','32','33','34'
-              The first figure means that it is a trimester
-              The second figure identify the trimester.
-          PP can stand for a complete fiscal year: '00'.
-          YYYY stands for the year (4 positions).""",
+               PP can stand for a month: from '01' to '12'.
+               PP can stand for a trimester: '31','32','33','34'
+                   The first figure means that it is a trimester
+                   The second figure identify the trimester.
+               PP can stand for a complete fiscal year: '00'.
+               YYYY stands for the year (4 positions).""",
     )
     date_start = fields.Date("Start date", required=True)
     date_end = fields.Date("End date", required=True)
@@ -117,172 +146,189 @@ class PartnerVATIntra(models.TransientModel):
         default=_get_europe_country,
     )
     comments = fields.Text("Comments")
+    client_ids = fields.Many2many(
+        comodel_name="vat.intra.client",
+        relation="vat_intra_client_rel",
+        column1="vat_intra_id",
+        column2="client_id",
+        string="Clients",
+        help="You can remove clients/partners which you do "
+        "not want to show in xml file",
+    )
+
+    partner_wo_vat = fields.Integer(
+        string="Partner without VAT", compute="_compute_sums"
+    )
+    amount_total = fields.Float(string="Amount Total", compute="_compute_sums")
 
     @api.multi
-    def _get_datas(self):
-        """Collects require data for vat intra xml
-        :param ids: id of wizard.
-        :return: dict of all data to be used to generate xml for
-                 Partner VAT Intra.
-        :rtype: dict
-        """
+    @api.depends("client_ids")
+    def _compute_sums(self):
+        for vat_intra in self:
+            clients = vat_intra.client_ids
+            vat_intra.partner_wo_vat = len([c for c in clients if not c.vat])
+            vat_intra.amount_total = sum(c.amount for c in clients)
+
+    @api.constrains("period_code")
+    def _check_period_code(self):
+        for rec in self:
+            if len(rec.period_code) != 6:
+                raise UserError(_("Period code is not valid."))
+
+    @api.constrains("date_start", "date_end")
+    def _check_dates(self):
+        for rec in self:
+            if not rec.date_start <= rec.date_end:
+                raise UserError(_("Start date cannot be after the end date."))
+
+    @api.multi
+    def get_partners(self):
         self.ensure_one()
 
-        obj_sequence = self.env["ir.sequence"]
-        obj_partner = self.env["res.partner"]
-
-        xmldict = {}
-        post_code = street = city = country = ""
-        seq = amount_sum = 0
-
-        wiz_data = self
-        comments = wiz_data.comments
-
-        data_company = self.env.user.company_id
-
-        # Get Company vat
-        company_vat = data_company.partner_id.vat
-        if not company_vat:
-            raise UserError(_("No VAT number associated with your company."))
-        company_vat = company_vat.replace(" ", "").upper()
-        issued_by = company_vat[:2]
-
-        if len(wiz_data.period_code) != 6:
-            raise UserError(_("Period code is not valid."))
-
-        if not wiz_data.date_start <= wiz_data.date_end:
-            raise UserError(_("Start date cannot be after the end date."))
-
-        p_id_list = obj_partner.search([("vat", "!=", False)])
-        if not p_id_list:
-            raise UserError(
-                _("No partner has a VAT number associated with him.")
-            )
-
-        seq_declarantnum = obj_sequence.next_by_code("declarantnum")
-        dnum = company_vat[2:] + seq_declarantnum[-4:]
-
-        addr = data_company.partner_id.address_get(["invoice"])
-        email = data_company.partner_id.email or ""
-        phone = data_company.partner_id.phone or ""
-
-        if addr.get("invoice", False):
-            ads = obj_partner.browse([addr["invoice"]])
-            city = ads.city or ""
-            post_code = ads.zip or ""
-            if ads.street:
-                street = ads.street
-            if ads.street2:
-                street += " "
-                street += ads.street2
-            if ads.country_id:
-                country = ads.country_id.code
-
-        if not country:
-            country = company_vat[:2]
-        if not email:
-            raise UserError(_("No email address associated with the company."))
-        if not phone:
-            raise UserError(_("No phone associated with the company."))
-        phone = (
-            phone.replace("/", "")
-            .replace(".", "")
-            .replace("(", "")
-            .replace(")", "")
-            .replace(" ", "")
-        )
-        xmldict.update(
-            {
-                "company_name": data_company.name,
-                "company_vat": company_vat,
-                "vatnum": company_vat[2:],
-                "mand_id": wiz_data.mand_id,
-                "sender_date": str(time.strftime("%Y-%m-%d")),
-                "street": street,
-                "city": city,
-                "post_code": post_code,
-                "country": country,
-                "email": email,
-                "phone": phone,
-                "period": wiz_data.period_code,
-                "clientlist": [],
-                "comments": comments,
-                "issued_by": issued_by,
-            }
-        )
-        # tax code 44: services
-        # tax code 46L: normal good deliveries
-        # tax code 46T: ABC good deliveries
-        # tax code 48xxx: credite note on tax code xxx
-        tags_xmlids = ("tax_tag_44", "tax_tag_46L", "tax_tag_46T")
-        self.env.cr.execute(
-            """
+        query = """
 WITH taxes AS
-  (SELECT tag_xmlid.name, tagsrel.account_tax_id
-   FROM account_tax_account_tag tagsrel
-   INNER JOIN ir_model_data tag_xmlid ON (
-       tag_xmlid.model = 'account.account.tag'
-       AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
-   WHERE tag_xmlid.NAME IN %s)
-          SELECT p.name As partner_name,
-                 l.partner_id AS partner_id, p.vat AS vat,
-          t.name AS intra_code,
-          SUM(-l.balance) AS amount
-          FROM account_move_line l
-          INNER JOIN account_move_line_account_tax_rel taxrel
-            ON (taxrel.account_move_line_id = l.id)
-          INNER JOIN taxes t ON (taxrel.account_tax_id = t.account_tax_id)
-          LEFT JOIN res_partner p ON (l.partner_id = p.id)
-           AND l.date BETWEEN %s AND %s
-           AND l.company_id = %s
-          GROUP BY p.name, l.partner_id, p.vat, intra_code""",
-            (
-                tags_xmlids,
-                wiz_data.date_start,
-                wiz_data.date_end,
-                data_company.id,
-            ),
+         (SELECT tag_xmlid.name, tagsrel.account_tax_id
+          FROM account_tax_account_tag tagsrel
+                   INNER JOIN ir_model_data tag_xmlid ON (
+                  tag_xmlid.model = 'account.account.tag'
+                  AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
+          WHERE tag_xmlid.NAME IN %s)
+SELECT p.name          As partner_name,
+       l.partner_id    AS partner_id,
+       p.vat           AS vat,
+       t.name          AS intra_code,
+       SUM(-l.balance) AS amount
+FROM account_move_line l
+         INNER JOIN account_move_line_account_tax_rel taxrel
+                    ON (taxrel.account_move_line_id = l.id)
+         INNER JOIN taxes t ON (taxrel.account_tax_id = t.account_tax_id)
+         LEFT JOIN res_partner p ON (l.partner_id = p.id)
+    AND l.date BETWEEN %s AND %s
+    AND l.company_id = %s
+GROUP BY p.name, l.partner_id, p.vat, intra_code
+          """
+        tags_xmlids = ("tax_tag_44", "tax_tag_46L", "tax_tag_46T")
+        company_id = self.env.user.company_id.id
+
+        self.env.cr.execute(
+            query, (tags_xmlids, self.date_start, self.date_end, company_id)
         )
 
-        p_count = 0
-
+        seq = 0
+        clients = self.env["vat.intra.client"].browse()
         for row in self.env.cr.dictfetchall():
-            if not row["vat"]:
-                row["vat"] = ""
-                p_count += 1
-
             seq += 1
-            amt = row["amount"] or 0.0
-            amount_sum += amt
-
-            intra_code = {
+            amount = row["amount"] or 0.0
+            code = {
                 "tax_tag_44": "S",
                 "tax_tag_46L": "L",
                 "tax_tag_46T": "T",
             }.get(row["intra_code"], "")
+            vat = row.get("vat") or ""
 
-            xmldict["clientlist"].append(
-                {
-                    "partner_name": row["partner_name"],
-                    "seq": seq,
-                    "vatnum": row["vat"][2:].replace(" ", "").upper(),
-                    "vat": row["vat"],
-                    "country": row["vat"][:2],
-                    "amount": round(amt, 2),
-                    "intra_code": row["intra_code"],
-                    "code": intra_code,
-                }
-            )
-
-        xmldict.update(
-            {
-                "dnum": dnum,
-                "clientnbr": str(seq),
-                "amountsum": round(amount_sum, 2),
-                "partner_wo_vat": p_count,
+            client_data = {
+                "seq": seq,
+                "partner_name": row["partner_name"],
+                "vat": vat,
+                "vatnum": vat[2:].replace(" ", "").upper(),
+                "country": vat[:2],
+                "intra_code": row["intra_code"],
+                "code": code,
+                "amount": round(amount, 2),
             }
+            client = self.env["vat.intra.client"].create(client_data)
+            clients |= client
+
+        self.client_ids = clients
+
+        model_datas = self.env["ir.model.data"].search(
+            [("model", "=", "ir.ui.view"), ("name", "=", "view_vat_intra")],
+            limit=1,
         )
-        return xmldict
+        resource_id = model_datas.res_id
+        return {
+            "name": _("VAT Intra Listing"),
+            "res_id": self.id,
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "partner.vat.intra",
+            "views": [(resource_id, "form")],
+            "type": "ir.actions.act_window",
+            "target": "inline",
+        }
+
+    def get_company_address(self, company):
+        address = company.partner_id.address_get(["invoice"])
+
+        if address.get("invoice"):
+            ads = self.env["res.partner"].browse([address["invoice"]])
+            city = ads.city or ""
+            post_code = ads.zip or ""
+            country = ads.country_id.code if ads.country_id else ""
+
+            if ads.street and ads.street2:
+                street = "%s %s" % (ads.street, ads.street2)
+            elif ads.street:
+                street = ads.street
+            else:
+                street = ""
+
+            address_data = {
+                "street": street,
+                "city": city,
+                "post_code": post_code,
+                "country": country,
+            }
+
+        else:
+            address_data = {
+                "street": "",
+                "city": "",
+                "post_code": "",
+                "country": "",
+            }
+
+        return address_data
+
+    @api.multi
+    def _get_data(self):
+        self.ensure_one()
+
+        # company data
+        company = self.env.user.company_id
+        company_vat = company.partner_id.vat
+        if not company_vat:
+            raise UserError(_("No VAT number associated with your company."))
+        company_vat = company_vat.replace(" ", "").upper()
+        email = company.partner_id.email or ""
+        phone = company.partner_id.phone or ""
+        company_address = self.get_company_address(company)
+
+        # report data
+        seq_declarantnum = self.env["ir.sequence"].next_by_code("declarantnum")
+        dnum = company_vat[2:] + seq_declarantnum[-4:]
+
+        client_list = self.client_ids.to_dict()
+
+        data = {
+            "company_name": company.name,
+            "company_vat": company_vat,
+            "vatnum": company_vat[2:],
+            "mand_id": self.mand_id,
+            "sender_date": str(time.strftime("%Y-%m-%d")),
+            "email": email,
+            "phone": phone,
+            "period": self.period_code,
+            "clientlist": client_list,
+            "comments": self.comments,
+            "issued_by": company_vat[:2],
+            "dnum": dnum,
+            "clientnbr": str(len(self.client_ids)),
+            "amountsum": round(self.amount_total, 2),
+            "partner_wo_vat": self.partner_wo_vat,
+        }
+        data.update(company_address)
+        return data
 
     @api.multi
     def create_xml(self):
@@ -291,30 +337,29 @@ WITH taxes AS
         :return: Value for next action.
         :rtype: dict
         """
-        mod_obj = self.env["ir.model.data"]
-        xml_data = self._get_datas()
+        xml_data = self._get_data()
         month_quarter = xml_data["period"][:2]
         year = xml_data["period"][2:]
         data_file = ""
 
         # Can't we do this by etree?
         data_head = """<?xml version="1.0" encoding="UTF-8"?>
-<ns2:IntraConsignment
- xmlns="http://www.minfin.fgov.be/InputCommon"
- xmlns:ns2="http://www.minfin.fgov.be/IntraConsignment"
- IntraListingsNbr="1">
-    <ns2:Representative>
-        <RepresentativeID
-            identificationType="NVAT"
-            issuedBy="%(issued_by)s">%(vatnum)s</RepresentativeID>
-        <Name>%(company_name)s</Name>
-        <Street>%(street)s</Street>
-        <PostCode>%(post_code)s</PostCode>
-        <City>%(city)s</City>
-        <CountryCode>%(country)s</CountryCode>
-        <EmailAddress>%(email)s</EmailAddress>
-        <Phone>%(phone)s</Phone>
-    </ns2:Representative>""" % (
+    <ns2:IntraConsignment
+     xmlns="http://www.minfin.fgov.be/InputCommon"
+     xmlns:ns2="http://www.minfin.fgov.be/IntraConsignment"
+     IntraListingsNbr="1">
+        <ns2:Representative>
+            <RepresentativeID
+                identificationType="NVAT"
+                issuedBy="%(issued_by)s">%(vatnum)s</RepresentativeID>
+            <Name>%(company_name)s</Name>
+            <Street>%(street)s</Street>
+            <PostCode>%(post_code)s</PostCode>
+            <City>%(city)s</City>
+            <CountryCode>%(country)s</CountryCode>
+            <EmailAddress>%(email)s</EmailAddress>
+            <Phone>%(phone)s</Phone>
+        </ns2:Representative>""" % (
             xml_data
         )
         if xml_data["mand_id"]:
@@ -385,7 +430,7 @@ WITH taxes AS
         ) % (xml_data)
         self.write({"file_save": base64.b64encode(data_file.encode("utf-8"))})
 
-        model_data = mod_obj.search(
+        model_data = self.env["ir.model.data"].search(
             [
                 ("model", "=", "ir.ui.view"),
                 ("name", "=", "view_vat_intra_save"),
@@ -408,17 +453,12 @@ WITH taxes AS
         }
 
     @api.multi
-    def preview(self):
-        xml_data = self._get_datas()
-        datas = {"ids": [], "model": "partner.vat.intra", "form": xml_data}
-        empty = self.env["partner.vat.intra"]
-        return self.env["report"].get_action(
-            empty, "l10n_be_vat_reports.report_l10nvatintraprint", data=datas
-        )
+    def print_vat_intra(self):
+        self.ensure_one()
 
+        if not self.client_ids:
+            raise UserError(_("No record to print."))
 
-class WrappedVATIntraPrint(models.AbstractModel):
-    _name = "report.l10n_be_vat_reports.report_l10nvatintraprint"
-    _inherit = "report.abstract_report"
-    _template = "l10n_be_vat_reports.report_l10nvatintraprint"
-    _wrapped_report_class = report_sxw.rml_parse
+        return self.env.ref(
+            "l10n_be_vat_reports.action_report_l10nvatintraprint"
+        ).report_action(self)
