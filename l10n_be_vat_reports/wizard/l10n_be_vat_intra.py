@@ -428,7 +428,9 @@ GROUP BY p.name, l.partner_id, p.vat, intra_code
             + "\n\t\t<ns2:Comment>%(comments)s</ns2:Comment>\n\t"
             "</ns2:IntraListing>\n</ns2:IntraConsignment>"
         ) % (xml_data)
-        self.write({"file_save": base64.b64encode(data_file.encode("utf-8"))})
+
+        file_save = base64.b64encode(data_file.encode("utf8"))
+        self.write({"file_save": file_save})
 
         model_data = self.env["ir.model.data"].search(
             [
