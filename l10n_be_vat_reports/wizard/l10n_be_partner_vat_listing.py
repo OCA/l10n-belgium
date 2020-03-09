@@ -360,8 +360,9 @@ class PartnerVATList(models.TransientModel):
         data_file += data_begin + data_comp + data_client_info + data_end
 
         file_save = base64.b64encode(data_file.encode("utf8"))
-        self.write({"file_save": file_save, "name": "vat_list.xml"})
-        model_datas = obj_model_data.search(
+        self.write({"file_save": file_save})
+
+        model_datas = self.env["ir.model.data"].search(
             [
                 ("model", "=", "ir.ui.view"),
                 ("name", "=", "view_vat_listing_result"),
