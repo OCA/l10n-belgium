@@ -23,7 +23,7 @@ msgid "Belgium KBO/BCE Number"
 msgstr "Numéro BCE"
 
 #. module: l10n_be_partner_kbo_bce
-#: code:addons/l10n_be_partner_kbo_bce/models/res_partner.py:86
+#: code:addons/l10n_be_partner_kbo_bce/models/res_partner.py:90
 #, python-format
 msgid "Configuration Error, Country BE has not been defined !"
 msgstr ""
@@ -41,7 +41,7 @@ msgid "KBO/BCE Number"
 msgstr "Numéro BCE"
 
 #. module: l10n_be_partner_kbo_bce
-#: code:addons/l10n_be_partner_kbo_bce/models/res_partner.py:122
+#: code:addons/l10n_be_partner_kbo_bce/models/res_partner.py:126
 #, python-format
 msgid "KBO/BCE Number '%s' is not consistent with VAT Number '%s'."
 msgstr ""
