@@ -107,7 +107,6 @@
                 <form string="Save XML">
                     <separator string="Note: "/>
                     <label string="Save the File with '.xml' extension." for="file_save"/>
-                    <field name="name"/>
                     <field name="file_save" filename="name"/>
                 </form>
             </field>
