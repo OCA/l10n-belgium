@@ -4,7 +4,7 @@
 {
     'name': 'Belgium - KBO/BCE numbers',
     'category': 'Localization',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'license': 'AGPL-3',
     'author': 'Noviat,'
               'Odoo Community Association (OCA)',
