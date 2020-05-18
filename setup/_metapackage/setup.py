@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo12-addon-account_bank_statement_import_coda',
         'odoo12-addon-l10n_be_mis_reports',
+        'odoo12-addon-l10n_be_partner_kbo_bce',
     ],
     classifiers=[
         'Programming Language :: Python',
