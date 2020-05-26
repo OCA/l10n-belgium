@@ -23,7 +23,7 @@ class res_partner(models.Model):
         irconfigparam = self.env['ir.config_parameter']
         login = irconfigparam.get_param('companyweb.login', False)
         pswd = irconfigparam.get_param('companyweb.pswd', False)
-        if login == False or pswd == False:
+        if login is False or pswd is False:
             raise orm.except_orm(
                 'Warning !', "Credentials are not set")
 

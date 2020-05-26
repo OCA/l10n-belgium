@@ -47,7 +47,7 @@ class account_companyweb_wizard(models.TransientModel):
         context = self.env.context
         res_partner_model = self.env['res.partner']
         partner_id = context['active_id']
-        this = self.browse( self.ids)[0]
-        update_values = self.get_update_values( this)
-        res = res_partner_model.browse(partner_id).write( update_values)
-        return True
+        this = self.browse(self.ids)[0]
+        update_values = self.get_update_values(this)
+        res = res_partner_model.browse(partner_id).write(update_values)
+        return res

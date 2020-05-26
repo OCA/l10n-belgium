@@ -150,8 +150,7 @@ class account_companyweb_report_wizard(models.TransientModel):
 
         out = base64.encodestring(file_data.getvalue())
 
-        filename = this.chart_account_id.company_id.vat + \
-                   '_' + this.year + this.month + '.xls'
+        filename = this.chart_account_id.company_id.vat + '_' + this.year + this.month + '.xls'
         self.write(ids,
                    {'data': out,
                     'export_filename': 'CreatedSalesDocs_' + filename})
@@ -267,8 +266,7 @@ class account_companyweb_report_wizard(models.TransientModel):
                 move_lines = move_line_model.browse(
                     move_line_ids_reconcile, context=context)
                 for move_line_reconcile in move_lines:
-                    amount_reconcile = move_line_reconcile.credit - \
-                                       move_line_reconcile.debit
+                    amount_reconcile = move_line_reconcile.credit - move_line_reconcile.debit
                     amount_residual = amount_residual - amount_reconcile
 
             partner_credit = 0
@@ -278,8 +276,7 @@ class account_companyweb_report_wizard(models.TransientModel):
             move_lines = move_line_model.browse(
                 move_line_partner_ids, context=context)
             for move_line in move_lines:
-                partner_credit = partner_credit + \
-                                 (move_line.debit - move_line.credit)
+                partner_credit = partner_credit + (move_line.debit - move_line.credit)
             sheet1.write(pos, 0, element.company_id.vat)
             sheet1.write(pos, 1, element.period_id.name)
             sheet1.write(pos, 2, element.journal_id.name)

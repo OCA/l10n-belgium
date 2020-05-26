@@ -38,7 +38,6 @@ class account_companyweb_config_settings(models.TransientModel):
         return {'companyweb_pswd': pswd}
 
     def set_default_companyweb_login(self):
-        ctx = self.env.context
         config = self
         self.env['ir.config_parameter'].set_param(
             'companyweb.login', config.companyweb_login)
