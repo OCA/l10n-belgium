@@ -20,9 +20,9 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-from openerp import SUPERUSER_ID
+from odoo import fields, models
 
+SUPERUSER_ID = 1
 
 _parameters = {
     "companyweb.login": "",
@@ -30,41 +30,39 @@ _parameters = {
 }
 
 
-class account_companyweb_config_settings(orm.TransientModel):
+class account_companyweb_config_settings(models.TransientModel):
     _name = 'account.companyweb.config.settings'
     _inherit = 'res.config.settings'
 
-    _columns = {
-        'companyweb_login': fields.char('Login', 16),
-        'companyweb_pswd': fields.char('Password', 16),
-    }
+    companyweb_login = fields.Char('Login')
+    companyweb_pswd = fields.Char('Password')
 
-    def init(self, cr, force=False):
-        config_parameter_model = self.pool['ir.config_parameter']
+    def init(self, force=False):
+        config_parameter_model = self.env['ir.config_parameter']
         for key, value in _parameters.iteritems():
             ids = not force and config_parameter_model.search(
-                cr, SUPERUSER_ID, [('key', '=', key)])
+                [('key', '=', key)])
             if not ids:
-                config_parameter_model.set_param(cr, SUPERUSER_ID, key, value)
+                config_parameter_model.set_param(key, value)
 
-    def get_default_companyweb_login(self, cr, uid, fields_name, context=None):
-        login = self.pool['ir.config_parameter'].get_param(
-            cr, SUPERUSER_ID, 'companyweb.login', False)
+    def get_default_companyweb_login(self, fields_name):
+        login = self.env['ir.config_parameter'].get_param('companyweb.login', False)
         return {'companyweb_login': login}
 
-    def get_default_companyweb_pswd(self, cr, uid, fields_name, context=None):
-        pswd = self.pool['ir.config_parameter'].get_param(
-            cr, SUPERUSER_ID, 'companyweb.pswd', False)
+    def get_default_companyweb_pswd(self, fields_name):
+        pswd = self.env['ir.config_parameter'].get_param(
+            'companyweb.pswd', False)
         return {'companyweb_pswd': pswd}
 
-    def set_default_companyweb_login(self, cr, uid, ids, context=None):
-        config = self.browse(cr, uid, ids[0], context)
-        self.pool['ir.config_parameter'].set_param(
-            cr, SUPERUSER_ID, 'companyweb.login', config.companyweb_login)
+    def set_default_companyweb_login(self):
+        ctx = self.env.context
+        config = self
+        self.env['ir.config_parameter'].set_param(
+            'companyweb.login', config.companyweb_login)
         return True
 
-    def set_default_companyweb_pswd(self, cr, uid, ids, context=None):
-        config = self.browse(cr, uid, ids[0], context)
-        self.pool['ir.config_parameter'].set_param(
-            cr, SUPERUSER_ID, 'companyweb.pswd', config.companyweb_pswd)
+    def set_default_companyweb_pswd(self):
+        config = self
+        self.env['ir.config_parameter'].set_param(
+            'companyweb.pswd', config.companyweb_pswd)
         return True

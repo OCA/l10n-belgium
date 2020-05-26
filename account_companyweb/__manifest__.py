@@ -22,17 +22,16 @@
 
 {
     "name": "Companyweb",
-    "version": "8.0.1.0.0",
+    "version": "10.0.1.0.0",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "http://www.acsone.eu",
     "depends": [
-        'account_financial_report_webkit',
         'base_vat',
         # TODO: account voucher is required
         #       for the test suite only
         #       (need to refactor the test suite)
-        'account_voucher',
+        # 'account_voucher',
     ],
     'external_dependencies': {
         'python': ['lxml', 'xlwt', 'xlrd'],
@@ -68,6 +67,8 @@ Contributors
 ------------
 * Stéphane Bidoul <stephane.bidoul@acsone.eu>
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
+* Pascal Vanderperre <pascal.vanderperre@noviat.com>
+* Luc De Meyer <luc.demeyer@noviat.com>
 """,
     "data": [
         "wizard/account_companyweb_report_wizard_view.xml",
@@ -77,5 +78,5 @@ Contributors
     ],
     "demo": [],
     "license": "AGPL-3",
-    'installable': False,
+    "installable": True,
 }

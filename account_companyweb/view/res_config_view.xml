@@ -30,7 +30,7 @@
 		</record>
 
 		<menuitem id="menu_account_companyweb_config_settings" name="Companyweb"
-			parent="base.menu_config" action="account_companyweb_config_settings" />
+			parent="base_setup.menu_config" action="account_companyweb_config_settings" />
 
 	</data>
 </openerp>

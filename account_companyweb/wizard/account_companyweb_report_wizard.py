@@ -27,7 +27,6 @@ import calendar
 
 import xlwt
 
-from openerp.osv import fields, orm
 try:
     from openerp.addons.account_financial_report_webkit.report.open_invoices \
         import PartnersOpenInvoicesWebkit
@@ -41,42 +40,54 @@ except ImportError:
     # to have the account_financial_report_webkit in our addons path
     pass
 
+from odoo import models, fields
+from odoo.osv import orm
 
-class account_companyweb_report_wizard(orm.TransientModel):
+SUPERUSER_ID = 1
 
-    def _getListeOfMonth(self, cursor, user_id, context=None):
+
+class account_companyweb_report_wizard(models.TransientModel):
+
+    def _getListeOfMonth(self):
         Month = []
         for i in range(1, 13):
             Month.append((str(i).zfill(2), str(i).zfill(2)))
         return Month
 
-    def _getListeOfYear(self, cursor, user_id, context=None):
+    def _getListeOfYear(self):
         Year = []
         for i in range(int(time.strftime('%Y', time.localtime())) - 1,
                        int(time.strftime('%Y', time.localtime())) + 1):
             Year.append((str(i), str(i)))
         return Year
 
-    def _get_account(self, cr, uid, context=None):
-        company_id = self.pool['res.company']\
-            ._company_default_get(cr, uid, object='account.account',
-                                  field='company_id', context=context)
-        accounts = self.pool['account.account'].search(
-            cr, uid, [('parent_id', '=', False),
-                      ('company_id', '=', company_id)], limit=1)
+    def _get_account(self):
+        company_id = self.env['res.company'] \
+            ._company_default_get(object='account.account',
+                                  field='company_id')
+        accounts = self.env['account.account'].search(
+            [('parent_id', '=', False),
+             ('company_id', '=', company_id)], limit=1)
         return accounts and accounts[0] or False
 
     _name = "account.companyweb.report.wizard"
     _description = "Create Report for Companyweb"
-    _columns = {
-        'chart_account_id': fields.many2one(
-            'account.account', 'Chart of Account', required=True,
-            domain=[('parent_id', '=', False)]),
-        'month': fields.selection(_getListeOfMonth, 'Month', required=True),
-        'year': fields.selection(_getListeOfYear, 'Year', required=True),
-        'data': fields.binary('XLS', readonly=True),
-        'export_filename': fields.char('Export CSV Filename', size=128),
-    }
+    # _columns = {
+    #     'chart_account_id': fields.Many2one(
+    #         'account.account', 'Chart of Account', required=True,
+    #         domain=[('parent_id', '=', False)]),
+    #     'month': fields.Selection(_getListeOfMonth, 'Month', required=True),
+    #     'year': fields.Selection(_getListeOfYear, 'Year', required=True),
+    #     'data': fields.Binary('XLS', readonly=True),
+    #     'export_filename': fields.Char('Export CSV Filename', size=128),
+    # }
+    chart_account_id = fields.Many2one(
+        'account.account', 'Chart of Account', required=True,
+        domain=[('parent_id', '=', False)])
+    month = fields.Selection(_getListeOfMonth, 'Month', required=True)
+    year = fields.Selection(_getListeOfYear, 'Year', required=True)
+    data = fields.Binary('XLS', readonly=True)
+    export_filename = fields.Char('Export CSV Filename', size=128)
 
     _defaults = {
         'chart_account_id': _get_account,
@@ -84,10 +95,11 @@ class account_companyweb_report_wizard(orm.TransientModel):
         'year': lambda *a: time.strftime('%Y'),
     }
 
-    def create_createdSalesDocs(self, cr, uid, ids, context=None):
+    def create_createdSalesDocs(self, ids):
+        context = self.env.context
         if context is None:
             context = {}
-        this = self.browse(cr, uid, ids)[0]
+        this = self.browse(ids)[0]
 
         wbk = xlwt.Workbook()
 
@@ -111,7 +123,7 @@ class account_companyweb_report_wizard(orm.TransientModel):
         sheet1.write(pos, 10, "YEAR")
         sheet1.write(pos, 11, "REPORTDATE")
 
-        r = PartnersOpenInvoicesWebkit(cr, uid, "name", {})
+        r = PartnersOpenInvoicesWebkit("name", {})
         account_ids = r.get_all_accounts(
             this.chart_account_id.id, exclude_type=['view'],
             only_type=['receivable'])
@@ -119,20 +131,18 @@ class account_companyweb_report_wizard(orm.TransientModel):
         maxDayOfMonth = calendar.monthrange(int(this.year), int(this.month))[1]
         maxDayOfMonth = str(maxDayOfMonth)
 
-        move_line_model = self.pool["account.move.line"]
+        move_line_model = self.env["account.move.line"]
 
         move_line_ids = move_line_model.search(
-            cr, uid,
+
             [('account_id.id', 'in', account_ids),
              ('journal_id.type', 'in', ('sale', 'sale_refund')),
              ('date', '>=', this.year + '-' + this.month + '-01'),
              ('date', '<=', this.year + '-' + this.month + '-' + maxDayOfMonth)
-             ],
-            context=context)
+             ])
 
         pos += 1
-        for element in move_line_model.browse(cr, uid, move_line_ids,
-                                              context=context):
+        for element in move_line_model.browse(move_line_ids):
             sheet1.write(pos, 0, element.company_id.vat)
             sheet1.write(pos, 1, element.period_id.name)
             sheet1.write(pos, 2, element.journal_id.name)
@@ -157,11 +167,10 @@ class account_companyweb_report_wizard(orm.TransientModel):
         out = base64.encodestring(file_data.getvalue())
 
         filename = this.chart_account_id.company_id.vat + \
-            '_' + this.year + this.month + '.xls'
-        self.write(cr, uid, ids,
+                   '_' + this.year + this.month + '.xls'
+        self.write(ids,
                    {'data': out,
-                    'export_filename': 'CreatedSalesDocs_' + filename},
-                   context=context)
+                    'export_filename': 'CreatedSalesDocs_' + filename})
 
         return {
             'name': 'Companyweb Report',
@@ -174,10 +183,11 @@ class account_companyweb_report_wizard(orm.TransientModel):
             'target': 'new',
         }
 
-    def create_openSalesDocs(self, cr, uid, ids, context=None):
+    def create_openSalesDocs(self, ids):
+        context = self.env.context
         if context is None:
             context = {}
-        this = self.browse(cr, uid, ids)[0]
+        this = self.browse(ids)[0]
 
         wbk = xlwt.Workbook()
         sheet1 = wbk.add_sheet('openSalesDocs')
@@ -207,16 +217,17 @@ class account_companyweb_report_wizard(orm.TransientModel):
         fy_model = self.pool['account.fiscalyear']
         move_line_model = self.pool['account.move.line']
 
-        r = PartnersOpenInvoicesWebkit(cr, uid, "name", {})
+        # r = PartnersOpenInvoicesWebkit(cr, uid, "name", {})
+        r = PartnersOpenInvoicesWebkit("name", {})
 
         date_until = this.year + '-' + this.month + '-' + maxDayOfMonth
         fy_ids = fy_model.search(
-            cr, uid, [('date_start', '<=', date_until),
-                      ('date_stop', '>=', date_until)])
-        if (len(fy_model.browse(cr, uid, fy_ids)) == 0):
+            [('date_start', '<=', date_until),
+             ('date_stop', '>=', date_until)])
+        if (len(fy_model.browse(fy_ids)) == 0):
             raise orm.except_orm('No fiscal year ' + this.year + ' found', '')
         else:
-            fy = fy_model.browse(cr, uid, fy_ids)[0]
+            fy = fy_model.browse(fy_ids)[0]
 
         start_period = r.get_first_fiscalyear_period(fy)
 
@@ -246,17 +257,17 @@ class account_companyweb_report_wizard(orm.TransientModel):
                 move_line_ids.extend(data)
 
         move_line_sales_refund_ids = move_line_model.search(
-            cr, uid, [('id', 'in', move_line_ids),
-                      ('journal_id.type', 'in', ('sale', 'sale_refund'))])
+            [('id', 'in', move_line_ids),
+             ('journal_id.type', 'in', ('sale', 'sale_refund'))])
 
         pos += 1
-        for element in move_line_model.browse(cr, uid,
-                                              move_line_sales_refund_ids):
+        for element in move_line_model.browse(
+                move_line_sales_refund_ids):
             amount_residual = element.debit - element.credit
             if element.reconcile_id.id or element.reconcile_partial_id.id:
                 if element.reconcile_id.id:
                     move_line_ids_reconcile = move_line_model.search(
-                        cr, uid,
+
                         [('reconcile_id', '=', element.reconcile_id.id),
                          ('id', '!=', element.id),
                          ('id', 'in', move_line_ids)],
@@ -264,27 +275,27 @@ class account_companyweb_report_wizard(orm.TransientModel):
                 else:
                     partial_id = element.reconcile_partial_id.id
                     move_line_ids_reconcile = move_line_model.search(
-                        cr, uid,
+
                         [('reconcile_partial_id', '=', partial_id),
                          ('id', '!=', element.id),
                          ('id', 'in', move_line_ids)],
                         context=context)
                 move_lines = move_line_model.browse(
-                    cr, uid, move_line_ids_reconcile, context=context)
+                    move_line_ids_reconcile, context=context)
                 for move_line_reconcile in move_lines:
                     amount_reconcile = move_line_reconcile.credit - \
-                        move_line_reconcile.debit
+                                       move_line_reconcile.debit
                     amount_residual = amount_residual - amount_reconcile
 
             partner_credit = 0
             move_line_partner_ids = move_line_model.search(
-                cr, uid, [('partner_id', '=', element.partner_id.id),
-                          ('id', 'in', move_line_ids)])
+                [('partner_id', '=', element.partner_id.id),
+                 ('id', 'in', move_line_ids)])
             move_lines = move_line_model.browse(
-                cr, uid, move_line_partner_ids, context=context)
+                move_line_partner_ids, context=context)
             for move_line in move_lines:
                 partner_credit = partner_credit + \
-                    (move_line.debit - move_line.credit)
+                                 (move_line.debit - move_line.credit)
             sheet1.write(pos, 0, element.company_id.vat)
             sheet1.write(pos, 1, element.period_id.name)
             sheet1.write(pos, 2, element.journal_id.name)
@@ -317,7 +328,7 @@ class account_companyweb_report_wizard(orm.TransientModel):
                    + \
                    this.month + \
                    '.xls'
-        self.write(cr, uid, ids,
+        self.write(ids,
                    {'data': out, 'export_filename': filename}, context=context)
 
         return {

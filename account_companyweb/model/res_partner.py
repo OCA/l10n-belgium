@@ -25,25 +25,28 @@ import logging
 
 from lxml import etree
 
-from openerp.osv import orm
-from openerp import tools
-import openerp.modules
+from odoo import models, tools
+from odoo.osv import orm
 
+SUPERUSER_ID = 1
 
 logger = logging.getLogger(__name__)
 
 
-class res_partner(orm.Model):
+class res_partner(models.Model):
     _inherit = 'res.partner'
 
-    def companyweb_information(self, cr, uid, ids, vat_number, context=None):
-        login = self.pool['ir.config_parameter'].get_param(
-            cr, uid, 'companyweb.login', False)
-        pswd = self.pool['ir.config_parameter'].get_param(
-            cr, uid, 'companyweb.pswd', False)
-        url = "http://odm.outcome.be/alacarte_onvat.asp?login=" + \
-            login + "&pswd=" + pswd + "&vat=" + vat_number
+    def companyweb_information(self, vat_number):
+        irconfigparam = self.env['ir.config_parameter']
+        login = irconfigparam.get_param('companyweb.login', False)
+        pswd = irconfigparam.get_param('companyweb.pswd', False)
+        if login == False or pswd == False:
+            raise orm.except_orm(
+                'Warning !', "Credentials are not set")
 
+        url = "http://odm.outcome.be/alacarte_onvat.asp?login=" + \
+              login + "&pswd=" + pswd + "&vat=" + vat_number
+        context = self.env.context
         if context.get('lang', '').startswith('fr'):
             url = url + "&lang=1"
         elif context.get('lang', '').startswith('nl'):
@@ -75,7 +78,7 @@ class res_partner(orm.Model):
         if tree.xpath("/Companies")[0].get("Count") == "0":
             raise orm.except_orm(
                 'Warning !', "VAT number of this company is not known in the "
-                "Companyweb database")
+                             "Companyweb database")
 
         firm = tree.xpath("/Companies/firm")
 
@@ -116,9 +119,7 @@ class res_partner(orm.Model):
                 'http://www.companyweb.be/img/barometer/' + fichier)
             source = im.read()
         else:
-            fichier = "barometer_none.png"
-            img_path = openerp.modules.get_module_resource(
-                'account_companyweb', 'images/barometer', fichier)
+            img_path = 'static/images/barometer_none.png'
             with open(img_path, 'rb') as f:
                 source = f.read()
 
@@ -165,8 +166,8 @@ class res_partner(orm.Model):
             'result': getFloatValue('Rub9904'),
         }
 
-        wizard_id = self.pool['account.companyweb.wizard'].create(
-            cr, uid, valeur, context=None)
+        wizard_id = self.env['account.companyweb.wizard'].create(
+            valeur)
 
         return {
             'name': "Companyweb Informations",
@@ -174,7 +175,7 @@ class res_partner(orm.Model):
             'view_id': False,
             'view_type': 'form',
             'res_model': 'account.companyweb.wizard',
-            'res_id': wizard_id,
+            'res_id': wizard_id.id,
             'type': 'ir.actions.act_window',
             'nodestroy': True,
             'target': 'new',
@@ -182,9 +183,8 @@ class res_partner(orm.Model):
             'context': context,
         }
 
-    def button_companyweb(self, cr, uid, ids, context=None):
-
-        for partner in self.browse(cr, uid, ids, context=context):
+    def button_companyweb(self):
+        for partner in self:
             if not partner.vat:
                 raise orm.except_orm(
                     'Error!', "This company has no VAT number")
@@ -194,9 +194,9 @@ class res_partner(orm.Model):
         vat_number = vat[2:].replace(' ', '')
 
         if vat_country == "be":
-            return self.companyweb_information(cr, uid, ids, vat_number,
-                                               context)
+            company_information = self.companyweb_information(vat_number)
+            return company_information
         else:
             raise orm.except_orm(
                 'Error!', "Companyweb is only available for companies with a "
-                "Belgian VAT number")
+                          "Belgian VAT number")

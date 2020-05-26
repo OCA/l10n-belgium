@@ -20,34 +20,35 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from odoo import fields, models
+
+SUPERUSER_ID = 1
 
 
-class account_companyweb_wizard(orm.TransientModel):
+class account_companyweb_wizard(models.TransientModel):
 
     _name = 'account.companyweb.wizard'
-    _columns = {
-        'vat_number': fields.text('VAT number', readonly=True),
-        'name': fields.text('Name', readonly=True),
-        'jur_form': fields.text('Juridical Form', readonly=True),
-        'street': fields.text('Address', readonly=True),
-        'zip': fields.text('Postal code', readonly=True),
-        'city': fields.text('City', readonly=True),
-        'creditLimit': fields.float('Credit limit', readonly=True),
-        'startDate': fields.date('Start date', readonly=True),
-        'endDate': fields.date('End date', readonly=True),
-        'image': fields.binary('Health barometer', readonly=True),
-        'warnings': fields.text('Warnings', readonly=True),
-        'url': fields.char('Detailed Report', readonly=True),
-        'vat_liable': fields.boolean("Subject to VAT", readonly=True),
-        'balance_year': fields.text("Balance year", readonly=True),
-        'equityCapital': fields.float('Equity Capital', readonly=True),
-        'addedValue': fields.float('Gross Margin (+/-)', readonly=True),
-        'turnover': fields.float('Turnover', readonly=True),
-        'result': fields.float('Fiscal Year Profit/Loss (+/-)', readonly=True),
-    }
 
-    def get_update_values(self, cr, uid, ids, wizard, context=None):
+    vat_number = fields.Text('VAT number', readonly=True)
+    name = fields.Text('Name', readonly=True)
+    jur_form = fields.Text('Juridical Form', readonly=True)
+    street = fields.Text('Address', readonly=True)
+    zip = fields.Text('Postal code', readonly=True)
+    city = fields.Text('City', readonly=True)
+    creditLimit = fields.Float('Credit limit', readonly=True)
+    startDate = fields.Date('Start Date', readonly=True)
+    endDate = fields.Date('End Date', readonly=True)
+    image = fields.Binary('Health barometer', readonly=True)
+    warnings = fields.Text('Warnings', readonly=True)
+    url = fields.Char('Detailed Report', readonly=True)
+    vat_liable = fields.Boolean("Subject to VAT", readonly=True)
+    balance_year = fields.Text("Balance year", readonly=True)
+    equityCapital = fields.Float('Equity Capital', readonly=True)
+    addedValue = fields.Float('Gross Margin (+/-)', readonly=True)
+    turnover = fields.Float('Turnover', readonly=True)
+    result = fields.Float('Fiscal Year Profit/Loss (+/-)', readonly=True)
+
+    def get_update_values(self,  wizard):
         """ This method is designed to be inherited to add some field to
             update on res.partner"""
         return {'name': wizard.name,
@@ -58,12 +59,11 @@ class account_companyweb_wizard(orm.TransientModel):
                 'credit_limit': wizard.creditLimit,
                 }
 
-    def update_information(self, cr, uid, ids, context=None):
-        res_partner_model = self.pool['res.partner']
+    def update_information(self):
+        context = self.env.context
+        res_partner_model = self.env['res.partner']
         partner_id = context['active_id']
-        this = self.browse(cr, uid, ids, context=context)[0]
-        update_values = self.get_update_values(cr, uid, ids, this,
-                                               context=context)
-        res_partner_model.write(cr, uid, [partner_id], update_values,
-                                context=context)
+        this = self.browse( self.ids)[0]
+        update_values = self.get_update_values( this)
+        res = res_partner_model.browse(partner_id).write( update_values)
         return True

@@ -7,64 +7,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l10n-belgium (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 06:40+0000\n"
-"PO-Revision-Date: 2016-09-16 21:46+0000\n"
+"POT-Creation-Date: 2017-08-19 03:37+0000\n"
+"PO-Revision-Date: 2017-08-21 07:19+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/"
-"language/fr/)\n"
-"Language: fr\n"
+"Language-Team: Hungarian (http://www.transifex.com/oca/OCA-l10n-belgium-8-0/"
+"language/hu/)\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 #: field:account.companyweb.wizard,street:0
 msgid "Address"
-msgstr "Adresse"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "Apply"
-msgstr "Appliquer"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,balance_year:0
 msgid "Balance year"
-msgstr "Année bilantaire"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Mégsem"
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,chart_account_id:0
 msgid "Chart of Account"
-msgstr "Plan comptable"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,city:0
 msgid "City"
-msgstr "Ville"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Close"
-msgstr "Fermer"
+msgstr "Lezár"
 
 #. module: account_companyweb
 #: model:ir.ui.menu,name:account_companyweb.menu_account_companyweb_config_settings
 msgid "Companyweb"
-msgstr "Companyweb"
+msgstr ""
 
 #. module: account_companyweb
 #: model:ir.actions.act_window,name:account_companyweb.action_report
 #: model:ir.ui.menu,name:account_companyweb.companyweb_report_menu
 msgid "Companyweb Report"
-msgstr "Rapports Companyweb"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
@@ -74,99 +74,99 @@ msgstr ""
 #. module: account_companyweb
 #: view:res.partner:account_companyweb.partner_form_companyweb
 msgid "Companyweb..."
-msgstr "Companyweb..."
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 #: model:ir.actions.act_window,name:account_companyweb.account_companyweb_config_settings
 msgid "Configure Companyweb"
-msgstr "Configuration Companyweb"
+msgstr ""
 
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_account_companyweb_report_wizard
 msgid "Create Report for Companyweb"
-msgstr "Création des rapports pour Companyweb"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,create_uid:0
 #: field:account.companyweb.report.wizard,create_uid:0
 #: field:account.companyweb.wizard,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr "Készítette"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,create_date:0
 #: field:account.companyweb.report.wizard,create_date:0
 #: field:account.companyweb.wizard,create_date:0
 msgid "Created on"
-msgstr "Date"
+msgstr "Létrehozás dátuma"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,creditLimit:0
 msgid "Credit limit"
-msgstr "Limite de crédit"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 msgid "Custom Report"
-msgstr "Custom Report"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,url:0
 msgid "Detailed Report"
-msgstr "Rapport détaillé"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,display_name:0
 #: field:account.companyweb.report.wizard,display_name:0
 #: field:account.companyweb.wizard,display_name:0
 msgid "Display Name"
-msgstr "Nom à afficher"
+msgstr "Név megjelenítése"
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,endDate:0
 msgid "End date"
-msgstr "Date de fin"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,equityCapital:0
 msgid "Equity Capital"
-msgstr "Capitaux propres"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,export_filename:0
 msgid "Export CSV Filename"
-msgstr "Export CSV Filename"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Financial results"
-msgstr "Résultats financiers"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,result:0
 msgid "Fiscal Year Profit/Loss (+/-)"
-msgstr "Profit (Perte) de l'année fiscale (+/-)"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 msgid "Generate CreatedSalesDocs Report"
-msgstr "Générer le rapport CreatedSalesDocs"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.report.wizard:account_companyweb.report_view_wizard
 msgid "Generate OpenSalesDocs Report"
-msgstr "Générer le rapport OpenSalesDocs"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,addedValue:0
 msgid "Gross Margin (+/-)"
-msgstr "Marge Bruge (+/-)"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,image:0
 msgid "Health barometer"
-msgstr "Baromètre de santé"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,id:0
@@ -178,63 +178,63 @@ msgstr "ID"
 #. module: account_companyweb
 #: field:account.companyweb.wizard,jur_form:0
 msgid "Juridical Form"
-msgstr "Forme Juridique"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,__last_update:0
 #: field:account.companyweb.report.wizard,__last_update:0
 #: field:account.companyweb.wizard,__last_update:0
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr "Utolsó frissítés dátuma"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_uid:0
 #: field:account.companyweb.report.wizard,write_uid:0
 #: field:account.companyweb.wizard,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr "Utoljára frissítve, által"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,write_date:0
 #: field:account.companyweb.report.wizard,write_date:0
 #: field:account.companyweb.wizard,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr "Utoljára frissítve "
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_login:0
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,month:0
 msgid "Month"
-msgstr "Mois"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr "Név"
 
 #. module: account_companyweb
 #: model:ir.model,name:account_companyweb.model_res_partner
 msgid "Partner"
-msgstr "Partenaire"
+msgstr "Partner"
 
 #. module: account_companyweb
 #: field:account.companyweb.config.settings,companyweb_pswd:0
 msgid "Password"
-msgstr "Mot de passe"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,zip:0
 msgid "Postal code"
-msgstr "Code Postal"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,startDate:0
 msgid "Start date"
-msgstr "Date de début"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,vat_liable:0
@@ -244,44 +244,44 @@ msgstr ""
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Subject to VAT)"
-msgstr "Assujetti à la TVA)"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,turnover:0
 msgid "Turnover"
-msgstr "Chiffre d'affaires"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "Update"
-msgstr "Mise-à-jour"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,vat_number:0
 msgid "VAT number"
-msgstr "Numéro de TVA"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.wizard,warnings:0
 msgid "Warnings"
-msgstr "Avertissements"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,data:0
 msgid "XLS"
-msgstr "XLS"
+msgstr ""
 
 #. module: account_companyweb
 #: field:account.companyweb.report.wizard,year:0
 msgid "Year"
-msgstr "Année"
+msgstr ""
 
 #. module: account_companyweb
 #: view:account.companyweb.config.settings:account_companyweb.companyweb_config_settings
 msgid "or"
-msgstr "ou"
+msgstr "vagy"
 
 #. module: account_companyweb
 #: view:account.companyweb.wizard:account_companyweb.wizard_account_companyweb
 msgid "wizard account companyweb"
-msgstr "wizard account companyweb"
+msgstr ""
