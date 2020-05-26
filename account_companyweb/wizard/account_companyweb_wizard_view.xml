@@ -53,7 +53,7 @@
                         <field name="url" widget="url"/>
                     </group>
 
-                    <footer>
+                    <footer style="display:none;">
                         <button special="cancel" icon="/account_companyweb/static/images/gtk-cancel.png"
                                 string="Close"/>
                         <button name="update_information" type="object"

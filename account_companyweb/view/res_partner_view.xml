@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <field name="name" position="after">
                     <button colspan="2" name="button_companyweb" string="Companyweb..." type="object"
-                            class="oe_inline btn-default"
+                            class="oe_inline btn-info"
                             attrs="{'invisible': ['|','|',('vat','&lt;','BE'),('vat','>=','BF'),('vat','=',False)]}"
                             style="margin-left:5mm;"/>
                 </field>
