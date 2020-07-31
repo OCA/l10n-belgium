@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* l10n_be_mis_reports
+# 	* l10n_be_mis_reports
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,12 +35,15 @@ msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr229
-msgid "Adjustment to Depreciation and Write Off on Intangible and Tangible Assets [760]"
+msgid ""
+"Adjustment to Depreciation and Write Off on Intangible and Tangible Assets "
+"[760]"
 msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr231
-msgid "Adjustment to Provisions for Extraordinary Liabilities and Charges [762]"
+msgid ""
+"Adjustment to Provisions for Extraordinary Liabilities and Charges [762]"
 msgstr ""
 
 #. module: l10n_be_mis_reports
@@ -110,12 +113,16 @@ msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr216
-msgid "Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [631/4]"
+msgid ""
+"Amounts Written Off on Stocks, Orders in Progress and Trade Debts: Increase "
+"(Decrease) [631/4]"
 msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr226
-msgid "Amounts Written Off on other than Stocks, Orders in Progress and Trade Debts: Increase (Decrease) [651]"
+msgid ""
+"Amounts Written Off on other than Stocks, Orders in Progress and Trade "
+"Debts: Increase (Decrease) [651]"
 msgstr ""
 
 #. module: l10n_be_mis_reports
@@ -275,7 +282,9 @@ msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr215
-msgid "Depreciation and Amounts Written Off on Formation Expenses, on  Intangible and  Tangible Assets [630]"
+msgid ""
+"Depreciation and Amounts Written Off on Formation Expenses, on  Intangible "
+"and  Tangible Assets [630]"
 msgstr ""
 
 #. module: l10n_be_mis_reports
@@ -295,7 +304,9 @@ msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr235
-msgid "Extraordinary Depreciation and Amounts Written Off on Formation Expenses, Intangible and Tangible Assets [660]"
+msgid ""
+"Extraordinary Depreciation and Amounts Written Off on Formation Expenses, "
+"Intangible and Tangible Assets [660]"
 msgstr ""
 
 #. module: l10n_be_mis_reports
@@ -973,4 +984,3 @@ msgstr ""
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr133
 msgid "Work in Progress [32]"
 msgstr ""
-
