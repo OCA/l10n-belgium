@@ -12,6 +12,12 @@ from . import companyweb_rest
 logger = logging.getLogger(__name__)
 
 
+class ResPartnerCwebImage(models.Model):
+    _name = 'res.partner.cweb.image'
+
+    name = fields.Binary('CompanyWeb Health barometer', readonly=True)
+
+
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
@@ -28,7 +34,29 @@ class ResPartner(models.Model):
     cweb_startDate = fields.Date('CompanyWeb Start date', readonly=True)
     cweb_endDate = fields.Date('CompanyWeb End date', readonly=True)
     cweb_score = fields.Char('CompanyWeb Score', readonly=True)
-    cweb_image = fields.Binary('CompanyWeb Health barometer', readonly=True)
+    cweb_image_id = fields.Many2one(
+        'res.partner.cweb.image', 'CompanyWeb Health barometer', readonly=True)
+
+    @api.multi
+    def _get_cweb_image(self):
+        for rec in self:
+            rec.cweb_image = rec.cweb_image_id.name
+
+    @api.multi
+    def _set_cweb_image(self):
+        for rec in self:
+            if not rec.cweb_image:
+                continue
+            link = self.env['res.partner.cweb.image'].search([
+                ('name', '=', rec.cweb_image)])
+            if not link:
+                link = self.env['res.partner.cweb.image'].sudo().create({
+                    'name': rec.cweb_image,
+                })
+            rec.cweb_image_id = link.id
+
+    cweb_image = fields.Binary(
+        compute='_get_cweb_image', inverse='_set_cweb_image', readonly=True)
     cweb_warnings = fields.Text('CompanyWeb Warnings', readonly=True)
     cweb_url = fields.Char('CompanyWeb Detailed Report', readonly=True)
     cweb_vat_liable = fields.Boolean("CompanyWeb Subject to VAT",
