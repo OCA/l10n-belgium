@@ -1,4 +1,4 @@
-# Copyright 2009-2019 Noviat.
+# Copyright 2009-2020 Noviat.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "author": "Noviat,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "depends": ["partner_identification", "base_vat_sanitized"],
+    "depends": ["partner_identification"],
     "data": ["data/res_partner_id_category.xml", "views/res_partner.xml"],
     "demo": ["demo/res_partner.xml"],
     "installable": True,
