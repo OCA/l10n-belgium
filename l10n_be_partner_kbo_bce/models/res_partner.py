@@ -95,9 +95,11 @@ class ResPartner(models.Model):
 
     def _sync_kbo_bce_number(self, sync_vals):
         be = self._get_belgium()
-        vat = sync_vals.get("vat") and self._sanitize_vat(sync_vals["vat"])
-        kbn = sync_vals.get("kbo_bce_number") and sync_vals["kbo_bce_number"]
         country_id = sync_vals.get("country_id") and sync_vals["country_id"]
+        vat = sync_vals.get("vat") and self._fix_vat_number(
+            sync_vals["vat"], country_id
+        )
+        kbn = sync_vals.get("kbo_bce_number") and sync_vals["kbo_bce_number"]
         has_kbo_bce_number = False
 
         if vat and vat[0:2] == "BE" and not kbn:
@@ -124,7 +126,7 @@ class ResPartner(models.Model):
         kbn = sync_vals.get("kbo_bce_number")
         vat = sync_vals.get("vat")
         if kbn and vat:
-            if kbn.replace(".", "") != self._sanitize_vat(vat)[2:]:
+            if kbn.replace(".", "") != self._fix_vat_number(vat, country_id)[2:]:
                 raise ValidationError(
                     _("KBO/BCE Number '%s' is not consistent with " "VAT Number '%s'.")
                     % (kbn, vat)
