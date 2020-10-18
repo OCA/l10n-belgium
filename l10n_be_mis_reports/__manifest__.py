@@ -8,7 +8,7 @@
     "author": "ACSONE SA/NV," "Odoo Community Association (OCA)",
     "website": "http://acsone.eu",
     "category": "Reporting",
-    "version": "13.0.1.0.1",
+    "version": "13.0.1.0.2",
     "license": "AGPL-3",
     "depends": ["mis_builder", "l10n_be"],  # OCA/account-financial-reporting
     "data": [
