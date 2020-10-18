@@ -15,7 +15,6 @@
         "data/mis_report_styles.xml",
         "data/mis_report_pl.xml",
         "data/mis_report_bs.xml",
-        "data/mis_report_vat.xml",
     ],
     "installable": True,
 }
