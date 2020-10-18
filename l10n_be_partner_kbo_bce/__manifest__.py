@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "author": "Noviat,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "depends": ["partner_identification"],
+    "depends": ["partner_identification", "base_vat"],
     "data": ["data/res_partner_id_category.xml", "views/res_partner.xml"],
     "demo": ["demo/res_partner.xml"],
     "installable": True,
