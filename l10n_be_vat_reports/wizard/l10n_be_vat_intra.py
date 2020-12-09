@@ -190,7 +190,7 @@ WITH taxes AS
             ON (taxrel.account_move_line_id = l.id)
           INNER JOIN taxes t ON (taxrel.account_tax_id = t.account_tax_id)
           LEFT JOIN res_partner p ON (l.partner_id = p.id)
-           AND l.date BETWEEN %s AND %s
+          WHERE l.date BETWEEN %s AND %s
            AND l.company_id = %s
           GROUP BY p.name, l.partner_id, p.vat, intra_code''',
                             (tags_xmlids, wiz_data.date_start,
