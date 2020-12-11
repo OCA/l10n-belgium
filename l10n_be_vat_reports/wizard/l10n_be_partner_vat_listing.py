@@ -1,29 +1,6 @@
-##############################################################################
-#
-#    Copyright (c) 2018 ACSONE SA/NV (<http://acsone.eu>)
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    Corrections & modifications by Noviat nv/sa, (http://www.noviat.be):
-#    - VAT listing based upon year in stead of fiscal year
-#    - sql query adapted to select only 'tax-out' move lines
-#    - extra button to print readable PDF report
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
+# Copyright 2004-2010 Tiny SPRL
+# Copyright 2018 ACSONE SA/NV
+# Copyright 2020 Coop IT Easy SCRLfs
 import time
 import base64
 
