@@ -33,10 +33,18 @@ Images
 
 * Odoo Community Association: `Icon <https://odoo-community.org/logo.png>`_.
 
+Authors
+------------
+
+* Odoo SA
+* ACSONE SA/NV
+
 Contributors
 ------------
 
 * André Paramés <github@andreparames.com> (https://www.acsone.eu/)
+* Robin Keunen <robin@coopiteasy.be> (https://www.coopiteasy.be/)
+* Houssine Bakkali <houssine@coopiteasy.be> (https://www.coopiteasy.be/)
 
 Do not contact contributors directly about support or help with technical issues.
 

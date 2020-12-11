@@ -4,6 +4,7 @@
 #     This file is part of l10n_be_mis_reports,
 #     an Odoo module.
 #
+#     Copyright (c) 2004 Odoo SA (<http://odoo.com>)
 #     Copyright (c) 2018 ACSONE SA/NV (<http://acsone.eu>)
 #
 #     l10n_be_mis_reports is free software:
@@ -25,6 +26,7 @@
 {
     'name': 'Belgium VAT Reports',
     'author': 'ACSONE SA/NV,'
+              'Odoo SA,'
               'Odoo Community Association (OCA)',
     'website': 'http://acsone.eu',
     'category': 'Reporting',
