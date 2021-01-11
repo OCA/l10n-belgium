@@ -210,7 +210,6 @@ class PartnerVATList(models.TransientModel):
 
     @api.multi
     def create_xml(self):
-        # why is the sequence number skipped here?
         self.env["ir.sequence"].next_by_code("declarantnum")
         obj_cmpny = self.env.user.company_id
         company_vat = obj_cmpny.partner_id.vat

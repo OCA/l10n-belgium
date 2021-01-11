@@ -36,7 +36,6 @@
                         <button name="get_partners" string="View Customers" type="object"  class="oe_highlight"  />
                         or
                         <button string="Cancel" class="oe_link" special="cancel" />
-<!--                        <button name="create_xml" string="Create _XML" type="object" class="oe_highlight"/>-->
                     </footer>
                 </form>
             </field>
