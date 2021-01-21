@@ -32,11 +32,9 @@ class TestCodaFile(TransactionCase):
             "type": "bank",
             "bank_account_id": bank_account.id,
         }
-        if self.env.user.company_id.currency_id != eur:
+        if self.env.company.currency_id != eur:
             # coda files are in EUR
-            journal_vals.update(
-                {"currency_id": eur.id,}
-            )
+            journal_vals.update({"currency_id": eur.id})
         self.journal = self.env["account.journal"].create(journal_vals)
         self.statement_import_model = self.env["account.bank.statement.import"]
         self.bank_statement_model = self.env["account.bank.statement"]
@@ -49,14 +47,19 @@ class TestCodaFile(TransactionCase):
 
     def test_coda_file_import(self):
         bank_statement_import = self.statement_import_model.create(
-            {"data_file": self.coda_file}
+            {
+                "attachment_ids": [
+                    (0, 0, {"name": "coda test file", "datas": self.coda_file})
+                ]
+            }
         )
         bank_statement_import.with_context(journal_id=self.journal.id).import_file()
         bank_st_record = self.bank_statement_model.search([("name", "=", "2012/135")])[
             0
         ]
         self.assertEqual(
-            float_compare(bank_st_record.balance_start, 11812.70, precision_digits=2), 0
+            float_compare(bank_st_record.balance_start, 11812.70, precision_digits=2),
+            0,
         )
         self.assertEqual(
             float_compare(
@@ -97,18 +100,26 @@ class TestCodaFile(TransactionCase):
 
     def test_coda_file_import_twice(self):
         bank_statement_import = self.statement_import_model.create(
-            {"data_file": self.coda_file}
+            {
+                "attachment_ids": [
+                    (0, 0, {"name": "coda test file", "datas": self.coda_file})
+                ]
+            }
         )
         bank_statement_import.import_file()
         with self.assertRaises(UserError):
             bank_statement_import.import_file()
 
     def test_coda_file_wrong_journal(self):
-        """ The demo account used by the CODA file is linked to the
-        demo bank_journal """
+        """The demo account used by the CODA file is linked to the
+        demo bank_journal"""
         cash_journal = self.env["account.journal"].search([("type", "=", "cash")])[0]
         bank_statement_import = self.statement_import_model.create(
-            {"data_file": self.coda_file}
+            {
+                "attachment_ids": [
+                    (0, 0, {"name": "coda test file", "datas": self.coda_file})
+                ]
+            }
         )
         with self.assertRaises(Exception):
             # the following method breaks a unique constraint, which is log as

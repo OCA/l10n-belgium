@@ -108,14 +108,12 @@ class AccountBankStatementImport(models.TransientModel):
             if statement_date:
                 parsed_date = date_parser.parse(statement_date)
                 year = "%s/" % parsed_date.year
-            vals.update(
-                {"name": "{}{}".format(year, statement.paper_seq_number),}
-            )
+            vals.update({"name": "{}{}".format(year, statement.paper_seq_number)})
 
         globalisation_dict = {
-                st.ref_move: st
-                for st in statement.movements
-                if st.type == MovementRecordType.GLOBALISATION
+            st.ref_move: st
+            for st in statement.movements
+            if st.type == MovementRecordType.GLOBALISATION
         }
         information_dict = {}
         # build a dict of information by transaction_ref. The transaction_ref
@@ -145,8 +143,7 @@ class AccountBankStatementImport(models.TransientModel):
         return vals
 
     def get_st_line_note(self, line, information_dict):
-        """This method returns a formatted note from line information
-        """
+        """This method returns a formatted note from line information"""
         note = []
         if line.counterparty_name:
             note.append(_("Counter Party") + ": " + line.counterparty_name)
