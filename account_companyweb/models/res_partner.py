@@ -96,7 +96,7 @@ class ResPartner(models.Model):
         values = {'cweb_lastupdate': fields.Datetime.now()}
         for k, v in data.iteritems():
             key = "cweb_%s" % k
-            if key in self._all_columns:
+            if key in self._fields:
                 values[key] = v
         return values
 
