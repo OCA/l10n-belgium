@@ -1,0 +1,65 @@
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="l10n_be_statbel_indexation_computer_form_view">
+        <field
+            name="name"
+        >l10n_be.statbel.indexation.computer.form (in l10n_be_statbel_index)</field>
+        <field name="model">l10n_be.statbel.indexation.computer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_grey">
+                        Fill in the contract original price, the region, the contract date (signed),
+                        if you are in the Flemish region, the date at which the contract came into force,
+                        then the date for which your are computing the indexation.
+                    </div>
+                    <group>
+                        <field name="original_price" />
+                        <field name="region" />
+                        <field
+                            name="contract_date"
+                            attrs="{'invisible': [('original_price', '=', 0.0)]}"
+                        />
+                        <field
+                            name="into_force_date"
+                            attrs="{
+                            'invisible': ['|', ('original_price', '=', 0.0), ('region', '!=', 'flemish')],
+                            'required': [('region', '=', 'flemish')]
+                            }"
+                        />
+                        <field
+                            name="compute_date"
+                            attrs="{'invisible': [('contract_date', '=', False)]}"
+                        />
+                    </group>
+                    <group
+                        name="result"
+                        attrs="{'invisible': [('computed_price', '=', 0.0)]}"
+                    >
+                        <field name="base_year" />
+                        <field name="reference_month" />
+                        <div>
+                            <field name="computed_price" />
+                            <br />
+                            <field name="computed_formula" style="inline" />
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Wizard -->
+    <record id="action_indexation_compute" model="ir.actions.act_window">
+        <field name="name">Indexation Compute</field>
+        <field name="res_model">l10n_be.statbel.indexation.computer</field>
+        <field name="view_id" ref="l10n_be_statbel_index_form_view" />
+        <field name="target">new</field>
+    </record>
+    <record model="ir.ui.menu" id="l10n_be_statbel_indexation_menu">
+        <field name="name">Indexation Computer</field>
+        <field name="parent_id" ref="l10n_be_statbel_index_menu_parent" />
+        <field name="action" ref="action_indexation_compute" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>

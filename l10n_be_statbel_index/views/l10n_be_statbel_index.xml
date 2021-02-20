@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="l10n_be_statbel_index_form_view">
+        <field name="name">l10n_be.statbel.index.form (in l10n_be_statbel_index)</field>
+        <field name="model">l10n_be.statbel.index</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="month" />
+                        <field name="year" />
+                        <field name="base_year" />
+                        <field name="index_type" />
+                    </group>
+                    <group>
+                        <field name="index_value" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="l10n_be_statbel_index_search_view">
+        <field
+            name="name"
+        >l10n_be.statbel.index.search (in l10n_be_statbel_index)</field>
+        <field name="model">l10n_be.statbel.index</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Index Type"
+                        name="group_by_index_type"
+                        domain="[]"
+                        context="{'group_by': 'index_type'}"
+                    />
+                    <filter
+                        string="Base Year"
+                        name="group_by_base_year"
+                        domain="[]"
+                        context="{'group_by': 'base_year'}"
+                    />
+                    <filter
+                        string="Date"
+                        name="group_by_display_date"
+                        domain="[]"
+                        context="{'group_by': 'display_date'}"
+                    />
+                    <filter
+                        string="Year"
+                        name="group_by_year"
+                        domain="[]"
+                        context="{'group_by': 'year'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="l10n_be_statbel_index_tree_view">
+        <field name="name">l10n_be.statbel.index.tree (in l10n_be_statbel_index)</field>
+        <field name="model">l10n_be.statbel.index</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="month" />
+                <field name="year" />
+                <field name="base_year" />
+                <field name="index_type" />
+                <field name="index_value" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="l10n_be_statbel_index_act_window">
+        <field name="name">Statbel Indexes</field>
+        <field name="res_model">l10n_be.statbel.index</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record model="ir.ui.menu" id="l10n_be_statbel_index_menu_parent">
+        <field name="name">Statbel</field>
+        <field name="parent_id" ref="base.menu_custom" />
+        <field name="sequence" eval="50" />
+    </record>
+    <record model="ir.ui.menu" id="l10n_be_statbel_index_menu">
+        <field name="name">Indexes</field>
+        <field name="parent_id" ref="l10n_be_statbel_index_menu_parent" />
+        <field name="action" ref="l10n_be_statbel_index_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>
