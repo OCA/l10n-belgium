@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<odoo>
+        <record model="ir.ui.view" id="companyweb_partner_view">
+            <field name="name">partner.cweb_name</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Company Web">
+                        <group>
+                            <field name="cweb_name_enable" invisible="1"/>
+                            <field name="cweb_address_enable" invisible="1"/>
+                            <field name="cweb_jur_form_enable" invisible="1"/>
+                            <field name="cweb_creditLimit_enable" invisible="1"/>
+                            <field name="cweb_startDate_enable" invisible="1"/>
+                            <field name="cweb_endDate_enable" invisible="1"/>
+                            <field name="cweb_score_enable" invisible="1"/>
+                            <field name="cweb_warnings_enable" invisible="1"/>
+                            <field name="cweb_url_enable" invisible="1"/>
+                            <field name="cweb_vat_liable_enable" invisible="1"/>
+                            <field name="cweb_balance_year_enable" invisible="1"/>
+                            <field name="cweb_prefLang_enable" invisible="1"/>
+
+                            <field name="cweb_jur_form" attrs="{'invisible':[('cweb_jur_form_enable', '!=', True )]}"/>
+                            <field name="cweb_name" attrs="{'invisible':[('cweb_name_enable', '!=', True )]}"/>
+                            <field name="cweb_prefLang" attrs="{'invisible':[('cweb_prefLang_enable', '!=', True )]}"/>
+                            <field name="cweb_street" attrs="{'invisible':[('cweb_address_enable', '!=', True )]}"/>
+                            <field name="cweb_zip" attrs="{'invisible':[('cweb_address_enable', '!=', True )]}"/>
+                            <field name="cweb_city" attrs="{'invisible':[('cweb_address_enable', '!=', True )]}"/>
+                            <field name="cweb_country" attrs="{'invisible':[('cweb_address_enable', '!=', True )]}"/>
+                            <field name="cweb_creditLimit" attrs="{'invisible':[('cweb_creditLimit_enable', '!=', True )]}"/>
+                            <field name="cweb_startDate" attrs="{'invisible':[('cweb_startDate_enable', '!=', True )]}"/>
+                            <field name="cweb_endDate" attrs="{'invisible':[('cweb_endDate_enable', '!=', True )]}"/>
+                            <field name="cweb_balance_year" attrs="{'invisible':[('cweb_balance_year_enable', '!=', True )]}"/>
+                            <field name="cweb_equityCapital" attrs="{'invisible':[('cweb_balance_year_enable', '!=', True )]}"/>
+                            <field name="cweb_addedValue" attrs="{'invisible':[('cweb_balance_year_enable', '!=', True )]}"/>
+                            <field name="cweb_turnover" attrs="{'invisible':[('cweb_balance_year_enable', '!=', True )]}"/>
+                            <field name="cweb_result" attrs="{'invisible':[('cweb_balance_year_enable', '!=', True )]}"/>
+                            <field name="cweb_warnings" attrs="{'invisible':[('cweb_warnings_enable', '!=', True )]}"/>
+                            <field name="cweb_url" attrs="{'invisible':[('cweb_url_enable', '!=', True )]}"/>
+
+                            <field name="cweb_vat_liable" attrs="{'invisible':[('cweb_vat_liable_enable', '!=', True )]}"/>
+                            <field name="cweb_image" attrs="{'invisible':[('cweb_score_enable', '!=', True )]}"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="companyweb_partner_view_button" model="ir.ui.view">
+            <field name="name">testxbo</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after">
+                    <button name="button_companyweb" string="Companyweb..." type="object" class="oe_inline" icon="https://www.companyweb.be/images/logo/logo-en.svg"
+                     attrs="{'invisible': ['|','|',('vat','&lt;','BE'),('vat','>=','BF'),('vat','=',False)]}"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>
