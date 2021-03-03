@@ -9,5 +9,6 @@
     'website': 'http://acsone.eu',
     'data': [
         'views/companyweb_partner_view.xml',
+        'views/companyweb_user_wizard.xml',
     ],
 }

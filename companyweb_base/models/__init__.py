@@ -3,3 +3,4 @@
 
 from . import companyweb_user_model
 from . import companyweb_partner_model
+from . import companyweb_user_wizard

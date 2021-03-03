@@ -54,7 +54,17 @@ class CompanyWebPartner(models.Model):
         LOGIN = self.env.user.cweb_login
         PASSWORD = self.env.user.cweb_password
         if not LOGIN or not PASSWORD:
-            raise ValidationError(('No users found for this "CompanyWebLogin" and "CompanyWebPassword"'))
+            wizard_form = self.env.ref('companyweb_base.companyweb_user_wizard', False)
+            return {
+                'name': "No Credentials",
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'companyweb_base.user_wizard',
+                'view_id': wizard_form.id,
+                'target': 'new'
+            }
+
         client = zeep.Client("https://connect.companyweb.be/V1.3/alacarteservice.asmx")
         r = client.service.GetCompanyByVat(dict(
             CompanyWebLogin=LOGIN,
@@ -64,8 +74,18 @@ class CompanyWebPartner(models.Model):
             Language="FR",
             VatNumber=self.vat,
         ))
+        print(r['StatusCode'])
         if r['StatusCode'] == 101:
-            raise ValidationError(('No users found for this "CompanyWebLogin" and "CompanyWebPassword"'))
+            wizard_form = self.env.ref('companyweb_base.companyweb_user_wizard', False)
+            return {
+                'name': "Bad Credentials",
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'companyweb_base.user_wizard',
+                'view_id': wizard_form.id,
+                'target': 'new'
+            }
         elif r['StatusCode'] == 306:
             raise ValidationError((self.vat + ' is not a valid belgian vatnumber or empty.'))
 
