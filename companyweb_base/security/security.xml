@@ -1,0 +1,17 @@
+<odoo>
+
+    <record model="ir.module.category" id="companyweb">
+         <field name="name">Companyweb</field>
+         <field name="description">User access level for then Companyweb module</field>
+         <field name="sequence">20</field>
+    </record>
+    <record id="cweb_view" model="res.groups">
+        <field name="name">View Companyweb Data</field>
+        <field name="category_id" ref="companyweb" />
+    </record>
+    <record id="cweb_download" model="res.groups">
+        <field name="name">Dowload Companyweb Data</field>
+        <field name="implied_ids" eval="[(4, ref('cweb_view'))]" />
+        <field name="category_id" ref="companyweb" />
+    </record>
+</odoo>
