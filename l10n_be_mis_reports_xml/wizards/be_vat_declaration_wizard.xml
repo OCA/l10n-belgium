@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2021 Coop IT Easy
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="be_vat_declaration_wizard_view" model="ir.ui.view">
+        <field name="name">be_vat_declaration_wizard_view</field>
+        <field name="model">be.vat.declaration.wizard</field>
+        <field name="arch" type="xml">
+            <form string="BE VAT Declaration">
+                <group>
+                    <field name="period"/>
+                    <field name="client_listing_nihil"/>
+                    <field name="ask_restitution"/>
+                    <field name="ask_payment"/>
+                    <field name="grid_91"/>
+                </group>
+                <footer>
+                    <button type="object"
+                            name="generate_xml"
+                            string="Download XML"
+                            class="btn-primary"/>
+                    <button special="cancel"
+                            string="Cancel"
+                            class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

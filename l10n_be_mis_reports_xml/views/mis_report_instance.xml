@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2021 Coop IT Easy
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="mis_report_instance_view_form" model="ir.ui.view">
+        <field name="name">mis_report_instance_view_form_inherit</field>
+        <field name="model">mis.report.instance</field>
+        <field name="inherit_id" ref="mis_builder.mis_report_instance_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='export_xls']" position="after">
+                <field name="_is_be_vat_declaration" invisible="1"/>
+                <button
+                    type="object"
+                    name="export_xml"
+                    string="Export XML"
+                    icon="fa-file-code-o"
+                    attrs="{'invisible': [('_is_be_vat_declaration', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mis_report_instance_view_tree" model="ir.ui.view">
+        <field name="name">mis_report_instance_view_tree_inherit</field>
+        <field name="model">mis.report.instance</field>
+        <field name="inherit_id" ref="mis_builder.mis_report_instance_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='export_xls']" position="after">
+                <field name="_is_be_vat_declaration" invisible="1"/>
+                <button
+                    type="object"
+                    name="export_xml"
+                    string="Export XML"
+                    icon="fa-file-code-o"
+                    attrs="{'invisible': [('_is_be_vat_declaration', '=', False)]}"
+
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
