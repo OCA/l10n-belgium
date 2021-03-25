@@ -1,10 +1,10 @@
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields
+import base64
+from datetime import date
 
 from lxml.etree import XML
-import base64
 
 from .common import TestVatReportsCommon
 
@@ -17,7 +17,7 @@ class TestVatListing(TestVatReportsCommon):
         self._create_test_data(tax)
 
     def _prepare_listing(self):
-        year = fields.Date.today().year
+        year = date.today().year
         wizard = self.env["partner.vat"].create(
             {"year": str(year), "limit_amount": 1}
         )
