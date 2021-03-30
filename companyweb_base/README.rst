@@ -43,12 +43,18 @@ from the `Companyweb <https:/www.companyweb.be>`__ database (www.companyweb.be).
 .. contents::
    :local:
 
+Installation
+============
+
+This module can be installed in the usual way. It depends on the OCA
+``web_notify`` module.
+
 Usage
 =====
 
 This module comes with 2 security groups.
 
-.. figure:: https://raw.githubusercontent.com/acsone/l10n-belgium/14.0-companyweb_base/companyweb_base/static/description/doc_security_groups.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_security_groups.png
    :alt: Companyweb Security Groups
    :width: 80 %
    :align: center
@@ -60,7 +66,7 @@ This module comes with 2 security groups.
 Once your user has the correct permissions, open a partner that has a belgian
 VAT number and click on the Companyweb button.
 
-.. figure:: https://raw.githubusercontent.com/acsone/l10n-belgium/14.0-companyweb_base/companyweb_base/static/description/doc_on_new_partner.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_on_new_partner.png
    :alt: Companyweb New Partner
    :width: 80 %
    :align: center
@@ -68,7 +74,7 @@ VAT number and click on the Companyweb button.
 If your Companyweb credentials are not known in the system or have changed, you
 will be shown a wizard to enter them.
 
-.. figure:: https://raw.githubusercontent.com/acsone/l10n-belgium/14.0-companyweb_base/companyweb_base/static/description/doc_get_credentials.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_get_credentials.png
    :alt: Companyweb Get Credentials
    :width: 80 %
    :align: center
@@ -76,7 +82,7 @@ will be shown a wizard to enter them.
 If everything runs smoothly you'll see a confirmation popup in the upper right
 corner of your screen.
 
-.. figure:: https://raw.githubusercontent.com/acsone/l10n-belgium/14.0-companyweb_base/companyweb_base/static/description/doc_success_message.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_success_message.png
    :alt: Companyweb Get Credentials
    :width: 40 %
    :align: center
@@ -84,7 +90,7 @@ corner of your screen.
 
 You can now view the Companyweb information in the corresponding tab.
 
-.. figure:: https://raw.githubusercontent.com/acsone/l10n-belgium/14.0-companyweb_base/companyweb_base/static/description/doc_companyweb_data.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_companyweb_data.png
    :alt: Companyweb information tab
    :width: 80 %
    :align: center
@@ -141,6 +147,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-xavier-bouquiaux| image:: https://github.com/xavier-bouquiaux.png?size=40px
+    :target: https://github.com/xavier-bouquiaux
+    :alt: xavier-bouquiaux
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-xavier-bouquiaux| 
 
 This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/14.0/companyweb_base>`_ project on GitHub.
 
