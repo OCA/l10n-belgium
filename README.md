@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[companyweb_base](companyweb_base/) | 14.0.1.0.1 | companyweb_base
+[companyweb_base](companyweb_base/) | 14.0.1.0.2 | companyweb_base
 
 [//]: # (end addons)
 
