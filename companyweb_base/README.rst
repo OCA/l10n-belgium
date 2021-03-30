@@ -61,7 +61,8 @@ Once your user has the correct permissions, open a partner that has a belgian
 VAT number and click on the Companyweb button.
 
 .. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_on_new_partner.png
-   :alt: Companyweb New Partner
+   :width: 90%
+   :alt: Partner form with Companyweb button
    :align: center
 
 If you don't see the Companyweb button, refresh your browser page and check
@@ -84,6 +85,7 @@ corner of your screen.
 You can now view the Companyweb information in the corresponding tab.
 
 .. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_companyweb_data.png
+   :width: 90%
    :alt: Companyweb information tab
    :align: center
 
