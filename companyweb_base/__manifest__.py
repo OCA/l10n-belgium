@@ -4,7 +4,7 @@
     "name": "companyweb_base",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "license": "LGPL-3",
     "installable": True,
     "data": [
