@@ -7,7 +7,7 @@
     "depends": ["partner_identification"],
     "data": ["data/l10n_be_partner_identification.xml"],
     "author": "ACSONE SA/NV," "Odoo Community Association (OCA)",
-    "website": "https://odoo-community.org/",
+    "website": "https://github.com/OCA/l10n-belgium",
     "license": "AGPL-3",
     "installable": True,
 }
