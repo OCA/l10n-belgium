@@ -312,7 +312,7 @@ class CompanywebPartner(models.Model):
                     try:
                         self.cweb_closed_date = datetime.strptime(
                             str(data["Value"]), "%Y-%m-%d"
-                        )
+                        ).date()
                     except ValueError:
                         self.cweb_closed_date = None
                         self.cweb_closed_date_unset = False
@@ -412,7 +412,7 @@ class CompanywebPartner(models.Model):
             try:
                 self.cweb_startDate = datetime.strptime(
                     str(cweb_response["StartDate"]["Value"]), "%Y%m%d"
-                )
+                ).date()
             except ValueError:
                 self.cweb_startDate = None
         else:
@@ -424,7 +424,7 @@ class CompanywebPartner(models.Model):
             try:
                 self.cweb_endDate = datetime.strptime(
                     str(cweb_response["EndDate"]["Value"]), "%Y%m%d"
-                )
+                ).date()
             except ValueError:
                 self.cweb_endDate = False
         else:
@@ -532,6 +532,7 @@ class CompanywebPartner(models.Model):
         self._cweb_populate_score(cweb_response)
         self._cweb_populate_data(cweb_response)
         self.env.user.notify_success(message=_("Companyweb Enhance OK"))
+        return True
 
     def cweb_button_copy_address(self):
 

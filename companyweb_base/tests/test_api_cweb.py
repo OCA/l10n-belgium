@@ -23,7 +23,7 @@ class TestApiCweb(TransactionCase, VCRTestCase):
         add_user = [(4, demo_user.id)]
         group.write({"users": add_user})
 
-        Partner = self.env["res.partner"].with_user(demo_user)
+        Partner = self.env["res.partner"].sudo(demo_user)
         self.p1 = Partner.create(
             {
                 "name": "Acsone SA",
