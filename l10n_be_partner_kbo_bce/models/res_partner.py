@@ -147,4 +147,3 @@ class ResPartner(models.Model):
         in case of 'create': empty self, sync_vals contains all vals
         in case of 'write': self contains partner record
         """
-        pass
