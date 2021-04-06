@@ -15,7 +15,13 @@ These modules complement the official l10n_be.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[l10n_be_mis_reports](l10n_be_mis_reports/) | 13.0.1.0.2 | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
+[l10n_be_partner_identification](l10n_be_partner_identification/) | 13.0.1.0.1 | Belgium Partner Identification Numbers
+[l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 13.0.1.0.2 | Belgium - KBO/BCE numbers
 
 [//]: # (end addons)
 
