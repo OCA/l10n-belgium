@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[companyweb_base](companyweb_base/) | 14.0.1.0.3 | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+[companyweb_base](companyweb_base/) | 14.0.1.0.4 | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 
 [//]: # (end addons)
 
