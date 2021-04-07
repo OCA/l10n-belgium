@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * account_bank_statement_import_coda
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Hosni Hadj Taher <hajhasni@hotmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-04 02:35+0000\n"
+"PO-Revision-Date: 2017-02-04 02:35+0000\n"
+"Last-Translator: Hosni Hadj Taher <hajhasni@hotmail.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: account_bank_statement_import_coda
+#: model_terms:ir.ui.view,arch_db:account_bank_statement_import_coda.account_bank_statement_import_view
+msgid "Coded statement of account (.coda)"
+msgstr "Relev?? de compte cod?? (.coda)"
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:154
+#, python-format
+msgid "Communication"
+msgstr "Communication"
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:139
+#, python-format
+msgid "Counter Party"
+msgstr ""
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:142
+#, python-format
+msgid "Counter Party Account"
+msgstr ""
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:145
+#, python-format
+msgid "Counter Party Address"
+msgstr ""
+
+#. module: account_bank_statement_import_coda
+#: model:ir.model,name:account_bank_statement_import_coda.model_account_bank_statement_import
+msgid "Import Bank Statement"
+msgstr "Import Relev?? bancaire"
+
+#. module: account_bank_statement_import_coda
+#: model:ir.model,name:account_bank_statement_import_coda.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: account_bank_statement_import_coda
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:63
+#, python-format
+msgid ""
+"The following problem occurred during import. The file might not be valid.\n"
+"\n"
+" %s"
+msgstr ""
