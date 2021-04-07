@@ -19,6 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 13.0.1.0.0 | Import CODA Bank Statement
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 13.0.1.0.2 | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_partner_identification](l10n_be_partner_identification/) | 13.0.1.0.1 | Belgium Partner Identification Numbers
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 13.0.1.0.2 | Belgium - KBO/BCE numbers
