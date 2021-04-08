@@ -14,13 +14,13 @@ Companyweb
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-belgium/tree/14.0/companyweb_base
+    :target: https://github.com/OCA/l10n-belgium/tree/13.0/companyweb_base
     :alt: OCA/l10n-belgium
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-belgium-14-0/l10n-belgium-14-0-companyweb_base
+    :target: https://translation.odoo-community.org/projects/l10n-belgium-13-0/l10n-belgium-13-0-companyweb_base
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/119/14.0
+    :target: https://runbot.odoo-community.org/runbot/119/13.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -60,7 +60,7 @@ This module comes with 2 security groups.
 Once your user has the correct permissions, open a partner that has a belgian
 VAT number and click on the Companyweb button.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_on_new_partner.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/13.0/companyweb_base/static/description/doc_on_new_partner.png
    :width: 90%
    :alt: Partner form with Companyweb button
    :align: center
@@ -71,20 +71,20 @@ that the current user is in the correct Companyweb group.
 If your Companyweb credentials are not known in the system or have changed, you
 will be shown a wizard to enter them.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_get_credentials.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/13.0/companyweb_base/static/description/doc_get_credentials.png
    :alt: Companyweb credentials wizard
    :align: center
 
 If everything runs smoothly you'll see a confirmation popup in the upper right
 corner of your screen.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_success_message.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/13.0/companyweb_base/static/description/doc_success_message.png
    :alt: Companyweb confirmation popup
    :align: center
 
 You can now view the Companyweb information in the corresponding tab.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_companyweb_data.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/13.0/companyweb_base/static/description/doc_companyweb_data.png
    :width: 90%
    :alt: Companyweb information tab
    :align: center
@@ -98,7 +98,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-belgium/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_base%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_base%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -150,6 +150,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-xavier-bouquiaux| 
 
-This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/14.0/companyweb_base>`_ project on GitHub.
+This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/13.0/companyweb_base>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
