@@ -6,14 +6,14 @@
                 <t t-set="company" t-value="vat_wizard.mr_instance_id.company_id"/>
                 <VATDeclaration t-att-DeclarantReference="vat_wizard.compute_declarant_reference()" SequenceNumber="1">
                     <Declarant>
-                        <common:VATNumber t-esc="company.vat"/>
+                        <common:VATNumber t-esc="vat_wizard.declarant_vat"/>
                         <common:Name t-esc="company.name"/>
                         <common:Street t-esc="company.street"/>
                         <common:PostCode t-esc="company.zip"/>
                         <common:City t-esc="company.city"/>
                         <common:CountryCode t-esc="company.country_id.code"/>
-                        <common:EmailAddress t-esc="email"/>
-                        <common:Phone t-esc="company.phone"/>
+                        <common:EmailAddress t-esc="company.email"/>
+                        <common:Phone t-esc="vat_wizard.declarant_phone"/>
                     </Declarant>
                     <Period>
                         <t t-if="vat_wizard.period == 'month'">
