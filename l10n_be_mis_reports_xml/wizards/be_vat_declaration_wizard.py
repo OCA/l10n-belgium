@@ -3,6 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 
+import re
+
 from odoo import api, fields, models
 
 
@@ -44,6 +46,14 @@ class BeVATDeclarationWizard(models.TransientModel):
     period_value = fields.Integer(
         string="Period Value",
         compute="_compute_period_value",
+    )
+    declarant_vat = fields.Char(
+        string="Declarant Tax ID",
+        compute="_compute_declarant_vat",
+    )
+    declarant_phone = fields.Char(
+        string="Declarant Phone",
+        compute="_compute_declarant_phone",
     )
 
     @api.model
@@ -88,3 +98,19 @@ class BeVATDeclarationWizard(models.TransientModel):
             self.period_value = date_from.month
         else:
             self.period_value = (date_from.month - 1) // 3 + 1
+
+    @api.multi
+    @api.depends("mr_instance_id.company_id")
+    def _compute_declarant_vat(self):
+        for rec in self:
+            company = rec.mr_instance_id.company_id
+            rec.declarant_vat = re.sub(r"\D", "", company.vat)
+
+    @api.multi
+    @api.depends("mr_instance_id.company_id")
+    def _compute_declarant_phone(self):
+        for rec in self:
+            company = rec.mr_instance_id.company_id
+            rec.declarant_phone = re.sub(
+                r"\D", "", re.sub(r"\+", r"00", company.phone)
+            )
