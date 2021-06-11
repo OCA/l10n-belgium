@@ -3,13 +3,16 @@
 from odoo import fields, models
 
 
-class CompanyWebCredentialWizard(models.TransientModel):
+class CompanyWebCredentialWizardAbstract(models.AbstractModel):
 
-    _name = "companyweb_base.credential_wizard"
+    _name = "companyweb_base.credential_wizard_abstract"
     _description = "Ask for Companyweb login & password"
 
     cweb_login = fields.Char("Companyweb Login", required=True)
     cweb_password = fields.Char("Companyweb Password", required=True)
+
+    def _return_action(self):
+        return True
 
     def save_cweb_login_pwd(self):
         """
@@ -18,8 +21,4 @@ class CompanyWebCredentialWizard(models.TransientModel):
         self.ensure_one()
         self.env.user.cweb_login = self.cweb_login
         self.env.user.cweb_password = self.cweb_password
-        return (
-            self.env["res.partner"]
-            .browse(self.env.context["active_id"])
-            .cweb_button_enhance()
-        )
+        return self._return_action()
