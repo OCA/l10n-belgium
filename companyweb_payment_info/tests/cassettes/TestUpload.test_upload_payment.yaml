@@ -1,0 +1,797 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: GET
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+        xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://payex.companyweb.be/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+        targetNamespace="http://payex.companyweb.be/" name="PaymentExperienceService"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"><wsdl:types><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" targetNamespace="http://payex.companyweb.be/"><xs:import
+        namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><xs:import
+        namespace="http://schemas.datacontract.org/2004/07/System"/><xs:element name="Step1_StartTransaction"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step1_StartTransactionResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Step1_StartTransactionResult" type="tns:ResponseStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step2_SendBatch"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step2_SendBatchResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="Step2_SendBatchResult" type="tns:ResponseStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step3_GetSummary"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step3_GetSummaryResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="Step3_GetSummaryResult" type="tns:ResponseStep3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step4_CommitTransaction"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep4"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step4_CommitTransactionResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Step4_CommitTransactionResult" type="tns:ResponseStep4"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetPreviousPeriod"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestGetPreviousPeriod"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetPreviousPeriodResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="GetPreviousPeriodResult" type="tns:ResponseGetPreviousPeriod"/></xs:sequence></xs:complexType></xs:element><xs:complexType
+        name="RequestStep1"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="PeriodMonth"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PeriodYear" type="xs:int"/><xs:element
+        minOccurs="0" maxOccurs="1" name="PackageVersion" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="SupplierVat" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="EmailAddress" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep1" nillable="true" type="tns:RequestStep1"/><xs:complexType
+        name="ResponseStep1"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep1"
+        nillable="true" type="tns:ResponseStep1"/><xs:complexType name="RequestStep2"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="InvoicesList" nillable="true" type="tns:ArrayOfInvoiceRequest"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep2" nillable="true" type="tns:RequestStep2"/><xs:complexType
+        name="ResponseStep2"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep2"
+        nillable="true" type="tns:ResponseStep2"/><xs:complexType name="RequestStep3"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep3" nillable="true" type="tns:RequestStep3"/><xs:complexType
+        name="ResponseStep3"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="InvoicesSummary"
+        type="tns:InvoicesSummary"/></xs:sequence></xs:complexType><xs:element name="ResponseStep3"
+        nillable="true" type="tns:ResponseStep3"/><xs:complexType name="RequestStep4"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep4" nillable="true" type="tns:RequestStep4"/><xs:complexType
+        name="ResponseStep4"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep4"
+        nillable="true" type="tns:ResponseStep4"/><xs:complexType name="RequestGetPreviousPeriod"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="SupplierVat" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestGetPreviousPeriod" nillable="true" type="tns:RequestGetPreviousPeriod"/><xs:complexType
+        name="ResponseGetPreviousPeriod"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousMonth"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousYear"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousPeriodExists"
+        type="xs:boolean"/></xs:sequence></xs:complexType><xs:element name="ResponseGetPreviousPeriod"
+        nillable="true" type="tns:ResponseGetPreviousPeriod"/><xs:complexType name="ArrayOfInvoiceRequest"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="unbounded" nillable="true" name="InvoiceRequest"
+        type="tns:InvoiceRequest"/></xs:sequence></xs:complexType><xs:element name="ArrayOfInvoiceRequest"
+        nillable="true" type="tns:ArrayOfInvoiceRequest"/><xs:complexType name="InvoicesSummary"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="NumberOfLinesRecieved" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="NumberOfLinesAccepted" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="TotalOpenAmountOfLinesAccepted" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidVatNumber" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidInvoiceNumber" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidInvoiceDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidExpirationDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidOpenAmount" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="InvoicesSummary" nillable="true" type="tns:InvoicesSummary"/><xs:complexType
+        name="InvoiceRequest"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="InvoiceNumber" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="VatNumber" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1"
+        name="OpenAmount" type="xs:decimal"/><xs:element minOccurs="1" maxOccurs="1"
+        name="InvoiceDate" type="xs:int"/><xs:element minOccurs="1" maxOccurs="1"
+        name="ExpirationDate" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="InvoiceRequest" nillable="true" type="tns:InvoiceRequest"/></xs:schema></wsdl:types><wsdl:message
+        name="PaymentExperienceService_Step1_StartTransaction_InputMessage"><wsdl:part
+        name="parameters" element="tns:Step1_StartTransaction"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step1_StartTransaction_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step1_StartTransactionResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step2_SendBatch_InputMessage"><wsdl:part name="parameters"
+        element="tns:Step2_SendBatch"/></wsdl:message><wsdl:message name="PaymentExperienceService_Step2_SendBatch_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step2_SendBatchResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step3_GetSummary_InputMessage"><wsdl:part name="parameters"
+        element="tns:Step3_GetSummary"/></wsdl:message><wsdl:message name="PaymentExperienceService_Step3_GetSummary_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step3_GetSummaryResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step4_CommitTransaction_InputMessage"><wsdl:part
+        name="parameters" element="tns:Step4_CommitTransaction"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step4_CommitTransaction_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step4_CommitTransactionResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_GetPreviousPeriod_InputMessage"><wsdl:part
+        name="parameters" element="tns:GetPreviousPeriod"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_GetPreviousPeriod_OutputMessage"><wsdl:part
+        name="parameters" element="tns:GetPreviousPeriodResponse"/></wsdl:message><wsdl:portType
+        name="PaymentExperienceService"><wsdl:operation name="Step1_StartTransaction"><wsdl:input
+        message="tns:PaymentExperienceService_Step1_StartTransaction_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step1_StartTransaction_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step2_SendBatch"><wsdl:input message="tns:PaymentExperienceService_Step2_SendBatch_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step2_SendBatch_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step3_GetSummary"><wsdl:input message="tns:PaymentExperienceService_Step3_GetSummary_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step3_GetSummary_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step4_CommitTransaction"><wsdl:input message="tns:PaymentExperienceService_Step4_CommitTransaction_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step4_CommitTransaction_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="GetPreviousPeriod"><wsdl:input message="tns:PaymentExperienceService_GetPreviousPeriod_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_GetPreviousPeriod_OutputMessage"/></wsdl:operation></wsdl:portType><wsdl:binding
+        name="BasicHttpBinding_PaymentExperienceService" type="tns:PaymentExperienceService"><soap:binding
+        transport="http://schemas.xmlsoap.org/soap/http"/><wsdl:operation name="Step1_StartTransaction"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step1_StartTransaction"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step2_SendBatch"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step2_SendBatch"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step3_GetSummary"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step3_GetSummary"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step4_CommitTransaction"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step4_CommitTransaction"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="GetPreviousPeriod"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/GetPreviousPeriod"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation></wsdl:binding><wsdl:service
+        name="PaymentExperienceService"><wsdl:port name="BasicHttpBinding_PaymentExperienceService"
+        binding="tns:BasicHttpBinding_PaymentExperienceService"><soap:address location="https://payex.companyweb.be/v1/PaymentExperienceService.asmx"/></wsdl:port></wsdl:service></wsdl:definitions>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:43 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:GetPreviousPeriod
+      xmlns:ns0="http://payex.companyweb.be/"><ns0:request><ns0:SupplierVat>BE0835207216</ns0:SupplierVat><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>c86bc0c070a0aedc6138a3a9091c7daa5b4280c4</ns0:LoginHash></ns0:request></ns0:GetPreviousPeriod></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '561'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://payex.companyweb.be/PaymentExperienceService/GetPreviousPeriod"'
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: POST
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetPreviousPeriodResponse
+        xmlns="http://payex.companyweb.be/"><GetPreviousPeriodResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><PreviousMonth>0</PreviousMonth><PreviousYear>0</PreviousYear><PreviousPeriodExists>false</PreviousPeriodExists></GetPreviousPeriodResult></GetPreviousPeriodResponse></s:Body></s:Envelope>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:43 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: GET
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+        xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://payex.companyweb.be/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+        targetNamespace="http://payex.companyweb.be/" name="PaymentExperienceService"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"><wsdl:types><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" targetNamespace="http://payex.companyweb.be/"><xs:import
+        namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><xs:import
+        namespace="http://schemas.datacontract.org/2004/07/System"/><xs:element name="Step1_StartTransaction"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step1_StartTransactionResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Step1_StartTransactionResult" type="tns:ResponseStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step2_SendBatch"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step2_SendBatchResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="Step2_SendBatchResult" type="tns:ResponseStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step3_GetSummary"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step3_GetSummaryResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="Step3_GetSummaryResult" type="tns:ResponseStep3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step4_CommitTransaction"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep4"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step4_CommitTransactionResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Step4_CommitTransactionResult" type="tns:ResponseStep4"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetPreviousPeriod"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestGetPreviousPeriod"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetPreviousPeriodResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="GetPreviousPeriodResult" type="tns:ResponseGetPreviousPeriod"/></xs:sequence></xs:complexType></xs:element><xs:complexType
+        name="RequestStep1"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="PeriodMonth"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PeriodYear" type="xs:int"/><xs:element
+        minOccurs="0" maxOccurs="1" name="PackageVersion" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="SupplierVat" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="EmailAddress" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep1" nillable="true" type="tns:RequestStep1"/><xs:complexType
+        name="ResponseStep1"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep1"
+        nillable="true" type="tns:ResponseStep1"/><xs:complexType name="RequestStep2"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="InvoicesList" nillable="true" type="tns:ArrayOfInvoiceRequest"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep2" nillable="true" type="tns:RequestStep2"/><xs:complexType
+        name="ResponseStep2"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep2"
+        nillable="true" type="tns:ResponseStep2"/><xs:complexType name="RequestStep3"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep3" nillable="true" type="tns:RequestStep3"/><xs:complexType
+        name="ResponseStep3"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="InvoicesSummary"
+        type="tns:InvoicesSummary"/></xs:sequence></xs:complexType><xs:element name="ResponseStep3"
+        nillable="true" type="tns:ResponseStep3"/><xs:complexType name="RequestStep4"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep4" nillable="true" type="tns:RequestStep4"/><xs:complexType
+        name="ResponseStep4"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep4"
+        nillable="true" type="tns:ResponseStep4"/><xs:complexType name="RequestGetPreviousPeriod"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="SupplierVat" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestGetPreviousPeriod" nillable="true" type="tns:RequestGetPreviousPeriod"/><xs:complexType
+        name="ResponseGetPreviousPeriod"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousMonth"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousYear"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousPeriodExists"
+        type="xs:boolean"/></xs:sequence></xs:complexType><xs:element name="ResponseGetPreviousPeriod"
+        nillable="true" type="tns:ResponseGetPreviousPeriod"/><xs:complexType name="ArrayOfInvoiceRequest"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="unbounded" nillable="true" name="InvoiceRequest"
+        type="tns:InvoiceRequest"/></xs:sequence></xs:complexType><xs:element name="ArrayOfInvoiceRequest"
+        nillable="true" type="tns:ArrayOfInvoiceRequest"/><xs:complexType name="InvoicesSummary"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="NumberOfLinesRecieved" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="NumberOfLinesAccepted" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="TotalOpenAmountOfLinesAccepted" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidVatNumber" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidInvoiceNumber" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidInvoiceDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidExpirationDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidOpenAmount" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="InvoicesSummary" nillable="true" type="tns:InvoicesSummary"/><xs:complexType
+        name="InvoiceRequest"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="InvoiceNumber" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="VatNumber" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1"
+        name="OpenAmount" type="xs:decimal"/><xs:element minOccurs="1" maxOccurs="1"
+        name="InvoiceDate" type="xs:int"/><xs:element minOccurs="1" maxOccurs="1"
+        name="ExpirationDate" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="InvoiceRequest" nillable="true" type="tns:InvoiceRequest"/></xs:schema></wsdl:types><wsdl:message
+        name="PaymentExperienceService_Step1_StartTransaction_InputMessage"><wsdl:part
+        name="parameters" element="tns:Step1_StartTransaction"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step1_StartTransaction_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step1_StartTransactionResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step2_SendBatch_InputMessage"><wsdl:part name="parameters"
+        element="tns:Step2_SendBatch"/></wsdl:message><wsdl:message name="PaymentExperienceService_Step2_SendBatch_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step2_SendBatchResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step3_GetSummary_InputMessage"><wsdl:part name="parameters"
+        element="tns:Step3_GetSummary"/></wsdl:message><wsdl:message name="PaymentExperienceService_Step3_GetSummary_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step3_GetSummaryResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step4_CommitTransaction_InputMessage"><wsdl:part
+        name="parameters" element="tns:Step4_CommitTransaction"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step4_CommitTransaction_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step4_CommitTransactionResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_GetPreviousPeriod_InputMessage"><wsdl:part
+        name="parameters" element="tns:GetPreviousPeriod"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_GetPreviousPeriod_OutputMessage"><wsdl:part
+        name="parameters" element="tns:GetPreviousPeriodResponse"/></wsdl:message><wsdl:portType
+        name="PaymentExperienceService"><wsdl:operation name="Step1_StartTransaction"><wsdl:input
+        message="tns:PaymentExperienceService_Step1_StartTransaction_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step1_StartTransaction_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step2_SendBatch"><wsdl:input message="tns:PaymentExperienceService_Step2_SendBatch_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step2_SendBatch_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step3_GetSummary"><wsdl:input message="tns:PaymentExperienceService_Step3_GetSummary_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step3_GetSummary_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step4_CommitTransaction"><wsdl:input message="tns:PaymentExperienceService_Step4_CommitTransaction_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step4_CommitTransaction_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="GetPreviousPeriod"><wsdl:input message="tns:PaymentExperienceService_GetPreviousPeriod_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_GetPreviousPeriod_OutputMessage"/></wsdl:operation></wsdl:portType><wsdl:binding
+        name="BasicHttpBinding_PaymentExperienceService" type="tns:PaymentExperienceService"><soap:binding
+        transport="http://schemas.xmlsoap.org/soap/http"/><wsdl:operation name="Step1_StartTransaction"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step1_StartTransaction"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step2_SendBatch"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step2_SendBatch"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step3_GetSummary"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step3_GetSummary"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step4_CommitTransaction"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step4_CommitTransaction"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="GetPreviousPeriod"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/GetPreviousPeriod"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation></wsdl:binding><wsdl:service
+        name="PaymentExperienceService"><wsdl:port name="BasicHttpBinding_PaymentExperienceService"
+        binding="tns:BasicHttpBinding_PaymentExperienceService"><soap:address location="https://payex.companyweb.be/v1/PaymentExperienceService.asmx"/></wsdl:port></wsdl:service></wsdl:definitions>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:43 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:GetPreviousPeriod
+      xmlns:ns0="http://payex.companyweb.be/"><ns0:request><ns0:SupplierVat>BE0835207216</ns0:SupplierVat><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>c86bc0c070a0aedc6138a3a9091c7daa5b4280c4</ns0:LoginHash></ns0:request></ns0:GetPreviousPeriod></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '561'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://payex.companyweb.be/PaymentExperienceService/GetPreviousPeriod"'
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: POST
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetPreviousPeriodResponse
+        xmlns="http://payex.companyweb.be/"><GetPreviousPeriodResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><PreviousMonth>0</PreviousMonth><PreviousYear>0</PreviousYear><PreviousPeriodExists>false</PreviousPeriodExists></GetPreviousPeriodResult></GetPreviousPeriodResponse></s:Body></s:Envelope>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:43 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: GET
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+        xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://payex.companyweb.be/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+        targetNamespace="http://payex.companyweb.be/" name="PaymentExperienceService"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"><wsdl:types><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" targetNamespace="http://payex.companyweb.be/"><xs:import
+        namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><xs:import
+        namespace="http://schemas.datacontract.org/2004/07/System"/><xs:element name="Step1_StartTransaction"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step1_StartTransactionResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Step1_StartTransactionResult" type="tns:ResponseStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step2_SendBatch"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step2_SendBatchResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="Step2_SendBatchResult" type="tns:ResponseStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step3_GetSummary"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step3_GetSummaryResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="Step3_GetSummaryResult" type="tns:ResponseStep3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step4_CommitTransaction"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep4"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Step4_CommitTransactionResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Step4_CommitTransactionResult" type="tns:ResponseStep4"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetPreviousPeriod"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestGetPreviousPeriod"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetPreviousPeriodResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="GetPreviousPeriodResult" type="tns:ResponseGetPreviousPeriod"/></xs:sequence></xs:complexType></xs:element><xs:complexType
+        name="RequestStep1"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="PeriodMonth"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PeriodYear" type="xs:int"/><xs:element
+        minOccurs="0" maxOccurs="1" name="PackageVersion" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="SupplierVat" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="EmailAddress" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep1" nillable="true" type="tns:RequestStep1"/><xs:complexType
+        name="ResponseStep1"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep1"
+        nillable="true" type="tns:ResponseStep1"/><xs:complexType name="RequestStep2"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="InvoicesList" nillable="true" type="tns:ArrayOfInvoiceRequest"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep2" nillable="true" type="tns:RequestStep2"/><xs:complexType
+        name="ResponseStep2"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep2"
+        nillable="true" type="tns:ResponseStep2"/><xs:complexType name="RequestStep3"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep3" nillable="true" type="tns:RequestStep3"/><xs:complexType
+        name="ResponseStep3"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="InvoicesSummary"
+        type="tns:InvoicesSummary"/></xs:sequence></xs:complexType><xs:element name="ResponseStep3"
+        nillable="true" type="tns:ResponseStep3"/><xs:complexType name="RequestStep4"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="TransactionKey" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep4" nillable="true" type="tns:RequestStep4"/><xs:complexType
+        name="ResponseStep4"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="TransactionKey"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseStep4"
+        nillable="true" type="tns:ResponseStep4"/><xs:complexType name="RequestGetPreviousPeriod"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="SupplierVat" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestGetPreviousPeriod" nillable="true" type="tns:RequestGetPreviousPeriod"/><xs:complexType
+        name="ResponseGetPreviousPeriod"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousMonth"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousYear"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="PreviousPeriodExists"
+        type="xs:boolean"/></xs:sequence></xs:complexType><xs:element name="ResponseGetPreviousPeriod"
+        nillable="true" type="tns:ResponseGetPreviousPeriod"/><xs:complexType name="ArrayOfInvoiceRequest"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="unbounded" nillable="true" name="InvoiceRequest"
+        type="tns:InvoiceRequest"/></xs:sequence></xs:complexType><xs:element name="ArrayOfInvoiceRequest"
+        nillable="true" type="tns:ArrayOfInvoiceRequest"/><xs:complexType name="InvoicesSummary"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="NumberOfLinesRecieved" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="NumberOfLinesAccepted" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="TotalOpenAmountOfLinesAccepted" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidVatNumber" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidInvoiceNumber" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidInvoiceDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidExpirationDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="LinesWithInvalidOpenAmount" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="InvoicesSummary" nillable="true" type="tns:InvoicesSummary"/><xs:complexType
+        name="InvoiceRequest"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="InvoiceNumber" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="VatNumber" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1"
+        name="OpenAmount" type="xs:decimal"/><xs:element minOccurs="1" maxOccurs="1"
+        name="InvoiceDate" type="xs:int"/><xs:element minOccurs="1" maxOccurs="1"
+        name="ExpirationDate" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="InvoiceRequest" nillable="true" type="tns:InvoiceRequest"/></xs:schema></wsdl:types><wsdl:message
+        name="PaymentExperienceService_Step1_StartTransaction_InputMessage"><wsdl:part
+        name="parameters" element="tns:Step1_StartTransaction"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step1_StartTransaction_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step1_StartTransactionResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step2_SendBatch_InputMessage"><wsdl:part name="parameters"
+        element="tns:Step2_SendBatch"/></wsdl:message><wsdl:message name="PaymentExperienceService_Step2_SendBatch_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step2_SendBatchResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step3_GetSummary_InputMessage"><wsdl:part name="parameters"
+        element="tns:Step3_GetSummary"/></wsdl:message><wsdl:message name="PaymentExperienceService_Step3_GetSummary_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step3_GetSummaryResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step4_CommitTransaction_InputMessage"><wsdl:part
+        name="parameters" element="tns:Step4_CommitTransaction"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_Step4_CommitTransaction_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Step4_CommitTransactionResponse"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_GetPreviousPeriod_InputMessage"><wsdl:part
+        name="parameters" element="tns:GetPreviousPeriod"/></wsdl:message><wsdl:message
+        name="PaymentExperienceService_GetPreviousPeriod_OutputMessage"><wsdl:part
+        name="parameters" element="tns:GetPreviousPeriodResponse"/></wsdl:message><wsdl:portType
+        name="PaymentExperienceService"><wsdl:operation name="Step1_StartTransaction"><wsdl:input
+        message="tns:PaymentExperienceService_Step1_StartTransaction_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step1_StartTransaction_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step2_SendBatch"><wsdl:input message="tns:PaymentExperienceService_Step2_SendBatch_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step2_SendBatch_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step3_GetSummary"><wsdl:input message="tns:PaymentExperienceService_Step3_GetSummary_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step3_GetSummary_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Step4_CommitTransaction"><wsdl:input message="tns:PaymentExperienceService_Step4_CommitTransaction_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_Step4_CommitTransaction_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="GetPreviousPeriod"><wsdl:input message="tns:PaymentExperienceService_GetPreviousPeriod_InputMessage"/><wsdl:output
+        message="tns:PaymentExperienceService_GetPreviousPeriod_OutputMessage"/></wsdl:operation></wsdl:portType><wsdl:binding
+        name="BasicHttpBinding_PaymentExperienceService" type="tns:PaymentExperienceService"><soap:binding
+        transport="http://schemas.xmlsoap.org/soap/http"/><wsdl:operation name="Step1_StartTransaction"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step1_StartTransaction"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step2_SendBatch"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step2_SendBatch"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step3_GetSummary"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step3_GetSummary"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Step4_CommitTransaction"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/Step4_CommitTransaction"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="GetPreviousPeriod"><soap:operation
+        soapAction="http://payex.companyweb.be/PaymentExperienceService/GetPreviousPeriod"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation></wsdl:binding><wsdl:service
+        name="PaymentExperienceService"><wsdl:port name="BasicHttpBinding_PaymentExperienceService"
+        binding="tns:BasicHttpBinding_PaymentExperienceService"><soap:address location="https://payex.companyweb.be/v1/PaymentExperienceService.asmx"/></wsdl:port></wsdl:service></wsdl:definitions>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:44 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:Step1_StartTransaction
+      xmlns:ns0="http://payex.companyweb.be/"><ns0:request><ns0:PeriodMonth>12</ns0:PeriodMonth><ns0:PeriodYear>2021</ns0:PeriodYear><ns0:PackageVersion>14.0.1.0.1&amp;14.0.1.0.1</ns0:PackageVersion><ns0:SupplierVat>BE0835207216</ns0:SupplierVat><ns0:EmailAddress>test@odoo.com</ns0:EmailAddress><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>c86bc0c070a0aedc6138a3a9091c7daa5b4280c4</ns0:LoginHash></ns0:request></ns0:Step1_StartTransaction></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '761'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://payex.companyweb.be/PaymentExperienceService/Step1_StartTransaction"'
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: POST
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><Step1_StartTransactionResponse
+        xmlns="http://payex.companyweb.be/"><Step1_StartTransactionResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><TransactionKey>986df613-7174-ec11-80de-5820b1012b53</TransactionKey></Step1_StartTransactionResult></Step1_StartTransactionResponse></s:Body></s:Envelope>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:44 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:Step2_SendBatch
+      xmlns:ns0="http://payex.companyweb.be/"><ns0:request><ns0:TransactionKey>986df613-7174-ec11-80de-5820b1012b53</ns0:TransactionKey><ns0:InvoicesList><ns0:InvoiceRequest><ns0:InvoiceNumber>725</ns0:InvoiceNumber><ns0:VatNumber>BE0458.662.817</ns0:VatNumber><ns0:OpenAmount>1000.0</ns0:OpenAmount><ns0:InvoiceDate>20220113</ns0:InvoiceDate><ns0:ExpirationDate>20220113</ns0:ExpirationDate></ns0:InvoiceRequest></ns0:InvoicesList><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>c86bc0c070a0aedc6138a3a9091c7daa5b4280c4</ns0:LoginHash></ns0:request></ns0:Step2_SendBatch></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '883'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://payex.companyweb.be/PaymentExperienceService/Step2_SendBatch"'
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: POST
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><Step2_SendBatchResponse
+        xmlns="http://payex.companyweb.be/"><Step2_SendBatchResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><TransactionKey>986df613-7174-ec11-80de-5820b1012b53</TransactionKey></Step2_SendBatchResult></Step2_SendBatchResponse></s:Body></s:Envelope>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:44 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:Step3_GetSummary
+      xmlns:ns0="http://payex.companyweb.be/"><ns0:request><ns0:TransactionKey>986df613-7174-ec11-80de-5820b1012b53</ns0:TransactionKey><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>c86bc0c070a0aedc6138a3a9091c7daa5b4280c4</ns0:LoginHash></ns0:request></ns0:Step3_GetSummary></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '589'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://payex.companyweb.be/PaymentExperienceService/Step3_GetSummary"'
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: POST
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><Step3_GetSummaryResponse
+        xmlns="http://payex.companyweb.be/"><Step3_GetSummaryResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><TransactionKey>986df613-7174-ec11-80de-5820b1012b53</TransactionKey><InvoicesSummary><NumberOfLinesRecieved>1</NumberOfLinesRecieved><NumberOfLinesAccepted>1</NumberOfLinesAccepted><TotalOpenAmountOfLinesAccepted>1000.0000</TotalOpenAmountOfLinesAccepted><LinesWithInvalidVatNumber>0</LinesWithInvalidVatNumber><LinesWithInvalidInvoiceNumber>0</LinesWithInvalidInvoiceNumber><LinesWithInvalidInvoiceDate>0</LinesWithInvalidInvoiceDate><LinesWithInvalidExpirationDate>0</LinesWithInvalidExpirationDate><LinesWithInvalidOpenAmount>0</LinesWithInvalidOpenAmount></InvoicesSummary></Step3_GetSummaryResult></Step3_GetSummaryResponse></s:Body></s:Envelope>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:44 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:Step4_CommitTransaction
+      xmlns:ns0="http://payex.companyweb.be/"><ns0:request><ns0:TransactionKey>986df613-7174-ec11-80de-5820b1012b53</ns0:TransactionKey><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>c86bc0c070a0aedc6138a3a9091c7daa5b4280c4</ns0:LoginHash></ns0:request></ns0:Step4_CommitTransaction></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '603'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://payex.companyweb.be/PaymentExperienceService/Step4_CommitTransaction"'
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: POST
+    uri: https://payex.companyweb.be/v1/PaymentExperienceService.asmx
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><Step4_CommitTransactionResponse
+        xmlns="http://payex.companyweb.be/"><Step4_CommitTransactionResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><TransactionKey>986df613-7174-ec11-80de-5820b1012b53</TransactionKey></Step4_CommitTransactionResult></Step4_CommitTransactionResponse></s:Body></s:Envelope>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Thu, 13 Jan 2022 13:02:44 GMT
+      Server:
+      - Microsoft-IIS/8.0
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1

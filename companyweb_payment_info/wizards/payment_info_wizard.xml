@@ -1,0 +1,45 @@
+<odoo>
+
+    <record model="ir.ui.view" id="companyweb_payment_info_wizard_prepare">
+        <field name="name">Companyweb Payment Info Prepare Wizard</field>
+        <field name="model">companyweb_payment_info.payment_info_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="wizard_text" readonly="1" />
+                <field name="wizard_step" invisible="1" />
+                <div attrs="{'invisible': [('wizard_step', '!=','step2')]}">
+                    If you want to receive the summary on another email please change it here :
+                    <field name="wizard_email" />
+                </div>
+                <footer>
+                    <button
+                        string="Continue Process"
+                        name="payment_info_entry_point"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="cweb_payment_info_action" model="ir.actions.server">
+        <field name="name">Companyweb Payment Info</field>
+        <field name="model_id" ref="account.model_account_move" />
+        <field name="state">code</field>
+        <field
+            name="code"
+        >action = env['companyweb_payment_info.payment_info_wizard'].create({}).payment_info_entry_point()</field>
+    </record>
+
+    <menuitem
+        id="your_menu_id"
+        name="Companyweb Payment Info"
+        action="cweb_payment_info_action"
+        parent="account.menu_finance_receivables"
+    />
+
+</odoo>
