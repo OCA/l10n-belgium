@@ -224,6 +224,7 @@ class CompanywebPartner(models.Model):
             else:
                 rec.cweb_show_tab = False
 
+    @api.model
     def _cweb_create_hash(self, login, password, secret):
         """method used for the API call
         it generates the 'loginhash' needed by the API"""
@@ -501,7 +502,9 @@ class CompanywebPartner(models.Model):
             user_lang = "EN"
 
         if not user_login or not user_password:
-            return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
+            return self._cweb_call_wizard_credentials(
+                "Enter Companyweb credentials", self.env.context
+            )
 
         client = zeep.Client("https://connect.companyweb.be/V1.3/alacarteservice.asmx")
         r = client.service.GetCompanyByVat(
@@ -517,7 +520,9 @@ class CompanywebPartner(models.Model):
             )
         )
         if r["StatusCode"] in [101, 302]:
-            return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
+            return self._cweb_call_wizard_credentials(
+                "Enter Companyweb credentials", self.env.context
+            )
         elif r["StatusCode"] != 0:
             raise UserError(
                 _("Companyweb status : %s : %s ", r["StatusCode"], r["StatusMessage"])
@@ -547,15 +552,16 @@ class CompanywebPartner(models.Model):
             message=_("Companyweb Address Successfully copied")
         )
 
-    def _cweb_call_wizard_credentials(self, wizard_name):
+    @api.model
+    def _cweb_call_wizard_credentials(self, wizard_name, context):
         wizard_form = self.env.ref("companyweb_base.companyweb_credential_wizard")
         return {
             "name": wizard_name,
             "type": "ir.actions.act_window",
             "view_type": "form",
             "view_mode": "form",
-            "res_model": "companyweb_base.credential_wizard",
+            "res_model": "companyweb_base.credential_wizard_base",
             "view_id": wizard_form.id,
             "target": "new",
-            "context": self.env.context,
+            "context": context,
         }
