@@ -1,0 +1,7 @@
+<odoo>
+    <record id="cweb_upload" model="res.groups">
+        <field name="name">Upload Companyweb Invoices</field>
+        <field name="category_id" ref="companyweb_base.companyweb" />
+        <field name="implied_ids" eval="[(4, ref('companyweb_base.cweb_download'))]" />
+    </record>
+</odoo>
