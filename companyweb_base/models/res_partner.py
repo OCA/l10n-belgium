@@ -464,7 +464,6 @@ class CompanywebPartner(models.Model):
                     "Info"
                 ]
                 self.cweb_creditLimit_info_unset = True
-                self.cweb_creditLimit_info = None
             else:
                 self.cweb_creditLimit_info_unset = False
         else:
@@ -502,9 +501,7 @@ class CompanywebPartner(models.Model):
             user_lang = "EN"
 
         if not user_login or not user_password:
-            return self._cweb_call_wizard_credentials(
-                "Enter Companyweb credentials", self.env.context
-            )
+            return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
 
         client = zeep.Client("https://connect.companyweb.be/V1.3/alacarteservice.asmx")
         r = client.service.GetCompanyByVat(
@@ -520,9 +517,7 @@ class CompanywebPartner(models.Model):
             )
         )
         if r["StatusCode"] in [101, 302]:
-            return self._cweb_call_wizard_credentials(
-                "Enter Companyweb credentials", self.env.context
-            )
+            return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
         elif r["StatusCode"] != 0:
             raise UserError(
                 _("Companyweb status : %s : %s ", r["StatusCode"], r["StatusMessage"])
@@ -553,7 +548,7 @@ class CompanywebPartner(models.Model):
         )
 
     @api.model
-    def _cweb_call_wizard_credentials(self, wizard_name, context):
+    def _cweb_call_wizard_credentials(self, wizard_name):
         wizard_form = self.env.ref("companyweb_base.companyweb_credential_wizard")
         return {
             "name": wizard_name,
@@ -563,5 +558,5 @@ class CompanywebPartner(models.Model):
             "res_model": "companyweb_base.credential_wizard_base",
             "view_id": wizard_form.id,
             "target": "new",
-            "context": context,
+            "context": self.env.context,
         }
