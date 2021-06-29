@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="l10n_be_vat_declaration_xml_template">
+        <VATConsignment VATDeclarationsNbr="1" xmlns="http://www.minfin.fgov.be/VATConsignment" xmlns:common="http://www.minfin.fgov.be/InputCommon">
+            <t t-foreach="docs" t-as="vat_wizard">
+                <t t-set="company" t-value="vat_wizard.mr_instance_id.company_id"/>
+                <VATDeclaration t-att-DeclarantReference="vat_wizard.compute_declarant_reference()" SequenceNumber="1">
+                    <Declarant>
+                        <common:VATNumber t-esc="vat_wizard.declarant_vat"/>
+                        <common:Name t-esc="company.name"/>
+                        <common:Street t-esc="company.street"/>
+                        <common:PostCode t-esc="company.zip"/>
+                        <common:City t-esc="company.city"/>
+                        <common:CountryCode t-esc="company.country_id.code"/>
+                        <common:EmailAddress t-esc="company.email"/>
+                        <common:Phone t-esc="vat_wizard.declarant_phone"/>
+                    </Declarant>
+                    <Period>
+                        <t t-if="vat_wizard.period == 'month'">
+                            <Month t-esc="vat_wizard.period_value"/>
+                        </t>
+                        <t t-else="">
+                            <Quarter t-esc="vat_wizard.period_value"/>
+                        </t>
+                        <Year t-esc="vat_wizard.mr_instance_id.date_from.year"/>
+                    </Period>
+                    <Data>
+                        <t t-set="grids" t-value="vat_wizard.prepare_xml_data()"/>
+                        <!-- if t-esc value is None, the cell is not rendered -->
+                        <Amount GridNumber="0" t-esc="grids.get('grid_00')"/>
+                        <Amount GridNumber="1" t-esc="grids.get('grid_01')"/>
+                        <Amount GridNumber="2" t-esc="grids.get('grid_02')"/>
+                        <Amount GridNumber="3" t-esc="grids.get('grid_03')"/>
+                        <Amount GridNumber="44" t-esc="grids.get('grid_44')"/>
+                        <Amount GridNumber="45" t-esc="grids.get('grid_45')"/>
+                        <Amount GridNumber="46" t-esc="grids.get('grid_46')"/>
+                        <Amount GridNumber="47" t-esc="grids.get('grid_47')"/>
+                        <Amount GridNumber="48" t-esc="grids.get('grid_48')"/>
+                        <Amount GridNumber="49" t-esc="grids.get('grid_49')"/>
+                        <Amount GridNumber="54" t-esc="grids.get('grid_54')"/>
+                        <Amount GridNumber="55" t-esc="grids.get('grid_55')"/>
+                        <Amount GridNumber="56" t-esc="grids.get('grid_56')"/>
+                        <Amount GridNumber="57" t-esc="grids.get('grid_57')"/>
+                        <Amount GridNumber="59" t-esc="grids.get('grid_59')"/>
+                        <Amount GridNumber="61" t-esc="grids.get('grid_61')"/>
+                        <Amount GridNumber="62" t-esc="grids.get('grid_62')"/>
+                        <Amount GridNumber="63" t-esc="grids.get('grid_63')"/>
+                        <Amount GridNumber="64" t-esc="grids.get('grid_64')"/>
+                        <Amount GridNumber="71" t-esc="grids.get('grid_71')"/>
+                        <Amount GridNumber="72" t-esc="grids.get('grid_72')"/>
+                        <Amount GridNumber="81" t-esc="grids.get('grid_81')"/>
+                        <Amount GridNumber="82" t-esc="grids.get('grid_82')"/>
+                        <Amount GridNumber="83" t-esc="grids.get('grid_83')"/>
+                        <Amount GridNumber="84" t-esc="grids.get('grid_84')"/>
+                        <Amount GridNumber="85" t-esc="grids.get('grid_85')"/>
+                        <Amount GridNumber="86" t-esc="grids.get('grid_86')"/>
+                        <Amount GridNumber="87" t-esc="grids.get('grid_87')"/>
+                        <Amount GridNumber="88" t-esc="grids.get('grid_88')"/>
+                        <t t-if="vat_wizard.grid_91">
+                            <Amount GridNumber="91" t-esc="'{:.2f}'.format(round(vat_wizard.grid_91, 2))"/>
+                        </t>
+                    </Data>
+                    <ClientListingNihil t-esc="'YES' if vat_wizard.client_listing_nihil else 'NO'"/>
+                    <Ask t-att-Restitution="'YES' if vat_wizard.ask_restitution else 'NO'"
+                         t-att-Payment="'YES' if vat_wizard.ask_payment else 'NO'"/>
+                </VATDeclaration>
+            </t>
+
+        </VATConsignment>
+    </template>
+
+    <report id="l10n_be_vat_declaration_xml_report"
+            string="Periodical VAT Declaration - XML"
+            name="l10n_be_mis_reports_xml.l10n_be_vat_declaration_xml_template"
+            file="l10n_be_mis_reports_xml.l10n_be_vat_declaration_xml_template"
+            report_type="qweb-xml"
+            print_report_name="object.mr_instance_id.name"
+            model="be.vat.declaration.wizard"/>
+
+</odoo>
