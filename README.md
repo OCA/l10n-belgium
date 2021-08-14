@@ -13,22 +13,22 @@ These modules complement the official l10n_be.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 10.0.1.0.0 | Import CODA Bank Statement
-[l10n_be_antibiotic_tax](l10n_be_antibiotic_tax/) | 10.0.1.0.0 | Data module to support antibiotics taxes
-[l10n_be_apb_tax](l10n_be_apb_tax/) | 10.0.1.0.0 | Data module to support APB taxes
-[l10n_be_eco_tax](l10n_be_eco_tax/) | 10.0.1.0.0 | Data module to support BEBAT and RECUPEL taxes
-[l10n_be_iso20022_pain](l10n_be_iso20022_pain/) | 10.0.1.0.0 | This module adds Belgium-specific support to account_payment_order.
-[l10n_be_mis_reports](l10n_be_mis_reports/) | 10.0.1.1.0 | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
-[l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 10.0.1.0.2 | Belgium - KBO/BCE numbers
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 10.0.1.0.0 |  | Import CODA Bank Statement
+[l10n_be_antibiotic_tax](l10n_be_antibiotic_tax/) | 10.0.1.0.0 |  | Data module to support antibiotics taxes
+[l10n_be_apb_tax](l10n_be_apb_tax/) | 10.0.1.0.0 |  | Data module to support APB taxes
+[l10n_be_eco_tax](l10n_be_eco_tax/) | 10.0.1.0.0 |  | Data module to support BEBAT and RECUPEL taxes
+[l10n_be_iso20022_pain](l10n_be_iso20022_pain/) | 10.0.1.0.0 |  | This module adds Belgium-specific support to account_payment_order.
+[l10n_be_mis_reports](l10n_be_mis_reports/) | 10.0.1.1.0 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
+[l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 10.0.1.0.2 |  | Belgium - KBO/BCE numbers
 
 
 Unported addons
 ---------------
-addon | version | summary
---- | --- | ---
-[account_companyweb](account_companyweb/) | 8.0.1.0.0 (unported) | Companyweb
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[account_companyweb](account_companyweb/) | 8.0.1.0.0 (unported) |  | Companyweb
 
 [//]: # (end addons)
 
