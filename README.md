@@ -17,9 +17,9 @@ TODO: add repo description.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[companyweb_base](companyweb_base/) | 14.0.1.0.4 | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[companyweb_base](companyweb_base/) | 14.0.1.0.4 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 
 [//]: # (end addons)
 
