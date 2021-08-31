@@ -1,11 +1,10 @@
 To configure this module, you need to go to
-Accounting > Reporting > MIS Reports and create report instance
+Invoicing > Reporting > MIS Reports and create report instance
 according to the desired time periods and using one of the following
 templates provided by this module:
 
 * Belgium Profit & Loss
 * Belgium Balance Sheet
-* Belgium VAT Declaration
 
 To obtain correct results, the account codes prefixes must match the official
 Belgium chart of account.
