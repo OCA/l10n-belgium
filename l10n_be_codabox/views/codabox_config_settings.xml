@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Niboo SRL
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="codabox_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.codabox</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Codabox" string="Codabox" data-key="codabox" groups="account.group_account_manager">
+                    <h2>Codabox Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Codabox Key</span>
+                                <div class="text-muted">
+                                    The CodaBox API Key you received
+                                </div>
+                                <div class="row mt16">
+                                    <label for="key" class="col-lg-4 o_light_label"/>
+                                    <field name="key"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <button name="toggle_prod_environment" type="object">
+                                    <field name="prod_environment" attrs="{'readonly':1}"/>
+                                </button>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="prod_environment" string="Is Prod Environment"/>
+                                <div class="text-muted">
+                                    If set, it means that the data gathered are authentic, all calls will be
+                                    addressed directly to Codabox's servers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>CodaBox Token</h2>
+                    <div class="row mt16 o_settings_container">
+                         <div class="col-12 col-lg-6 o_setting_box">
+                             <div class="o_setting_left_pane"/>
+                             <div class="o_setting_right_pane">
+                                 <span class="o_form_label">Request new Token</span>
+                                 <div class="text-muted">
+                                    Ask for a new Token to Codabox API, the new token will be sent to the manager's email address
+                                 </div>
+                                 <button name="request_codabox_token" type="object" class="btn-primary"
+                                        string="Request Token" help="Sends a request token to the CodaBox contact email"/>
+                             </div>
+                         </div>
+                    </div>
+                    <h2>CodaBox Credentials</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Credentials</span>
+                                <div class="text-muted">
+                                    Ask for new Credentials to Codabox API
+                                </div>
+                                <button name="get_codabox_credentials" type="object" class="btn-primary" string="Retrieve Credentials"
+                                        help="Ask for your credentials to Codabox API, using your private token, Once your credentials are ready
+                                        you shall receive an email with the username and passorwod to use"/>
+                                <div class="text-muted">
+                                    The Credentials you received
+                                </div>
+                                <div class="row mt16">
+                                    <label for="username" class="col-lg-4 o_light_label"/>
+                                    <field name="username"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="password" class="col-lg-4 o_light_label"/>
+                                    <field name="password" password="True"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Import Coda file</span>
+                                <div class="text-muted">
+                                    Import Coda file from Codabox API
+                                </div>
+                                <button name="run_now" type="object" class="btn-primary"
+                                    string="Import" help="Immediately import data from CodaBox"/>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Logs</h2>
+                    <div class="row o_settings_container">
+
+                        <span class="o_form_label">Codabox Logs</span>
+                        <div class="text-muted">
+                            lists of all logs concerning Codabox
+                        </div>
+                        <div class="row mt16">
+                            <button name="clear_logs" type="object" class="oe_stat_button btn-primary" icon="fa-eraser"
+                                    string="Clear Logs" help="This operation is definitive !" attrs="{'invisible': [('log_ids', '=', [])]}"/>
+                        </div>
+                        <field name="log_ids" nolabel="1"/>
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="codabox_config_settings_action" model="ir.actions.act_window">
+        <field name="name">CodaBox Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'codabox'}</field>
+    </record>
+
+    <menuitem id="codabox_config_settings_menu" name="CodaBox Settings" parent="codabox_accounting_menu"
+              action="codabox_config_settings_action" groups="account.group_account_manager" sequence="50"/>
+</odoo>
