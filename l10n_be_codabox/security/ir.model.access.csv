@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_codabox_feed_entry_account_manager,access_codabox_feed_entry_account_manager,model_codabox_feed_entry,account.group_account_manager,1,1,1,0
+access_codabox_feed_account_manager,access_codabox_feed_account_manager,model_codabox_feed,account.group_account_manager,1,1,1,0
+access_codabox_coda_entry_account_manager,access_codabox_coda_entry_account_manager,model_codabox_coda_entry,account.group_account_manager,1,1,1,0

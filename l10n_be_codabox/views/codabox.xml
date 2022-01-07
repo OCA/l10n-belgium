@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Niboo SRL
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="codabox_feed_tree" model="ir.ui.view">
+        <field name="name">codabox.feed.tree</field>
+        <field name="model">codabox.feed</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false">
+                <field name="name" />
+                <field name="identifier" />
+                <field name="client_uuid" />
+                <field name="client_code_uuid" />
+                <field name="fiduciary_uuid" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="codabox_feed_form" model="ir.ui.view">
+        <field name="name">codabox.feed.form</field>
+        <field name="model">codabox.feed</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="identifier" />
+                        <field name="client_uuid" />
+                        <field name="client_code_uuid" />
+                        <field name="fiduciary_uuid" />
+                    </group>
+                    <notebook>
+                        <page name="entries" string="Feed Entries">
+                            <field name="feed_entry_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="codabox_feed_entry_tree" model="ir.ui.view">
+        <field name="name">codabox.feed.entry.tree</field>
+        <field name="model">codabox.feed.entry</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false">
+                <field name="index_uuid" />
+                <field name="document_model" />
+                <field name="date" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="codabox_feed_entry_form" model="ir.ui.view">
+        <field name="name">codabox.feed.entry.form</field>
+        <field name="model">codabox.feed.entry</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <field name="index_uuid" />
+                        <field name="document_model" />
+                        <field name="date" />
+                        <field
+                            name="xml_file"
+                            attrs="{'invisible': [('xml_file', '=', False)]}"
+                            filename="xml_filename"
+                        />
+                        <field name="xml_filename" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        id="codabox_feed_action"
+        name="Feeds"
+        res_model="codabox.feed"
+        view_mode="tree,form"
+    />
+
+    <menuitem
+        id="codabox_accounting_menu"
+        name="CodaBox"
+        parent="account.menu_finance_configuration"
+        groups="account.group_account_manager"
+    />
+    <menuitem
+        id="codabox_feed_menu"
+        name="Feeds"
+        parent="codabox_accounting_menu"
+        action="codabox_feed_action"
+        groups="account.group_account_manager"
+    />
+
+    <record id="codabox_coda_entry_tree" model="ir.ui.view">
+        <field name="name">codabox.coda.entry.tree</field>
+        <field name="model">codabox.coda.entry</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false">
+                <field name="index_uuid" />
+                <field name="date" />
+                <field name="journal_id" />
+                <field name="first_statement_number" />
+                <field name="last_statement_number" />
+                <field name="movement_count" />
+                <field name="statement_line_ids" invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="codabox_coda_entry_form" model="ir.ui.view">
+        <field name="name">codabox.coda.entry.form</field>
+        <field name="model">codabox.coda.entry</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="get_coda"
+                            type="object"
+                            string="Get Coda"
+                            icon="fa-cloud-download"
+                            help="Download CODA from CodaBox"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('coda_file', '!=', False)]}"
+                        />
+                        <button
+                            name="import_statement"
+                            type="object"
+                            string="Import Statement"
+                            icon="fa-download"
+                            help="Import the downloaded CODA into your bank journal"
+                            class="oe_stat_button"
+                            attrs="{'invisible': ['|', ('coda_file', '=', False), ('statement_line_ids', '!=', [])]}"
+                        />
+                    </div>
+                    <group>
+                        <field name="index_uuid" />
+                        <field name="document_model" />
+                        <field name="feed_id" />
+                        <field name="movement_count" />
+                        <field name="first_statement_number" />
+                        <field name="last_statement_number" />
+                        <field name="date" />
+                        <field name="iban" />
+                        <field name="bic" />
+                        <field name="currency" />
+                        <field
+                            name="journal_id"
+                            attrs="{'invisible': [('journal_id', '=', False)]}"
+                        />
+                        <field name="coda_filename" invisible="1" />
+                        <field
+                            name="coda_file"
+                            attrs="{'invisible': [('coda_file', '=', False)]}"
+                            filename="coda_filename"
+                        />
+                    </group>
+                    <notebook>
+                        <page
+                            name="statements"
+                            string="Bank Statements"
+                            attrs="{'invisible': [('statement_line_ids', '=', [])]}"
+                        >
+                            <field name="statement_line_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="codabox_coda_entry_search" model="ir.ui.view">
+        <field name="name">codabox.coda.entry.search</field>
+        <field name="model">codabox.coda.entry</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="index_uuid" />
+                <field name="journal_id" />
+                <field name="iban" />
+                <filter
+                    name="group_by_journal_id"
+                    string="Journal"
+                    context="{'group_by': 'journal_id'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <act_window
+        id="codabox_coda_entry_action"
+        name="Coda Entries"
+        groups="account.group_account_manager"
+        res_model="codabox.coda.entry"
+        view_mode="tree,form"
+    />
+
+    <menuitem
+        id="codabox_coda_entry_menu"
+        name="Coda Entries"
+        parent="codabox_accounting_menu"
+        action="codabox_coda_entry_action"
+        groups="account.group_account_manager"
+    />
+
+</odoo>
