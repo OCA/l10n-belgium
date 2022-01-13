@@ -4,12 +4,12 @@ import os
 from datetime import datetime
 
 from freezegun import freeze_time
-from vcr_unittest import VCRTestCase
+from vcr_unittest import VCRMixin
 
 from odoo.tests.common import TransactionCase
 
 
-class TestApiCweb(TransactionCase, VCRTestCase):
+class TestApiCweb(VCRMixin, TransactionCase):
     def setUp(self, *args, **kwargs):
         super(TestApiCweb, self).setUp(*args, **kwargs)
         demo_user = self.env.ref("base.user_demo")
