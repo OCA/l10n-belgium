@@ -224,6 +224,7 @@ class CompanywebPartner(models.Model):
             else:
                 rec.cweb_show_tab = False
 
+    @api.model
     def _cweb_create_hash(self, login, password, secret):
         """method used for the API call
         it generates the 'loginhash' needed by the API"""
@@ -463,7 +464,6 @@ class CompanywebPartner(models.Model):
                     "Info"
                 ]
                 self.cweb_creditLimit_info_unset = True
-                self.cweb_creditLimit_info = None
             else:
                 self.cweb_creditLimit_info_unset = False
         else:
@@ -547,6 +547,7 @@ class CompanywebPartner(models.Model):
             message=_("Companyweb Address Successfully copied")
         )
 
+    @api.model
     def _cweb_call_wizard_credentials(self, wizard_name):
         wizard_form = self.env.ref("companyweb_base.companyweb_credential_wizard")
         return {
@@ -554,7 +555,7 @@ class CompanywebPartner(models.Model):
             "type": "ir.actions.act_window",
             "view_type": "form",
             "view_mode": "form",
-            "res_model": "companyweb_base.credential_wizard",
+            "res_model": "companyweb_base.credential_wizard_base",
             "view_id": wizard_form.id,
             "target": "new",
             "context": self.env.context,
