@@ -27,7 +27,8 @@ msgid "Address"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model,name:companyweb_base.model_companyweb_base_credential_wizard
+#: model:ir.model,name:companyweb_base.model_companyweb_base_credential_wizard_abstract
+#: model:ir.model,name:companyweb_base.model_companyweb_base_credential_wizard_base
 msgid "Ask for Companyweb login & password"
 msgstr ""
 
@@ -298,7 +299,8 @@ msgid "Companyweb Last Update"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__cweb_login
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__cweb_login
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__cweb_login
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_login
 msgid "Companyweb Login"
 msgstr ""
@@ -316,7 +318,8 @@ msgid "Companyweb Name Enabled"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__cweb_password
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__cweb_password
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__cweb_password
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_password
 msgid "Companyweb Password"
 msgstr ""
@@ -446,12 +449,12 @@ msgid "Copy Address"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__create_uid
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__create_date
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__create_date
 msgid "Created on"
 msgstr ""
 
@@ -471,7 +474,8 @@ msgid "Detail link"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__display_name
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__display_name
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__display_name
 #: model:ir.model.fields,field_description:companyweb_base.field_res_partner__display_name
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users__display_name
 msgid "Display Name"
@@ -518,14 +522,16 @@ msgid "Health barometer"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__id
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__id
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__id
 #: model:ir.model.fields,field_description:companyweb_base.field_res_partner__id
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users__id
 msgid "ID"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard____last_update
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract____last_update
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base____last_update
 #: model:ir.model.fields,field_description:companyweb_base.field_res_partner____last_update
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users____last_update
 msgid "Last Modified on"
@@ -537,12 +543,12 @@ msgid "Last Update"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__write_uid
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard__write_date
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__write_date
 msgid "Last Updated on"
 msgstr ""
 
