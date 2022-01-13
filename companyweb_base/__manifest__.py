@@ -8,7 +8,7 @@
     ),
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "version": "14.0.1.0.5",
+    "version": "14.0.1.1.0",
     "development_status": "Production/Stable",
     "license": "AGPL-3",
     "installable": True,
