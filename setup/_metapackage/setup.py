@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-companyweb_base',
+        'odoo14-addon-companyweb_payment_info',
         'odoo14-addon-l10n_be_mis_reports',
     ],
     classifiers=[
