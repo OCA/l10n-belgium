@@ -19,8 +19,8 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[companyweb_base](companyweb_base/) | 14.0.1.0.5 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
-[companyweb_payment_info](companyweb_payment_info/) | 14.0.1.0.1 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer bill to companyweb
+[companyweb_base](companyweb_base/) | 14.0.1.1.0 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+[companyweb_payment_info](companyweb_payment_info/) | 14.0.1.1.0 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer bill to companyweb
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 14.0.1.0.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 
 [//]: # (end addons)
