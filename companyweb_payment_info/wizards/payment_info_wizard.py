@@ -37,7 +37,7 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         elif self.wizard_step == "step3":
             return True
         else:
-            raise SystemError(_("Unexpected step %s") % self.wizard_step)
+            raise SystemError(_("Unexpected step {step}").format(step=self.wizard_step))
 
     def _check_group(self):
         if not self.env.user.has_group("companyweb_payment_info.cweb_upload"):
@@ -58,9 +58,8 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             raise UserError(
                 _(
                     "Companyweb : You need to set a valid belgian's vat "
-                    "field for the current company : %s"
-                    % self.env.user.company_id.name,
-                )
+                    "field for the current company : {company}"
+                ).format(company=self.env.user.company_id.name)
             )
 
         user_login = self.env.user.cweb_login
@@ -86,7 +85,9 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             and period_to_send.year == response_previous_period["PreviousYear"]
         ):
             raise UserError(
-                _("Companyweb : You already submitted invoices for %s" % last_date_sent)
+                _("Companyweb : You already submitted invoices for {last_date}").format(
+                    last_date=last_date_sent
+                )
             )
 
         invoices_to_send = self._create_invoices_to_send(client)
@@ -128,12 +129,9 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         result_start_transaction = self._cweb_start_transaction(client, wizard_email)
         if result_start_transaction["StatusCode"] != 0:
             raise UserError(
-                _(
-                    "Error from Companyweb : %s : %s"
-                    % (
-                        result_start_transaction["StatusCode"],
-                        result_start_transaction["StatusMessage"],
-                    )
+                _("Error from Companyweb : {status} : {message}").format(
+                    status=result_start_transaction["StatusCode"],
+                    message=result_start_transaction["StatusMessage"],
                 )
             )
         transaction_key = result_start_transaction["TransactionKey"]
@@ -145,9 +143,9 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         result_commit = self._cweb_commit_tran(client, transaction_key)
         if result_commit["StatusCode"] != 0:
             raise UserError(
-                _(
-                    "Error from Companyweb : %s : %s"
-                    % (result_commit["StatusCode"], result_commit["StatusMessage"])
+                _("Error from Companyweb : {status} : {message}").format(
+                    status=result_commit["StatusCode"],
+                    message=result_commit["StatusMessage"],
                 )
             )
         resume = self._create_step2_summary(result_summary.InvoicesSummary)
@@ -190,25 +188,29 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         summary = _(
             "<h2>Companyweb upload Status</h2>"
             "Here under a small summary, the full summary "
-            "will be sent to <strong>%s</strong> <br/>"
-            "%s : LinesWithInvalidExpirationDate <br/>"
-            "%s : LinesWithInvalidInvoiceDate <br/>"
-            "%s : LinesWithInvalidInvoiceNumber <br/>"
-            "%s : LinesWithInvalidOpenAmount <br/>"
-            "%s : LinesWithInvalidVatNumber <br/>"
-            "%s : NumberOfLinesAccepted <br/>"
-            "%s : NumberOfLinesRecieved <br/>"
-            % (
-                self.env.user.login,
-                html.escape(str(invoice_summary["LinesWithInvalidExpirationDate"])),
-                html.escape(str(invoice_summary["LinesWithInvalidInvoiceDate"])),
-                html.escape(str(invoice_summary["LinesWithInvalidInvoiceNumber"])),
-                html.escape(str(invoice_summary["LinesWithInvalidOpenAmount"])),
-                html.escape(str(invoice_summary["LinesWithInvalidVatNumber"])),
-                html.escape(str(invoice_summary["NumberOfLinesAccepted"])),
-                html.escape(str(invoice_summary["NumberOfLinesRecieved"])),
-            )
+            "will be sent to <strong>{login}</strong> <br/>"
+            "{inv_exp_date} : LinesWithInvalidExpirationDate <br/>"
+            "{inv_date} : LinesWithInvalidInvoiceDate <br/>"
+            "{inv_number} : LinesWithInvalidInvoiceNumber <br/>"
+            "{inv_amount} : LinesWithInvalidOpenAmount <br/>"
+            "{inv_vat} : LinesWithInvalidVatNumber <br/>"
+            "{nb_accepted} : NumberOfLinesAccepted <br/>"
+            "{nb_received} : NumberOfLinesRecieved <br/>"
+        ).format(
+            login=self.env.user.login,
+            inv_exp_date=html.escape(
+                str(invoice_summary["LinesWithInvalidExpirationDate"])
+            ),
+            inv_date=html.escape(str(invoice_summary["LinesWithInvalidInvoiceDate"])),
+            inv_number=html.escape(
+                str(invoice_summary["LinesWithInvalidInvoiceNumber"])
+            ),
+            inv_amount=html.escape(str(invoice_summary["LinesWithInvalidOpenAmount"])),
+            inv_vat=html.escape(str(invoice_summary["LinesWithInvalidVatNumber"])),
+            nb_accepted=html.escape(str(invoice_summary["NumberOfLinesAccepted"])),
+            nb_received=html.escape(str(invoice_summary["NumberOfLinesRecieved"])),
         )
+
         return summary
 
     def _create_step1_summary(
@@ -226,38 +228,39 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
 
             summary = _(
                 "<h2>Companyweb upload</h2>"
-                "You are about to submit <strong>%s</strong> open invoices <br/>"
-                "to Companyweb for the company <strong>%s</strong>.<br/>"
-                "The previous period that was sent is <strong>%s</strong>.<br/>"
-                "Your odoo login : <strong>%s</strong> will receive a full "
+                "You are about to submit <strong>{nb_invoice}</strong> open invoices <br/>"
+                "to Companyweb for the company <strong>{company}</strong>.<br/>"
+                "The previous period that was sent is <strong>{last_period}</strong>.<br/>"
+                "Your odoo login : <strong>{login}</strong> will receive a full "
                 "summary at the end of this transaction <br/>"
-                "Make sure you have closed your bank statements for period <strong>%s</strong>."
-                % (
-                    len(invoice_to_send),
-                    html.escape(self.env.user.company_id.name),
-                    last_period_sent,
-                    self.env.user.partner_id.email,
-                    print_period_to_send,
-                )
+                "Make sure you have closed your bank statements for period "
+                "<strong>{period}</strong>."
+            ).format(
+                nb_invoice=len(invoice_to_send),
+                company=html.escape(self.env.user.company_id.name),
+                last_period=last_period_sent,
+                login=self.env.user.partner_id.email,
+                period=print_period_to_send,
             )
+
         else:
             summary = _(
                 "<h2>Companyweb upload</h2>"
-                "You are about to submit <strong>%s</strong> open invoices <br/>"
-                "to Companyweb for the company <strong>%s</strong>.<br/>"
+                "You are about to submit <strong>{nb_invoice}</strong> open invoices <br/>"
+                "to Companyweb for the company <strong>{company}</strong>.<br/>"
                 "<strong>It's the first time you use this feature "
                 "for this company</strong><br/>"
-                "Your odoo login : <strong>%s</strong> will received a full summary "
+                "Your odoo login : <strong>{login}</strong> will received a full summary "
                 "at the end of this transaction <br/>"
                 "Make sure you have closed your bank statements for "
-                "period <strong>%s</strong>."
-                % (
-                    len(invoice_to_send),
-                    html.escape(self.env.user.company_id.name),
-                    self.env.user.login,
-                    print_period_to_send,
-                )
+                "period <strong>{period}</strong>."
+            ).format(
+                nb_invoice=len(invoice_to_send),
+                company=html.escape(self.env.user.company_id.name),
+                login=self.env.user.login,
+                period=print_period_to_send,
             )
+
         return summary
 
     def _create_invoices_to_send(self, client):
@@ -313,12 +316,9 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             "StatusCode"
         ] not in [11, 15, 16]:
             raise UserError(
-                _(
-                    "Error from Companyweb : %s : %s"
-                    % (
-                        response_previous_period["StatusCode"],
-                        response_previous_period["StatusMessage"],
-                    )
+                _("Error from Companyweb : {status} : {message}").format(
+                    status=response_previous_period["StatusCode"],
+                    message=response_previous_period["StatusMessage"],
                 )
             )
         return response_previous_period

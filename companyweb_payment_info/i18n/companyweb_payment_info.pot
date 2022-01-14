@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,35 +18,39 @@ msgstr ""
 #, python-format
 msgid ""
 "<h2>Companyweb upload Status</h2>Here under a small summary, the full "
-"summary will be sent to <strong>%s</strong> <br/>%s : "
-"LinesWithInvalidExpirationDate <br/>%s : LinesWithInvalidInvoiceDate <br/>%s"
-" : LinesWithInvalidInvoiceNumber <br/>%s : LinesWithInvalidOpenAmount "
-"<br/>%s : LinesWithInvalidVatNumber <br/>%s : NumberOfLinesAccepted <br/>%s "
-": NumberOfLinesRecieved <br/>"
+"summary will be sent to <strong>{login}</strong> <br/>{inv_exp_date} : "
+"LinesWithInvalidExpirationDate <br/>{inv_date} : "
+"LinesWithInvalidInvoiceDate <br/>{inv_number} : "
+"LinesWithInvalidInvoiceNumber <br/>{inv_amount} : "
+"LinesWithInvalidOpenAmount <br/>{inv_vat} : LinesWithInvalidVatNumber "
+"<br/>{nb_accepted} : NumberOfLinesAccepted <br/>{nb_received} : "
+"NumberOfLinesRecieved <br/>"
 msgstr ""
 
 #. module: companyweb_payment_info
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid ""
-"<h2>Companyweb upload</h2>You are about to submit <strong>%s</strong> open "
-"invoices <br/>to Companyweb for the company "
-"<strong>%s</strong>.<br/><strong>It's the first time you use this feature "
-"for this company</strong><br/>Your odoo login : <strong>%s</strong> will "
-"received a full summary at the end of this transaction <br/>Make sure you "
-"have closed your bank statements for period <strong>%s</strong>."
-msgstr ""
-
-#. module: companyweb_payment_info
-#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
-msgid ""
-"<h2>Companyweb upload</h2>You are about to submit <strong>%s</strong> open "
-"invoices <br/>to Companyweb for the company <strong>%s</strong>.<br/>The "
-"previous period that was sent is <strong>%s</strong>.<br/>Your odoo login : "
-"<strong>%s</strong> will receive a full summary at the end of this "
+"<h2>Companyweb upload</h2>You are about to submit "
+"<strong>{nb_invoice}</strong> open invoices <br/>to Companyweb for the "
+"company <strong>{company}</strong>.<br/>The previous period that was sent "
+"is <strong>{last_period}</strong>.<br/>Your odoo login : "
+"<strong>{login}</strong> will receive a full summary at the end of this "
 "transaction <br/>Make sure you have closed your bank statements for period "
-"<strong>%s</strong>."
+"<strong>{period}</strong>."
+msgstr ""
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"<h2>Companyweb upload</h2>You are about to submit "
+"<strong>{nb_invoice}</strong> open invoices <br/>to Companyweb for the "
+"company <strong>{company}</strong>.<br/><strong>It's the first time you "
+"use this feature for this company</strong><br/>Your odoo login : "
+"<strong>{login}</strong> will received a full summary at the end of this "
+"transaction <br/>Make sure you have closed your bank statements for period "
+"<strong>{period}</strong>."
 msgstr ""
 
 #. module: companyweb_payment_info
@@ -74,7 +78,7 @@ msgstr ""
 #. module: companyweb_payment_info
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
-msgid "Companyweb : You already submitted invoices for %s"
+msgid "Companyweb : You already submitted invoices for {last_date}"
 msgstr ""
 
 #. module: companyweb_payment_info
@@ -90,7 +94,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Companyweb : You need to set a valid belgian's vat field for the current "
-"company : %s"
+"company : {company}"
 msgstr ""
 
 #. module: companyweb_payment_info
@@ -144,7 +148,7 @@ msgstr ""
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
-msgid "Error from Companyweb : %s : %s"
+msgid "Error from Companyweb : {status} : {message}"
 msgstr ""
 
 #. module: companyweb_payment_info
@@ -180,7 +184,7 @@ msgstr ""
 #. module: companyweb_payment_info
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
-msgid "Unexpected step %s"
+msgid "Unexpected step {step}"
 msgstr ""
 
 #. module: companyweb_payment_info
