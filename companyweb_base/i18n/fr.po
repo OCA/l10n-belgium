@@ -442,7 +442,7 @@ msgstr "Companyweb monnaie"
 #. module: companyweb_base
 #: code:addons/companyweb_base/models/res_partner.py:0
 #, python-format
-msgid "Companyweb status : %s : %s "
+msgid "Companyweb status : {status} : {message} "
 msgstr ""
 
 #. module: companyweb_base
