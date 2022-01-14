@@ -520,7 +520,9 @@ class CompanywebPartner(models.Model):
             return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
         elif r["StatusCode"] != 0:
             raise UserError(
-                _("Companyweb status : %s : %s ", r["StatusCode"], r["StatusMessage"])
+                _("Companyweb status : %(status) : %(message) ").format(
+                    status=r["StatusCode"], message=r["StatusMessage"]
+                )
             )
 
         cweb_response = r["CompanyResponse"]
@@ -531,7 +533,8 @@ class CompanywebPartner(models.Model):
         self._cweb_populate_dates(cweb_response)
         self._cweb_populate_score(cweb_response)
         self._cweb_populate_data(cweb_response)
-        self.env.user.notify_success(message=_("Companyweb Enhance OK"))
+        # Wait for meb-notify to be migrated in 15
+        # self.env.user.notify_success(message=_("Companyweb Enhance OK"))
 
     def cweb_button_copy_address(self):
 
@@ -543,9 +546,10 @@ class CompanywebPartner(models.Model):
         self.country_id = self.cweb_country
         self.street2 = None
         self.state_id = None
-        self.env.user.notify_success(
-            message=_("Companyweb Address Successfully copied")
-        )
+        # Wait for meb-notify to be migrated in 15
+        # self.env.user.notify_success(
+        #    message=_("Companyweb Address Successfully copied")
+        # )
 
     @api.model
     def _cweb_call_wizard_credentials(self, wizard_name):
