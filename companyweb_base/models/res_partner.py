@@ -520,7 +520,7 @@ class CompanywebPartner(models.Model):
             return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
         elif r["StatusCode"] != 0:
             raise UserError(
-                _("Companyweb status : %(status) : %(message) ").format(
+                _("Companyweb status : {status} : {message} ").format(
                     status=r["StatusCode"], message=r["StatusMessage"]
                 )
             )
