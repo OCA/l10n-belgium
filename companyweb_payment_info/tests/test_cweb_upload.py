@@ -20,9 +20,9 @@ class TestUpload(VCRMixin, TransactionCase):
 
         self.env["account.move"].search(
             [
-                ("payment_state", "=", "not_paid"),
+                ("invoice_payment_state", "=", "not_paid"),
                 ("state", "=", "posted"),
-                ("move_type", "in", ["out_invoice"]),
+                ("type", "in", ["out_invoice"]),
             ]
         ).button_draft()
 
@@ -63,7 +63,7 @@ class TestUpload(VCRMixin, TransactionCase):
         )
         self.out_invoice_1 = self.env["account.move"].create(
             {
-                "move_type": "out_invoice",
+                "type": "out_invoice",
                 "date": "2022-01-13",
                 "invoice_date": "2022-01-13",
                 "partner_id": self.p1.id,

@@ -287,9 +287,9 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
     def _get_open_invoices(self):
         return self.env["account.move"].search(
             [
-                ("payment_state", "=", "not_paid"),
+                ("invoice_payment_state", "=", "not_paid"),
                 ("state", "=", "posted"),
-                ("move_type", "in", ["out_invoice"]),
+                ("type", "in", ["out_invoice"]),
                 ("company_id", "=", self.env.user.company_id.id),
             ]
         )
