@@ -5,7 +5,7 @@
     "summary": ("Send your customer bill to companyweb"),
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "version": "13.0.1.0.1",
+    "version": "13.0.1.1.0",
     "development_status": "Production/Stable",
     "license": "AGPL-3",
     "installable": True,
