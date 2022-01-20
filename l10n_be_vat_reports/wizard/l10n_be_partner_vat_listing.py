@@ -13,7 +13,7 @@ class VATListingClients(models.TransientModel):
     _description = "VAT Listing Clients"
 
     seq = fields.Integer("Sequence")
-    name = fields.Char("Client Name")
+    name = fields.Char("Client Name", help="Used as file name.")
     vat = fields.Char("VAT")
     turnover = fields.Float("Base Amount")
     vat_amount = fields.Float("VAT Amount")
@@ -128,7 +128,7 @@ LEFT JOIN
         resource_id = model_datas.res_id
         partner_vat_list = self.env["partner.vat.list"].create(
             {
-                "name": _("%s Annual Listing Preview") % self.year,
+                "name": _("%s Annual Listing Preview.xml") % self.year,
                 "year": self.year,
                 "limit_amount": self.limit_amount,
                 "partner_ids": [(6, 0, partners.ids)],
