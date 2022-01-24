@@ -16,7 +16,7 @@ msgstr ""
 #. module: l10n_be_vat_reports
 #: code:addons/l10n_be_vat_reports/wizard/l10n_be_partner_vat_listing.py:131
 #, python-format
-msgid "%s Annual Listing Preview"
+msgid "%s Annual Listing Preview.xml"
 msgstr ""
 
 #. module: l10n_be_vat_reports
@@ -428,8 +428,12 @@ msgid "Save XML"
 msgstr ""
 
 #. module: l10n_be_vat_reports
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_save
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_listing_result
+msgid "Save the File :"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_save
 msgid "Save the File with '.xml' extension."
 msgstr ""
 
@@ -489,6 +493,11 @@ msgstr ""
 #. module: l10n_be_vat_reports
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__total_vat
 msgid "Total VAT"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,help:l10n_be_vat_reports.field_vat_listing_clients__name
+msgid "Used as file name."
 msgstr ""
 
 #. module: l10n_be_vat_reports
