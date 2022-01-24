@@ -316,6 +316,7 @@ GROUP BY p.name, l.partner_id, p.vat, intra_code
         :return: Value for next action.
         :rtype: dict
         """
+        # todo use OCA module report_xml
         xml_data = self._get_data()
         month_quarter = xml_data["period"][:2]
         year = xml_data["period"][2:]
