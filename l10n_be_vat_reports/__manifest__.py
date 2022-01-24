@@ -19,7 +19,7 @@
         "wizard/l10n_be_vat_intra_view.xml",
         "views/report_vatintraprint.xml",
         "views/report_vatpartnerlisting.xml",
-        "l10n_be_reports.xml",
+        "reports/l10n_be_reports.xml",
     ],
     "installable": True,
 }
