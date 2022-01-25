@@ -7,8 +7,7 @@
 -->
 <odoo>
     <data>
-
-        <record id="view_partner_vat_listing" model="ir.ui.view">
+        <record id="partner_vat_list_view_form_parameters" model="ir.ui.view">
             <field name="name">Partner VAT Listing</field>
             <field name="model">partner.vat.list</field>
             <field name="arch" type="xml">
@@ -35,7 +34,7 @@
             <field name="res_model">partner.vat.list</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="view_partner_vat_listing"/>
+            <field name="view_id" ref="partner_vat_list_view_form_parameters"/>
             <field name="target">new</field>
         </record>
 
@@ -44,7 +43,7 @@
                   action="partner_vat_list_action_parameters"
                   id="partner_vat_list_menu"/>
 
-        <record id="view_vat_listing" model="ir.ui.view">
+        <record id="partner_vat_list_view_form_clients" model="ir.ui.view">
             <field name="name">Vat Listing</field>
             <field name="model">partner.vat.list</field>
             <field name="arch" type="xml">
@@ -98,6 +97,5 @@
                 </tree>
             </field>
         </record>
-
     </data>
 </odoo>
