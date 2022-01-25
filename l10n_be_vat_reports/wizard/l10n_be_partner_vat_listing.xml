@@ -71,11 +71,11 @@
             </field>
         </record>
 
-        <record id="view_vat_listing_form" model="ir.ui.view">
-            <field name="name">step.vat.listing</field>
-            <field name="model">vat.listing.clients</field>
+        <record id="partner_vat_list_client_view_form" model="ir.ui.view">
+            <field name="name">partner_vat_list_client_view_form</field>
+            <field name="model">partner.vat.list.client</field>
             <field name="arch" type="xml">
-                <form string="VAT listing">
+                <form>
                     <group col="4">
                         <field name="name"/>
                         <field name="vat"/>
@@ -86,11 +86,11 @@
             </field>
         </record>
 
-        <record id="view_vat_listing_tree" model="ir.ui.view">
-            <field name="name">step.vat.listing</field>
-            <field name="model">vat.listing.clients</field>
+        <record id="partner_vat_list_client_view_tree" model="ir.ui.view">
+            <field name="name">partner_vat_list_client_view_tree</field>
+            <field name="model">partner.vat.list.client</field>
             <field name="arch" type="xml">
-                <tree string="VAT listing">
+                <tree>
                     <field name="name"/>
                     <field name="vat"/>
                     <field name="turnover"/>

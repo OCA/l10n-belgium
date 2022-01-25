@@ -8,9 +8,8 @@ from odoo.exceptions import ValidationError
 
 
 class VATListingClients(models.TransientModel):
-    # todo better model naming
-    _name = "vat.listing.clients"
-    _description = "VAT Listing Clients"
+    _name = "partner.vat.list.client"
+    _description = "Partner VAT List Clients"
 
     seq = fields.Integer("Sequence")
     name = fields.Char("Client Name", help="Used as file name.")
@@ -35,4 +34,3 @@ class VATListingClients(models.TransientModel):
                     )
                     % (client.vat, client.name)
                 )
-
