@@ -20,10 +20,7 @@ class PartnerVATList(models.TransientModel):
     )
     limit_amount = fields.Integer("Limit Amount", required=True, default=250)
     partner_ids = fields.Many2many(
-        comodel_name="vat.listing.clients",
-        relation="vat_partner_rel",
-        column1="vat_id",
-        column2="partner_id",
+        comodel_name="partner.vat.list.client",
         string="Clients",
         help="You can remove clients/partners which you do "
         "not want to show in xml file",
@@ -70,7 +67,7 @@ class PartnerVATList(models.TransientModel):
         date_start = date(int(self.year), 1, 1)
         date_stop = date(int(self.year), 12, 31)
 
-        partners = self.env["vat.listing.clients"].browse([])
+        partners = self.env["partner.vat.list.client"].browse([])
         be_partners = self.env["res.partner"].search([("vat", "ilike", "BE%")])
         if not be_partners:
             raise UserError(
@@ -147,13 +144,16 @@ class PartnerVATList(models.TransientModel):
             if record["turnover"] >= self.limit_amount:
                 seq += 1
                 record["seq"] = seq
-                partners |= self.env["vat.listing.clients"].create(record)
+                partners |= self.env["partner.vat.list.client"].create(record)
 
         if not partners:
             raise UserError(_("No data found for the selected year."))
 
         model_datas = self.env["ir.model.data"].search(
-            [("model", "=", "ir.ui.view"), ("name", "=", "view_vat_listing")],
+            [
+                ("model", "=", "ir.ui.view"),
+                ("name", "=", "partner_vat_list_view_form_clients")
+            ],
             limit=1,
         )
         resource_id = model_datas.res_id
