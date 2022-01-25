@@ -11,7 +11,7 @@
                                    t-att-DeclarantReference="partner_vat_list.declarant_reference"
                                    t-att-TurnOverSum="partner_vat_list.total_turnover"
                                    t-att-VATAmountSum="partner_vat_list.total_vat">
-                    <Declarant>
+                    <ns2:Declarant>
                         <VATNumber t-esc="res_company.vat[2:]"/>
                         <Name t-esc="res_company.name"/>
                         <Street t-esc="res_company.street"/>
@@ -20,7 +20,7 @@
                         <CountryCode t-esc="res_company.country_id.code"/>
                         <EmailAddress t-esc="res_company.email"/>
                         <Phone t-esc="res_company.phone"/>
-                    </Declarant>
+                    </ns2:Declarant>
                     <ns2:Period t-esc="partner_vat_list.year"/>
                     <t t-foreach="partner_vat_list.partner_ids" t-as="vat_listing_client">
                         <ns2:Client t-att-SequenceNumber="vat_listing_client.seq">

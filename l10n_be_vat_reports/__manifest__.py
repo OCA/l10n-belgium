@@ -15,7 +15,7 @@
     "depends": ["l10n_be", "account", "report_xml"],
     "data": [
         "reports/be_vat_client_listing_consignment.xml",
-        "wizard/l10n_be_partner_vat_listing.xml",
+        "wizard/partner_vat_list_views.xml",
         "wizard/l10n_be_vat_intra_view.xml",
         "views/report_vatintraprint.xml",
         "views/report_vatpartnerlisting.xml",
