@@ -8,7 +8,7 @@
     "version": "13.0.1.0.1",
     "license": "AGPL-3",
     "depends": ["account_bank_statement_import"],
-    "data": ["wizard/account_bank_statement_import_coda_view.xml"],
+    "data": ["wizard/account_statement_import_coda_view.xml"],
     "external_dependencies": {"python": ["pycoda"]},
     "auto_install": False,
     "installable": True,
