@@ -24,8 +24,8 @@ except ImportError:
     Parser = None
 
 
-class AccountBankStatementImport(models.TransientModel):
-    _inherit = "account.bank.statement.import"
+class AccountStatementImport(models.TransientModel):
+    _inherit = "account.statement.import"
 
     def _check_coda(self, data_file):
         if Parser is None:
@@ -188,7 +188,7 @@ class AccountBankStatementImport(models.TransientModel):
                     'name':value,
                     'date':value,
                     'amount':value,
-                    'ref':value,
+                    'payment_ref':value,
                 }
         """
         amount = line.transaction_amount
@@ -198,10 +198,11 @@ class AccountBankStatementImport(models.TransientModel):
             "name": self.get_st_line_name(line, globalisation_dict),
             "date": line.entry_date or datetime.datetime.now().date(),
             "amount": amount,
+            "payment_ref": line.ref,
             "ref": line.ref,
             "partner_name": line.counterparty_name or None,
             "account_number": line.counterparty_number or None,
-            "note": self.get_st_line_note(line, information_dict),
+            "narration": self.get_st_line_note(line, information_dict),
             "unique_import_id": line.ref
             + "-"
             + line.transaction_ref

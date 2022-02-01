@@ -11,7 +11,7 @@ from odoo.tools import float_compare
 
 class TestCodaFile(TransactionCase):
     """Tests for import bank statement coda file format
-    (account.bank.statement.import)
+    (account.statement.import)
     """
 
     def setUp(self):
@@ -36,10 +36,10 @@ class TestCodaFile(TransactionCase):
             # coda files are in EUR
             journal_vals.update({"currency_id": eur.id})
         self.journal = self.env["account.journal"].create(journal_vals)
-        self.statement_import_model = self.env["account.bank.statement.import"]
+        self.statement_import_model = self.env["account.statement.import"]
         self.bank_statement_model = self.env["account.bank.statement"]
         coda_file_path = get_module_resource(
-            "account_bank_statement_import_coda",
+            "account_statement_import_coda",
             "test_coda_file",
             "Ontvangen_CODA.2012-01-11-18.59.15.txt",
         )
@@ -48,12 +48,11 @@ class TestCodaFile(TransactionCase):
     def test_coda_file_import(self):
         bank_statement_import = self.statement_import_model.create(
             {
-                "attachment_ids": [
-                    (0, 0, {"name": "coda test file", "datas": self.coda_file})
-                ]
+                "statement_file": self.coda_file,
+                "statement_filename": "Coda test file",
             }
         )
-        bank_statement_import.with_context(journal_id=self.journal.id).import_file()
+        bank_statement_import.import_file_button()
         bank_st_record = self.bank_statement_model.search([("name", "=", "2012/135")])[
             0
         ]
@@ -92,7 +91,7 @@ class TestCodaFile(TransactionCase):
             "Counter Party Account: BE61310126985517\n"
             "Communication: +++240/2838/42818+++ "
             "001PARTNER 2MOLENSTRAAT 60 9340 LEDE",
-            bank_st_record.line_ids[1].note,
+            bank_st_record.line_ids[1].narration,
             "The note should contain informations on the counter part "
             "but also the communication for the information records that "
             "refer the movement record",
@@ -101,28 +100,10 @@ class TestCodaFile(TransactionCase):
     def test_coda_file_import_twice(self):
         bank_statement_import = self.statement_import_model.create(
             {
-                "attachment_ids": [
-                    (0, 0, {"name": "coda test file", "datas": self.coda_file})
-                ]
+                "statement_file": self.coda_file,
+                "statement_filename": "Coda test file",
             }
         )
-        bank_statement_import.import_file()
+        bank_statement_import.import_file_button()
         with self.assertRaises(UserError):
-            bank_statement_import.import_file()
-
-    def test_coda_file_wrong_journal(self):
-        """The demo account used by the CODA file is linked to the
-        demo bank_journal"""
-        cash_journal = self.env["account.journal"].search([("type", "=", "cash")])[0]
-        bank_statement_import = self.statement_import_model.create(
-            {
-                "attachment_ids": [
-                    (0, 0, {"name": "coda test file", "datas": self.coda_file})
-                ]
-            }
-        )
-        with self.assertRaises(Exception):
-            # the following method breaks a unique constraint, which is log as
-            # error by default.
-            self.env.cr._default_log_exceptions = False
-            bank_statement_import.with_context(journal_id=cash_journal.id).import_file()
+            bank_statement_import.import_file_button()
