@@ -22,8 +22,10 @@ class VATListingClients(models.TransientModel):
     def _check_vat_number(self):
         """
         Belgium VAT numbers must respect this pattern: 0[1-9]{1}[0-9]{8}
+        todo current code assumes vat numbers start with a two-letter
+          country code
         """
-        be_vat_pattern = re.compile(r"BE0[1-9]{1}[0-9]{8}")
+        be_vat_pattern = re.compile(r"^BE0[1-9]{1}[0-9]{8}$")
         for client in self:
             if not be_vat_pattern.match(client.vat):
                 raise ValidationError(
