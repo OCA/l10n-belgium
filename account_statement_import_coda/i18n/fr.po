@@ -21,8 +21,8 @@ msgstr ""
 
 #. module: account_statement_import_coda
 #: model_terms:ir.ui.view,arch_db:account_statement_import_coda.account_statement_import_view
-msgid "Coded statement of account (.coda)"
-msgstr "Relev?? de compte cod?? (.coda)"
+msgid "Coded statement of account (.coda or .CD2)"
+msgstr "Relev?? de compte cod?? (.coda ou .CD2)"
 
 #. module: account_statement_import_coda
 #: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:154

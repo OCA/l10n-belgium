@@ -8,7 +8,7 @@
         />
         <field name="arch" type="xml">
             <xpath expr="//ul[@id='statement_format']" position="inside">
-                <li>Coded statement of account (.coda)</li>
+                <li>Coded statement of account (.coda or .CD2)</li>
             </xpath>
         </field>
     </record>

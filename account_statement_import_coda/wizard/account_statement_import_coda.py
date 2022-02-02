@@ -198,7 +198,7 @@ class AccountStatementImport(models.TransientModel):
             "name": self.get_st_line_name(line, globalisation_dict),
             "date": line.entry_date or datetime.datetime.now().date(),
             "amount": amount,
-            "payment_ref": line.ref,
+            "payment_ref": line.communication or line.ref,
             "ref": line.ref,
             "partner_name": line.counterparty_name or None,
             "account_number": line.counterparty_number or None,
