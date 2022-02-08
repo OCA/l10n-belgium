@@ -326,10 +326,10 @@ class CompanywebPartner(models.Model):
                 if data["Key"] == "Rub9087":
                     value = data["Value"]
                     self._cweb_set_average_fte_data(value)
-                if data["Key"] == "Rub9800":
+                if data["Key"] == "Rub9904":
                     value = data["Value"]
                     self._cweb_set_addedValue_data(value)
-                if data["Key"] == "Rub9904":
+                if data["Key"] == "Rub9800":
                     value = data["Value"]
                     self._cweb_set_result_data(value)
 
