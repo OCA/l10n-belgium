@@ -1,5 +1,6 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/119/15.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-l10n-belgium-119)
-[![Build Status](https://travis-ci.com/OCA/l10n-belgium.svg?branch=15.0)](https://travis-ci.com/OCA/l10n-belgium)
+[![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&target_branch=15.0)
+[![Pre-commit Status](https://github.com/OCA/l10n-belgium/actions/workflows/pre-commit.yml/badge.svg?branch=15.0)](https://github.com/OCA/l10n-belgium/actions/workflows/pre-commit.yml?query=branch%3A15.0)
+[![Build Status](https://github.com/OCA/l10n-belgium/actions/workflows/test.yml/badge.svg?branch=15.0)](https://github.com/OCA/l10n-belgium/actions/workflows/test.yml?query=branch%3A15.0)
 [![codecov](https://codecov.io/gh/OCA/l10n-belgium/branch/15.0/graph/badge.svg)](https://codecov.io/gh/OCA/l10n-belgium)
 [![Translation Status](https://translation.odoo-community.org/widgets/l10n-belgium-15-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/l10n-belgium-15-0/?utm_source=widget)
 
