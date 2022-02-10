@@ -124,7 +124,7 @@
       <field name="auto_expand_accounts_style_id" ref="mis_report_style_l10n_be_acc_det"/>
       <field name="sequence">71</field>
     </record>
-    <record model="mis.report.kpi" id="mis_report_vat_grid_46L">
+    <record model="mis.report.kpi" id="mis_report_vat_grid_46T">
       <field name="report_id" ref="mis_report_vat"/>
       <field name="name">grid_46T</field>
       <field name="description">46T - Livraisons biens intra-communautaire exemptées</field>
