@@ -403,7 +403,7 @@
       <field name="expression">+grid_54+grid_55+grid_56+grid_57+grid_61+grid_63</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
-      <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="style_id" ref="mis_report_style_l10n_be_2i"/>
       <field name="sequence">260</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_cadre_5">
@@ -459,7 +459,7 @@
       <field name="expression">grid_59+grid_62+grid_64</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
-      <field name="style_id" ref="mis_report_style_l10n_be_4"/>
+      <field name="style_id" ref="mis_report_style_l10n_be_2i"/>
       <field name="sequence">300</field>
     </record>
     <record model="mis.report.kpi" id="mis_report_vat_cadre_6">
