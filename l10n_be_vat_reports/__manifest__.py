@@ -12,13 +12,14 @@
     "category": "Reporting",
     "version": "12.0.1.0.2",
     "license": "AGPL-3",
-    "depends": ["l10n_be", "account"],
+    "depends": ["l10n_be", "account", "report_xml"],
     "data": [
-        "wizard/l10n_be_partner_vat_listing.xml",
+        "reports/be_vat_client_listing_consignment.xml",
+        "wizard/partner_vat_list_views.xml",
         "wizard/l10n_be_vat_intra_view.xml",
         "views/report_vatintraprint.xml",
         "views/report_vatpartnerlisting.xml",
-        "l10n_be_reports.xml",
+        "reports/l10n_be_reports.xml",
     ],
     "installable": True,
 }

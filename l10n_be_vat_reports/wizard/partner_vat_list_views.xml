@@ -7,12 +7,11 @@
 -->
 <odoo>
     <data>
-
-        <record id="view_partner_vat_listing" model="ir.ui.view">
+        <record id="partner_vat_list_view_form_parameters" model="ir.ui.view">
             <field name="name">Partner VAT Listing</field>
-            <field name="model">partner.vat</field>
+            <field name="model">partner.vat.list</field>
             <field name="arch" type="xml">
-                <form string="Partner VAT Listing">
+                <form>
                     <p class="oe_grey">
                         This wizard will create an XML file for VAT details and total invoiced amounts per partner.
                     </p>
@@ -29,20 +28,22 @@
             </field>
         </record>
 
-        <record id="action_partner_vat_listing" model="ir.actions.act_window">
+        <record id="partner_vat_list_action_parameters" model="ir.actions.act_window">
             <field name="name">Partner VAT Listing</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">partner.vat</field>
+            <field name="res_model">partner.vat.list</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="view_partner_vat_listing"/>
+            <field name="view_id" ref="partner_vat_list_view_form_parameters"/>
             <field name="target">new</field>
         </record>
 
-        <menuitem name="Annual Listing Of VAT-Subjected Customers" parent="l10n_be.account_reports_be_statements_menu"
-                  action="action_partner_vat_listing" id="partner_vat_listing"/>
+        <menuitem name="Annual Listing Of VAT-Subjected Customers"
+                  parent="l10n_be.account_reports_be_statements_menu"
+                  action="partner_vat_list_action_parameters"
+                  id="partner_vat_list_menu"/>
 
-        <record id="view_vat_listing" model="ir.ui.view">
+        <record id="partner_vat_list_view_form_clients" model="ir.ui.view">
             <field name="name">Vat Listing</field>
             <field name="model">partner.vat.list</field>
             <field name="arch" type="xml">
@@ -69,24 +70,11 @@
             </field>
         </record>
 
-        <record id="view_vat_listing_result" model="ir.ui.view">
-            <field name="name">VAT List - XML File Created</field>
-            <field name="model">partner.vat.list</field>
-            <field name="priority" eval="1"/>
+        <record id="partner_vat_list_client_view_form" model="ir.ui.view">
+            <field name="name">partner_vat_list_client_view_form</field>
+            <field name="model">partner.vat.list.client</field>
             <field name="arch" type="xml">
-                <form string="Save XML">
-                    <separator string="Note: "/>
-                    <label string="Save the File :" for="file_save"/>
-                    <field name="file_save" filename="name"/>
-                </form>
-            </field>
-        </record>
-
-        <record id="view_vat_listing_form" model="ir.ui.view">
-            <field name="name">step.vat.listing</field>
-            <field name="model">vat.listing.clients</field>
-            <field name="arch" type="xml">
-                <form string="VAT listing">
+                <form>
                     <group col="4">
                         <field name="name"/>
                         <field name="vat"/>
@@ -97,11 +85,11 @@
             </field>
         </record>
 
-        <record id="view_vat_listing_tree" model="ir.ui.view">
-            <field name="name">step.vat.listing</field>
-            <field name="model">vat.listing.clients</field>
+        <record id="partner_vat_list_client_view_tree" model="ir.ui.view">
+            <field name="name">partner_vat_list_client_view_tree</field>
+            <field name="model">partner.vat.list.client</field>
             <field name="arch" type="xml">
-                <tree string="VAT listing">
+                <tree>
                     <field name="name"/>
                     <field name="vat"/>
                     <field name="turnover"/>
@@ -109,6 +97,5 @@
                 </tree>
             </field>
         </record>
-
     </data>
 </odoo>
