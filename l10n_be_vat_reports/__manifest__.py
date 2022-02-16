@@ -10,7 +10,7 @@
     "Odoo Community Association (OCA)",
     "website": "http://acsone.eu",
     "category": "Reporting",
-    "version": "12.0.1.0.2",
+    "version": "12.0.2.0.0",
     "license": "AGPL-3",
     "depends": ["l10n_be", "account", "report_xml"],
     "data": [
