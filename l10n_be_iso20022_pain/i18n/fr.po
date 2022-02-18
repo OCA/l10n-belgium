@@ -37,7 +37,9 @@ msgstr "Type de communication"
 msgid ""
 "Empty BBA Structured Communication! Please fill in a unique BBA Structured "
 "Communication."
-msgstr "La communication BBA est vide ! Veuillez insérer une communication BBA unique."
+msgstr ""
+"La communication BBA est vide ! Veuillez insérer une communication BBA "
+"unique."
 
 #. module: l10n_be_iso20022_pain
 #: code:addons/l10n_be_iso20022_pain/models/account_payment_line.py:0
