@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo13-addon-account_bank_statement_import_coda',
         'odoo13-addon-companyweb_base',
         'odoo13-addon-companyweb_payment_info',
+        'odoo13-addon-l10n_be_iso20022_pain',
         'odoo13-addon-l10n_be_mis_reports',
         'odoo13-addon-l10n_be_partner_identification',
         'odoo13-addon-l10n_be_partner_kbo_bce',
