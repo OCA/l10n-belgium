@@ -9,8 +9,8 @@
                 <ns2:ClientListing SequenceNumber="1"
                                    t-att-ClientsNbr="len(partner_vat_list.partner_ids)"
                                    t-att-DeclarantReference="partner_vat_list.declarant_reference"
-                                   t-att-TurnOverSum="partner_vat_list.total_turnover"
-                                   t-att-VATAmountSum="partner_vat_list.total_vat">
+                                   t-att-TurnOverSum="'{:.2f}'.format(partner_vat_list.total_turnover)"
+                                   t-att-VATAmountSum="'{:.2f}'.format(partner_vat_list.total_vat)">
                     <ns2:Declarant>
                         <VATNumber t-esc="res_company.vat[2:]"/>
                         <Name t-esc="res_company.name"/>
@@ -25,8 +25,8 @@
                     <t t-foreach="partner_vat_list.partner_ids" t-as="vat_listing_client">
                         <ns2:Client t-att-SequenceNumber="vat_listing_client.seq">
                             <ns2:CompanyVATNumber issuedBy="BE" t-esc="vat_listing_client.vat[2:]"/>
-                            <ns2:TurnOver t-esc="vat_listing_client.turnover"/>
-                            <ns2:VATAmount t-esc="vat_listing_client.vat_amount"/>
+                            <ns2:TurnOver t-esc="'{:.2f}'.format(vat_listing_client.turnover)"/>
+                            <ns2:VATAmount t-esc="'{:.2f}'.format(vat_listing_client.vat_amount)"/>
                         </ns2:Client>
                     </t>
                     <ns2:Comment t-esc="partner_vat_list.comments"/>

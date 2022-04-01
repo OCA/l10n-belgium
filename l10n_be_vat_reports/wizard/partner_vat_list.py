@@ -54,12 +54,12 @@ class PartnerVATList(models.TransientModel):
     @api.depends("partner_ids")
     def _compute_totals(self):
         for vat_list in self:
-            vat_list.total_turnover = sum(
+            vat_list.total_turnover = round(sum(
                 p.turnover for p in vat_list.partner_ids
-            )
-            vat_list.total_vat = sum(
+            ), 2)
+            vat_list.total_vat = round(sum(
                 p.vat_amount for p in vat_list.partner_ids
-            )
+            ), 2)
 
     @api.multi
     def get_partners(self):
@@ -96,8 +96,8 @@ class PartnerVATList(models.TransientModel):
                                 'tax_tag_64'))
     SELECT sub1.NAME,
            sub1.vat,
-           COALESCE(sub1.turnover, 0) AS turnover,
-           COALESCE(sub2.vat_amount, 0) AS vat_amount
+           ROUND(COALESCE(sub1.turnover, 0), 2) AS turnover,
+           ROUND(COALESCE(sub2.vat_amount, 0), 2) AS vat_amount
     FROM
       (SELECT l.partner_id,
               p.NAME,
