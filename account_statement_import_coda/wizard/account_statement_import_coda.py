@@ -161,18 +161,6 @@ class AccountStatementImport(models.TransientModel):
             note.append(_("Communication") + ": " + " ".join(communications))
         return note and "\n".join(note) or None
 
-    def get_st_line_name(self, line, globalisation_dict):
-        """
-        This method must return a valid name for the statement line
-        The name is the statement communication if exists or
-        the communication of the related globalisation line if exists or
-        '/'
-        """
-        name = line.communication
-        if not name and line.ref_move in globalisation_dict:
-            name = globalisation_dict[line.ref_move].communication
-        return name or "/"
-
     def get_st_line_vals(self, line, globalisation_dict, information_dict):
         """
         This method must return a dict of vals that can be passed to create
@@ -185,7 +173,6 @@ class AccountStatementImport(models.TransientModel):
             statement line,
                      it MUST contain at least:
                 {
-                    'name':value,
                     'date':value,
                     'amount':value,
                     'payment_ref':value,
@@ -195,7 +182,6 @@ class AccountStatementImport(models.TransientModel):
         if line.transaction_amount_sign == AmountSign.DEBIT:
             amount = -amount
         return {
-            "name": self.get_st_line_name(line, globalisation_dict),
             "date": line.entry_date or datetime.datetime.now().date(),
             "amount": amount,
             "payment_ref": line.communication or line.ref,
