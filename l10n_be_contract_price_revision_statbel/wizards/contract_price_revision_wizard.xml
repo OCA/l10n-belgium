@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="contract_price_revision_wizard_form_view">
+        <field
+            name="name"
+        >contract.price.revision.wizard.form (in l10n_be_contract_price_revision_statbel)</field>
+        <field name="model">contract.price.revision.wizard</field>
+        <field
+            name="inherit_id"
+            ref="contract_price_revision.contract_line_duplicate_wizard_view"
+        />
+        <field name="arch" type="xml">
+            <group name="fixed" position="after">
+                <group
+                    name="l10n_be_statbel"
+                    attrs="{'invisible': [('variation_type', '!=', 'l10n_be_statbel')]}"
+                >
+                        <field
+                        name="belgium_region"
+                        attrs="{'required': [('variation_type', '=', 'l10n_be_statbel')]}"
+                    />
+                    </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
