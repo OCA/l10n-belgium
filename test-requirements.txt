@@ -1,2 +1,9 @@
 freezegun
 vcrpy-unittest
+requests-mock
+
+
+# DONT MERGE
+odoo13-addon-contract @ git+https://github.com/OCA/contract.git@refs/pull/866/head#subdirectory=setup/contract
+odoo13-addon-contract-price-revision @ git+https://github.com/OCA/contract.git@refs/pull/864/head#subdirectory=setup/contract_price_revision
+odoo13-addon-l10n-be-statbel-index @ git+https://github.com/OCA/l10n-belgium.git@refs/pull/97/head#subdirectory=setup/l10n_be_statbel_index
