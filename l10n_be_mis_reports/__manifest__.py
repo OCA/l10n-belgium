@@ -9,7 +9,7 @@
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/l10n-belgium',
     'category': 'Reporting',
-    'version': '11.0.1.1.1',
+    'version': '11.0.1.1.2',
     'license': 'AGPL-3',
     'depends': [
         'mis_builder',  # OCA/account-financial-reporting
