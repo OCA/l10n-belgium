@@ -5,7 +5,7 @@
     'author': "ACSONE SA/NV,Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/l10n-belgium",
     'category': 'Accounting & Finance',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'license': 'AGPL-3',
     'depends': [
         'account_bank_statement_import',
