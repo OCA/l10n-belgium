@@ -7,7 +7,7 @@
         Balance Sheets and VAT Declaration""",
     'author': 'ACSONE SA/NV,'
               'Odoo Community Association (OCA)',
-    'website': 'http://acsone.eu',
+    'website': 'https://github.com/OCA/l10n-belgium',
     'category': 'Reporting',
     'version': '11.0.1.1.1',
     'license': 'AGPL-3',

@@ -3,7 +3,7 @@
 {
     'name': 'Import CODA Bank Statement',
     'author': "ACSONE SA/NV,Odoo Community Association (OCA)",
-    'website': "http://www.acsone.eu",
+    'website': "https://github.com/OCA/l10n-belgium",
     'category': 'Accounting & Finance',
     'version': '11.0.1.0.1',
     'license': 'AGPL-3',
