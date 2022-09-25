@@ -8,7 +8,7 @@
     "Coop IT Easy SCRLfs, "
     "Odoo SA, "
     "Odoo Community Association (OCA)",
-    "website": "http://acsone.eu",
+    "website": "https://github.com/OCA/l10n-belgium",
     "category": "Reporting",
     "version": "11.0.1.0.1",
     "license": "AGPL-3",
