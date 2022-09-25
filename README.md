@@ -17,7 +17,13 @@ These modules complement the official l10n_be.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 11.0.1.0.1 |  | Import CODA Bank Statement
+[l10n_be_mis_reports](l10n_be_mis_reports/) | 11.0.1.1.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
+[l10n_be_vat_reports](l10n_be_vat_reports/) | 11.0.1.0.1 |  | Belgium VAT Reports
 
 [//]: # (end addons)
 
