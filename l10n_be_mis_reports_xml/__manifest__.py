@@ -7,7 +7,7 @@
         Exports MIS Builder templates VAT Declaration as XML
         to load on the administration websites.""",
     "author": "Coop IT Easy SCRL," "Odoo Community Association (OCA)",
-    "website": "https://www.coopiteasy.be",
+    "website": "https://github.com/OCA/l10n-belgium",
     "category": "Reporting",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",
