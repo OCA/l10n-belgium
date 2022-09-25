@@ -21,9 +21,9 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 11.0.1.0.1 |  | Import CODA Bank Statement
-[l10n_be_mis_reports](l10n_be_mis_reports/) | 11.0.1.1.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
-[l10n_be_vat_reports](l10n_be_vat_reports/) | 11.0.1.0.1 |  | Belgium VAT Reports
+[account_bank_statement_import_coda](account_bank_statement_import_coda/) | 11.0.1.0.2 |  | Import CODA Bank Statement
+[l10n_be_mis_reports](l10n_be_mis_reports/) | 11.0.1.1.2 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
+[l10n_be_vat_reports](l10n_be_vat_reports/) | 11.0.1.0.2 |  | Belgium VAT Reports
 
 [//]: # (end addons)
 
