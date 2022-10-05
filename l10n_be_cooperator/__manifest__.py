@@ -14,9 +14,9 @@
         "cooperator_website",
         "l10n_be",
     ],
-    "author": "Coop IT Easy SC",
+    "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "category": "Cooperative management",
-    "website": "https://coopiteasy.be",
+    "website": "https://github.com/OCA/l10n-belgium",
     "license": "AGPL-3",
     "data": [
         "security/ir.model.access.csv",
