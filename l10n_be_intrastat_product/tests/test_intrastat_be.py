@@ -133,6 +133,44 @@ class TestIntrastatBe(SavepointCase):
         self.assertEqual(clines[0].vat, "NL123456782B90")
         self.assertEqual(dlines[0].src_dest_country_code, "NL")
 
+        # handle refund for company with no arrivals declaration
+        # TODO: add also return use case but this one is more
+        # since it implies creation of SO, with pickings and
+        # refund created for pickings.
+        # The current implementation is also based upon the
+        # OCA stock_picking_invoice_link module which is currently
+        # not in the module dependency (we check the presence of
+        # this module via hasattr)
+        reversal = (
+            self.env["account.move.reversal"]
+            .with_context(active_model="account.move", active_ids=inv_out.ids)
+            .create(
+                {
+                    "date": inv_out.date,
+                    "reason": "test refund",
+                    "refund_method": "refund",
+                }
+            )
+            .reverse_moves()
+        )
+        refund = self.env["account.move"].browse(reversal["res_id"])
+        refund.action_post()
+
+        declaration = self.decl_obj.create(
+            {
+                "declaration_type": "dispatches",
+                "company_id": self.env.company.id,
+                "year": str(inv_out.date.year),
+                "month": str(inv_out.date.month).zfill(2),
+            }
+        )
+        declaration.action_gather()
+        declaration.generate_declaration()
+        clines = declaration.computation_line_ids
+        dlines = declaration.declaration_line_ids
+        self.assertEqual(clines[1].amount_company_currency, -5000.0)
+        self.assertEqual(dlines[0].amount_company_currency, 0.0)
+
     def test_be_sale_b2b_na(self):
 
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
