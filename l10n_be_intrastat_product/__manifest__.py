@@ -8,6 +8,7 @@
     "license": "AGPL-3",
     "summary": "Intrastat Product Declaration for Belgium",
     "author": "Noviat,Odoo Community Association (OCA)",
+    "maintainers": ["luc-demeyer"],
     "website": "https://github.com/OCA/l10n-belgium",
     "depends": ["intrastat_product"],
     "conflicts": ["l10n_be_intrastat", "report_intrastat"],
