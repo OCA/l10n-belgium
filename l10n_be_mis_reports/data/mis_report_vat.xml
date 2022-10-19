@@ -477,7 +477,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_55">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_55</field>
-      <field name="description">55 - VAT on Operations Grids [86] and  [88]</field>
+      <field name="description">55 - VAT on Operations Grids [86] and [88]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+55")]+balp[][("tax_tag_ids.name", "=", "-55")]</field>
@@ -756,7 +756,7 @@
      <record model="mis.report.kpi" id="mis_report_vat_control_70">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">ctrl_70</field>
-      <field name="description">Control 70 vs Cadre II</field>
+      <field name="description">Control 70 vs II</field>
       <field
             name="expression"
         >u'✔' if abs(grid_00 + grid_01 + grid_02 + grid_03 + balp[70%]) >= 0 else u'✘'</field>
