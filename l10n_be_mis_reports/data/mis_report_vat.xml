@@ -27,7 +27,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_2">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">cadre_2</field>
-      <field name="description">Cadre II à la sortie</field>
+      <field name="description">II Outgoing Operations</field>
       <field name="expression" />
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -37,7 +37,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_00">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_00</field>
-      <field name="description">00 - Opérations soumises à un régime particulier</field>
+      <field name="description">00 - Operations subject to a special arrangement<</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+00")]+balp[][("tax_tag_ids.name", "=", "-00")]</field>
@@ -54,7 +54,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_01">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_01</field>
-      <field name="description">01 - Opérations avec TVA à 6%</field>
+      <field name="description">01 - Operations subject to 6% VAT</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+01")]+balp[][("tax_tag_ids.name", "=", "-01")]</field>
@@ -71,7 +71,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_02">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_02</field>
-      <field name="description">02 - Opérations avec TVA à 12%</field>
+      <field name="description">02 - Operations subject to 12% VAT</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+02")]+balp[][("tax_tag_ids.name", "=", "-02")]</field>
@@ -88,7 +88,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_03">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_03</field>
-      <field name="description">03 - Opérations avec TVA à 21%</field>
+      <field name="description">03 - Operations subject to 21% VAT</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+03")]+balp[][("tax_tag_ids.name", "=", "-03")]</field>
@@ -105,7 +105,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_44">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_44</field>
-      <field name="description">44 - Services intra-communautaires</field>
+      <field name="description">44 - Intra Community Services</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+44")]+balp[][("tax_tag_ids.name", "=", "-44")]</field>
@@ -124,7 +124,7 @@
       <field name="name">grid_45</field>
       <field
             name="description"
-        >45 - Opérations avec TVA due par le cocontractant</field>
+        >45 - VAT due by the Cocontractant</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+45")]+balp[][("tax_tag_ids.name", "=", "-45")]</field>
@@ -141,7 +141,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_46">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_46</field>
-      <field name="description">46 - Livraisons intra-communautaires exemptées</field>
+      <field name="description">46 - VAT exempt Intra Community Supplies</field>
       <field name="expression">grid_46L + grid_46T</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -158,7 +158,7 @@
       <field name="name">grid_46L</field>
       <field
             name="description"
-        >46L - Livraisons biens intra-communautaires exemptées</field>
+        >46L - VAT exempt Intra Community Supplies of Goods</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+46L")]+balp[][("tax_tag_ids.name", "=", "-46L")]</field>
@@ -177,7 +177,7 @@
       <field name="name">grid_46T</field>
       <field
             name="description"
-        >46T - Livraisons biens intra-communautaire exemptées</field>
+        >46T - VAT exempt Intra Community Supplies of Goods</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+46T")]+balp[][("tax_tag_ids.name", "=", "-46T")]</field>
@@ -194,7 +194,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_47">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_47</field>
-      <field name="description">47 - Autres opérations exemptées</field>
+      <field name="description">47 - Other VAT exempt Operations</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+47")]+balp[][("tax_tag_ids.name", "=", "-47")]</field>
@@ -213,7 +213,7 @@
       <field name="name">grid_48</field>
       <field
             name="description"
-        >48 - Notes de crédit aux opérations grilles [44] et [46]</field>
+        >48 -  Issued Credit Notes Operations Grid [44] and [46]</field>
       <field name="expression">grid_48s44 + grid_48s46L + grid_48s46T</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -230,7 +230,7 @@
       <field name="name">grid_48s44</field>
       <field
             name="description"
-        >48s44 - Notes de crédit aux opérations grilles [44]</field>
+        >48s44 - Issued Credit Notes Operations Grid [44]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+48s44")]+balp[][("tax_tag_ids.name", "=", "-48s44")]</field>
@@ -249,7 +249,7 @@
       <field name="name">grid_48s46L</field>
       <field
             name="description"
-        >48s46L - Notes de crédit aux opérations grilles [46L]</field>
+        >48s46L - Issued Credit Notes Operations Grid [46L]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+48s46L")]+balp[][("tax_tag_ids.name", "=", "-48s46L")]</field>
@@ -268,7 +268,7 @@
       <field name="name">grid_48s46T</field>
       <field
             name="description"
-        >48s46T - Notes de crédit aux opérations grilles [46T]</field>
+        >48s46T - Issued Credit Notes Operations Grid [46T]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+48s46T")]+balp[][("tax_tag_ids.name", "=", "-48s46T")]</field>
@@ -285,7 +285,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_49">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_49</field>
-      <field name="description">49 - Notes de crédit aux opérations du point II</field>
+      <field name="description">49 - Issued Credit Notes Other Operations Section II</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+49")]+balp[][("tax_tag_ids.name", "=", "-49")]</field>
@@ -302,7 +302,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_3">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">cadre_3</field>
-      <field name="description">Cadre III A l'entrée</field>
+      <field name="description">III Incoming Operations</field>
       <field name="expression" />
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -314,7 +314,7 @@
       <field name="name">grid_81</field>
       <field
             name="description"
-        >81 - Marchandises, matières premières et auxiliaires</field>
+        >81 - Purchases of Goods, Raw Materials and Consumables</field>
       <field
             name="expression"
         >+balp[][("tax_tag_ids.name", "=", "+81")]-balp[][("tax_tag_ids.name", "=", "-81")]</field>
@@ -331,7 +331,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_82">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_82</field>
-      <field name="description">82 - Services et biens divers</field>
+      <field name="description">82 - Purchases of various Goods and Services</field>
       <field
             name="expression"
         >+balp[][("tax_tag_ids.name", "=", "+82")]-balp[][("tax_tag_ids.name", "=", "-82")]</field>
@@ -348,7 +348,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_83">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_83</field>
-      <field name="description">83 - Biens d'investissement</field>
+      <field name="description">83 - Purchases of Assets</field>
       <field
             name="expression"
         >+balp[][("tax_tag_ids.name", "=", "+83")]-balp[][("tax_tag_ids.name", "=", "-83")]</field>
@@ -367,7 +367,7 @@
       <field name="name">grid_84</field>
       <field
             name="description"
-        >84 - Notes de crédits sur opérations case [86] et [88]</field>
+        >84 - Incoming Credit Notes Operations Grid [86] and [88]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+84")]+balp[][("tax_tag_ids.name", "=", "-84")]</field>
@@ -384,7 +384,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_85">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_85</field>
-      <field name="description">85 - Notes de crédits autres opérations</field>
+      <field name="description">85 - Incoming Credit Notes other Operations</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+85")]+balp[][("tax_tag_ids.name", "=", "-85")]</field>
@@ -403,7 +403,7 @@
       <field name="name">grid_86</field>
       <field
             name="description"
-        >86 - Acquisition intra-communautaires et ventes ABC</field>
+        >86 - Intra Community Acquisitions and ABC Sales</field>
       <field
             name="expression"
         >+balp[][("tax_tag_ids.name", "=", "+86")]-balp[][("tax_tag_ids.name", "=", "-86")]</field>
@@ -420,7 +420,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_87">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_87</field>
-      <field name="description">87 - Autres opérations</field>
+      <field name="description">87 - Other Incoming Operations</field>
       <field
             name="expression"
         >+balp[][("tax_tag_ids.name", "=", "+87")]-balp[][("tax_tag_ids.name", "=", "-87")]</field>
@@ -437,7 +437,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_88">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_88</field>
-      <field name="description">88 - Acquisition services intra-communautaires</field>
+      <field name="description">88 - Intra Community Services</field>
       <field
             name="expression"
         >+balp[][("tax_tag_ids.name", "=", "+88")]-balp[][("tax_tag_ids.name", "=", "-88")]</field>
@@ -454,7 +454,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_4">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">cadre_4</field>
-      <field name="description">Cadre IV Taxes dûes</field>
+      <field name="description">IV Due Taxes</field>
       <field name="expression" />
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -466,7 +466,7 @@
       <field name="name">grid_54</field>
       <field
             name="description"
-        >54 - TVA sur opérations des grilles [01], [02], [03]</field>
+        >54 - VAT on Operations Grids [01], [02], [03]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+54")]+balp[][("tax_tag_ids.name", "=", "-54")]</field>
@@ -483,7 +483,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_55">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_55</field>
-      <field name="description">55 - TVA sur opérations des grilles [86] et [88]</field>
+      <field name="description">55 - VAT on Operations Grids [86] and  [88]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+55")]+balp[][("tax_tag_ids.name", "=", "-55")]</field>
@@ -500,7 +500,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_56">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_56</field>
-      <field name="description">56 - TVA sur opérations de la grille [87]</field>
+      <field name="description">56 - VAT on Operations Grid [87]</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+56")]+balp[][("tax_tag_ids.name", "=", "-56")]</field>
@@ -517,7 +517,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_57">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_57</field>
-      <field name="description">57 - TVA relatives aux importations</field>
+      <field name="description">57 - VAT on Imports</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+57")]+balp[][("tax_tag_ids.name", "=", "-57")]</field>
@@ -536,7 +536,7 @@
       <field name="name">grid_61</field>
       <field
             name="description"
-        >61 - Diverses régularisations en faveur de l'Etat</field>
+        >61 - VAT adjustments in favor of the Tax Authority</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+61")]+balp[][("tax_tag_ids.name", "=", "-61")]</field>
@@ -553,7 +553,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_63">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_63</field>
-      <field name="description">63 - TVA à reverser sur notes de crédit recues</field>
+      <field name="description">63 - VAT Debt from Incoming Credit Notes</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+63")]+balp[][("tax_tag_ids.name", "=", "-63")]</field>
@@ -570,7 +570,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_xx">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_xx</field>
-      <field name="description">Total des taxes dûes</field>
+      <field name="description">Total Due Taxes</field>
       <field name="expression">+grid_54+grid_55+grid_56+grid_57+grid_61+grid_63</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -580,7 +580,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_5">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">cadre_5</field>
-      <field name="description">Cadre V Taxes déductibles</field>
+      <field name="description">V Deductible VAT</field>
       <field name="expression" />
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -590,7 +590,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_59">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_59</field>
-      <field name="description">59 - TVA déductible</field>
+      <field name="description">59 - Deductible VAT</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+59")]+balp[][("tax_tag_ids.name", "=", "-59")]</field>
@@ -609,7 +609,7 @@
       <field name="name">grid_62</field>
       <field
             name="description"
-        >62 - Diverses régularisations en faveur du déclarant</field>
+        >62 - VAT adjustments in favor of the Declarant</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+62")]+balp[][("tax_tag_ids.name", "=", "-62")]</field>
@@ -628,7 +628,7 @@
       <field name="name">grid_64</field>
       <field
             name="description"
-        >64 - TVA à récupérer sur notes de crédit delivrées</field>
+        >64 - Deductible VAT from Outgoing Credit Notes</field>
       <field
             name="expression"
         >-balp[][("tax_tag_ids.name", "=", "+64")]+balp[][("tax_tag_ids.name", "=", "-64")]</field>
@@ -645,7 +645,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_yy">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_yy</field>
-      <field name="description">Total des taxes déductibles</field>
+      <field name="description">Total Deductible VAT</field>
       <field name="expression">grid_59+grid_62+grid_64</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -655,7 +655,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_cadre_6">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">cadre_6</field>
-      <field name="description">Cadre VI Soldes</field>
+      <field name="description">VI Total</field>
       <field name="expression" />
       <field name="type">str</field>
       <field name="compare_method">pct</field>
@@ -665,7 +665,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_71">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_71</field>
-      <field name="description">71 : Taxes dues à l'Etat</field>
+      <field name="description">71 - VAT due to State</field>
       <field name="expression">abs(max(grid_xx - grid_yy, AccountingNone))</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -675,7 +675,7 @@
     <record model="mis.report.kpi" id="mis_report_vat_grid_72">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">grid_72</field>
-      <field name="description">72 : Taxes dues par l'Etat</field>
+      <field name="description">72 - VAT due by the State</field>
       <field name="expression">abs(max(grid_yy - grid_xx, AccountingNone))</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
@@ -686,7 +686,7 @@
       <record model="mis.report.kpi" id="mis_report_vat_control">
       <field name="report_id" ref="mis_report_vat" />
       <field name="name">control</field>
-      <field name="description">Control</field>
+      <field name="description">Controls</field>
       <field name="expression" />
       <field name="type">str</field>
       <field name="compare_method">pct</field>
