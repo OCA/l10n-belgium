@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2022-02-18 08:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -17,173 +18,173 @@ msgstr ""
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_00
-msgid "00 - Opérations soumises à un régime particulier"
-msgstr ""
+msgid "00 - Operations subject to a special arrangement"
+msgstr "00 - Opérations soumises à un régime particulier"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_01
-msgid "01 - Opérations avec TVA à 6%"
-msgstr ""
+msgid "01 - Operations subject to 6% VAT"
+msgstr "01 - Opérations avec TVA à 6%"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_02
-msgid "02 - Opérations avec TVA à 12%"
-msgstr ""
+msgid "02 - Operations subject to 12% VAT"
+msgstr "02 - Opérations avec TVA à 12%"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_03
-msgid "03 - Opérations avec TVA à 21%"
-msgstr ""
+msgid "03 - Operations subject to 21% VAT"
+msgstr "03 - Opérations avec TVA à 21%"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_44
-msgid "44 - Services intra-communautaires"
-msgstr ""
+msgid "44 - Intra Community Services"
+msgstr "44 - Services intra-communautaires"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_45
-msgid "45 - Opérations avec TVA due par le cocontractant"
-msgstr ""
+msgid "45 - VAT due by the Cocontractant"
+msgstr "45 - Opérations avec TVA due par le cocontractant"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_46
-msgid "46 - Livraisons intra-communautaires exemptées"
-msgstr ""
+msgid "46 - VAT exempt Intra Community Supplies"
+msgstr "46 - Livraisons intra-communautaires exemptées"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_46L
-msgid "46L - Livraisons biens intra-communautaires exemptées"
-msgstr ""
+msgid "46L - VAT exempt Intra Community Supplies of Goods"
+msgstr "46L - Livraisons biens intra-communautaires exemptées"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_46T
-msgid "46T - Livraisons biens intra-communautaire exemptées"
-msgstr ""
+msgid "46T - VAT exempt Intra Community Supplies of Goods"
+msgstr "46T - Livraisons biens intra-communautaire exemptées"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_47
-msgid "47 - Autres opérations exemptées"
-msgstr ""
+msgid "47 - Other VAT exempt Operations"
+msgstr "47 - Autres opérations exemptées"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_48
-msgid "48 - Notes de crédit aux opérations grilles [44] et [46]"
-msgstr ""
+msgid "48 -  Issued Credit Notes Operations Grid [44] and [46]"
+msgstr "48 - Notes de crédit aux opérations grilles [44] et [46]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_48s44
-msgid "48s44 - Notes de crédit aux opérations grilles [44]"
-msgstr ""
+msgid "48s44 - Issued Credit Notes Operations Grid [44]"
+msgstr "48s44 - Notes de crédit aux opérations grilles [44]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_48s46L
-msgid "48s46L - Notes de crédit aux opérations grilles [46L]"
-msgstr ""
+msgid "48s46L - Issued Credit Notes Operations Grid [46L]"
+msgstr "48s46L - Notes de crédit aux opérations grilles [46L]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_48s46T
-msgid "48s46T - Notes de crédit aux opérations grilles [46T]"
-msgstr ""
+msgid "48s46T - Issued Credit Notes Operations Grid [46T]"
+msgstr "48s46T - Notes de crédit aux opérations grilles [46T]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_49
-msgid "49 - Notes de crédit aux opérations du point II"
-msgstr ""
+msgid "49 - Issued Credit Notes Other Operations Section II"
+msgstr "49 - Notes de crédit aux opérations du point II"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_54
-msgid "54 - TVA sur opérations des grilles [01], [02], [03]"
-msgstr ""
+msgid "54 - VAT on Operations Grids [01], [02], [03]"
+msgstr "54 - TVA sur opérations des grilles [01], [02], [03]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_55
-msgid "55 - TVA sur opérations des grilles [86] et [88]"
-msgstr ""
+msgid "55 - VAT on Operations Grids [86] and [88]"
+msgstr "55 - TVA sur opérations des grilles [86] et [88]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_56
-msgid "56 - TVA sur opérations de la grille [87]"
-msgstr ""
+msgid "56 - VAT on Operations Grid [87]"
+msgstr "56 - TVA sur opérations de la grille [87]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_57
-msgid "57 - TVA relatives aux importations"
-msgstr ""
+msgid "57 - VAT on Imports"
+msgstr "57 - TVA relatives aux importations"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_59
-msgid "59 - TVA déductible"
-msgstr ""
+msgid "59 - Deductible VAT"
+msgstr "59 - TVA déductible"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_61
-msgid "61 - Diverses régularisations en faveur de l'Etat"
-msgstr ""
+msgid "61 - VAT adjustments in favor of the Tax Authority"
+msgstr "61 - Diverses régularisations en faveur de l'Etat"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_62
-msgid "62 - Diverses régularisations en faveur du déclarant"
-msgstr ""
+msgid "62 - VAT adjustments in favor of the Declarant"
+msgstr "62 - Diverses régularisations en faveur du déclarant"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_63
-msgid "63 - TVA à reverser sur notes de crédit recues"
-msgstr ""
+msgid "63 - VAT Debt from Incoming Credit Notes"
+msgstr "63 - TVA à reverser sur notes de crédit recues"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_64
-msgid "64 - TVA à récupérer sur notes de crédit delivrées"
-msgstr ""
+msgid "64 - Deductible VAT from Outgoing Credit Notes"
+msgstr "64 - TVA à récupérer sur notes de crédit delivrées"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_71
-msgid "71 : Taxes dues à l'Etat"
-msgstr ""
+msgid "71 - VAT due to State"
+msgstr "71 - Taxes dues à l'Etat"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_72
-msgid "72 : Taxes dues par l'Etat"
-msgstr ""
+msgid "72 - VAT due by the State"
+msgstr "72 - Taxes dues par l'Etat"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_81
-msgid "81 - Marchandises, matières premières et auxiliaires"
-msgstr ""
+msgid "81 - Purchases of Goods, Raw Materials and Consumables"
+msgstr "81 - Marchandises, matières premières et auxiliaires"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_82
-msgid "82 - Services et biens divers"
-msgstr ""
+msgid "82 - Purchases of various Goods and Services"
+msgstr "82 - Services et biens divers"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_83
-msgid "83 - Biens d'investissement"
-msgstr ""
+msgid "83 - Purchases of Assets"
+msgstr "83 - Biens d'investissement"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_84
-msgid "84 - Notes de crédits sur opérations case [86] et [88]"
-msgstr ""
+msgid "84 - Incoming Credit Notes Operations Grid [86] and [88]"
+msgstr "84 - Notes de crédits sur opérations case [86] et [88]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_85
-msgid "85 - Notes de crédits autres opérations"
-msgstr ""
+msgid "85 - Incoming Credit Notes other Operations"
+msgstr "85 - Notes de crédits autres opérations"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_86
-msgid "86 - Acquisition intra-communautaires et ventes ABC"
-msgstr ""
+msgid "86 - Intra Community Acquisitions and ABC Sales"
+msgstr "86 - Acquisition intra-communautaires et ventes ABC"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_87
-msgid "87 - Autres opérations"
-msgstr ""
+msgid "87 - Other Incoming Operations"
+msgstr "87 - Autres opérations"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_88
-msgid "88 - Acquisition services intra-communautaires"
-msgstr ""
+msgid "88 - Intra Community Services"
+msgstr "88 - Acquisition services intra-communautaires"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr197
@@ -336,31 +337,6 @@ msgid "CURRENT ASSETS [29/58]"
 msgstr "ACTIFS CIRCULANTS [29/58]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_2
-msgid "Cadre II à la sortie"
-msgstr ""
-
-#. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_3
-msgid "Cadre III A l'entrée"
-msgstr ""
-
-#. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_4
-msgid "Cadre IV Taxes dûes"
-msgstr ""
-
-#. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_5
-msgid "Cadre V Taxes déductibles"
-msgstr ""
-
-#. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_6
-msgid "Cadre VI Soldes"
-msgstr ""
-
-#. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr149
 msgid "Capital [10]"
 msgstr ""
@@ -376,19 +352,14 @@ msgid "Contracts in progress [37]"
 msgstr "Commandes en cours d'exécution [37]"
 
 #. module: l10n_be_mis_reports
-#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control
-msgid "Control"
-msgstr "Contrôles"
-
-#. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_60
 msgid "Control 60 vs [81]"
 msgstr "Contrôle 60 vs [81]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_70
-msgid "Control 70 vs Cadre II"
-msgstr ""
+msgid "Control 70 vs II"
+msgstr "Contrôle 70 vs Cadre II"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_O
@@ -419,6 +390,11 @@ msgstr "Contrôle T: [85] x 0.21 >= [63]"
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control_U
 msgid "Control U: [49] x 0.21 >= [64]"
 msgstr "Contrôle U: [49] x 0.21 >= [64]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_control
+msgid "Controls"
+msgstr "Contrôles"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr177
@@ -569,6 +545,21 @@ msgstr "Plus-values sur réalisation d'actifs immobilisés [763]"
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr135
 msgid "Goods purchased for Resale [34]"
 msgstr "Marchandises [34]"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_2
+msgid "II Outgoing Operations"
+msgstr "Cadre II à la sortie"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_3
+msgid "III Incoming Operations"
+msgstr "Cadre III A l'entrée"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_4
+msgid "IV Due Taxes"
+msgstr "Cadre IV Taxes dûes"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr136
@@ -943,13 +934,13 @@ msgstr "Dettes fiscales, salariales et sociales [45]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_yy
-msgid "Total des taxes déductibles"
-msgstr ""
+msgid "Total Deductible VAT"
+msgstr "Total des taxes déductibles"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_grid_xx
-msgid "Total des taxes dûes"
-msgstr ""
+msgid "Total Due Taxes"
+msgstr "Total des taxes dûes"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr128
@@ -1017,10 +1008,20 @@ msgid "Untaxed Reserves [132]"
 msgstr "Réserves immunisées [132]"
 
 #. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_5
+msgid "V Deductible VAT"
+msgstr "Cadre V Taxes déductibles"
+
+#. module: l10n_be_mis_reports
 #: model:ir.actions.server,name:l10n_be_mis_reports.action_mis_report_vat
 #: model:ir.ui.menu,name:l10n_be_mis_reports.menu_mis_report_vat
 msgid "VAT Declaration"
 msgstr "Déclaration TVA"
+
+#. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_vat_cadre_6
+msgid "VI Total"
+msgstr "Cadre VI Soldes"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr133
