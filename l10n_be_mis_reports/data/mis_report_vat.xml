@@ -214,7 +214,7 @@
       <field
             name="description"
         >48 - Notes de crédit aux opérations grilles [44] et [46]</field>
-      <field name="expression">grid_48s44 + grid_48s46L + grid48s46T</field>
+      <field name="expression">grid_48s44 + grid_48s46L + grid_48s46T</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
