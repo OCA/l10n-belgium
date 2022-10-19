@@ -317,7 +317,7 @@
         >81 - Marchandises, matières premières et auxiliaires</field>
       <field
             name="expression"
-        >-balp[][("tax_tag_ids.name", "=", "+81")]+balp[][("tax_tag_ids.name", "=", "-81")]</field>
+        >+balp[][("tax_tag_ids.name", "=", "+81")]-balp[][("tax_tag_ids.name", "=", "-81")]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
@@ -334,7 +334,7 @@
       <field name="description">82 - Services et biens divers</field>
       <field
             name="expression"
-        >-balp[][("tax_tag_ids.name", "=", "+82")]+balp[][("tax_tag_ids.name", "=", "-82")]</field>
+        >+balp[][("tax_tag_ids.name", "=", "+82")]-balp[][("tax_tag_ids.name", "=", "-82")]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
@@ -351,7 +351,7 @@
       <field name="description">83 - Biens d'investissement</field>
       <field
             name="expression"
-        >-balp[][("tax_tag_ids.name", "=", "+83")]+balp[][("tax_tag_ids.name", "=", "-83")]</field>
+        >+balp[][("tax_tag_ids.name", "=", "+83")]-balp[][("tax_tag_ids.name", "=", "-83")]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
@@ -406,7 +406,7 @@
         >86 - Acquisition intra-communautaires et ventes ABC</field>
       <field
             name="expression"
-        >-balp[][("tax_tag_ids.name", "=", "+86")]+balp[][("tax_tag_ids.name", "=", "-86")]</field>
+        >+balp[][("tax_tag_ids.name", "=", "+86")]-balp[][("tax_tag_ids.name", "=", "-86")]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
@@ -423,7 +423,7 @@
       <field name="description">87 - Autres opérations</field>
       <field
             name="expression"
-        >-balp[][("tax_tag_ids.name", "=", "+87")]+balp[][("tax_tag_ids.name", "=", "-87")]</field>
+        >+balp[][("tax_tag_ids.name", "=", "+87")]-balp[][("tax_tag_ids.name", "=", "-87")]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
@@ -440,7 +440,7 @@
       <field name="description">88 - Acquisition services intra-communautaires</field>
       <field
             name="expression"
-        >-balp[][("tax_tag_ids.name", "=", "+88")]+balp[][("tax_tag_ids.name", "=", "-88")]</field>
+        >+balp[][("tax_tag_ids.name", "=", "+88")]-balp[][("tax_tag_ids.name", "=", "-88")]</field>
       <field name="type">num</field>
       <field name="compare_method">pct</field>
       <field name="style_id" ref="mis_report_style_l10n_be_3" />
