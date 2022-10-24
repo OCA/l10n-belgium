@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class MisReportInstance(models.Model):
@@ -11,7 +11,6 @@ class MisReportInstance(models.Model):
 
     _is_be_vat_declaration = fields.Boolean(compute="_compute_is_be_vat_declaration")
 
-    @api.multi
     def _compute_is_be_vat_declaration(self):
         mr_template = self.env.ref("l10n_be_mis_reports.mis_report_vat")
         for instance in self:
