@@ -86,7 +86,6 @@ class BeVATDeclarationWizard(models.TransientModel):
     def compute_declarant_reference(self):
         return self.env["ir.sequence"].next_by_code("be.vat.declaration.declarant")
 
-    @api.multi
     @api.depends("mr_instance_id.date_from", "period")
     def _compute_period_value(self):
         self.ensure_one()
@@ -96,14 +95,12 @@ class BeVATDeclarationWizard(models.TransientModel):
         else:
             self.period_value = (date_from.month - 1) // 3 + 1
 
-    @api.multi
     @api.depends("mr_instance_id.company_id")
     def _compute_declarant_vat(self):
         for rec in self:
             company = rec.mr_instance_id.company_id
             rec.declarant_vat = re.sub(r"\D", "", company.vat)
 
-    @api.multi
     @api.depends("mr_instance_id.company_id")
     def _compute_declarant_phone(self):
         for rec in self:
