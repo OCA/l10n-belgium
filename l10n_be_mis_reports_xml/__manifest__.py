@@ -1,4 +1,4 @@
-# Copyright 2021 Coop IT Easy SCRL fs
+# Copyright 2021 Coop IT Easy SC
 #   Robin Keunen <robin@coopiteasy.be>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
@@ -6,7 +6,7 @@
     "summary": """
         Exports MIS Builder templates VAT Declaration as XML
         to load on the administration websites.""",
-    "author": "Coop IT Easy SCRL," "Odoo Community Association (OCA)",
+    "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
     "category": "Reporting",
     "version": "12.0.1.0.1",
