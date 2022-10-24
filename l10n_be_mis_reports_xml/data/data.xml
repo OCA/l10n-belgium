@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
      Copyright 2021 Coop IT Easy
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -8,10 +8,10 @@
         <field name="name">BE VAT Declaration Declarant Sequence</field>
         <field name="code">be.vat.declaration.declarant</field>
         <field name="prefix">%(year)s%(month)s%(day)s</field>
-        <field eval="1" name="number_next"/>
-        <field eval="1" name="number_increment"/>
-        <field eval="True" name="use_date_range"/>
-        <field eval="False" name="company_id"/>
+        <field eval="1" name="number_next" />
+        <field eval="1" name="number_increment" />
+        <field eval="True" name="use_date_range" />
+        <field eval="False" name="company_id" />
         <field name="padding">6</field>
     </record>
 </odoo>

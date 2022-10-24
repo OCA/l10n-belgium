@@ -73,8 +73,7 @@ class BeVATDeclarationWizard(models.TransientModel):
         self.ensure_one()
         kpi_matrix_dict = self.mr_instance_id.compute()
         data = {
-            row["row_id"]: row["cells"][0]["val"]
-            for row in kpi_matrix_dict["body"]
+            row["row_id"]: row["cells"][0]["val"] for row in kpi_matrix_dict["body"]
         }
 
         data = {
@@ -85,9 +84,7 @@ class BeVATDeclarationWizard(models.TransientModel):
         return data
 
     def compute_declarant_reference(self):
-        return self.env["ir.sequence"].next_by_code(
-            "be.vat.declaration.declarant"
-        )
+        return self.env["ir.sequence"].next_by_code("be.vat.declaration.declarant")
 
     @api.multi
     @api.depends("mr_instance_id.date_from", "period")
@@ -111,6 +108,4 @@ class BeVATDeclarationWizard(models.TransientModel):
     def _compute_declarant_phone(self):
         for rec in self:
             company = rec.mr_instance_id.company_id
-            rec.declarant_phone = re.sub(
-                r"\D", "", re.sub(r"\+", r"00", company.phone)
-            )
+            rec.declarant_phone = re.sub(r"\D", "", re.sub(r"\+", r"00", company.phone))
