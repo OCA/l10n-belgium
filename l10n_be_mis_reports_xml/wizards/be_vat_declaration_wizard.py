@@ -5,7 +5,8 @@
 
 import re
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class BeVATDeclarationWizard(models.TransientModel):
@@ -65,6 +66,20 @@ class BeVATDeclarationWizard(models.TransientModel):
 
     def generate_xml(self):
         self.ensure_one()
+        company = self.mr_instance_id.company_id
+        if not company.vat:
+            raise UserError(
+                _(
+                    (
+                        "Please set the {vat} field on the company "
+                        "{company_name} (id: {company_id})"
+                    ).format(
+                        vat=company.__class__.vat.string,
+                        company_name=company.name,
+                        company_id=company.id,
+                    )
+                )
+            )
         return self.env.ref(
             "l10n_be_mis_reports_xml.l10n_be_vat_declaration_xml_report"
         ).report_action(self)
@@ -95,14 +110,20 @@ class BeVATDeclarationWizard(models.TransientModel):
         else:
             self.period_value = (date_from.month - 1) // 3 + 1
 
-    @api.depends("mr_instance_id.company_id")
+    @api.depends("mr_instance_id.company_id.vat")
     def _compute_declarant_vat(self):
         for rec in self:
             company = rec.mr_instance_id.company_id
             rec.declarant_vat = re.sub(r"\D", "", company.vat)
 
-    @api.depends("mr_instance_id.company_id")
+    @api.depends("mr_instance_id.company_id.phone")
     def _compute_declarant_phone(self):
         for rec in self:
             company = rec.mr_instance_id.company_id
-            rec.declarant_phone = re.sub(r"\D", "", re.sub(r"\+", r"00", company.phone))
+            # the declarant_phone property is optional
+            if company.phone:
+                rec.declarant_phone = re.sub(
+                    r"\D", "", re.sub(r"\+", r"00", company.phone)
+                )
+            else:
+                rec.declarant_phone = False
