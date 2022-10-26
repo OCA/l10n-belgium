@@ -1,2 +1,5 @@
-* Robin Keunen <robin@coopiteasy.be>
-* Virgine Dewulf <virginie@coopiteasy.be>
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
+
+  * Robin Keunen
+  * Virgine Dewulf
+  * hugues de keyzer
