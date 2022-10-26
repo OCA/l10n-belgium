@@ -1,11 +1,11 @@
 # Copyright 2004-2010 Tiny SPRL
 # Copyright 2018 ACSONE SA/NV
-# Copyright 2020 Coop IT Easy SCRLfs
+# Copyright 2020 Coop IT Easy SC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Belgium VAT Reports",
     "author": "ACSONE SA/NV, "
-    "Coop IT Easy SCRLfs, "
+    "Coop IT Easy SC, "
     "Odoo SA, "
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",

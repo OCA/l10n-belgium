@@ -1,6 +1,6 @@
 # Copyright 2004-2010 Tiny SPRL
 # Copyright 2018 ACSONE SA/NV
-# Copyright 2020 Coop IT Easy SCRLfs
+# Copyright 2020 Coop IT Easy SC
 
 from datetime import date
 
