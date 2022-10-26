@@ -3,7 +3,7 @@
 # Copyright 2020 Coop IT Easy SCRLfs
 import re
 
-from odoo import fields, models, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 

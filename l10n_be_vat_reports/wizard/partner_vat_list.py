@@ -2,10 +2,10 @@
 # Copyright 2018 ACSONE SA/NV
 # Copyright 2020 Coop IT Easy SCRLfs
 
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError
-from odoo.exceptions import Warning as UserError
 from datetime import date
+
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError, Warning as UserError
 
 
 class PartnerVATList(models.TransientModel):
@@ -37,29 +37,23 @@ class PartnerVATList(models.TransientModel):
         company_vat = company.partner_id.vat
 
         if not company_vat:
-            raise ValidationError(
-                _("No VAT number associated with your company.")
-            )
+            raise ValidationError(_("No VAT number associated with your company."))
 
         company_vat = company_vat.replace(" ", "").upper()
         for listing in self:
-            seq_declarantnum = self.env["ir.sequence"].next_by_code(
-                "declarantnum"
-            )
-            listing.declarant_reference = (
-                company_vat[2:] + seq_declarantnum[-4:]
-            )
+            seq_declarantnum = self.env["ir.sequence"].next_by_code("declarantnum")
+            listing.declarant_reference = company_vat[2:] + seq_declarantnum[-4:]
 
     @api.multi
     @api.depends("partner_ids")
     def _compute_totals(self):
         for vat_list in self:
-            vat_list.total_turnover = round(sum(
-                p.turnover for p in vat_list.partner_ids
-            ), 2)
-            vat_list.total_vat = round(sum(
-                p.vat_amount for p in vat_list.partner_ids
-            ), 2)
+            vat_list.total_turnover = round(
+                sum(p.turnover for p in vat_list.partner_ids), 2
+            )
+            vat_list.total_vat = round(
+                sum(p.vat_amount for p in vat_list.partner_ids), 2
+            )
 
     @api.multi
     def get_partners(self):
@@ -70,9 +64,7 @@ class PartnerVATList(models.TransientModel):
         partners = self.env["partner.vat.list.client"].browse([])
         be_partners = self.env["res.partner"].search([("vat", "ilike", "BE%")])
         if not be_partners:
-            raise UserError(
-                _("No belgium contact with a VAT number in your database.")
-            )
+            raise UserError(_("No belgium contact with a VAT number in your database."))
         query = """
     WITH turnover_tags AS
       (SELECT tagsrel.account_tax_id
@@ -152,7 +144,7 @@ class PartnerVATList(models.TransientModel):
         model_datas = self.env["ir.model.data"].search(
             [
                 ("model", "=", "ir.ui.view"),
-                ("name", "=", "partner_vat_list_view_form_clients")
+                ("name", "=", "partner_vat_list_view_form_clients"),
             ],
             limit=1,
         )

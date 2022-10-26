@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.minfin.fgov.be/ClientListingConsignment" xmlns:iso="http://www.minfin.fgov.be/IsoTypes" xmlns:common="http://www.minfin.fgov.be/InputCommon" targetNamespace="http://www.minfin.fgov.be/ClientListingConsignment" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="en">
 	<xs:import namespace="http://www.minfin.fgov.be/InputCommon" schemaLocation="IntervatInputCommon_v0_9.xsd"/>
     <xs:import namespace="http://www.minfin.fgov.be/IsoTypes" schemaLocation="IntervatIsoTypes_v0_9.xsd"/>
-	
+
 	<!-- Root Element -->
 	<xs:element name="ClientListingConsignment">
 		<xs:annotation>
@@ -20,7 +20,7 @@
 				</xs:element>
 				<xs:element name="RepresentativeReference" type="common:RepresentativeReference_Type" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation xml:lang="fr">Référence attribuée à l'envoi par le mandataire</xs:documentation>	
+						<xs:documentation xml:lang="fr">Référence attribuée à l'envoi par le mandataire</xs:documentation>
 						<xs:documentation xml:lang="nl">Toegekende referentie aan de zending door de mandataris</xs:documentation>
 					</xs:annotation>
 				</xs:element>
@@ -164,7 +164,7 @@
 		</xs:sequence>
 		<xs:attribute name="SequenceNumber" type="xs:positiveInteger" use="required">
 			<xs:annotation>
-				<xs:documentation xml:lang="fr">N° de séquence du client dans le listing</xs:documentation>				
+				<xs:documentation xml:lang="fr">N° de séquence du client dans le listing</xs:documentation>
 				<xs:documentation xml:lang="nl">Volgnummer van de klant in de klantenlijst</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
