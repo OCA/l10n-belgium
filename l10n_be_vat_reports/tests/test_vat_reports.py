@@ -20,7 +20,7 @@ class TestVatListing(TestVatReportsCommon):
         )
         partner_vat_list.get_partners()
 
-        self.assertEquals(partner_vat_list.total_turnover, 450.)
+        self.assertEquals(partner_vat_list.total_turnover, 450.0)
         self.assertEqual(partner_vat_list.total_vat, 94.5)
 
         # coverage

@@ -1,10 +1,10 @@
 # Copyright 2004-2010 Tiny SPRL
 # Copyright 2018 ACSONE SA/NV
 # Copyright 2020 Coop IT Easy SCRLfs
-import time
 import base64
+import time
 
-from odoo import api, models, fields, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -101,9 +101,7 @@ class PartnerVATIntra(models.TransientModel):
     )
     date_start = fields.Date("Start date", required=True)
     date_end = fields.Date("End date", required=True)
-    test_xml = fields.Boolean(
-        "Test XML file", help="Sets the XML output as test file"
-    )
+    test_xml = fields.Boolean("Test XML file", help="Sets the XML output as test file")
     mand_id = fields.Char(
         "Reference",
         help="Reference given by the Representative of the sending company.",
