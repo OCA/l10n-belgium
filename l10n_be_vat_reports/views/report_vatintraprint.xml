@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
      Copyright 2004-2010 Tiny SPRL
      Copyright 2018 ACSONE SA/NV
@@ -12,20 +12,20 @@
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.external_layout">
                         <div class="page">
-                            <div class="oe_structure"/>
+                            <div class="oe_structure" />
                             <h2>Partner VAT Intra</h2>
 
                             <div class="row mt32 mb32">
                                 <strong>Company Name: </strong>
-                                <span t-esc="res_company.name"/>
+                                <span t-esc="res_company.name" />
                             </div>
                             <div class="row mt32 mb32">
                                 <strong>Vat Number: </strong>
-                                <span t-esc="res_company.partner_id.vat"/>
+                                <span t-esc="res_company.partner_id.vat" />
                             </div>
                             <div class="row mt32 mb32">
                                 <strong>Partners without VAT: </strong>
-                                <span t-esc="o.partner_wo_vat or '-'"/>
+                                <span t-esc="o.partner_wo_vat or '-'" />
                             </div>
 
                             <table class="table table-condensed">
@@ -39,15 +39,21 @@
                                 </thead>
                                 <tbody>
                                     <tr t-foreach="o.client_ids" t-as="l">
-                                        <td><span t-field="l.partner_name"/></td>
-                                        <td><span t-field="l.vat"/></td>
-                                        <td><span t-field="l.code"/></td>
-                                        <td><span t-field="l.amount" t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'/></td>
+                                        <td><span t-field="l.partner_name" /></td>
+                                        <td><span t-field="l.vat" /></td>
+                                        <td><span t-field="l.code" /></td>
+                                        <td><span
+                                                t-field="l.amount"
+                                                t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
+                                            /></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <p><strong>Total: </strong><span t-field="o.amount_total" t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'/></p>
+                            <p><strong>Total: </strong><span
+                                    t-field="o.amount_total"
+                                    t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
+                                /></p>
                         </div>
                     </t>
                 </t>

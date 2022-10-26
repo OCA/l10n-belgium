@@ -2,9 +2,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from lxml.etree import XML
 import base64
 import time
+
+from lxml.etree import XML
 
 from .common import TestVatReportsCommon
 
@@ -28,12 +29,10 @@ class TestVatIntra(TestVatReportsCommon):
         wizard.create_xml()
         ns = {"ns2": "http://www.minfin.fgov.be/IntraConsignment"}
         xml = XML(base64.b64decode(wizard.file_save))
-        xml_vat_amount = xml.xpath("//ns2:IntraListing", namespaces=ns)[
-            0
-        ].attrib["AmountSum"]
-        codes = xml.xpath(
-            "//ns2:IntraListing/ns2:IntraClient/ns2:Code", namespaces=ns
-        )
+        xml_vat_amount = xml.xpath("//ns2:IntraListing", namespaces=ns)[0].attrib[
+            "AmountSum"
+        ]
+        codes = xml.xpath("//ns2:IntraListing/ns2:IntraClient/ns2:Code", namespaces=ns)
         for code in codes:
             self.assertTrue(code.text)
         self.assertEqual("450.00", xml_vat_amount)

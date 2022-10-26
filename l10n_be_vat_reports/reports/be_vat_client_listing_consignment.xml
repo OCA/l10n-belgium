@@ -1,46 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="l10n_be_vat_listing_consignment_xml_template">
 
-        <ns2:ClientListingConsignment xmlns="http://www.minfin.fgov.be/InputCommon"
-                                      xmlns:ns2="http://www.minfin.fgov.be/ClientListingConsignment"
-                                      ClientListingsNbr="1">
+        <ns2:ClientListingConsignment
+            xmlns="http://www.minfin.fgov.be/InputCommon"
+            xmlns:ns2="http://www.minfin.fgov.be/ClientListingConsignment"
+            ClientListingsNbr="1"
+        >
             <t t-foreach="docs" t-as="partner_vat_list">
-                <ns2:ClientListing SequenceNumber="1"
-                                   t-att-ClientsNbr="len(partner_vat_list.partner_ids)"
-                                   t-att-DeclarantReference="partner_vat_list.declarant_reference"
-                                   t-att-TurnOverSum="'{:.2f}'.format(partner_vat_list.total_turnover)"
-                                   t-att-VATAmountSum="'{:.2f}'.format(partner_vat_list.total_vat)">
+                <ns2:ClientListing
+                    SequenceNumber="1"
+                    t-att-ClientsNbr="len(partner_vat_list.partner_ids)"
+                    t-att-DeclarantReference="partner_vat_list.declarant_reference"
+                    t-att-TurnOverSum="'{:.2f}'.format(partner_vat_list.total_turnover)"
+                    t-att-VATAmountSum="'{:.2f}'.format(partner_vat_list.total_vat)"
+                >
                     <ns2:Declarant>
-                        <VATNumber t-esc="res_company.vat[2:]"/>
-                        <Name t-esc="res_company.name"/>
-                        <Street t-esc="res_company.street"/>
-                        <PostCode t-esc="res_company.zip"/>
-                        <City t-esc="res_company.city"/>
-                        <CountryCode t-esc="res_company.country_id.code"/>
-                        <EmailAddress t-esc="res_company.email"/>
-                        <Phone t-esc="res_company.phone"/>
+                        <VATNumber t-esc="res_company.vat[2:]" />
+                        <Name t-esc="res_company.name" />
+                        <Street t-esc="res_company.street" />
+                        <PostCode t-esc="res_company.zip" />
+                        <City t-esc="res_company.city" />
+                        <CountryCode t-esc="res_company.country_id.code" />
+                        <EmailAddress t-esc="res_company.email" />
+                        <Phone t-esc="res_company.phone" />
                     </ns2:Declarant>
-                    <ns2:Period t-esc="partner_vat_list.year"/>
-                    <t t-foreach="partner_vat_list.partner_ids" t-as="vat_listing_client">
+                    <ns2:Period t-esc="partner_vat_list.year" />
+                    <t
+                        t-foreach="partner_vat_list.partner_ids"
+                        t-as="vat_listing_client"
+                    >
                         <ns2:Client t-att-SequenceNumber="vat_listing_client.seq">
-                            <ns2:CompanyVATNumber issuedBy="BE" t-esc="vat_listing_client.vat[2:]"/>
-                            <ns2:TurnOver t-esc="'{:.2f}'.format(vat_listing_client.turnover)"/>
-                            <ns2:VATAmount t-esc="'{:.2f}'.format(vat_listing_client.vat_amount)"/>
+                            <ns2:CompanyVATNumber
+                                issuedBy="BE"
+                                t-esc="vat_listing_client.vat[2:]"
+                            />
+                            <ns2:TurnOver
+                                t-esc="'{:.2f}'.format(vat_listing_client.turnover)"
+                            />
+                            <ns2:VATAmount
+                                t-esc="'{:.2f}'.format(vat_listing_client.vat_amount)"
+                            />
                         </ns2:Client>
                     </t>
-                    <ns2:Comment t-esc="partner_vat_list.comments"/>
+                    <ns2:Comment t-esc="partner_vat_list.comments" />
                 </ns2:ClientListing>
             </t>
         </ns2:ClientListingConsignment>
     </template>
 
-    <report id="l10n_be_vat_listing_consignment_xml_report"
-            string="BE VAT Listing Consignment - XML"
-            name="l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template"
-            file="l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template"
-            report_type="qweb-xml"
-            print_report_name="'BE VAT Listing Consignment'"
-            model="partner.vat.list"/>
+    <report
+        id="l10n_be_vat_listing_consignment_xml_report"
+        string="BE VAT Listing Consignment - XML"
+        name="l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template"
+        file="l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template"
+        report_type="qweb-xml"
+        print_report_name="'BE VAT Listing Consignment'"
+        model="partner.vat.list"
+    />
 
 </odoo>

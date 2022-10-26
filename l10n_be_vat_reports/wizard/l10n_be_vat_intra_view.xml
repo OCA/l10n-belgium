@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
      Copyright 2004-2010 Tiny SPRL
      Copyright 2018 ACSONE SA/NV
@@ -14,26 +14,31 @@
             <field name="arch" type="xml">
                 <form string="Partner VAT intra">
                     <group>
-                        <separator string="Intracom VAT Declaration"/>
+                        <separator string="Intracom VAT Declaration" />
                     </group>
                     <notebook colspan="4">
                         <page string="General Information">
                             <group>
-                                <field name="period_code"/>
-                                <field name="mand_id"/>
+                                <field name="period_code" />
+                                <field name="mand_id" />
                             </group>
-                            <separator string="Dates"/>
-                            <field name="date_start"/>
-                            <field name="date_end"/>
-                            <separator string="Comments"/>
-                            <field name="comments"/>
+                            <separator string="Dates" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <separator string="Comments" />
+                            <field name="comments" />
                         </page>
                         <page string="European Countries">
-                            <field name="country_ids" colspan="4" nolabel="1"/>
+                            <field name="country_ids" colspan="4" nolabel="1" />
                         </page>
                     </notebook>
                     <footer>
-                        <button name="get_partners" string="View Customers" type="object"  class="oe_highlight"  />
+                        <button
+                            name="get_partners"
+                            string="View Customers"
+                            type="object"
+                            class="oe_highlight"
+                        />
                         or
                         <button string="Cancel" class="oe_link" special="cancel" />
                     </footer>
@@ -47,7 +52,7 @@
             <field name="res_model">partner.vat.intra</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="view_vat_intra_wizard"/>
+            <field name="view_id" ref="view_vat_intra_wizard" />
             <field name="target">new</field>
         </record>
 
@@ -55,7 +60,8 @@
             name="Partner VAT Intra"
             parent="l10n_be.account_reports_be_statements_menu"
             action="action_vat_intra"
-            id="l10_be_vat_intra"/>
+            id="l10_be_vat_intra"
+        />
 
         <record id="view_vat_intra" model="ir.ui.view">
             <field name="name">Partner VAT intra</field>
@@ -64,38 +70,53 @@
                 <form string="Partner VAT intra">
                     <group>
                         <group>
-                            <field name="period_code" readonly="1"/>
-                            <field name="mand_id"/>
+                            <field name="period_code" readonly="1" />
+                            <field name="mand_id" />
                         </group>
                         <group>
-                            <field name="date_start" readonly="1"/>
-                            <field name="date_end" readonly="1"/>
+                            <field name="date_start" readonly="1" />
+                            <field name="date_end" readonly="1" />
                         </group>
                     </group>
                     <notebook>
                         <page name="client_list" string="Client List">
                             <field name="client_ids">
                                 <tree>
-                                    <field name="seq"/>
-                                    <field name="partner_name"/>
-                                    <field name="vat"/>
-                                    <field name="country"/>
-                                    <field name="code"/>
-                                    <field name="amount"/>
+                                    <field name="seq" />
+                                    <field name="partner_name" />
+                                    <field name="vat" />
+                                    <field name="country" />
+                                    <field name="code" />
+                                    <field name="amount" />
                                 </tree>
                             </field>
                         </page>
                         <page name="comments" string="Comments">
-                            <field name="comments"/>
+                            <field name="comments" />
                         </page>
                         <page name="eu_countries" string="European Countries">
-                            <field name="country_ids" colspan="4" nolabel="1" readonly="1"/>
+                            <field
+                                name="country_ids"
+                                colspan="4"
+                                nolabel="1"
+                                readonly="1"
+                            />
                         </page>
                     </notebook>
                     <footer>
-                        <button name="create_xml" string="Create _XML" type="object" class="oe_highlight"/>
+                        <button
+                            name="create_xml"
+                            string="Create _XML"
+                            type="object"
+                            class="oe_highlight"
+                        />
                         or
-                        <button name="print_vat_intra" string="Print PDF" type="object" class="oe_highlight"/>
+                        <button
+                            name="print_vat_intra"
+                            string="Print PDF"
+                            type="object"
+                            class="oe_highlight"
+                        />
                     </footer>
                 </form>
             </field>
@@ -106,9 +127,12 @@
             <field name="model">partner.vat.intra</field>
             <field name="arch" type="xml">
                 <form string="Save XML">
-                    <separator string="Note: "/>
-                    <label string="Save the File with '.xml' extension." for="file_save"/>
-                    <field name="file_save" filename="name"/>
+                    <separator string="Note: " />
+                    <label
+                        string="Save the File with '.xml' extension."
+                        for="file_save"
+                    />
+                    <field name="file_save" filename="name" />
                 </form>
             </field>
         </record>
