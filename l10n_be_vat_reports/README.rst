@@ -49,7 +49,7 @@ Authors
 ~~~~~~~
 
 * ACSONE SA/NV
-* Coop IT Easy SCRLfs
+* Coop IT Easy SC
 * Odoo SA
 
 Contributors
