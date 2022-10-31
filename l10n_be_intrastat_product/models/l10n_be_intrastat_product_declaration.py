@@ -2,7 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
+from datetime import date
 
+from dateutil.relativedelta import relativedelta
 from lxml import etree
 
 from odoo import _, api, fields, models
@@ -82,22 +84,42 @@ class L10nBeIntrastatProductDeclaration(models.Model):
             return super()._get_vat(inv_line, notedict)
 
     def _handle_refund(self, inv_line, line_vals, notedict):
-        invoice = inv_line.move_id
+        """
+        NBB/BNB Intrastat Manual 2022 :
+        - FR : Traiter des notes de crédit p 34
+        - NL : Creditnota’s verwerken p 36
+
+        To follow the logic explained in the intrastat manual
+        requires a well enforced set of business processes
+        to ensure correct encoding of Credit Notes.
+        If the transaction code is not set on the Credit Note
+        and there is no linked shipment than we fall back to the
+        default settings for refunds.
+
+        ŦODO:
+        Move the refund handling to the 'intrastat_product' module and
+        add refund unit tests.
+        """
+        refund = inv_line.move_id
+        if refund.intrastat_transaction_id:
+            line_vals["transaction_id"] = refund.intrastat_transaction_id.id
+            return
         # The invoice.picking_ids field in implemented in the
         # OCA stock_picking_invoice_link module
-        if hasattr(invoice, "picking_ids"):
-            return_picking = invoice.picking_ids
+        if hasattr(refund, "picking_ids"):
+            return_picking = refund.picking_ids
         else:
             return_picking = False
+
         if return_picking:
 
-            if invoice.move_type == "in_refund":
+            if refund.move_type == "in_refund":
                 if self.declaration_type == "arrivals":
                     if self.company_id.intrastat_dispatches == "exempt":
                         line_vals.update(
                             {
                                 "hs_code_id": notedict["credit_note_code"].id,
-                                "region_id": invoice.src_dest_region_id.id,
+                                "region_id": refund.src_dest_region_id.id,
                                 "transaction_id": False,
                             }
                         )
@@ -106,7 +128,7 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                 else:
                     line_vals.update(
                         {
-                            "region_id": invoice.src_dest_region_id.id,
+                            "region_id": refund.src_dest_region_id.id,
                             "transaction_id": notedict["transcation_21"].id,
                         }
                     )
@@ -117,7 +139,7 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                         line_vals.update(
                             {
                                 "hs_code_id": notedict["credit_note_code"].id,
-                                "region_id": invoice.src_dest_region_id.id,
+                                "region_id": refund.src_dest_region_id.id,
                                 "transaction_id": False,
                             }
                         )
@@ -126,26 +148,43 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                 else:
                     line_vals.update(
                         {
-                            "region_id": invoice.src_dest_region_id.id,
+                            "region_id": refund.src_dest_region_id.id,
                             "transaction_id": notedict["transcation_21"].id,
                         }
                     )
-        else:
-            # Manual correction of the declaration lines can be required
-            # when the sum of the computation lines results in
-            # negative values
-            line_vals.update(
-                {
-                    "weight": -line_vals["weight"],
-                    "suppl_unit_qty": -line_vals["suppl_unit_qty"],
-                    "amount_company_currency": -line_vals["amount_company_currency"],
-                }
-            )
+        else:  # return_picking is False
+            # We assume that there is no movement of goods.
+            # This assumption could be wrong but can only be fixed by adjusting the
+            # business processes of the company subject to the intrastat declaration.
+
+            start_date = date(int(self.year), int(self.month), 1)
+            end_date = start_date + relativedelta(day=1, months=+1, days=-1)
+            invoice = refund.reversed_entry_id
+
+            if invoice.state == "posted" and start_date <= invoice.date <= end_date:
+                # Manual correction of the declaration lines can be required
+                # when the sum of the computation lines results in
+                # negative values
+                line_vals.update(
+                    {
+                        "weight": -line_vals["weight"],
+                        "suppl_unit_qty": -line_vals["suppl_unit_qty"],
+                        "amount_company_currency": -line_vals[
+                            "amount_company_currency"
+                        ],
+                    }
+                )
+                return
+
+            line_notes = [
+                _("Unable to determine the correct handling of Refund."),
+                _("Please check/set the Intrastat Transaction Code on the Refund."),
+            ]
+            self._format_line_note(inv_line, notedict, line_notes)
 
     def _update_computation_line_vals(self, inv_line, line_vals, notedict):
         super()._update_computation_line_vals(inv_line, line_vals, notedict)
         # handling of refunds
-        # cf. NBB/BNB Intrastat guide 2016, Part,  I - Basis, par 9.6
         inv = inv_line.move_id
         if inv.move_type in ["in_refund", "out_refund"]:
             self._handle_refund(inv_line, line_vals, notedict)
