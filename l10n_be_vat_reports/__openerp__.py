@@ -26,6 +26,7 @@
 {
     'name': 'Belgium VAT Reports',
     'author': 'ACSONE SA/NV,'
+              'Odoo SA,'
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/l10n-belgium',
     'category': 'Reporting',
