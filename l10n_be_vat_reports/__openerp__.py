@@ -24,24 +24,22 @@
 #
 ##############################################################################
 {
-    'name': 'Belgium VAT Reports',
-    'author': 'ACSONE SA/NV,'
-              'Odoo SA,'
-              'Odoo Community Association (OCA)',
-    'website': 'https://github.com/OCA/l10n-belgium',
-    'category': 'Reporting',
-    'version': '9.0.1.0.0',
-    'license': 'AGPL-3',
-    'depends': [
-        'l10n_be',
-        'account',
+    "name": "Belgium VAT Reports",
+    "author": "ACSONE SA/NV," "Odoo SA," "Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/l10n-belgium",
+    "category": "Reporting",
+    "version": "9.0.1.0.0",
+    "license": "AGPL-3",
+    "depends": [
+        "l10n_be",
+        "account",
     ],
-    'data': [
-        'wizard/l10n_be_partner_vat_listing.xml',
-        'wizard/l10n_be_vat_intra_view.xml',
-        'views/report_vatintraprint.xml',
-        'views/report_vatpartnerlisting.xml',
-        'l10n_be_reports.xml',
+    "data": [
+        "wizard/l10n_be_partner_vat_listing.xml",
+        "wizard/l10n_be_vat_intra_view.xml",
+        "views/report_vatintraprint.xml",
+        "views/report_vatpartnerlisting.xml",
+        "l10n_be_reports.xml",
     ],
-    'installable': True,
+    "installable": True,
 }
