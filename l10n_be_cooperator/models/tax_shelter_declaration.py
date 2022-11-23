@@ -8,7 +8,7 @@ TYPE_MAP = {
     "sell_back": "resold",
 }
 
-REPORT_DIC = {
+REPORTS = {
     "subscription": (
         "l10n_be_cooperator.action_tax_shelter_subscription_report",
         "Tax Shelter Subscription",
@@ -18,6 +18,31 @@ REPORT_DIC = {
         "Tax Shelter Shares",
     ),
 }
+
+
+def send_mail_with_additional_attachments(mail_template, res_id, attachments):
+    # FIXME: this is a workaround to allow to add multiple attachments to a
+    # mail message sent from a mail template. the
+    # mail_template_multi_attachment module should be used instead, but it is
+    # currently only available in version 13.0.
+
+    # .send_mail() creates a mail message but does not send it yet. it will be
+    # sent later when the email queue will be processed.
+    message_id = mail_template.send_mail(res_id)
+    env = mail_template.env
+    message = env["mail.mail"].browse(message_id)
+    attachment_model = env["ir.attachment"]
+    attachment_ids = [attachment.id for attachment in message.attachment_ids]
+    for attachment in attachments:
+        attachment_data = {
+            "name": attachment[0],
+            "datas": attachment[1],
+            "type": "binary",
+            "res_model": "mail.message",
+            "res_id": message.mail_message_id.id,
+        }
+        attachment_ids.append(attachment_model.create(attachment_data).id)
+    message.attachment_ids = [(6, 0, attachment_ids)]
 
 
 class TaxShelterDeclaration(models.Model):
@@ -274,7 +299,7 @@ class TaxShelterCertificate(models.Model):
             )
 
     def generate_pdf_report(self, report_type):
-        report, name = REPORT_DIC[report_type]
+        report, name = REPORTS[report_type]
         report = self.env.ref(report)._render_qweb_pdf(self.id)[0]
         report = base64.b64encode(report)
         report_name = (
@@ -306,35 +331,21 @@ class TaxShelterCertificate(models.Model):
             ):
                 attachments = certificate.generate_certificates_report()
                 if len(attachments) > 0:
-                    tax_shelter_mail_template.send_mail_with_multiple_attachments(
-                        certificate.id, attachments, True
+                    send_mail_with_additional_attachments(
+                        tax_shelter_mail_template, certificate.id, attachments
                     )
                 certificate.state = "sent"
             else:
                 certificate.state = "no_eligible"
-            # pylint: disable=invalid-commit
-            # fixme while you're here, please fix the query
-            #  to pass pylint invalid-commit
-            #  Use of cr.commit() directly is dangerous
-            #  More info https://github.com/OCA/odoo-community.org/blob/master/website/Contribution/CONTRIBUTING.rst#never-commit-the-transaction  # noqa
-
-            # Note: c'est n'est pas executé par du rpc-client mais via un
-            # cron. En sachant que l'on ne veut pas faire de roll back de
-            # toute la transaction parce que justement des mails sont
-            # envoyés. Et on ne peut pas rollbacker des emails envoyés ici
-            # c'est un rollback qui rendre le processus métier inconsistant
-            # sachant que chaque ligne à son propre état et est indépendante
-            # du statut de la déclaration tax shelter dont elle dépend
-            self.env.cr.commit()
 
     def print_subscription_certificate(self):
         self.ensure_one()
-        report, name = REPORT_DIC["subscription"]
+        report, name = REPORTS["subscription"]
         return self.env.ref(report).report_action(self)
 
     def print_shares_certificate(self):
         self.ensure_one()
-        report, name = REPORT_DIC["shares"]
+        report, name = REPORTS["shares"]
         return self.env.ref(report).report_action(self)
 
     def _compute_amounts(self):
@@ -342,15 +353,15 @@ class TaxShelterCertificate(models.Model):
             total_amount_previously_subscribed = 0
             total_amount_previously_eligible = 0
             total_amount_subscribed = 0
-            total_amount_elligible = 0
+            total_amount_eligible = 0
             total_amount_transfered = 0
             total_amount_resold = 0
 
             for line in certificate.subscribed_lines:
                 total_amount_subscribed += line.amount_subscribed
-                total_amount_elligible += line.amount_subscribed_eligible
+                total_amount_eligible += line.amount_subscribed_eligible
             certificate.total_amount_subscribed = total_amount_subscribed
-            certificate.total_amount_eligible = total_amount_elligible
+            certificate.total_amount_eligible = total_amount_eligible
 
             for line in certificate.previously_subscribed_eligible_lines:
                 total_amount_previously_eligible += line.amount_subscribed_eligible
