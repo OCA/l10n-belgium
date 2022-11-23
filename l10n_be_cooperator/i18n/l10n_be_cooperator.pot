@@ -298,7 +298,6 @@ msgstr ""
 
 #. module: l10n_be_cooperator
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_certificate_line__display_name
-#: model:ir.model.fields,field_description:l10n_be_cooperator.field_mail_template__display_name
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_res_partner__display_name
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_subscription_request__display_name
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_tax_shelter_certificate__display_name
@@ -324,11 +323,6 @@ msgid "Eligible amount"
 msgstr ""
 
 #. module: l10n_be_cooperator
-#: model:ir.model,name:l10n_be_cooperator.model_mail_template
-msgid "Email Templates"
-msgstr ""
-
-#. module: l10n_be_cooperator
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_tax_shelter_declaration__excluded_cooperator
 msgid "Excluded cooperator"
 msgstr ""
@@ -345,7 +339,6 @@ msgstr ""
 
 #. module: l10n_be_cooperator
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_certificate_line__id
-#: model:ir.model.fields,field_description:l10n_be_cooperator.field_mail_template__id
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_res_partner__id
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_subscription_request__id
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_tax_shelter_certificate__id
@@ -382,7 +375,6 @@ msgstr ""
 
 #. module: l10n_be_cooperator
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_certificate_line____last_update
-#: model:ir.model.fields,field_description:l10n_be_cooperator.field_mail_template____last_update
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_res_partner____last_update
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_subscription_request____last_update
 #: model:ir.model.fields,field_description:l10n_be_cooperator.field_tax_shelter_certificate____last_update
