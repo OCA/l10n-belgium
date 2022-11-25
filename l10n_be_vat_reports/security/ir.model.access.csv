@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_partner_vat_intra,access_partner_vat_intra,model_partner_vat_intra,base.group_user,1,1,1,0
+access_partner_vat_list,access_partner_vat_list,model_partner_vat_list,base.group_user,1,1,1,0
+access_partner_vat_list_client,access_partner_vat_list_client,model_partner_vat_list_client,base.group_user,1,1,1,0
+access_vat_intra_client,access_vat_intra_client,model_vat_intra_client,base.group_user,1,1,1,0

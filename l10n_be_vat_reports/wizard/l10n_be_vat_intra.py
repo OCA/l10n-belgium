@@ -87,7 +87,6 @@ class PartnerVATIntra(models.TransientModel):
     name = fields.Char("File Name", default="vat_intra.xml")
     period_code = fields.Char(
         string="Period Code",
-        size=6,
         required=True,
         help="""This is where you have to set the period code for the """
         """intracom declaration using the format: ppyyyy
