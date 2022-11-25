@@ -14,7 +14,6 @@ class PartnerVATList(models.TransientModel):
 
     year = fields.Char(
         "Year",
-        size=4,
         required=True,
         default=lambda _: str(date.today().year - 1),
     )
