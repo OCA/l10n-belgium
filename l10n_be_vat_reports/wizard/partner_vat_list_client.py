@@ -17,7 +17,6 @@ class VATListingClients(models.TransientModel):
     turnover = fields.Float("Base Amount")
     vat_amount = fields.Float("VAT Amount")
 
-    @api.multi
     @api.constrains("vat")
     def _check_vat_number(self):
         """

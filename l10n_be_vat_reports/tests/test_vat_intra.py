@@ -12,8 +12,8 @@ from .common import TestVatReportsCommon
 
 class TestVatIntra(TestVatReportsCommon):
     def setUp(self):
-        super(TestVatReportsCommon, self).setUp()
-        company = self.env.user.company_id
+        super().setUp()
+        company = self.env.company
         tax = self.env.ref("l10n_be.%s_attn_VAT-OUT-00-EU-S" % company.id)
         self._create_test_data(tax)
 
@@ -46,6 +46,6 @@ class TestVatIntra(TestVatReportsCommon):
             }
         )
         wizard.get_partners()
-        self.assertEquals(wizard.client_ids[0].amount, 450.0)
-        self.assertEquals(wizard.amount_total, 450.0)
+        self.assertEqual(wizard.client_ids[0].amount, 450.0)
+        self.assertEqual(wizard.amount_total, 450.0)
         wizard.print_vat_intra()

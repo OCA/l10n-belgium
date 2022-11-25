@@ -8,8 +8,8 @@ from .common import TestVatReportsCommon
 
 class TestVatListing(TestVatReportsCommon):
     def setUp(self):
-        super(TestVatReportsCommon, self).setUp()
-        company = self.env.user.company_id
+        super().setUp()
+        company = self.env.company
         tax = self.env.ref("l10n_be.%s_attn_VAT-OUT-21-S" % company.id)
         self._create_test_data(tax)
 
@@ -20,7 +20,7 @@ class TestVatListing(TestVatReportsCommon):
         )
         partner_vat_list.get_partners()
 
-        self.assertEquals(partner_vat_list.total_turnover, 450.0)
+        self.assertEqual(partner_vat_list.total_turnover, 450.0)
         self.assertEqual(partner_vat_list.total_vat, 94.5)
 
         # coverage
