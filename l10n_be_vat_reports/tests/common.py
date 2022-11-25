@@ -26,7 +26,7 @@ class TestVatReportsCommon(TransactionCase):
         )
         invoice = self.env["account.move"].create(
             {
-                "type": "out_invoice",
+                "move_type": "out_invoice",
                 "company_id": company.id,
                 "currency_id": self.env.ref("base.EUR").id,
                 "invoice_line_ids": [

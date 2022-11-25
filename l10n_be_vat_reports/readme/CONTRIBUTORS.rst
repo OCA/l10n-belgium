@@ -1,2 +1,5 @@
 * André Paramés <github@andreparames.com> (https://www.acsone.eu/)
-* Robin Keunen <robin@coopiteasy.be> (https://www.coopiteasy.be)
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
+
+  * Robin Keunen
+  * hugues de keyzer
