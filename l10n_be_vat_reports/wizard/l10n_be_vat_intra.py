@@ -21,7 +21,6 @@ class VATIntraClient(models.TransientModel):
     code = fields.Char("Code")
     amount = fields.Float(string="Amount")
 
-    @api.multi
     def to_dict(self):
         return [
             {
@@ -138,7 +137,6 @@ class PartnerVATIntra(models.TransientModel):
     )
     amount_total = fields.Float(string="Amount Total", compute="_compute_sums")
 
-    @api.multi
     @api.depends("client_ids")
     def _compute_sums(self):
         for vat_intra in self:
@@ -158,62 +156,66 @@ class PartnerVATIntra(models.TransientModel):
             if not rec.date_start <= rec.date_end:
                 raise UserError(_("Start date cannot be after the end date."))
 
-    @api.multi
     def get_partners(self):
         self.ensure_one()
+        tax_tags = {
+            "44": "S",
+            "46L": "L",
+            "46T": "T",
+        }
 
         query = """
-WITH taxes AS
-         (SELECT tag_xmlid.name, tagsrel.account_tax_id
-          FROM account_tax_account_tag tagsrel
-                   INNER JOIN ir_model_data tag_xmlid ON (
-                  tag_xmlid.model = 'account.account.tag'
-                  AND tagsrel.account_account_tag_id = tag_xmlid.res_id)
-          WHERE tag_xmlid.NAME IN %s)
-SELECT p.name          As partner_name,
-       l.partner_id    AS partner_id,
-       p.vat           AS vat,
-       t.name          AS intra_code,
-       SUM(-l.balance) AS amount
-FROM account_move_line l
-         INNER JOIN account_move_line_account_tax_rel taxrel
-                    ON (taxrel.account_move_line_id = l.id)
-         INNER JOIN taxes t ON (taxrel.account_tax_id = t.account_tax_id)
-         LEFT JOIN res_partner p ON (l.partner_id = p.id)
-WHERE l.date BETWEEN %s AND %s
-    AND l.company_id = %s
-GROUP BY p.name, l.partner_id, p.vat, intra_code
-          """
-        tags_xmlids = ("tax_tag_44", "tax_tag_46L", "tax_tag_46T")
-        company_id = self.env.user.company_id.id
+with vat_tag as (
+    select aat.id, atrl.tag_name
+    from account_account_tag as aat
+    inner join account_tax_report_line_tags_rel as atrltr on
+        atrltr.account_account_tag_id = aat.id
+    inner join account_tax_report_line as atrl on
+        atrltr.account_tax_report_line_id = atrl.id and
+        atrl.tag_name in %s)
+select
+    rp.name as partner_name,
+    rp.vat,
+    vt.tag_name as intra_code,
+    round(sum(-aml.balance), 2) as amount
+from account_move_line as aml
+inner join account_account_tag_account_move_line_rel as aatamlr on
+    aatamlr.account_move_line_id = aml.id
+inner join vat_tag as vt on
+    aatamlr.account_account_tag_id = vt.id
+left join res_partner as rp on
+    aml.partner_id = rp.id
+where
+    aml.date between %s and %s and
+    aml.company_id = %s
+group by 1, 2, 3
+        """
+        tax_tag_names = tuple(tax_tags.keys())
+        company_id = self.env.company.id
 
         self.env.cr.execute(
-            query, (tags_xmlids, self.date_start, self.date_end, company_id)
+            query, (tax_tag_names, self.date_start, self.date_end, company_id)
         )
 
-        seq = 0
-        clients = self.env["vat.intra.client"].browse()
-        for row in self.env.cr.dictfetchall():
-            seq += 1
+        vat_intra_client_model = self.env["vat.intra.client"]
+        clients = vat_intra_client_model.browse()
+        for seq, row in enumerate(self.env.cr.dictfetchall(), start=1):
             amount = row["amount"] or 0.0
-            code = {
-                "tax_tag_44": "S",
-                "tax_tag_46L": "L",
-                "tax_tag_46T": "T",
-            }.get(row["intra_code"], "")
+            code = tax_tags.get(row["intra_code"], "")
             vat = row.get("vat") or ""
+            vat = vat.replace(" ", "").upper()
 
             client_data = {
                 "seq": seq,
                 "partner_name": row["partner_name"],
                 "vat": vat,
-                "vatnum": vat[2:].replace(" ", "").upper(),
+                "vatnum": vat[2:],
                 "country": vat[:2],
                 "intra_code": row["intra_code"],
                 "code": code,
-                "amount": round(amount, 2),
+                "amount": amount,
             }
-            client = self.env["vat.intra.client"].create(client_data)
+            client = vat_intra_client_model.create(client_data)
             clients |= client
 
         self.client_ids = clients
@@ -267,12 +269,11 @@ GROUP BY p.name, l.partner_id, p.vat, intra_code
 
         return address_data
 
-    @api.multi
     def _get_data(self):
         self.ensure_one()
 
         # company data
-        company = self.env.user.company_id
+        company = self.env.company
         company_vat = company.partner_id.vat
         if not company_vat:
             raise UserError(_("No VAT number associated with your company."))
@@ -307,7 +308,6 @@ GROUP BY p.name, l.partner_id, p.vat, intra_code
         data.update(company_address)
         return data
 
-    @api.multi
     def create_xml(self):
         """Creates xml that is to be exported and sent to estate for
            partner vat intra.
@@ -381,7 +381,7 @@ GROUP BY p.name, l.partner_id, p.vat, intra_code
         data_clientinfo = ""
         for client in xml_data["clientlist"]:
             if not client["vatnum"]:
-                msg = _("No vat number defined for %s.")
+                msg = _("No VAT number defined for %s.")
                 raise UserError(msg % client["partner_name"])
             data_clientinfo += (
                 '\n\t\t<ns2:IntraClient SequenceNumber="%(seq)s">\n\t\t\t'
@@ -432,7 +432,6 @@ GROUP BY p.name, l.partner_id, p.vat, intra_code
             "res_id": self.id,
         }
 
-    @api.multi
     def print_vat_intra(self):
         self.ensure_one()
 

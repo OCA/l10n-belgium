@@ -10,9 +10,13 @@
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
     "category": "Reporting",
-    "version": "12.0.2.0.2",
+    "version": "13.0.1.0.0",
     "license": "AGPL-3",
-    "depends": ["l10n_be", "account", "report_xml"],
+    "depends": [
+        "l10n_be",
+        "account",
+        "report_xml",
+    ],
     "data": [
         "reports/be_vat_client_listing_consignment.xml",
         "wizard/partner_vat_list_views.xml",
@@ -21,5 +25,4 @@
         "views/report_vatpartnerlisting.xml",
         "reports/l10n_be_reports.xml",
     ],
-    "installable": True,
 }
