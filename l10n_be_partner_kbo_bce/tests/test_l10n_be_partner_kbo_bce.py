@@ -32,7 +32,7 @@ class TestKboBceNumber(TransactionCase):
         rp = self.rp_1
         rp.vat = "BE 0820 512 013"
         rp.kbo_bce_number = "0820512013"
-        rp.invalidate_cache(["kbo_bce_number"])
+        rp.invalidate_recordset(["kbo_bce_number"])
         self.assertEqual(rp.kbo_bce_number, "0820.512.013")
 
     def test_create_be_partner(self):
