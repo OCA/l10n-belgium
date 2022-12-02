@@ -73,7 +73,7 @@ class TestUpload(VCRMixin, TransactionCase):
                         0,
                         0,
                         {
-                            "product_id": self.env.ref("product.product_product_25"),
+                            "product_id": self.env.ref("product.product_product_25").id,
                             "price_unit": 1000.0,
                         },
                     )
