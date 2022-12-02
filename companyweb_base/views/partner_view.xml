@@ -4,7 +4,6 @@
         <field name="name">partner.cweb_info</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
-        <field name="groups_id" eval="[(6, 0, [ref('companyweb_base.cweb_view')])]" />
         <field name="arch" type="xml">
             <field name="country_id" position="after">
                 <p>
@@ -29,6 +28,7 @@
                 <page
                     string="Companyweb"
                     attrs="{'invisible': [('cweb_show_tab','=', False)]}"
+                    groups="companyweb_base.cweb_view"
                 >
                     <img
                         alt="Companyweb"
@@ -74,7 +74,6 @@
                             string="Global"
                             attrs="{'invisible':[('cweb_name_enable', '!=', True )]}"
                         >
-                            <div /> <!-- here it is -->
                             <field
                                 string="Last Update"
                                 name="cweb_lastupdate"
@@ -166,7 +165,6 @@
                     </group> <!-- end of group top -->
                     <group name="cweb_group_bottom">
                         <group name="cweb_financial">
-                            <div /> <!-- here it is -->
                             <field
                                 string="Book year"
                                 name="cweb_balance_year"
@@ -241,7 +239,6 @@
                     </group> <!-- end of group bottom-->
                     <group>
                         <group>
-                            <div /> <!-- here it is -->
                             <field
                                 string="Established"
                                 name="cweb_startDate"
