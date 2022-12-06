@@ -7,9 +7,9 @@
 
 <!-- /!\ do not modify above this line -->
 
-# l10n-belgium
+# Belgian Localization
 
-TODO: add repo description.
+This repository contains Odoo localization modules for Belgium, which complement the official `l10n_be` module.
 
 <!-- /!\ do not modify below this line -->
 
