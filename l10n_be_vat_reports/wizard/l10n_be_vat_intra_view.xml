@@ -2,7 +2,7 @@
 <!--
      Copyright 2004-2010 Tiny SPRL
      Copyright 2018 ACSONE SA/NV
-     Copyright 2020 Coop IT Easy
+     Copyright 2020 Coop IT Easy SC
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 -->
 <odoo>
@@ -18,7 +18,6 @@
                     <page string="General Information">
                         <group>
                             <field name="period_code" />
-                            <field name="mand_id" />
                         </group>
                         <separator string="Dates" />
                         <field name="date_start" />
@@ -68,7 +67,6 @@
                 <group>
                     <group>
                         <field name="period_code" readonly="1" />
-                        <field name="mand_id" />
                     </group>
                     <group>
                         <field name="date_start" readonly="1" />
@@ -115,18 +113,6 @@
                         class="oe_highlight"
                     />
                 </footer>
-            </form>
-        </field>
-    </record>
-
-    <record id="view_vat_intra_save" model="ir.ui.view">
-        <field name="name">Partner VAT intra Save</field>
-        <field name="model">partner.vat.intra</field>
-        <field name="arch" type="xml">
-            <form string="Save XML">
-                <separator string="Note: " />
-                <label string="Save the File with '.xml' extension." for="file_save" />
-                <field name="file_save" filename="name" />
             </form>
         </field>
     </record>
