@@ -178,6 +178,9 @@ select
     vt.tag_name as intra_code,
     round(sum(-aml.balance), 2) as amount
 from account_move_line as aml
+inner join account_move as am on
+    aml.move_id = am.id and
+    am.state = 'posted'
 inner join account_account_tag_account_move_line_rel as aatamlr on
     aatamlr.account_move_line_id = aml.id
 inner join vat_tag as vt on
