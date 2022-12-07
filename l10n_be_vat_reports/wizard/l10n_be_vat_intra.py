@@ -1,40 +1,10 @@
 # Copyright 2004-2010 Tiny SPRL
 # Copyright 2018 ACSONE SA/NV
 # Copyright 2020 Coop IT Easy SC
-import base64
 import time
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-
-
-class VATIntraClient(models.TransientModel):
-    _name = "vat.intra.client"
-    _description = "Vat Intra Client"
-
-    seq = fields.Integer("Sequence")
-    partner_name = fields.Char("Client Name")
-    vatnum = fields.Char("VAT number")
-    vat = fields.Char("VAT")
-    country = fields.Char("Country")
-    intra_code = fields.Char("Intra Code")
-    code = fields.Char("Code")
-    amount = fields.Float(string="Amount")
-
-    def to_dict(self):
-        return [
-            {
-                "partner_name": client.partner_name,
-                "seq": client.seq,
-                "vatnum": client.vatnum,
-                "vat": client.vat,
-                "country": client.country,
-                "amount": client.amount,
-                "intra_code": client.intra_code,
-                "code": client.code,
-            }
-            for client in self
-        ]
 
 
 class PartnerVATIntra(models.TransientModel):
@@ -44,6 +14,7 @@ class PartnerVATIntra(models.TransientModel):
 
     _name = "partner.vat.intra"
     _description = "Partner VAT Intra"
+    _inherit = ["vat.declaration.mixin"]
 
     @api.model
     def _get_europe_country(self):
@@ -84,7 +55,6 @@ class PartnerVATIntra(models.TransientModel):
             ]
         )
 
-    name = fields.Char("File Name", default="vat_intra.xml")
     period_code = fields.Char(
         string="Period Code",
         required=True,
@@ -97,21 +67,12 @@ class PartnerVATIntra(models.TransientModel):
                PP can stand for a complete fiscal year: '00'.
                YYYY stands for the year (4 positions).""",
     )
+    month = fields.Integer("Month", compute="_compute_period")
+    quarter = fields.Integer("Quarter", compute="_compute_period")
+    year = fields.Integer("Year", compute="_compute_period")
     date_start = fields.Date("Start date", required=True)
     date_end = fields.Date("End date", required=True)
     test_xml = fields.Boolean("Test XML file", help="Sets the XML output as test file")
-    mand_id = fields.Char(
-        "Reference",
-        help="Reference given by the Representative of the sending company.",
-    )
-    msg = fields.Text("File created", readonly=True)
-    no_vat = fields.Text(
-        "Partner With No VAT",
-        readonly=True,
-        help="The Partner whose VAT number is not defined and they are not "
-        "included in XML File.",
-    )
-    file_save = fields.Binary("Save File", readonly=True)
     country_ids = fields.Many2many(
         "res.country",
         "vat_country_rel",
@@ -120,7 +81,6 @@ class PartnerVATIntra(models.TransientModel):
         "European Countries",
         default=_get_europe_country,
     )
-    comments = fields.Text("Comments")
     client_ids = fields.Many2many(
         comodel_name="vat.intra.client",
         relation="vat_intra_client_rel",
@@ -130,11 +90,25 @@ class PartnerVATIntra(models.TransientModel):
         help="You can remove clients/partners which you do "
         "not want to show in xml file",
     )
-
     partner_wo_vat = fields.Integer(
         string="Partner without VAT", compute="_compute_sums"
     )
     amount_total = fields.Float(string="Amount Total", compute="_compute_sums")
+
+    @api.depends("period_code")
+    def _compute_period(self):
+        for vat_intra in self:
+            month_quarter = vat_intra.period_code[:2]
+            if month_quarter.startswith("3"):
+                vat_intra.month = False
+                vat_intra.quarter = int(month_quarter[1])
+            elif month_quarter.startswith("0") and month_quarter.endswith("0"):
+                vat_intra.month = False
+                vat_intra.quarter = False
+            else:
+                vat_intra.month = int(month_quarter)
+                vat_intra.quarter = False
+            vat_intra.year = vat_intra.period_code[2:]
 
     @api.depends("client_ids")
     def _compute_sums(self):
@@ -311,128 +285,10 @@ group by 1, 2, 3
         return data
 
     def create_xml(self):
-        """Creates xml that is to be exported and sent to estate for
-           partner vat intra.
-        :return: Value for next action.
-        :rtype: dict
-        """
-        # todo use OCA module report_xml
-        xml_data = self._get_data()
-        month_quarter = xml_data["period"][:2]
-        year = xml_data["period"][2:]
-        data_file = ""
-
-        # Can't we do this by etree?
-        data_head = """<?xml version="1.0" encoding="UTF-8"?>
-    <ns2:IntraConsignment
-     xmlns="http://www.minfin.fgov.be/InputCommon"
-     xmlns:ns2="http://www.minfin.fgov.be/IntraConsignment"
-     IntraListingsNbr="1">
-        <ns2:Representative>
-            <RepresentativeID
-                identificationType="NVAT"
-                issuedBy="%(issued_by)s">%(vatnum)s</RepresentativeID>
-            <Name>%(company_name)s</Name>
-            <Street>%(street)s</Street>
-            <PostCode>%(post_code)s</PostCode>
-            <City>%(city)s</City>
-            <CountryCode>%(country)s</CountryCode>
-            <EmailAddress>%(email)s</EmailAddress>
-            <Phone>%(phone)s</Phone>
-        </ns2:Representative>""" % (
-            xml_data
-        )
-        if xml_data["mand_id"]:
-            data_head += (
-                "\n\t\t<ns2:RepresentativeReference>"
-                "%(mand_id)s"
-                "</ns2:RepresentativeReference>" % (xml_data)
-            )
-        data_comp_period = (
-            "\n\t\t<ns2:Declarant>\n\t\t\t"
-            "<VATNumber>%(vatnum)s</VATNumber>\n\t\t\t"
-            "<Name>%(company_name)s</Name>\n\t\t\t"
-            "<Street>%(street)s</Street>\n\t\t\t"
-            "<PostCode>%(post_code)s</PostCode>\n\t\t\t"
-            "<City>%(city)s</City>\n\t\t\t"
-            "<CountryCode>%(country)s</CountryCode>\n\t\t\t"
-            "<EmailAddress>%(email)s</EmailAddress>\n\t\t\t"
-            "<Phone>%(phone)s</Phone>\n\t\t"
-            "</ns2:Declarant>" % (xml_data)
-        )
-        if month_quarter.startswith("3"):
-            data_comp_period += (
-                "\n\t\t<ns2:Period>\n\t\t\t"
-                "<ns2:Quarter>" + month_quarter[1] + "</ns2:Quarter> \n\t\t\t"
-                "<ns2:Year>" + year + "</ns2:Year>\n\t\t</ns2:Period>"
-            )
-        elif month_quarter.startswith("0") and month_quarter.endswith("0"):
-            data_comp_period += (
-                "\n\t\t<ns2:Period>\n\t\t\t"
-                "<ns2:Year>" + year + "</ns2:Year>\n\t\t"
-                "</ns2:Period>"
-            )
-        else:
-            data_comp_period += (
-                "\n\t\t<ns2:Period>\n\t\t\t"
-                "<ns2:Month>" + month_quarter + "</ns2:Month> \n\t\t\t"
-                "<ns2:Year>" + year + "</ns2:Year>\n\t\t"
-                "</ns2:Period>"
-            )
-
-        data_clientinfo = ""
-        for client in xml_data["clientlist"]:
-            if not client["vatnum"]:
-                msg = _("No VAT number defined for %s.")
-                raise UserError(msg % client["partner_name"])
-            data_clientinfo += (
-                '\n\t\t<ns2:IntraClient SequenceNumber="%(seq)s">\n\t\t\t'
-                '<ns2:CompanyVATNumber issuedBy="%(country)s">%(vatnum)s'
-                "</ns2:CompanyVATNumber>\n\t\t\t"
-                "<ns2:Code>%(code)s</ns2:Code>\n\t\t\t"
-                "<ns2:Amount>%(amount).2f</ns2:Amount>\n\t\t"
-                "</ns2:IntraClient>"
-            ) % (client)
-
-        data_decl = (
-            '\n\t<ns2:IntraListing SequenceNumber="1" '
-            'ClientsNbr="%(clientnbr)s" DeclarantReference="%(dnum)s" '
-            'AmountSum="%(amountsum).2f">'
-        ) % (xml_data)
-
-        data_file += (
-            data_head
-            + data_decl
-            + data_comp_period
-            + data_clientinfo
-            + "\n\t\t<ns2:Comment>%(comments)s</ns2:Comment>\n\t"
-            "</ns2:IntraListing>\n</ns2:IntraConsignment>"
-        ) % (xml_data)
-
-        file_save = base64.b64encode(data_file.encode("utf8"))
-        self.write({"file_save": file_save})
-
-        model_data = self.env["ir.model.data"].search(
-            [
-                ("model", "=", "ir.ui.view"),
-                ("name", "=", "view_vat_intra_save"),
-            ],
-            limit=1,
-        )
-        resource_id = model_data.res_id
-
-        return {
-            "name": _("Save"),
-            "context": self.env.context,
-            "view_type": "form",
-            "view_mode": "form",
-            "res_model": "partner.vat.intra",
-            "views": [(resource_id, "form")],
-            "view_id": "view_vat_intra_save",
-            "type": "ir.actions.act_window",
-            "target": "new",
-            "res_id": self.id,
-        }
+        self.ensure_one()
+        return self.env.ref(
+            "l10n_be_vat_reports.l10n_be_vat_intra_consignment_xml_report"
+        ).report_action(self, config=False)
 
     def print_vat_intra(self):
         self.ensure_one()

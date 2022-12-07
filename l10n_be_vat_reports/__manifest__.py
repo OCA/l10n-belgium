@@ -20,6 +20,8 @@
     "data": [
         "security/ir.model.access.csv",
         "reports/be_vat_client_listing_consignment.xml",
+        "reports/be_vat_declarant.xml",
+        "reports/be_vat_intra_consignment.xml",
         "wizard/partner_vat_list_views.xml",
         "wizard/l10n_be_vat_intra_view.xml",
         "views/report_vatintraprint.xml",
