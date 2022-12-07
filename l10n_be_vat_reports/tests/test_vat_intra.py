@@ -11,11 +11,13 @@ from .common import TestVatReportsCommon
 
 
 class TestVatIntra(TestVatReportsCommon):
+    def _get_tax(self):
+        company = self.env.company
+        return self.env.ref("l10n_be.%s_attn_VAT-OUT-00-EU-S" % company.id)
+
     def setUp(self):
         super().setUp()
-        company = self.env.company
-        tax = self.env.ref("l10n_be.%s_attn_VAT-OUT-00-EU-S" % company.id)
-        self._create_test_data(tax)
+        self._create_test_data(self._get_tax())
 
     def test_xml_list(self):
         wizard = self.env["partner.vat.intra"].create(
@@ -49,3 +51,35 @@ class TestVatIntra(TestVatReportsCommon):
         self.assertEqual(wizard.client_ids[0].amount, 450.0)
         self.assertEqual(wizard.amount_total, 450.0)
         wizard.print_vat_intra()
+
+    def test_intra_ignore_invalid_invoices(self):
+        invoice_tax = self._get_tax()
+        draft_invoice = self._create_test_invoice(invoice_tax)
+        cancelled_invoice = self._create_test_invoice(invoice_tax)
+        cancelled_invoice.button_cancel()
+        wizard = self.env["partner.vat.intra"].create(
+            {
+                "period_code": time.strftime("00%Y"),
+                "date_start": time.strftime("%Y-01-01"),
+                "date_end": time.strftime("%Y-12-31"),
+            }
+        )
+        wizard.get_partners()
+        # draft and cancelled invoices must be ignored
+        self.assertEqual(wizard.client_ids[0].amount, 450.0)
+        self.assertEqual(wizard.amount_total, 450.0)
+
+    def test_intra_include_archived_partners(self):
+        self.partner.active = False
+        # ensure change is done in the database
+        self.partner.flush()
+        wizard = self.env["partner.vat.intra"].create(
+            {
+                "period_code": time.strftime("00%Y"),
+                "date_start": time.strftime("%Y-01-01"),
+                "date_end": time.strftime("%Y-12-31"),
+            }
+        )
+        wizard.get_partners()
+        self.assertEqual(wizard.client_ids[0].amount, 450.0)
+        self.assertEqual(wizard.amount_total, 450.0)

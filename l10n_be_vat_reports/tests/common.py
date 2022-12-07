@@ -16,6 +16,11 @@ class TestVatReportsCommon(TransactionCase):
                 "vat": "BE0477472701",
             }
         )
+        invoice = self._create_test_invoice(invoice_tax)
+        invoice.action_post()
+
+    def _create_test_invoice(self, invoice_tax):
+        company = self.env.company
         account_rev_type = self.env.ref("account.data_account_type_revenue")
         account_line = self.env["account.account"].search(
             [
@@ -24,7 +29,7 @@ class TestVatReportsCommon(TransactionCase):
             ],
             limit=1,
         )
-        invoice = self.env["account.move"].create(
+        return self.env["account.move"].create(
             {
                 "move_type": "out_invoice",
                 "company_id": company.id,
@@ -47,4 +52,3 @@ class TestVatReportsCommon(TransactionCase):
                 "partner_id": self.partner.id,
             }
         )
-        invoice.action_post()

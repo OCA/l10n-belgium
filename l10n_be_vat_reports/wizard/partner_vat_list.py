@@ -90,7 +90,11 @@ inner join (
         aml.partner_id,
         round(sum(-aml.balance), 2) as total_amount
     from account_move_line as aml
-    where aml.date between %(date_from)s and %(date_to)s
+    inner join account_move as am on
+        aml.move_id = am.id and
+        am.state = 'posted'
+    where aml.date between %(date_from)s and %(date_to)s and
+        aml.company_id = %(company_id)s
     and exists (
         select 1
         from account_account_tag_account_move_line_rel as aatamlr
@@ -104,7 +108,11 @@ left join (
         aml.partner_id,
         round(sum(-aml.balance), 2) as total_amount
     from account_move_line as aml
-    where aml.date between %(date_from)s and %(date_to)s
+    inner join account_move as am on
+        aml.move_id = am.id and
+        am.state = 'posted'
+    where aml.date between %(date_from)s and %(date_to)s and
+        aml.company_id = %(company_id)s
     and exists (
         select 1
         from account_tax as at
@@ -119,7 +127,6 @@ left join (
     group by 1) as aml2 on
     aml2.partner_id = rp.id
 where
-    rp.active and
     rp.vat ilike 'be%%' and
     aml1.total_amount >= %(limit_amount)s
         """
@@ -128,6 +135,7 @@ where
             "vat_tags": vat_tags,
             "date_from": date_from,
             "date_to": date_to,
+            "company_id": self.env.company.id,
             "limit_amount": self.limit_amount,
         }
         self.env.cr.execute(query, args)
