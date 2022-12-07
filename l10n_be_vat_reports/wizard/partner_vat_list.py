@@ -5,12 +5,13 @@
 from datetime import date
 
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError, Warning as UserError
+from odoo.exceptions import Warning as UserError
 
 
 class PartnerVATList(models.TransientModel):
     _name = "partner.vat.list"
     _description = "Partner VAT list"
+    _inherit = ["vat.declaration.mixin"]
 
     year = fields.Char(
         "Year",
@@ -24,23 +25,8 @@ class PartnerVATList(models.TransientModel):
         help="You can remove clients/partners which you do "
         "not want to show in xml file",
     )
-    declarant_reference = fields.Char(compute="_compute_declarant_reference")
     total_turnover = fields.Float("Total Turnover", compute="_compute_totals")
     total_vat = fields.Float("Total VAT", compute="_compute_totals")
-    comments = fields.Text("Comments")
-
-    def _compute_declarant_reference(self):
-        self.env["ir.sequence"].next_by_code("declarantnum")
-        company = self.env.company
-        company_vat = company.partner_id.vat
-
-        if not company_vat:
-            raise ValidationError(_("No VAT number associated with your company."))
-
-        company_vat = company_vat.replace(" ", "").upper()
-        for listing in self:
-            seq_declarantnum = self.env["ir.sequence"].next_by_code("declarantnum")
-            listing.declarant_reference = company_vat[2:] + seq_declarantnum[-4:]
 
     @api.depends("partner_ids")
     def _compute_totals(self):

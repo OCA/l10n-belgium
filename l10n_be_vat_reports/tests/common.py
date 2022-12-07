@@ -1,6 +1,8 @@
 # Copyright 2018 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from lxml.etree import XML
+
 from odoo.tests.common import TransactionCase
 
 
@@ -52,3 +54,10 @@ class TestVatReportsCommon(TransactionCase):
                 "partner_id": self.partner.id,
             }
         )
+
+    def _get_xml_from_report_action(self, report_action):
+        report = self.env["ir.actions.report"]._get_report_from_name(
+            report_action["report_name"]
+        )
+        report_result = report._render(report_action["context"]["active_ids"], {})
+        return XML(report_result[0])

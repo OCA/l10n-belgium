@@ -15,14 +15,10 @@
                     t-att-VATAmountSum="'{:.2f}'.format(partner_vat_list.total_vat)"
                 >
                     <ns2:Declarant>
-                        <VATNumber t-esc="res_company.vat[2:]" />
-                        <Name t-esc="res_company.name" />
-                        <Street t-esc="res_company.street" />
-                        <PostCode t-esc="res_company.zip" />
-                        <City t-esc="res_company.city" />
-                        <CountryCode t-esc="res_company.country_id.code" />
-                        <EmailAddress t-esc="res_company.email" />
-                        <Phone t-esc="res_company.phone" />
+                        <t t-set="vat_declaration" t-value="partner_vat_list" />
+                        <t
+                            t-call="l10n_be_vat_reports.l10n_be_vat_declarant_xml_template"
+                        />
                     </ns2:Declarant>
                     <ns2:Period t-esc="partner_vat_list.year" />
                     <t
@@ -57,7 +53,7 @@
             name="report_file"
         >l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template</field>
         <field name="report_type">qweb-xml</field>
-        <field name="print_report_name">'BE VAT Listing Consignment'</field>
+        <field name="print_report_name">'BE VAT Client Listing Consignment'</field>
         <field name="model">partner.vat.list</field>
         <field name="xml_declaration">true</field>
     </record>
