@@ -11,6 +11,8 @@ setuptools.setup(
         'odoo14-addon-account_statement_import_coda',
         'odoo14-addon-companyweb_base',
         'odoo14-addon-companyweb_payment_info',
+        'odoo14-addon-l10n_be_cooperator',
+        'odoo14-addon-l10n_be_intrastat_product',
         'odoo14-addon-l10n_be_mis_reports',
         'odoo14-addon-l10n_be_partner_kbo_bce',
     ],
