@@ -10,10 +10,11 @@
         "l10n_be_cooperator",
     ],
     "summary": "Give access to Tax Shelter Report in the portal.",
-    "author": "Coop IT Easy SC",
+    "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Cooperative Management",
-    "website": "https://coopiteasy.be",
-    "data": ["views/portal_templates.xml"],
-    "installable": True,
+    "website": "https://github.com/OCA/l10n-belgium",
+    "data": [
+        "views/portal_templates.xml",
+    ],
 }
