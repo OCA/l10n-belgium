@@ -61,7 +61,7 @@ This module comes with 2 security groups.
 Once your user has the correct permissions, open a partner that has a belgian
 VAT number and click on the Companyweb button.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_on_new_partner.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_on_new_partner.png
    :width: 90%
    :alt: Partner form with Companyweb button
    :align: center
@@ -72,20 +72,20 @@ that the current user is in the correct Companyweb group.
 If your Companyweb credentials are not known in the system or have changed, you
 will be shown a wizard to enter them.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_get_credentials.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_get_credentials.png
    :alt: Companyweb credentials wizard
    :align: center
 
 If everything runs smoothly you'll see a confirmation popup in the upper right
 corner of your screen.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_success_message.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_success_message.png
    :alt: Companyweb confirmation popup
    :align: center
 
 You can now view the Companyweb information in the corresponding tab.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/14.0/companyweb_base/static/description/doc_companyweb_data.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_companyweb_data.png
    :width: 90%
    :alt: Companyweb information tab
    :align: center
