@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Companyweb Payment Info",
-    "summary": ("Send your customer bill to companyweb"),
+    "summary": ("Send your customer payment information to Companyweb"),
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
     "version": "15.0.1.0.1",
@@ -15,7 +15,7 @@
         "wizards/payment_info_wizard.xml",
     ],
     "images": [
-        "static/description/main_screenshot.png",
+        "static/description/doc_companyweb_data.png",
     ],
     "external_dependencies": {
         "python": [
