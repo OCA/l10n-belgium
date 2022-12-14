@@ -19,7 +19,7 @@
         "wizards/credential_wizard.xml",
     ],
     "images": [
-        "static/description/main_screenshot.png",
+        "static/description/doc_companyweb_data.png",
     ],
     "external_dependencies": {
         "python": [
