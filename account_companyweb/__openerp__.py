@@ -21,7 +21,7 @@
 ##############################################################################
 
 {
-    "name": "Companyweb",
+    "name": "Companyweb (8.0 legacy)",
     "version": "8.0.1.0.0",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
