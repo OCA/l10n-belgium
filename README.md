@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [account_bank_statement_import_coda](account_bank_statement_import_coda/) | 12.0.1.0.1 |  | Import CODA Bank Statement
-[companyweb_base](companyweb_base/) | 12.0.1.1.0 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+[companyweb_base](companyweb_base/) | 12.0.1.1.1 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [l10n_be_cooperator](l10n_be_cooperator/) | 12.0.2.4.1 |  | Cooperators Belgium Localization
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 12.0.1.0.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 12.0.1.0.1 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
