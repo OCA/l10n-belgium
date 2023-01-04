@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="national_number_template" name="national_number_template">
+        <div
+            class="form-group field-national_number"
+            t-attf-class="form-group #{error and 'national_number' in error and 'has-error' or ''}"
+            name="national_number_container"
+        >
+            <label for="national_number">National Number</label>
+            <input
+                class="form-control form-control-sm"
+                id="national_number"
+                name="national_number"
+                type="text"
+                t-att-readonly="logged"
+            />  
+        </div>
+    </template>
+
+    <template
+        id="becomecooperator"
+        inherit_id="cooperator_website.becomecooperator"
+        name="becomecooperator"
+    >
+        <xpath expr="//t[@t-call='cooperator_website.address_template']" position="after">
+            <t t-call="l10n_be_cooperator_national_number.national_number_template" />
+        </xpath>
+    </template>
+
+</odoo>

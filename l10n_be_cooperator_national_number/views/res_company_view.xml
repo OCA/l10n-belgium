@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_company_form">
+        <field name="name">res.company.form.easymy.coop</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="model">res.company</field>
+        <field name="arch" type="xml">    
+            <field name="allow_id_card_upload" position="after">
+                <field name="require_national_number"/>
+            </field>
+        </field>
+    </record>
+</odoo>
