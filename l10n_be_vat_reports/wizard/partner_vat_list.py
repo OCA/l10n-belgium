@@ -47,6 +47,36 @@ class PartnerVATList(models.TransientModel):
         partners = partner_vat_list_client_model.browse([])
         turnover_tags = ("00", "01", "02", "03", "45", "49")
         vat_tags = ("54", "64")
+
+        # query explanation:
+        #
+        # first, select all account tags corresponding to the tag names
+        # (turnover_tags and vat_tags). the name column of account_account_tag
+        # cannot be used directly because each tag exists twice (with a + and
+        # - prefix), the tag_name column of account_tax_report_line must be
+        # used instead.
+        #
+        # then, for each partner, perform 2 subqueries doing basically the
+        # same thing, which is summing the balance of all account move lines
+        # (of posted account moves, to ignore draft and cancelled ones)
+        # corresponding to these tags.
+        #
+        # for turnover tags, the account move lines are directly linked to the
+        # tags (through account_account_tag_account_move_line_rel). for vat
+        # tags, it is a little more complicated because the tags are linked to
+        # the account tax linked to the account move line (through
+        # account_tax_repartition_line and
+        # account_account_tag_account_tax_repartition_line_rel).
+        #
+        # for each of these subqueries, an exists condition with a subquery is
+        # used (instead of joining directly) because multiple tags can be
+        # linked to the same account move line. joining directly would result
+        # in account move lines being present as many times as the number of
+        # tags linked to them, which would multiply their balance accordingly
+        # in the sum.
+        #
+        # finally, a condition limits the result to partners having a belgian
+        # vat number and for which the turnover sum is at least limit_amount.
         query = """
 with turnover_tag as (
     select aat.id

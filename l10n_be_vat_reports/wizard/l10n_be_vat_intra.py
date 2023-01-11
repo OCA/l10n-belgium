@@ -137,6 +137,19 @@ class PartnerVATIntra(models.TransientModel):
             "46T": "T",
         }
 
+        # query explanation:
+        #
+        # first, select all account tags corresponding to the tag names (keys
+        # of tax_tags). the name column of account_account_tag cannot be
+        # used directly because each tag exists twice (with a + and - prefix),
+        # the tag_name column of account_tax_report_line must be used instead.
+        # note that each tag name must appear only once in
+        # account_tax_report_line, otherwise the totals will be incorrect.
+        # this is the case if only the standard l10n_be module is installed.
+        #
+        # then, sum the balance of all account move lines (of posted account
+        # moves, to ignore draft and cancelled ones) corresponding to these
+        # tags, grouping by partner and tag.
         query = """
 with vat_tag as (
     select aat.id, atrl.tag_name
