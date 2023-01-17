@@ -1,4 +1,4 @@
-from odoo import fields, models, _
+from odoo import fields, models, api, _
 from odoo.exceptions import UserError
 
 
@@ -7,8 +7,10 @@ class SubscriptionRequest(models.Model):
 
     national_number = fields.Char(string="National Number")
     display_national_number = fields.Boolean(
-        _compute="_compute_display_national_number")
+        _compute="_compute_display_national_number",
+        store=True)
 
+    @api.depends("company_id")
     def _compute_display_national_number(self):
         self.display_national_number = self._check_national_number_required()
 
