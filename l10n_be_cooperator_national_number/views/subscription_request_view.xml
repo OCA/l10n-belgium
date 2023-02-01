@@ -8,7 +8,9 @@
         <field name="inherit_id" ref="cooperator.subscription_request_view_form" />
         <field name="arch" type="xml">
             <field name="country_id" position="after">
-                <field name="national_number" attrs="{'invisible': [('display_national_number', '=', False)], 'required': [('display_national_number', '=', True)]}"/>
+                <field name="national_number" attrs="{'invisible': ['|', ('display_national_number', '=', False), ('is_company', '=', True)], 
+                'required': [('display_national_number', '=', True), 
+                ('is_company', '=', False)]}"/>
                 <field name="display_national_number" invisible="True"/>
             </field>
         </field>
