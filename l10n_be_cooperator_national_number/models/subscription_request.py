@@ -34,7 +34,8 @@ class SubscriptionRequest(models.Model):
 
     def validate_subscription_request(self):
         self.ensure_one()
-        if self._check_national_number_required() and not self.national_number:
+        if (self._check_national_number_required() and not self.national_number and
+                not self.is_company):
             raise UserError(_("The National Number is required."))
         super().validate_subscription_request()
 
