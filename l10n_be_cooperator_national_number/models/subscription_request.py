@@ -50,9 +50,10 @@ class SubscriptionRequest(models.Model):
                     "partner_id": partner.id,
                 }
                 self.env["res.partner.id_number"].create(values)
-            elif self.national_number:
-                raise UserError(
-                    _("National Number is not applicable to companies."))
+            else:
+                if self.national_number:
+                    raise UserError(
+                        _("National Number is not applicable to companies."))
         return partner
 
     def create_coop_partner(self):
