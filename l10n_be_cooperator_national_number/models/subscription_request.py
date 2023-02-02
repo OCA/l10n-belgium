@@ -36,7 +36,7 @@ class SubscriptionRequest(models.Model):
         self.ensure_one()
         if (self._check_national_number_required() and not self.national_number and
                 not self.is_company):
-            raise UserError(_("The National Number is required."))
+            raise UserError(_("National Number is required."))
         super().validate_subscription_request()
 
     def create_national_number(self, partner):
@@ -50,7 +50,7 @@ class SubscriptionRequest(models.Model):
                     "partner_id": partner.id,
                 }
                 self.env["res.partner.id_number"].create(values)
-            else:
+            elif self.national_number :
                 raise UserError(
                     _("National Number is not applicable to companies."))
         return partner
