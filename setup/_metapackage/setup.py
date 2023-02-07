@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo14-addon-l10n_be_intrastat_product',
         'odoo14-addon-l10n_be_mis_reports',
         'odoo14-addon-l10n_be_partner_kbo_bce',
+        'odoo14-addon-l10n_be_vat_reports',
     ],
     classifiers=[
         'Programming Language :: Python',
