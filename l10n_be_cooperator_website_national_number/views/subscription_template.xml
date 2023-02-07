@@ -23,7 +23,7 @@
         name="becomecooperator"
     >
         <xpath expr="//t[@t-call='cooperator_website.address_template']" position="after">
-            <t t-call="l10n_be_cooperator_national_number.national_number_template" />
+            <t t-call="l10n_be_cooperator_website_national_number.national_number_template" />
         </xpath>
     </template>
 
