@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [l10n_be_intrastat_product](l10n_be_intrastat_product/) | 14.0.1.1.2 | [![luc-demeyer](https://github.com/luc-demeyer.png?size=30px)](https://github.com/luc-demeyer) | Intrastat Product Declaration for Belgium
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 14.0.1.1.0 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 14.0.1.0.1 |  | Belgium - KBO/BCE numbers
-[l10n_be_vat_reports](l10n_be_vat_reports/) | 14.0.1.0.0 |  | Belgium VAT Reports
+[l10n_be_vat_reports](l10n_be_vat_reports/) | 14.0.1.0.1 |  | Belgium VAT Reports
 
 [//]: # (end addons)
 
