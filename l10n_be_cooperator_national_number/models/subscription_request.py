@@ -10,7 +10,10 @@ class SubscriptionRequest(models.Model):
         _compute="_compute_display_national_number",
         store=True)
 
-    @api.depends("company_id")
+    @api.depends(
+        "company_id",
+        "company_id.require_national_number",
+        )
     def _compute_display_national_number(self):
         self.display_national_number = self._check_national_number_required()
 
