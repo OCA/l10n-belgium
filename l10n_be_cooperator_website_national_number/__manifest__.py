@@ -9,6 +9,7 @@
     "version": "12.0.1.0.0",
     "depends": [
         "l10n_be_cooperator_national_number",
+        "l10n_be_cooperator",
         "cooperator_website",
     ],
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
