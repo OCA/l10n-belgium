@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [l10n_be_cooperator](l10n_be_cooperator/) | 12.0.2.4.1 |  | Cooperators Belgium Localization
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 12.0.1.0.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 12.0.1.0.1 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
+[l10n_be_national_number](l10n_be_national_number/) | 12.0.1.0.0 | [![victor-champonnois](https://github.com/victor-champonnois.png?size=30px)](https://github.com/victor-champonnois) | Belgian National Number
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 12.0.1.0.1 |  | Belgium - KBO/BCE numbers
 [l10n_be_vat_reports](l10n_be_vat_reports/) | 12.0.2.0.2 |  | Belgium VAT Reports
 
