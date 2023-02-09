@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo12-addon-l10n_be_cooperator',
         'odoo12-addon-l10n_be_mis_reports',
         'odoo12-addon-l10n_be_mis_reports_xml',
+        'odoo12-addon-l10n_be_national_number',
         'odoo12-addon-l10n_be_partner_kbo_bce',
         'odoo12-addon-l10n_be_vat_reports',
     ],
