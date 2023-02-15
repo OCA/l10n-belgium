@@ -8,7 +8,7 @@
 {
     "name": "Cooperators Belgium",
     "summary": "Cooperators Belgium Localization",
-    "version": "14.0.1.2.1",
+    "version": "14.0.1.2.2",
     "depends": [
         "cooperator",
         "cooperator_website",
