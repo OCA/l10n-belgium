@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-companyweb_base>=15.0dev,<15.1dev',
         'odoo-addon-companyweb_payment_info>=15.0dev,<15.1dev',
+        'odoo-addon-l10n_be_partner_kbo_bce>=15.0dev,<15.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
