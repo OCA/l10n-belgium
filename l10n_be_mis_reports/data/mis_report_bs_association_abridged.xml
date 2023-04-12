@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 Coop IT Easy SC
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="mis.report" id="mis_report_bs_association_abridged">
+        <field name="name">Belgium Balance Sheet - Association (Abridged Model)</field>
+        <field name="style_id" ref="mis_report_style_l10n_be_base"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr204">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr204</field>
+        <field name="description">Operating income [70/76A]</field>
+        <field name="expression">-(-fr205 -fr206 -fr207 -fr248 -fr208 -fr280)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">10</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr205">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr205</field>
+        <field name="description">Turnover [70]</field>
+        <field name="expression">-balp[70%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">11</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr206">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr206</field>
+        <field name="description">Stocks of finished goods and work and contracts in progress: increase (decrease) [71]</field>
+        <field name="expression">-balp[71%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">12</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr207">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr207</field>
+        <field name="description">Fixed Assets Own Construction [72]</field>
+        <field name="expression">-balp[72%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">13</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr248">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr248</field>
+        <field name="description">Membership fees, gifts, legacies and subsidies [73]</field>
+        <field name="expression">-balp[73%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">14</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr208">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr208</field>
+        <field name="description">Other Operating Income [74]</field>
+        <field name="expression">-balp[74%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">15</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr280">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr280</field>
+        <field name="description">Non-recurring operating income [76A]</field>
+        <field name="expression">-balp[760%,761%,762%,763%,764%,766%,767%,768%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">16</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr209">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr209</field>
+        <field name="description">Operating Charges [60/64]</field>
+        <field name="expression">+fr210 +fr213 +fr214 +fr215 +fr216 +fr217 +fr218 +fr219 +fr281</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">17</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr210">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr210</field>
+        <field name="description">Raw Materials, Consumables and Goods for Resale [60]</field>
+        <field name="expression">+fr211 +fr212</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">18</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr211">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr211</field>
+        <field name="description">Purchases [600/8]</field>
+        <field name="expression">balp[600%,601%,602%,603%,604%,605%,606%,607%,608%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_4"/>
+        <field name="sequence">19</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr212">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr212</field>
+        <field name="description">Decrease (Increase) in Stocks [609]</field>
+        <field name="expression">balp[609%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_4"/>
+        <field name="sequence">20</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr213">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr213</field>
+        <field name="description">Services and Other Goods [61]</field>
+        <field name="expression">balp[61%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">21</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr214">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr214</field>
+        <field name="description">Remunerations, Social Security Costs and Pensions [62]</field>
+        <field name="expression">balp[62%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">22</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr215">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr215</field>
+        <field name="description">Depreciation and Amounts Written Off on Formation Expenses, on Intangible and Tangible Assets [630]</field>
+        <field name="expression">balp[630%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">23</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr216">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr216</field>
+        <field name="description">Amounts written down on stocks, contracts in progress and trade debtors: additions (write-backs) [631/4]</field>
+        <field name="expression">balp[631%,632%,633%,634%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">24</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr217">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr217</field>
+        <field name="description">Provisions for Liabilities and Charges: Increase (Decrease) [635/8]</field>
+        <field name="expression">balp[635%,636%,637%,638%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">25</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr218">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr218</field>
+        <field name="description">Other Operating Charges [640/8]</field>
+        <field name="expression">balp[640%,641%,642%,643%,644%,645%,646%,647%,648%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">26</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr219">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr219</field>
+        <field name="description">Restructuring Charges activated as Operating Charges [649]</field>
+        <field name="expression">balp[649%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">27</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr281">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr281</field>
+        <field name="description">Non-recurring operating charges [66A]</field>
+        <field name="expression">balp[660%,661%,662%,663%,664%,665%,666%,667%669%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">28</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr203">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr203</field>
+        <field name="description">Operating profit (loss) [9901]</field>
+        <field name="expression">-(-fr204 +fr209)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2i"/>
+        <field name="sequence">29</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr220">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr220</field>
+        <field name="description">Financial Income [75/76B]</field>
+        <field name="expression">-(-fr283 -fr282)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">30</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr283">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr283</field>
+        <field name="description">Recurring financial income [75]</field>
+        <field name="expression">-(-fr221 -fr222 -fr223)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">31</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr221">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr221</field>
+        <field name="description">Income from Financial Fixed Assets [750]</field>
+        <field name="expression">-balp[750%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">32</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr222">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr222</field>
+        <field name="description">Income from Current Assets [751]</field>
+        <field name="expression">-balp[751%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">33</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr223">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr223</field>
+        <field name="description">Other Financial Income [752/9]</field>
+        <field name="expression">-balp[752%,753%,754%,755%,756%,757%,758%,759%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">34</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr282">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr282</field>
+        <field name="description">Non-recurring financial income [76B]</field>
+        <field name="expression">-balp[769%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">35</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr224">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr224</field>
+        <field name="description">Financial Charges [65/66B]</field>
+        <field name="expression">+fr284 +fr285</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">36</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr284">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr284</field>
+        <field name="description">Recurring financial charges [65]</field>
+        <field name="expression">+fr225 +fr226 +fr227</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">37</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr225">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr225</field>
+        <field name="description">Debt Charges [650]</field>
+        <field name="expression">balp[650%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">38</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr226">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr226</field>
+        <field name="description">Amounts written down on current assets other than stocks, contracts in progress and trade debtors: additions (write-backs) [651]</field>
+        <field name="expression">balp[651%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">39</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr227">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr227</field>
+        <field name="description">Other Financial Charges [652/9]</field>
+        <field name="expression">balp[652%,653%,654%,655%,656%,657%,658%,659%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">40</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr285">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr285</field>
+        <field name="description">Non-recurring financial charges [66B]</field>
+        <field name="expression">balp[668%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">41</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr202">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr202</field>
+        <field name="description">Profit (Loss) for the period before taxes [9903]</field>
+        <field name="expression">-(-fr203 -fr220 +fr224)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2i"/>
+        <field name="sequence">42</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr286">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr286</field>
+        <field name="description">Transfer from deferred taxes [780]</field>
+        <field name="expression">-balp[780%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">56</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr287">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr287</field>
+        <field name="description">Transfer to deferred taxes [680]</field>
+        <field name="expression">balp[680%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">57</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr288">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr288</field>
+        <field name="description">Income taxes on the result [67/77]</field>
+        <field name="expression">fr289 + fr290</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">58</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr289">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr289</field>
+        <field name="description">Taxes [670/3]</field>
+        <field name="expression">balp[670%,671%,672%,673%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">59</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr290">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr290</field>
+        <field name="description">Adjustment of income taxes and write-back of tax provisions [77]</field>
+        <field name="expression">-balp[77%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_3"/>
+        <field name="sequence">60</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr291">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr291</field>
+        <field name="description">Profit (Loss) of the period [9904]</field>
+        <field name="expression">-(-fr202 -fr286 +fr287 +fr288)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2i"/>
+        <field name="sequence">61</field>
+        <field name="auto_expand_accounts">False</field>
+
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr292">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr292</field>
+        <field name="description">Transfer from untaxed reserves [789]</field>
+        <field name="expression">-balp[789%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">62</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr293">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr293</field>
+        <field name="description">Transfer to untaxed reserves [689]</field>
+        <field name="expression">balp[689%]</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">63</field>
+        <field name="auto_expand_accounts">True</field>
+        <field name="auto_expand_accounts_style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_acc_det"/>
+    </record>
+    <record model="mis.report.kpi" id="mis_report_bs_association_abridged_fr294">
+        <field name="report_id" ref="mis_report_bs_association_abridged"/>
+        <field name="name">fr294</field>
+        <field name="description">Profit (Loss) of the period available for appropriation [9905]</field>
+        <field name="expression">-(-fr291 -fr292 - fr293)</field>
+        <field name="type">num</field>
+        <field name="compare_method">pct</field>
+        <field name="style_id" ref="l10n_be_mis_reports.mis_report_style_l10n_be_2"/>
+        <field name="sequence">64</field>
+        <field name="auto_expand_accounts">False</field>
+    </record>
+</odoo>
