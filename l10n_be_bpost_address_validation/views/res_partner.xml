@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_partner_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >res.partner.form (in l10n_be_bpost_address_validation)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field name="is_be" invisible="1" />
+                <div attrs="{'invisible': [('is_be', '=', False)]}">
+                    <button
+                        string="Check address validity"
+                        type="object"
+                        name="action_check_address_validity"
+                    />
+                </div>
+            </field>
+            <xpath
+                expr="//notebook/page/field/form/sheet/group/group/div/div/field[@name='country_id']"
+                position="after"
+            >
+                <field name="is_be" invisible="1" />
+                <div attrs="{'invisible': [('is_be', '=', False)]}">
+                    <button
+                        string="Check address validity"
+                        type="object"
+                        name="action_check_address_validity"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
