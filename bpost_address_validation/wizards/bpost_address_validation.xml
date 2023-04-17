@@ -7,7 +7,6 @@
             <form>
                 <field name="bpost_address" invisible="1" />
                 <field name="partner_id" invisible="1" />
-                <field name="response_address" invisible="1" />
                 <field name="is_valid" invisible="1" />
                 <field name="bad_address" invisible="1" />
                 <div
