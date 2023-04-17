@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="bpost_address_validation_view" model="ir.ui.view">
+        <field name="name">bpost_partner_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field name="is_be" invisible="1" />
+                <div attrs="{'invisible': [('is_be', '=', False)]}">
+                    <button
+                        string="Check address validity"
+                        type="object"
+                        name="action_check_address_validity"
+                    />
+                </div>
+            </field>
+        </field>
+    </record>
+</odoo>

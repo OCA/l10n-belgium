@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_check_address_validity_form" model="ir.ui.view">
+        <field name="name">bpost.address.validation.wizard.form</field>
+        <field name="model">bpost.address.validation.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="bpost_address" invisible="1" />
+                <field name="partner_id" invisible="1" />
+                <field name="response_address" invisible="1" />
+                <field name="is_valid" invisible="1" />
+                <field name="bad_address" invisible="1" />
+                <div
+                    class="text-danger mb-3"
+                    attrs="{'invisible': [('is_valid','=', True)]}"
+                >
+                    <field name="warning_message" />
+                    <span class="text-black ms-2">
+                        <field name="suggest_changes" />
+                    </span>
+                </div>
+                <div
+                    class="text-success mb-3"
+                    attrs="{'invisible': [('is_valid', '=', False)]}"
+                >
+                    <span>Success ! The address given is valid.</span>
+                </div>
+                <footer
+                    attrs="{'invisible': ['|',('is_valid', '=', True),('bad_address', '=', True)]}"
+                >
+                    <button
+                        type="object"
+                        name="apply_changes"
+                        string="Apply changes"
+                        class="oe_highlight"
+                    />
+                    <button special="cancel" string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

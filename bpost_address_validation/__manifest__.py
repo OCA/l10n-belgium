@@ -7,6 +7,11 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/l10n-belgium",
     "depends": ["base", "web"],
+    "data": [
+        "security/ir.model.access.csv",
+        "wizards/bpost_address_validation.xml",
+        "views/partner_view.xml",
+    ],
     "assets": {
         "web.assets_backend": [
             "bpost_adress_validation/static/src/js/**/*",
