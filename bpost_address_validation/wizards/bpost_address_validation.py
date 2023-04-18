@@ -29,19 +29,18 @@ class BpostAddressValidationWizard(models.TransientModel):
                     json = response.json()
                     # Transform the result into a BpostAddress object.
                     rec.bpost_address = BpostAddress(json).toJson()
-                    if rec.bpost_address:
-                        if "error" in rec.bpost_address:
-                            if (
-                                "street_name" in rec.bpost_address
-                                and "postal_code" in rec.bpost_address
-                                and "municipality_name" in rec.bpost_address
-                                and "street_number" in rec.bpost_address
-                            ):
-                                self.invalid_address_and_suggest_changes(rec)
-                            else:
-                                self.invalid_address(rec)
+                    if "error" in rec.bpost_address:
+                        if (
+                            "street_name" in rec.bpost_address
+                            and "postal_code" in rec.bpost_address
+                            and "municipality_name" in rec.bpost_address
+                            and "street_number" in rec.bpost_address
+                        ):
+                            self.invalid_address_and_suggest_changes(rec)
                         else:
-                            rec.is_valid = True
+                            self.invalid_address(rec)
+                    else:
+                        rec.is_valid = True
                 else:
                     raise UserError(
                         _("An error occurred when fetching data from bpost API.")
@@ -115,14 +114,14 @@ class BpostAddressValidationWizard(models.TransientModel):
 
     def apply_changes(self):
         for rec in self:
-            rec.is_valid = True
-            partner = rec.partner_id
             if (
                 "street_name" in rec.bpost_address
                 and "postal_code" in rec.bpost_address
                 and "municipality_name" in rec.bpost_address
                 and "street_number" in rec.bpost_address
             ):
+                rec.is_valid = True
+                partner = rec.partner_id
                 partner.street = (
                     rec.bpost_address["street_name"]
                     + " "

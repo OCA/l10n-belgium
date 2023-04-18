@@ -10,6 +10,7 @@ class TestBpostAddressValidationWizard(TransactionCase):
         super(TestBpostAddressValidationWizard, cls).setUpClass()
 
         cls.country = cls.env["res.country"].search([("code", "=", "BE")])
+        cls.luxembourg = cls.env["res.country"].search([("code", "=", "LU")])
         cls.partner = cls.env["res.partner"].create(
             {
                 "name": "Acsone",
@@ -17,6 +18,15 @@ class TestBpostAddressValidationWizard(TransactionCase):
                 "city": "Liège",
                 "zip": "4000",
                 "country_id": cls.country.id,
+            }
+        )
+        cls.partner_lu = cls.env["res.partner"].create(
+            {
+                "name": "Acsone",
+                "street": "Zone industrielle 22",
+                "city": "Kehlen",
+                "zip": "8287",
+                "country_id": cls.luxembourg.id,
             }
         )
         cls.return_value = {
@@ -118,3 +128,31 @@ class TestBpostAddressValidationWizard(TransactionCase):
         self.wizard._compute_response_address()
         self.assertTrue(self.wizard.is_valid)
         self.assertFalse(self.wizard.bad_address)
+
+    def test_partner_from_another_country(self):
+        wizard = self.env["bpost.address.validation.wizard"].create(
+            {"partner_id": self.partner_lu.id}
+        )
+        wizard._compute_response_address()
+        self.assertTrue(wizard.is_valid)
+        self.assertFalse(wizard.bad_address)
+
+    def test_invalid_address_and_apply_changes(self):
+        self.partner.street = "Quai Banning"
+        self.wizard._compute_response_address()
+        self.wizard.apply_changes()
+        self.assertTrue(self.wizard.bad_address)
+        self.assertFalse(self.wizard.is_valid)
+        self.assertEqual(
+            "The given address is not complete or the address cannot be found",
+            self.wizard.warning_message,
+        )
+
+        self.assertNotEqual("QUAI BANNING", self.partner.street)
+        self.assertNotEqual("LIÈGE", self.partner.city)
+
+    def test_address_not_found(self):
+        self.partner.street = "benneng"
+        self.wizard._compute_response_address()
+        self.assertTrue(self.wizard.bad_address)
+        self.assertFalse(self.wizard.is_valid)
