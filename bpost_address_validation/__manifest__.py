@@ -2,6 +2,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Bpost address validation",
+    "summary": (
+        "Check the validity of your partner's addresses "
+        "or make a change with a change proposal."
+    ),
     "version": "16.0.1.0.0",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "license": "AGPL-3",

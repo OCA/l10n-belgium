@@ -25,11 +25,66 @@ Bpost address validation
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
+This module allows you to check partner's addresses validity in one click.
+If address is not valid a proposal change will be displayed and you will be free to keep it or not.
+If you accept it, the partner's address will be automatically updated.
+
+The validation of the address is done throught the bpost API available here: https://www.bpost.be/en/addressing-web-service-widgets-address-validation.
+Bpost is Belgium's leading postal operator and plays a key role in maintaining the country's economic and social fabric.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Installation
+============
+
+This module can be installed in the usual way.
+
+Usage
+=====
+
+Once your user has the correct permissions, open a partner that has a belgian
+address and click on Check address validity button.
+
+.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_new_partner.png
+   :width: 90%
+   :alt: Partner form with Check address validity button
+   :align: center
+
+If address is not valid, a popup will appear telling you that the address is not valid and will suggest a possible change.
+
+.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_on_click.png
+   :width: 90%
+   :alt: Popup with the suggest change.
+   :align: center
+
+If you decide to keep the change, partner's address will be automatically updated.
+
+.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_on_apply_changes.png
+   :width: 90%
+   :alt: Partner form updated.
+   :align: center
+
+Now, if you click again on Check address validity button, you will see that the address is valid.
+
+.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_on_success.png
+   :width: 90%
+   :alt: Partner form updated.
+   :align: center
+
+Be careful not to provide an invalid or incomplete address.
+
+.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_invalid_address_form.png
+   :width: 90%
+   :alt: Partner form with invalid address.
+   :align: center
+
+.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_invalid_address.png
+   :width: 90%
+   :alt: Error popup.
+   :align: center
 
 Bug Tracker
 ===========
