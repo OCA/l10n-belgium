@@ -1,0 +1,149 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bpost_address_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-18 08:56+0000\n"
+"PO-Revision-Date: 2023-04-18 08:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bpost_address_validation
+#: model_terms:ir.ui.view,arch_db:bpost_address_validation.view_check_address_validity_form
+msgid "<span>Success ! The address given is valid.</span>"
+msgstr "<span>Succès ! L'adresse encodée est valide.</span>"
+
+#. module: bpost_address_validation
+#. odoo-python
+#: code:addons/bpost_address_validation/wizards/bpost_address_validation.py:0
+#, python-format
+msgid ""
+"An error has been detected in the given address. Would you like to keep the "
+"suggest change ?"
+msgstr ""
+"Une erreur a été détectée dans l'adresse renseignée. Voulez-vous appliquer les "
+"changements ?"
+
+#. module: bpost_address_validation
+#. odoo-python
+#: code:addons/bpost_address_validation/wizards/bpost_address_validation.py:0
+#, python-format
+msgid "An error occurred when fetching data from bpost API."
+msgstr "Une erreur est survenue lors de la récupération des données de l'API de bpost."
+
+#. module: bpost_address_validation
+#: model_terms:ir.ui.view,arch_db:bpost_address_validation.view_check_address_validity_form
+msgid "Apply changes"
+msgstr "Appliquer les changements"
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__bad_address
+msgid "Bad Address"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__bpost_address
+msgid "Bpost Address"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model_terms:ir.ui.view,arch_db:bpost_address_validation.view_check_address_validity_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: bpost_address_validation
+#. odoo-python
+#: code:addons/bpost_address_validation/models/res_partner.py:0
+#, python-format
+msgid "Check Address Validity"
+msgstr "Vérifier la validité de l'adresse"
+
+#. module: bpost_address_validation
+#: model_terms:ir.ui.view,arch_db:bpost_address_validation.bpost_address_validation_view
+msgid "Check address validity"
+msgstr "Vérifier la validité de l'adresse"
+
+#. module: bpost_address_validation
+#: model:ir.model,name:bpost_address_validation.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_res_partner__is_be
+#: model:ir.model.fields,field_description:bpost_address_validation.field_res_users__is_be
+msgid "Is Be"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__is_valid
+msgid "Is Valid"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__suggest_changes
+msgid "Suggest Changes"
+msgstr ""
+
+#. module: bpost_address_validation
+#. odoo-python
+#: code:addons/bpost_address_validation/wizards/bpost_address_validation.py:0
+#, python-format
+msgid "The given address is not complete or the address cannot be found"
+msgstr "L'adresse encodée n'est pas complète ou est introuvable"
+
+#. module: bpost_address_validation
+#: model:ir.model.fields,field_description:bpost_address_validation.field_bpost_address_validation_wizard__warning_message
+msgid "Warning Message"
+msgstr ""
+
+#. module: bpost_address_validation
+#: model:ir.model,name:bpost_address_validation.model_bpost_address_validation_wizard
+msgid "bpost.address.validation.wizard"
+msgstr ""
