@@ -14,6 +14,9 @@ export class BpAddressAutoComplete extends Component {
 
         onMounted(() => {
             const element = document.getElementById(this.props.id);
+            /**
+             * When we receive "onSelectedAddress" event we can autocomplete fields and update record.
+             */
             element.addEventListener("onSelectedAddress", (ev) => {
                 const value = {};
                 if (this.props.fieldStreet !== undefined) {

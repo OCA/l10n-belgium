@@ -1,5 +1,8 @@
 bp-address-autocomplete::part(search-bar) {
     @extend .form-control;
+    padding-right: 0;
+    padding-left: 1rem;
+    width: 100%;
 }
 
 bp-address-autocomplete::part(ul-suggestions) {
@@ -9,6 +12,8 @@ bp-address-autocomplete::part(ul-suggestions) {
 
 bp-address-autocomplete::part(li-suggestion) {
     @extend .list-group-item;
+    width: 100%;
+    padding-right: 0;
 }
 
 bp-address-autocomplete::part(li-suggestion):hover {

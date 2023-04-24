@@ -1,5 +1,7 @@
 from odoo import api, fields, models
 
+# Copyright 2023 ACSONE SA/NV
+
 
 class BpostAddressAutocompletePartner(models.Model):
 
