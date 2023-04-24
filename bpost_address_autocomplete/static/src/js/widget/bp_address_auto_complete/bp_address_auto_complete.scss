@@ -1,0 +1,16 @@
+bp-address-autocomplete::part(search-bar) {
+    @extend .form-control;
+}
+
+bp-address-autocomplete::part(ul-suggestions) {
+    @extend .list-group;
+    margin-top: 0;
+}
+
+bp-address-autocomplete::part(li-suggestion) {
+    @extend .list-group-item;
+}
+
+bp-address-autocomplete::part(li-suggestion):hover {
+    background-color: #d3d3d3;
+}
