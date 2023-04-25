@@ -1,1 +1,1 @@
-from . import bpost_address_autocomplete
+from . import res_partner

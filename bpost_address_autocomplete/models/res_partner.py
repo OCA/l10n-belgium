@@ -3,7 +3,7 @@ from odoo import api, fields, models
 # Copyright 2023 ACSONE SA/NV
 
 
-class BpostAddressAutocompletePartner(models.Model):
+class ResPartner(models.Model):
 
     _inherit = "res.partner"
 
