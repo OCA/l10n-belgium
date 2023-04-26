@@ -20,8 +20,14 @@ export class BpAddressAutoComplete extends Component {
             element.addEventListener("onSelectedAddress", (ev) => {
                 const value = {};
                 if (this.props.fieldStreet !== undefined) {
-                    value[this.props.fieldStreet] =
-                        ev.detail.streetName + " " + ev.detail.houseNumber;
+                    const fiedValues = [];
+                    if (ev.detail.streetName !== undefined)
+                        fiedValues.push(ev.detail.formatStreetName);
+                    if (ev.detail.houseNumber !== undefined)
+                        fiedValues.push(ev.detail.formatHouseNumber);
+                    if (ev.detail.boxNumber !== undefined)
+                        fiedValues.push(ev.detail.formatBoxNumber);
+                    value[this.props.fieldStreet] = fiedValues.join(" ");
                 }
                 if (this.props.fieldLocality !== undefined) {
                     value[this.props.fieldLocality] = ev.detail.locality;
