@@ -14,10 +14,10 @@ Bpost address autocomplete
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-belgium/tree/16.0/bpost_address_autocomplete
+    :target: https://github.com/OCA/l10n-belgium/tree/16.0/l10n_be_bpost_address_autocomplete
     :alt: OCA/l10n-belgium
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-belgium-16-0/l10n-belgium-16-0-bpost_address_autocomplete
+    :target: https://translation.odoo-community.org/projects/l10n-belgium-16-0/l10n-belgium-16-0-l10n_be_bpost_address_autocomplete
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
     :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/l10n-belgium&target_branch=16.0
@@ -37,47 +37,47 @@ Installation
 ============
 
 This module can be installed in the usual way.
-``bp-address-autocomplete-search-bar.js`` file provide from `kouffsamuel/bp-address-autocomplete <https://github.com/kouffsamuel/bp-address-autocomplete>`_
+``bp-address-autocomplete-search-bar.js`` file provide from `acsone/bp-address-autocomplete <https://github.com/acsone/bp-address-autocomplete>`_
 
 Usage
 =====
 
 First, create a new partner.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/5b4c8158396878fc6d984434a51fddb5eacf8d8c/bpost_address_autocomplete/static/description/doc_on_new.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/9d55f2716c9048e58457a21e6f03c27b2bc5890d/l10n_be_bpost_address_autocomplete/static/description/doc_on_new.png
    :width: 90%
    :alt: Partner form
    :align: center
 
 Then, click on **Is it a Belgian address ?**. This will directly display the search bar and complete the country by Belgium.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/5b4c8158396878fc6d984434a51fddb5eacf8d8c/bpost_address_autocomplete/static/description/doc_on_click.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/9d55f2716c9048e58457a21e6f03c27b2bc5890d/l10n_be_bpost_address_autocomplete/static/description/doc_on_click.png
    :width: 90%
    :alt: Partner form with search bar
    :align: center
 
 Now, you can search for a specific address.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/5b4c8158396878fc6d984434a51fddb5eacf8d8c/bpost_address_autocomplete/static/description/doc_on_search.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/9d55f2716c9048e58457a21e6f03c27b2bc5890d/l10n_be_bpost_address_autocomplete/static/description/doc_on_search.png
    :width: 90%
    :alt: Search address
    :align: center
 
 Once is done, you can select the desired address. This will autocomplete fields.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/5b4c8158396878fc6d984434a51fddb5eacf8d8c/bpost_address_autocomplete/static/description/doc_on_autocomplete.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/9d55f2716c9048e58457a21e6f03c27b2bc5890d/l10n_be_bpost_address_autocomplete/static/description/doc_on_autocomplete.png
    :width: 90%
    :alt: Select address
    :align: center
 
 You can also use this search bar when you want to create a contact.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/5b4c8158396878fc6d984434a51fddb5eacf8d8c/bpost_address_autocomplete/static/description/doc_create_contact.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/9d55f2716c9048e58457a21e6f03c27b2bc5890d/l10n_be_bpost_address_autocomplete/static/description/doc_create_contact.png
    :width: 90%
    :alt: Create contact
    :align: center
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/5b4c8158396878fc6d984434a51fddb5eacf8d8c/bpost_address_autocomplete/static/description/doc_finish.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/9d55f2716c9048e58457a21e6f03c27b2bc5890d/l10n_be_bpost_address_autocomplete/static/description/doc_finish.png
    :width: 90%
    :alt: Partner form with contact
    :align: center
@@ -88,7 +88,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-belgium/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20bpost_address_autocomplete%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20l10n_be_bpost_address_autocomplete%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -118,6 +118,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/16.0/bpost_address_autocomplete>`_ project on GitHub.
+This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/16.0/l10n_be_bpost_address_autocomplete>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
