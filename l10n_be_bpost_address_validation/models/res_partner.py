@@ -3,7 +3,7 @@ from odoo import _, api, fields, models
 # Copyright 2023 ACSONE SA/NV
 
 
-class BpostAddressValidationPartner(models.Model):
+class ResPartner(models.Model):
     _inherit = "res.partner"
 
     is_be = fields.Boolean(compute="_compute_is_be")

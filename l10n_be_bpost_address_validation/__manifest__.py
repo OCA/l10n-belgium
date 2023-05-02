@@ -14,11 +14,11 @@
     "data": [
         "security/ir.model.access.csv",
         "wizards/bpost_address_validation.xml",
-        "views/partner_view.xml",
+        "views/res_partner.xml",
     ],
     "assets": {
         "web.assets_backend": [
-            "bpost_adress_validation/static/src/js/**/*",
+            "l10n_be_bpost_adress_validation/static/src/js/**/*",
             "web/static/src/libs/fontawesome/css/font-awesome.css",
             ("include", "web._assets_helpers"),
             "web/static/src/scss/pre_variables.scss",
