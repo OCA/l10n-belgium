@@ -14,10 +14,10 @@ Bpost address validation
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-belgium/tree/16.0/bpost_address_validation
+    :target: https://github.com/OCA/l10n-belgium/tree/16.0/l10n_be_bpost_address_validation
     :alt: OCA/l10n-belgium
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-belgium-16-0/l10n-belgium-16-0-bpost_address_validation
+    :target: https://translation.odoo-community.org/projects/l10n-belgium-16-0/l10n-belgium-16-0-l10n_be_bpost_address_validation
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
     :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/l10n-belgium&target_branch=16.0
@@ -48,40 +48,40 @@ Usage
 Once your user has the correct permissions, open a partner that has a belgian
 address and click on Check address validity button.
 
-.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_new_partner.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/c89841d84b63052e5c6d63049a2d81b473490fb4/l10n_be_bpost_address_validation/static/description/doc_new_partner.png
    :width: 90%
    :alt: Partner form with Check address validity button
    :align: center
 
 If address is not valid, a popup will appear telling you that the address is not valid and will suggest a possible change.
 
-.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_on_click.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/c89841d84b63052e5c6d63049a2d81b473490fb4/l10n_be_bpost_address_validation/static/description/doc_on_click.png
    :width: 90%
    :alt: Popup with the suggest change.
    :align: center
 
 If you decide to keep the change, partner's address will be automatically updated.
 
-.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_on_apply_changes.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/c89841d84b63052e5c6d63049a2d81b473490fb4/l10n_be_bpost_address_validation/static/description/doc_on_apply_changes.png
    :width: 90%
    :alt: Partner form updated.
    :align: center
 
 Now, if you click again on Check address validity button, you will see that the address is valid.
 
-.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_on_success.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/c89841d84b63052e5c6d63049a2d81b473490fb4/l10n_be_bpost_address_validation/static/description/doc_on_success.png
    :width: 90%
    :alt: Partner form updated.
    :align: center
 
 Be careful not to provide an invalid or incomplete address.
 
-.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_invalid_address_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/c89841d84b63052e5c6d63049a2d81b473490fb4/l10n_be_bpost_address_validation/static/description/doc_invalid_address_form.png
    :width: 90%
    :alt: Partner form with invalid address.
    :align: center
 
-.. figure:: https://raw.githubusercontent.com/kouffsamuel/l10n-belgium/16.0-bpost-address-validation/bpost_address_validation/static/description/doc_invalid_address.png
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/c89841d84b63052e5c6d63049a2d81b473490fb4/l10n_be_bpost_address_validation/static/description/doc_invalid_address.png
    :width: 90%
    :alt: Error popup.
    :align: center
@@ -92,7 +92,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-belgium/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20bpost_address_validation%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20l10n_be_bpost_address_validation%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -122,6 +122,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/16.0/bpost_address_validation>`_ project on GitHub.
+This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/16.0/l10n_be_bpost_address_validation>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
