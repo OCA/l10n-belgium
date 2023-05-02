@@ -50,7 +50,7 @@ class BpostAddressValidationWizard(models.TransientModel):
 
     def invalid_address(self, rec):
         rec.warning_message = _(
-            "The given address is not complete or the address cannot be found"
+            "The given address is not complete or the address cannot be found."
         )
         rec.bad_address = True
         rec.is_valid = False

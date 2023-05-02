@@ -17,6 +17,19 @@
                     />
                 </div>
             </field>
+            <xpath
+                expr="//notebook/page/field/form/sheet/group/group/div/div/field[@name='country_id']"
+                position="after"
+            >
+                <field name="is_be" invisible="1" />
+                <div attrs="{'invisible': [('is_be', '=', False)]}">
+                    <button
+                        string="Check address validity"
+                        type="object"
+                        name="action_check_address_validity"
+                    />
+                </div>
+            </xpath>
         </field>
     </record>
 </odoo>
