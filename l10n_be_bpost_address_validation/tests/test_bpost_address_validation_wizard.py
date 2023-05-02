@@ -144,7 +144,7 @@ class TestBpostAddressValidationWizard(TransactionCase):
         self.assertTrue(self.wizard.bad_address)
         self.assertFalse(self.wizard.is_valid)
         self.assertEqual(
-            "The given address is not complete or the address cannot be found",
+            "The given address is not complete or the address cannot be found.",
             self.wizard.warning_message,
         )
 
