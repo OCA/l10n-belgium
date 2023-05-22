@@ -25,19 +25,31 @@ Companyweb
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module provides Companyweb customers with access to financial health
-information about Belgian companies right from the Odoo Customer view.
-Information is obtained from the `Companyweb <https:/www.companyweb.be>`__
-database (www.companyweb.be).
+www.companyweb.be
 
-* Enhance the Odoo partner with Companyweb data, available with one click:
+Companyweb is the expert in company information in Belgium.
 
-  * Company Status
-  * Credit limit
-  * Average number of staff in FTE
-  * ... and way more
+This app provides insights into the financial health of Belgian companies, directly from the
+Odoo Customer view.
 
-* Update the partner address from Companyweb
+Enhance the Odoo partner with Companyweb data, with one click:
+#. Name and address
+#. Status
+#. Health barometer
+#. Credit limit
+#. Bankruptcy risk warnings
+#. Key financial information (turnover, gross margin, profit/loss…)
+#. ...
+
+Copy the address from Companyweb to your Odoo partner address.
+
+With this valuable information you can personally evaluate each company and know who
+you are doing business with.
+
+Try for free and get your credentials here: www.companyweb.be/integrations/37/odoo
+
+Want to know how fast companies pay their invoices? Then also install the second module
+from Companyweb: payment experience.
 
 **Table of contents**
 
@@ -52,6 +64,9 @@ This module can be installed in the usual way. It depends on the OCA
 
 Usage
 =====
+
+With this integration you get detailed information about a company based on the VAT
+number of the company.
 
 This module comes with 2 security groups.
 
@@ -139,6 +154,9 @@ model of that version has been preserved to facilitate porting.
 In 2021, the module was redeveloped under the current form, to support the new
 Companyweb SOAP api. This development has been funded by `Companyweb
 <https://www.companyweb.be>`__.
+
+* Companyweb <info@companyweb.be>
+* Katrien Billen <katrien@companyweb.be>
 
 Maintainers
 ~~~~~~~~~~~
