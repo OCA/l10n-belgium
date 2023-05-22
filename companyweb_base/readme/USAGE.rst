@@ -1,3 +1,6 @@
+With this integration you get detailed information about a company based on the VAT
+number of the company.
+
 This module comes with 2 security groups.
 
 * View Companyweb Data : can see the Companyweb data tab in contacts
