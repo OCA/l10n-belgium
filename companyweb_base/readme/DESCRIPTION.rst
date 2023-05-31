@@ -6,13 +6,13 @@ This app provides insights into the financial health of Belgian companies, direc
 Odoo Customer view.
 
 Enhance the Odoo partner with Companyweb data, with one click:
-#. Name and address
-#. Status
-#. Health barometer
-#. Credit limit
-#. Bankruptcy risk warnings
-#. Key financial information (turnover, gross margin, profit/loss…)
-#. ...
+* Name and address
+* Status
+* Health barometer
+* Credit limit
+* Bankruptcy risk warnings
+* Key financial information (turnover, gross margin, profit/loss…)
+* ...
 
 Copy the address from Companyweb to your Odoo partner address.
 
