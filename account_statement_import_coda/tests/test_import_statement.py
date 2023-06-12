@@ -3,6 +3,8 @@
 
 import base64
 
+from markupsafe import Markup
+
 from odoo.exceptions import UserError
 from odoo.modules.module import get_module_resource
 from odoo.tests.common import TransactionCase
@@ -69,10 +71,12 @@ class TestCodaFile(TransactionCase):
 
         # check the note
         self.assertEqual(
-            "Counter Party: PARTNER 2\n"
-            "Counter Party Account: BE61310126985517\n"
-            "Communication: +++240/2838/42818+++ "
-            "001PARTNER 2MOLENSTRAAT 60 9340 LEDE",
+            Markup(
+                "<p>Counter Party: PARTNER 2\n"
+                "Counter Party Account: BE61310126985517\n"
+                "Communication: +++240/2838/42818+++ "
+                "001PARTNER 2MOLENSTRAAT 60 9340 LEDE</p>"
+            ),
             bank_st_record.line_ids[1].narration,
             "The note should contain informations on the counter part "
             "but also the communication for the information records that "

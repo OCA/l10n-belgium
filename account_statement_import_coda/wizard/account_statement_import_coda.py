@@ -64,9 +64,10 @@ class AccountStatementImport(models.TransientModel):
             raise UserError(
                 _(
                     "The following problem occurred during import. "
-                    "The file might not be valid.\n\n %s" % e
+                    "The file might not be valid.\n\n %s"
                 )
-            )
+                % e
+            ) from e
 
         acc_number = None
         currency = None
