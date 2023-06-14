@@ -17,6 +17,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid ""
+"<br/>\n"
+"                    <span>Click here to create your login information: </"
+"span>"
+msgstr ""
+
+#. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid ""
 "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
@@ -82,12 +90,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_address_enable
 msgid "Companyweb Address Enabled"
 msgstr "Companyweb Adresse Activée"
-
-#. module: companyweb_base
-#: code:addons/companyweb_base/models/res_partner.py:0
-#, python-format
-msgid "Companyweb Address Successfully copied"
-msgstr ""
 
 #. module: companyweb_base
 #: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_average_fte
@@ -244,12 +246,6 @@ msgstr "Companyweb Date de fin"
 #: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_endDate_enable
 msgid "Companyweb End date Enabled"
 msgstr "Companyweb Date de fin Activée"
-
-#. module: companyweb_base
-#: code:addons/companyweb_base/models/res_partner.py:0
-#, python-format
-msgid "Companyweb Enhance OK"
-msgstr "Companyweb Enrichissement OK"
 
 #. module: companyweb_base
 #: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_equityCapital
@@ -477,14 +473,16 @@ msgstr "Limites de crédit informations"
 
 #. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Detail"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid "Detail link"
 msgstr "Lien de détail"
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__display_name
 #: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__display_name
-#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__display_name
-#: model:ir.model.fields,field_description:companyweb_base.field_res_users__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -514,6 +512,11 @@ msgid "Established"
 msgstr "Capitaux propres"
 
 #. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "Follow this link"
+msgstr ""
+
+#. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid "Global"
 msgstr "Globale"
@@ -529,18 +532,12 @@ msgid "Health barometer"
 msgstr "Barometre de santé"
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__id
 #: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__id
-#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__id
-#: model:ir.model.fields,field_description:companyweb_base.field_res_users__id
 msgid "ID"
 msgstr ""
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract____last_update
 #: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base____last_update
-#: model:ir.model.fields,field_description:companyweb_base.field_res_partner____last_update
-#: model:ir.model.fields,field_description:companyweb_base.field_res_users____last_update
 msgid "Last Modified on"
 msgstr "Date de dernière modification"
 
@@ -618,6 +615,15 @@ msgstr "Voir les données de Companyweb"
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid "Warnings"
 msgstr "Avertissements"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "https://www.companyweb.be"
+msgstr ""
+
+#, python-format
+#~ msgid "Companyweb Enhance OK"
+#~ msgstr "Companyweb Enrichissement OK"
 
 #~ msgid "Companyweb Base"
 #~ msgstr "Companyweb Base"
