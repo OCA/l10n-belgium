@@ -14,6 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid ""
+"<br/>\n"
+"                    <span>Click here to create your login information: </span>"
+msgstr ""
+
+#. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid ""
 "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
@@ -497,6 +504,11 @@ msgid "Established"
 msgstr ""
 
 #. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "Follow this link"
+msgstr ""
+
+#. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid "Global"
 msgstr ""
@@ -594,4 +606,9 @@ msgstr ""
 #. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid "Warnings"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "https://www.companyweb.be"
 msgstr ""
