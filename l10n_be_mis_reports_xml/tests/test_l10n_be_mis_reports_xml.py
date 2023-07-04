@@ -25,7 +25,7 @@ class TestXMLReports(TransactionCase):
 
         vat_wizard = (
             self.env["be.vat.declaration.wizard"]
-            .with_context({"active_id": mr_instance.id})
+            .with_context(**{"active_id": mr_instance.id})
             .create(
                 {
                     "ask_restitution": True,
