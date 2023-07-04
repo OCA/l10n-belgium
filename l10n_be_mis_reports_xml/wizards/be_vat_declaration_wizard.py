@@ -19,33 +19,27 @@ class BeVATDeclarationWizard(models.TransientModel):
         required=True,
     )
     client_listing_nihil = fields.Boolean(
-        string="Client Listing Nihil",
         help="Only applies to the last civil declaration"
         " or the declaration linked to the cessaction of activity:"
         " no customer to list in the customer listing",
     )
-    ask_restitution = fields.Boolean(
-        string="Ask restitution",
-    )
+    ask_restitution = fields.Boolean()
     ask_payment = fields.Boolean(
         string="Ask payment form",
     )
     grid_91 = fields.Float(
-        string="Grid 91",
         required=False,
         help="Only applies to december monthly declaration:"
         " Amount declared for grid 91: VAT due from due "
         " for the period from the 1st to the 20th of december",
     )
     period = fields.Selection(
-        string="Period",
         selection=[("month", "Month"), ("quarter", "Quarter")],
         default="month",
         required=True,
         help="Month or Quarter value is compute from the report start date.",
     )
     period_value = fields.Integer(
-        string="Period Value",
         compute="_compute_period_value",
     )
     declarant_vat = fields.Char(
@@ -53,7 +47,6 @@ class BeVATDeclarationWizard(models.TransientModel):
         compute="_compute_declarant_vat",
     )
     declarant_phone = fields.Char(
-        string="Declarant Phone",
         compute="_compute_declarant_phone",
     )
 
@@ -70,14 +63,12 @@ class BeVATDeclarationWizard(models.TransientModel):
         if not company.vat:
             raise UserError(
                 _(
-                    (
-                        "Please set the {vat} field on the company "
-                        "{company_name} (id: {company_id})"
-                    ).format(
-                        vat=company.__class__.vat.string,
-                        company_name=company.name,
-                        company_id=company.id,
-                    )
+                    "Please set the {vat} field on the company "
+                    "{company_name} (id: {company_id})"
+                ).format(
+                    vat=company.__class__.vat.string,
+                    company_name=company.name,
+                    company_id=company.id,
                 )
             )
         return self.env.ref(
