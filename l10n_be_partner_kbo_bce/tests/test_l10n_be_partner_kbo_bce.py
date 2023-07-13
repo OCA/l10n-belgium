@@ -7,7 +7,7 @@ from odoo.tests.common import TransactionCase
 
 class TestKboBceNumber(TransactionCase):
     def setUp(self):
-        super(TestKboBceNumber, self).setUp()
+        super().setUp()
         self.rp_1 = self.env.ref("l10n_be_partner_kbo_bce.res_partner_1")
         self.be = self.env.ref("base.be")
 
