@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [companyweb_payment_info](companyweb_payment_info/) | 14.0.1.1.1 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
 [l10n_be_intrastat_product](l10n_be_intrastat_product/) | 14.0.1.1.2 | [![luc-demeyer](https://github.com/luc-demeyer.png?size=30px)](https://github.com/luc-demeyer) | Intrastat Product Declaration for Belgium
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 14.0.1.1.0 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
+[l10n_be_national_number](l10n_be_national_number/) | 14.0.1.0.0 | [![victor-champonnois](https://github.com/victor-champonnois.png?size=30px)](https://github.com/victor-champonnois) | Belgian National Number
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 14.0.1.0.1 |  | Belgium - KBO/BCE numbers
 [l10n_be_vat_reports](l10n_be_vat_reports/) | 14.0.1.0.1 |  | Belgium VAT Reports
 
