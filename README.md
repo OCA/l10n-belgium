@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [companyweb_base](companyweb_base/) | 16.0.1.0.7 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [companyweb_payment_info](companyweb_payment_info/) | 16.0.1.0.3 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 16.0.1.0.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
+[l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 16.0.1.0.0 |  | Belgium - KBO/BCE numbers
 
 [//]: # (end addons)
 
