@@ -19,6 +19,7 @@ class TestXMLReports(TransactionCase):
                 "report_id": mr_template.id,
                 "date_from": date(today.year, 1, 1),
                 "date_to": date(today.year + 1, 4, 1),
+                "company_id": self.browse_ref("l10n_be.demo_company_be").id,
             }
         )
         self.assertTrue(mr_instance._is_be_vat_declaration)
