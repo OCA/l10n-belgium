@@ -56,7 +56,7 @@ msgstr ""
 "función para esta empresa</strong><br/>Su inicio de sesión de odoo: "
 "<strong>{login}</strong> recibirá un resumen completo al final de esta "
 "transacción <br/>Asegúrese de haber cerrado sus estados de cuenta bancarios "
-"para el período <strong>{período}</strong>."
+"para el período <strong>{period}</strong>."
 
 #. module: companyweb_payment_info
 #. odoo-python
@@ -77,7 +77,7 @@ msgstr ""
 "<strong>{last_period}</strong>.<br/>Su inicio de sesión de odoo: "
 "<strong>{login}</strong> recibirá un resumen completo al final de esta "
 "transacción <br/>Asegúrese de haber cerrado sus estados de cuenta bancarios "
-"para el período <strong>{período}</strong>."
+"para el período <strong>{period}</strong>."
 
 #. module: companyweb_payment_info
 #: model:ir.model,name:companyweb_payment_info.model_companyweb_payment_info_credential_wizard_payment
@@ -224,7 +224,7 @@ msgstr "Última Actualización el"
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid "Unexpected step {step}"
-msgstr "Paso inesperado {paso}"
+msgstr "Paso inesperado {step}"
 
 #. module: companyweb_payment_info
 #: model:res.groups,name:companyweb_payment_info.cweb_upload
