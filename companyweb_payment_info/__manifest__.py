@@ -5,7 +5,7 @@
     "summary": ("Send your customer payment information to Companyweb"),
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "version": "16.0.1.0.3",
+    "version": "16.0.1.0.4",
     "development_status": "Production/Stable",
     "license": "AGPL-3",
     "installable": True,
