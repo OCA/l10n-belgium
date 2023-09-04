@@ -5,8 +5,8 @@
 {
     "name": "Belgium Eco Taxes",
     "summary": "Data module to support BEBAT and RECUPEL taxes",
-    "version": "10.0.1.0.0",
-    "author": "ACSONE SA/NV," "BCIM sprl, " "Okia, " "Odoo Community Association (OCA)",
+    "version": "16.0.1.0.0",
+    "author": "ACSONE SA/NV, BCIM sprl, Okia, Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "https://github.com/OCA/l10n-belgium",
     "depends": ["account", "l10n_be"],
@@ -19,4 +19,5 @@
     ],
     "license": "AGPL-3",
     "installable": True,
+    "post_init_hook": "post_init_hook",
 }
