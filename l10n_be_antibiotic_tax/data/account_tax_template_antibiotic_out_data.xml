@@ -10,10 +10,33 @@
         <field name="amount">0.01</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
     </record>
     <record id="antibiotic_002_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -24,10 +47,34 @@
         <field name="amount">0.02</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_003_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -38,10 +85,34 @@
         <field name="amount">0.03</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_004_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -52,10 +123,34 @@
         <field name="amount">0.04</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_005_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -66,10 +161,34 @@
         <field name="amount">0.05</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_006_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -80,10 +199,34 @@
         <field name="amount">0.06</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_007_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -94,10 +237,34 @@
         <field name="amount">0.07</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_008_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -108,10 +275,34 @@
         <field name="amount">0.08</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_009_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -122,10 +313,34 @@
         <field name="amount">0.09</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_010_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -136,10 +351,34 @@
         <field name="amount">0.10</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_011_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -150,10 +389,34 @@
         <field name="amount">0.11</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_012_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -164,10 +427,34 @@
         <field name="amount">0.12</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_013_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -178,10 +465,34 @@
         <field name="amount">0.13</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_014_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -192,10 +503,34 @@
         <field name="amount">0.14</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_016_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -206,10 +541,34 @@
         <field name="amount">0.16</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_017_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -220,10 +579,34 @@
         <field name="amount">0.17</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_018_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -234,10 +617,34 @@
         <field name="amount">0.18</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_020_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -248,10 +655,34 @@
         <field name="amount">0.20</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_024_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -262,10 +693,34 @@
         <field name="amount">0.24</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_026_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -276,10 +731,34 @@
         <field name="amount">0.26</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_031_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -290,10 +769,34 @@
         <field name="amount">0.31</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_032_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -304,10 +807,34 @@
         <field name="amount">0.32</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_033_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -318,10 +845,34 @@
         <field name="amount">0.33</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_035_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -332,10 +883,34 @@
         <field name="amount">0.35</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_037_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -346,10 +921,34 @@
         <field name="amount">0.37</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_039_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -360,10 +959,34 @@
         <field name="amount">0.39</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_041_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -374,10 +997,34 @@
         <field name="amount">0.41</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_042_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -388,10 +1035,34 @@
         <field name="amount">0.42</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_050_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -402,10 +1073,34 @@
         <field name="amount">0.50</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_053_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -416,10 +1111,34 @@
         <field name="amount">0.53</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_061_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -430,10 +1149,34 @@
         <field name="amount">0.61</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_063_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -444,10 +1187,34 @@
         <field name="amount">0.63</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_065_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -458,10 +1225,34 @@
         <field name="amount">0.65</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_079_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -472,10 +1263,34 @@
         <field name="amount">0.79</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_088_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -486,10 +1301,34 @@
         <field name="amount">0.88</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_090_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -500,10 +1339,34 @@
         <field name="amount">0.90</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_092_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -514,10 +1377,34 @@
         <field name="amount">0.92</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_105_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -528,10 +1415,34 @@
         <field name="amount">1.05</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_123_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -542,10 +1453,34 @@
         <field name="amount">1.23</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_131_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -556,10 +1491,34 @@
         <field name="amount">1.31</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_140_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -570,10 +1529,34 @@
         <field name="amount">1.40</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_158_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -584,10 +1567,34 @@
         <field name="amount">1.58</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_175_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -598,10 +1605,34 @@
         <field name="amount">1.75</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_204_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -612,10 +1643,34 @@
         <field name="amount">2.04</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_214_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -626,10 +1681,34 @@
         <field name="amount">2.14</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
     <record id="antibiotic_263_out" model="account.tax.template">
         <field name="sequence">1</field>
@@ -640,10 +1719,34 @@
         <field name="amount">2.63</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="antibiotic_income_account" />
-        <field name="refund_account_id" ref="antibiotic_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('antibiotic_income_account'),
+                'tag_ids': [ref('tax_tag_antibiotax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="1" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_antibiotax')])]" />
+
     </record>
 
 </odoo>

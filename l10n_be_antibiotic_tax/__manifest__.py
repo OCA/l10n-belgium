@@ -5,8 +5,8 @@
 {
     "name": "Belgium Antibiotics Taxes",
     "summary": "Data module to support antibiotics taxes",
-    "version": "10.0.1.0.0",
-    "author": "BCIM sprl, " "Okia, " "Odoo Community Association (OCA)",
+    "version": "16.0.1.0.0",
+    "author": "BCIM sprl, Okia, Odoo Community Association (OCA)",
     "category": "Generic Modules/Accounting",
     "website": "https://github.com/OCA/l10n-belgium",
     "depends": ["account", "l10n_be"],
@@ -18,4 +18,5 @@
     ],
     "license": "AGPL-3",
     "installable": True,
+    "post_init_hook": "post_init_hook",
 }

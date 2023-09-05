@@ -4,7 +4,7 @@
     <record id="antibiotic_income_account" model="account.account.template">
         <field name="name">ANTIBIOTIC Sale</field>
         <field name="code">70097</field>
-        <field name="user_type_id" ref="account.data_account_type_revenue" />
+        <field name="account_type">income</field>
         <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template" />
         <field name="tag_ids" eval="[(6,0,[ref('account.account_tag_operating')])]" />
     </record>
@@ -12,7 +12,7 @@
     <record id="antibiotic_expense_account" model="account.account.template">
         <field name="name">ANTIBIOTIC Purchase</field>
         <field name="code">60197</field>
-        <field name="user_type_id" ref="account.data_account_type_expenses" />
+        <field name="account_type">expense</field>
         <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template" />
         <field name="tag_ids" eval="[(6,0,[ref('account.account_tag_operating')])]" />
     </record>
