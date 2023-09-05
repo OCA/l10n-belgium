@@ -10,10 +10,33 @@
         <field name="amount">0.0224</field>
         <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
-        <field name="account_id" ref="apb_income_account" />
-        <field name="refund_account_id" ref="apb_income_account" />
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('apb_income_account'),
+                'tag_ids': [ref('tax_tag_apbtax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('apb_income_account'),
+                'tag_ids': [ref('tax_tag_apbtax')],
+            }),
+        ]"
+        />
         <field name="include_base_amount" eval="0" />
-        <field name="tag_ids" eval="[(6,0,[ref('tax_tag_apbtax')])]" />
     </record>
 
 </odoo>
