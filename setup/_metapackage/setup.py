@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-companyweb_base>=16.0dev,<16.1dev',
         'odoo-addon-companyweb_payment_info>=16.0dev,<16.1dev',
+        'odoo-addon-l10n_be_bpost_address_autocomplete>=16.0dev,<16.1dev',
         'odoo-addon-l10n_be_mis_reports>=16.0dev,<16.1dev',
         'odoo-addon-l10n_be_partner_kbo_bce>=16.0dev,<16.1dev',
     ],
