@@ -12,7 +12,7 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "bpost_address_autocomplete/static/src/js/**/*",
+            "l10n_be_bpost_address_autocomplete/static/src/js/**/*",
             "web/static/src/libs/fontawesome/css/font-awesome.css",
             ("include", "web._assets_helpers"),
             "web/static/src/scss/pre_variables.scss",

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <templates xml:space="preserve">
-    <t t-name="bpost_address_auto_complete.BpAddressAutoComplete" owl="1">
+    <t t-name="l10n_be_bpost_address_autocomplete.BpAddressAutoComplete" owl="1">
         <script
             type="module"
-            src="/bpost_address_autocomplete/static/lib/bp-address-auto-complete/bp-address-autocomplete-search-bar.js"
+            src="/l10n_be_bpost_address_autocomplete/static/lib/bp-address-auto-complete/bp-address-autocomplete-search-bar.js"
         />
         <div class="row">
             <bp-address-autocomplete t-att-id="props.id" class="col-10" timeout="100" />

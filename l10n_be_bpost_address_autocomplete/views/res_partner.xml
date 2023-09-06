@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="res_partner_form_view" model="ir.ui.view">
-        <field name="name">res.partner.form (in bp_address_auto_complete)</field>
+        <field
+            name="name"
+        >res.partner.form (in l10n_be_bpost_address_auto_complete)</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">

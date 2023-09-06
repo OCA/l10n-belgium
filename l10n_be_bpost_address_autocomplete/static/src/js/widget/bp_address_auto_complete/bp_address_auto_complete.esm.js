@@ -46,7 +46,8 @@ export class BpAddressAutoComplete extends Component {
         });
     }
 }
-BpAddressAutoComplete.template = "bpost_address_auto_complete.BpAddressAutoComplete";
+BpAddressAutoComplete.template =
+    "l10n_be_bpost_address_autocomplete.BpAddressAutoComplete";
 BpAddressAutoComplete.props = {
     ...standardWidgetProps,
     id: {type: String, optional: true},
