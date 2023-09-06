@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+    <t t-name="l10n_be_bpost_address_autocomplete.BpAddressAutoComplete" owl="1">
+        <script
+            type="module"
+            src="/l10n_be_bpost_address_autocomplete/static/lib/bp-address-auto-complete/bp-address-autocomplete-search-bar.js"
+        />
+        <div class="row">
+            <bp-address-autocomplete t-att-id="props.id" class="col-10" timeout="100" />
+            <div
+                class="col-1 d-flex flex-column justify-content-start align-items-center"
+            >
+                <i class="fa fa-search mt-2" />
+            </div>
+        </div>
+    </t>
+</templates>

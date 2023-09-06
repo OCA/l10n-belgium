@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_partner_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >res.partner.form (in l10n_be_bpost_address_auto_complete)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//group/group/span[@class='o_form_label o_td_label']"
+                position="before"
+            >
+                <field name="is_belgian_address" />
+            </xpath>
+            <field name="street" position="before">
+                <widget
+                    name="bp_address_auto_complete"
+                    id="1"
+                    fieldStreet="street"
+                    fieldLocality="city"
+                    fieldPostalCode="zip"
+                    attrs="{'invisible': [('is_belgian_address', '=', False)]}"
+                />
+            </field>
+            <xpath
+                expr="//notebook/page/field/form/sheet/group/group/label"
+                position="before"
+            >
+                <field
+                    name="is_belgian_address"
+                    attrs="{'invisible': [('type','=', 'contact')]}"
+                />
+            </xpath>
+            <xpath
+                expr="//notebook/page/field/form/sheet/group/group/div/div/field[@name='street']"
+                position="before"
+            >
+                <widget
+                    name="bp_address_auto_complete"
+                    id="2"
+                    fieldStreet="street"
+                    fieldLocality="city"
+                    fieldPostalCode="zip"
+                    attrs="{'invisible': [('is_belgian_address', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
