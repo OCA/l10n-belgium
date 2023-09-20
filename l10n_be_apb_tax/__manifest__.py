@@ -11,6 +11,7 @@
     "website": "https://github.com/OCA/l10n-belgium",
     "depends": ["account", "l10n_be"],
     "data": [
+        "data/account_tax_group.xml",
         "data/account_tax_code_template.xml",
         "data/account_account_template_data.xml",
         "data/account_tax_template_apb_data.xml",
