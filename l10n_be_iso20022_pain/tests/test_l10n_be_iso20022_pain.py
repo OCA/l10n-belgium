@@ -1,17 +1,18 @@
 # Copyright 2017 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import Command, fields
 from odoo.exceptions import ValidationError
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestL10nBeIso20022Pain(SavepointCase):
+class TestL10nBeIso20022Pain(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestL10nBeIso20022Pain, cls).setUpClass()
+        super().setUpClass()
         # MODELS
         cls.invoice_model = cls.env["account.move"].with_context(
-            default_type="in_invoice"
+            default_move_type="in_invoice"
         )
         cls.account_model = cls.env["account.account"]
         cls.payment_line_model = cls.env["account.payment.line"]
@@ -33,11 +34,10 @@ class TestL10nBeIso20022Pain(SavepointCase):
         # Instance: Invoice
         cls.invoice = cls.invoice_model.create(
             {
+                "invoice_date": fields.Date.today(),
                 "partner_id": cls.env.ref("base.res_partner_2").id,
                 "invoice_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": "Test invoice line",
                             "quantity": 2.000,
@@ -69,7 +69,7 @@ class TestL10nBeIso20022Pain(SavepointCase):
         Expected result:
             - The created payment line takes the BBA communication
         """
-        self.invoice.post()
+        self.invoice.action_post()
         self.invoice.create_account_payment_line()
         pl = self.payment_line_model.search(
             [("move_line_id.move_id", "=", self.invoice.id)], limit=1

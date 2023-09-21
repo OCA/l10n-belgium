@@ -12,6 +12,7 @@ class AccountPaymentLine(models.Model):
 
     communication_type = fields.Selection(
         selection_add=[("bba", _("BBA Structured Communication"))],
+        ondelete={"bba": "set default"},
     )
 
     @api.constrains("communication", "communication_type")

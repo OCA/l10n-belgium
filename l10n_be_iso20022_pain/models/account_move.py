@@ -25,7 +25,8 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     reference_type = fields.Selection(
-        selection_add=[("bba", "BBA Structured Communication")]
+        selection_add=[("bba", "BBA Structured Communication")],
+        ondelete={"bba": "set default"},
     )
 
     @api.constrains("reference_type", "ref")
