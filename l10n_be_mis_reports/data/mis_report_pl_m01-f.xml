@@ -1,0 +1,397 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2023 ACSONE SA/NV
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record model="mis.report" id="new_mis_report_pl_m01_f">
+    <field
+            name="name"
+        >BELGIUM PROFIT AND LOSS ACCOUNT [m01-f] - Company with capital (abridged model)</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_base" />
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_9900">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_9900</field>
+    <field name="description">Gross margin [9900]</field>
+    <field
+            name="expression"
+        >-balp[70%,71%,72%,73%,74%,760%,761%,762%,763%,764%,765%,766%,767%,768%,60%,61%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2i" />
+    <field name="sequence">10</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_76A">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_76A</field>
+    <field name="description">Of which: non-recurring operating income [76A]</field>
+    <field name="expression">-balp[760%,761%,762%,763%,764%,765%,766%,767%,768%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">20</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_70">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_70</field>
+    <field name="description">Turnover [70]</field>
+    <field name="expression">-balp[70%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">30</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_60_61">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_60_61</field>
+    <field
+            name="description"
+        >Goods for resale, raw materials, consumables, services and other goods [60/61]</field>
+    <field name="expression">balp[60%,61%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">40</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_62">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_62</field>
+    <field name="description">Remuneration, social security and pensions [62]</field>
+    <field name="expression">balp[62%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">50</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_630">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_630</field>
+    <field
+            name="description"
+        >Amortisations of and other amounts written down on formation expenses, intangible and tangible fixed assets [630]</field>
+    <field name="expression">balp[630%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">60</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_631_4">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_631_4</field>
+    <field
+            name="description"
+        >Amounts written down on stocks, contracts in progress and trade debtors: additions (write-backs) [631/4]</field>
+    <field name="expression">balp[631%,632%,633%,634%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">70</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_635_8">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_635_8</field>
+    <field
+            name="description"
+        >Provisions for liabilities and charges: Appropriations (uses and write-backs) [635/8]</field>
+    <field name="expression">balp[635%,636%,637%,638%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">80</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_640_8">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_640_8</field>
+    <field name="description">Other operating charges [640/8]</field>
+    <field name="expression">balp[640%,641%,642%,643%,644%,645%,646%,647%,648%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">90</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_649">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_649</field>
+    <field
+            name="description"
+        >Operating charges reported as assets under restructuring costs [649]</field>
+    <field name="expression">balp[649%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">100</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_66A">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_66A</field>
+    <field name="description">Non-recurring operating charges [66A]</field>
+    <field name="expression">balp[660%,661%,662%,663%,664%,665%,666%,667%,669%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">110</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_9901">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_9901</field>
+    <field name="description">Operating profit (loss) [9901]</field>
+    <field
+            name="expression"
+        >+rub_9900 -rub_62 -rub_630 -rub_631_4 -rub_635_8 -rub_640_8 -rub_649 -rub_66A</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2i" />
+    <field name="sequence">120</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_75_76B">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_75_76B</field>
+    <field name="description">Financial income [75/76B]</field>
+    <field name="expression">+rub_75 +rub_76B</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">130</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_75">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_75</field>
+    <field name="description">Recurring financial income [75]</field>
+    <field name="expression">-balp[75%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">140</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_753">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_753</field>
+    <field name="description">Of which: capital and interest subsidies [753]</field>
+    <field name="expression">-balp[753%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">150</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_76B">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_76B</field>
+    <field name="description">Non-recurring financial income [76B]</field>
+    <field name="expression">-balp[769%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">160</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_65_66B">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_65_66B</field>
+    <field name="description">Financial charges [65/66B]</field>
+    <field name="expression">+rub_65 +rub_66B</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">170</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_65">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_65</field>
+    <field name="description">Recurring financial charges [65]</field>
+    <field name="expression">balp[65%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">180</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_66B">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_66B</field>
+    <field name="description">Non-recurring financial charges [66B]</field>
+    <field name="expression">balp[668%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">190</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_9903">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_9903</field>
+    <field name="description">Profit (Loss) for the period before taxes [9903]</field>
+    <field name="expression">+rub_9901 +rub_75_76B -rub_65_66B</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2i" />
+    <field name="sequence">200</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_780">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_780</field>
+    <field name="description">Transfer from deferred taxes [780]</field>
+    <field name="expression">-balp[780%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">210</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_680">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_680</field>
+    <field name="description">Transfer to deferred taxes [680]</field>
+    <field name="expression">balp[680%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">220</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_67_77">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_67_77</field>
+    <field name="description">Income taxes on the result [67/77]</field>
+    <field name="expression">balp[67%,77%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">230</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_9904">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_9904</field>
+    <field name="description">Profit (Loss) of the period [9904]</field>
+    <field name="expression">+rub_9903 +rub_780 -rub_680 -rub_67_77</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2i" />
+    <field name="sequence">240</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_789">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_789</field>
+    <field name="description">Transfer from untaxed reserves [789]</field>
+    <field name="expression">-balp[789%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">250</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_689">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_689</field>
+    <field name="description">Transfer to untaxed reserves [689]</field>
+    <field name="expression">balp[689%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">260</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_pl_m01_f_rub_9905">
+    <field name="report_id" ref="new_mis_report_pl_m01_f" />
+    <field name="name">rub_9905</field>
+    <field
+            name="description"
+        >Profit (Loss) of the period available for appropriation [9905]</field>
+    <field name="expression">+rub_9904 +rub_789 -rub_689</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_1" />
+    <field name="sequence">270</field>
+  </record>
+</odoo>
