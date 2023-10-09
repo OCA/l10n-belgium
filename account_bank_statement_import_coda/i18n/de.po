@@ -24,25 +24,25 @@ msgid "Coded statement of account (.coda)"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:154
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:0
 #, python-format
 msgid "Communication"
 msgstr "Kommunikation"
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:139
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:0
 #, python-format
 msgid "Counter Party"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:142
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:0
 #, python-format
 msgid "Counter Party Account"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:145
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:0
 #, python-format
 msgid "Counter Party Address"
 msgstr ""
@@ -58,7 +58,7 @@ msgid "Journal"
 msgstr ""
 
 #. module: account_bank_statement_import_coda
-#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:63
+#: code:addons/account_bank_statement_import_coda/wizard/account_bank_statement_import_coda.py:0
 #, python-format
 msgid ""
 "The following problem occurred during import. The file might not be valid.\n"
