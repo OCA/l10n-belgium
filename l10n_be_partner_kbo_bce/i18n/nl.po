@@ -40,6 +40,18 @@ msgid "Country Code"
 msgstr ""
 
 #. module: l10n_be_partner_kbo_bce
+#: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner__display_name
+#: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner_id_category__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_be_partner_kbo_bce
+#: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner__id
+#: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner_id_category__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_be_partner_kbo_bce
 #: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner__kbo_bce_number
 #: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_users__kbo_bce_number
 msgid "KBO/BCE Number"
@@ -49,6 +61,12 @@ msgstr "KBO Nummer"
 #: code:addons/l10n_be_partner_kbo_bce/models/res_partner.py:0
 #, python-format
 msgid "KBO/BCE Number '%s' is not consistent with VAT Number '%s'."
+msgstr ""
+
+#. module: l10n_be_partner_kbo_bce
+#: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner____last_update
+#: model:ir.model.fields,field_description:l10n_be_partner_kbo_bce.field_res_partner_id_category____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: l10n_be_partner_kbo_bce
