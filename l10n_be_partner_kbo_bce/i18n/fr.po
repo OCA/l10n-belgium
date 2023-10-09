@@ -48,7 +48,7 @@ msgstr "Numéro BCE"
 #. module: l10n_be_partner_kbo_bce
 #: code:addons/l10n_be_partner_kbo_bce/models/res_partner.py:0
 #, python-format
-msgid "KBO/BCE Number '%s' is not consistent with VAT Number '%s'."
+msgid "KBO/BCE Number {kbn} is not consistent with VAT Number {vat}."
 msgstr ""
 
 #. module: l10n_be_partner_kbo_bce
