@@ -17,62 +17,65 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, fuzzy, python-format
 msgid ""
 "<h2>Companyweb upload Status</h2>Here under a small summary, the full "
 "summary will be sent to <strong>{login}</strong> <br/>{inv_exp_date} : "
-"LinesWithInvalidExpirationDate <br/>{inv_date} : "
-"LinesWithInvalidInvoiceDate <br/>{inv_number} : "
-"LinesWithInvalidInvoiceNumber <br/>{inv_amount} : "
-"LinesWithInvalidOpenAmount <br/>{inv_vat} : LinesWithInvalidVatNumber <br/>"
-"{nb_accepted} : NumberOfLinesAccepted <br/>{nb_received} : "
+"LinesWithInvalidExpirationDate <br/>{inv_date} : LinesWithInvalidInvoiceDate "
+"<br/>{inv_number} : LinesWithInvalidInvoiceNumber <br/>{inv_amount} : "
+"LinesWithInvalidOpenAmount <br/>{inv_vat} : LinesWithInvalidVatNumber <br/"
+">{nb_accepted} : NumberOfLinesAccepted <br/>{nb_received} : "
 "NumberOfLinesRecieved <br/>"
 msgstr ""
 "<h2>Companyweb statut de téléchargement</h2>Ci-dessous un bref résumé, "
-"l'aperçu complet sera envoyé à <strong>{login}</strong> <br/>{inv_exp_date} : Nombre de "
-"lignes avec date d'expiration invalide <br/>{inv_date} : Nombre de lignes avec date "
-"de facturation invalide <br/>{inv_number} : Nombre de lignes avec numéro de facture "
-"invalide <br/>{inv_amount} : Nombre de lignes avec encours invalide <br/>{inv_vat} : Nombre "
-"de lignes avec numéro d'entreprise invalide <br/>{nb_accepted} : Nombre de lignes "
-"acceptées <br/>{nb_received} : Nombre de lignes reçues <br/>"
+"l'aperçu complet sera envoyé à <strong>{login}</strong> <br/"
+">{inv_exp_date} : Nombre de lignes avec date d'expiration invalide <br/"
+">{inv_date} : Nombre de lignes avec date de facturation invalide <br/"
+">{inv_number} : Nombre de lignes avec numéro de facture invalide <br/"
+">{inv_amount} : Nombre de lignes avec encours invalide <br/>{inv_vat} : "
+"Nombre de lignes avec numéro d'entreprise invalide <br/>{nb_accepted} : "
+"Nombre de lignes acceptées <br/>{nb_received} : Nombre de lignes reçues <br/>"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, fuzzy, python-format
 msgid ""
 "<h2>Companyweb upload</h2>You are about to submit <strong>{nb_invoice}</"
-"strong> open invoices <br/>to Companyweb for the company <strong>"
-"{company}</strong>.<br/>The previous period that was sent is <strong>"
-"{last_period}</strong>.<br/>Your odoo login : <strong>{login}</strong> "
-"will receive a full summary at the end of this transaction <br/>Make sure "
-"you have closed your bank statements for period <strong>{period}</strong>."
-msgstr ""
-"<h2>Companyweb upload</h2>Vous etes sur le point d'envoyer <strong>{nb_invoice}</"
-"strong> factures ouvertes <br/>à Companyweb pour la société <strong>"
-"{company}</strong>.<br/>La dernière période envoyée était <strong>"
-"{last_period}</strong>.<br/>Votre login odoo : <strong>{login}</strong> "
-"va recevoir un résumé complet à la fin de cette transaction <br/>Assurez-vous "
-"d'avoir bien cloturé la période : <strong>{period}</strong>."
-
-#. module: companyweb_payment_info
-#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, fuzzy, python-format
-msgid ""
-"<h2>Companyweb upload</h2>You are about to submit <strong>{nb_invoice}</"
-"strong> open invoices <br/>to Companyweb for the company <strong>"
-"{company}</strong>.<br/><strong>It's the first time you use this feature "
-"for this company</strong><br/>Your odoo login : <strong>{login}</strong> "
-"will received a full summary at the end of this transaction <br/>Make sure "
-"you have closed your bank statements for period <strong>{period}</strong>."
+"strong> open invoices <br/>to Companyweb for the company <strong>{company}</"
+"strong>.<br/><strong>It's the first time you use this feature for this "
+"company</strong><br/>Your odoo login : <strong>{login}</strong> will "
+"received a full summary at the end of this transaction <br/>Make sure you "
+"have closed your bank statements for period <strong>{period}</strong>."
 msgstr ""
 "<h2>Companyweb statut de téléchargement</h2>Vous êtes sur le point d'envoyer "
-"<strong>{nb_invoice}</strong>  factures ouvertes <br/>à Companyweb pour la société "
-"<strong>{company}</strong>.<br/><strong>C'est la première fois que vous utilisez "
-"cette fonctionalité  pour cette société </strong><br/>Votre login odoo : "
-"<strong>{login}</strong>  recevra un résumé complet à la fin de cette transaction "
-"<br/>Assurez-vous d'avoir cloturer toutes vos  factures pour la période : "
-"<strong>{period}</strong>."
+"<strong>{nb_invoice}</strong>  factures ouvertes <br/>à Companyweb pour la "
+"société <strong>{company}</strong>.<br/><strong>C'est la première fois que "
+"vous utilisez cette fonctionalité  pour cette société </strong><br/>Votre "
+"login odoo : <strong>{login}</strong>  recevra un résumé complet à la fin de "
+"cette transaction <br/>Assurez-vous d'avoir cloturer toutes vos  factures "
+"pour la période : <strong>{period}</strong>."
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid ""
+"<h2>Companyweb upload</h2>You are about to submit <strong>{nb_invoice}</"
+"strong> open invoices <br/>to Companyweb for the company <strong>{company}</"
+"strong>.<br/>The previous period that was sent is <strong>{last_period}</"
+"strong>.<br/>Your odoo login : <strong>{login}</strong> will receive a full "
+"summary at the end of this transaction <br/>Make sure you have closed your "
+"bank statements for period <strong>{period}</strong>."
+msgstr ""
+"<h2>Companyweb upload</h2>Vous etes sur le point d'envoyer "
+"<strong>{nb_invoice}</strong> factures ouvertes <br/>à Companyweb pour la "
+"société <strong>{company}</strong>.<br/>La dernière période envoyée était "
+"<strong>{last_period}</strong>.<br/>Votre login odoo : <strong>{login}</"
+"strong> va recevoir un résumé complet à la fin de cette transaction <br/"
+">Assurez-vous d'avoir bien cloturé la période : <strong>{period}</strong>."
 
 #. module: companyweb_payment_info
 #: model:ir.model,name:companyweb_payment_info.model_companyweb_payment_info_credential_wizard_payment
@@ -80,6 +83,7 @@ msgid "Ask for Companyweb login & password"
 msgstr ""
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid "Bad Credentials"
@@ -91,18 +95,22 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid "Companyweb : No Invoices to send"
 msgstr "Companyweb : Pas de factures à envoyer"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, fuzzy, python-format
 msgid "Companyweb : You already submitted invoices for {last_date}"
-msgstr "Companyweb : Vous avez deja envoyé les factures pour la période : {last_date}"
+msgstr ""
+"Companyweb : Vous avez deja envoyé les factures pour la période : {last_date}"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid ""
@@ -114,6 +122,7 @@ msgstr ""
 "action"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, fuzzy, python-format
 msgid ""
@@ -164,12 +173,14 @@ msgid "Display Name"
 msgstr "Nom"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid "Enter your Credentials"
 msgstr "Entrer vos informations de login"
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, fuzzy, python-format
 msgid "Error from Companyweb : {status} : {message}"
@@ -208,6 +219,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: companyweb_payment_info
+#. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
 #, python-format
 msgid "Unexpected step {step}"
