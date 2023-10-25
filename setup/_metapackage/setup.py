@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-l10n-belgium Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-account_statement_import_coda>=16.0dev,<16.1dev',
         'odoo-addon-companyweb_base>=16.0dev,<16.1dev',
         'odoo-addon-companyweb_payment_info>=16.0dev,<16.1dev',
         'odoo-addon-l10n_be_bpost_address_autocomplete>=16.0dev,<16.1dev',

@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[account_statement_import_coda](account_statement_import_coda/) | 16.0.1.0.0 |  | Import CODA Bank Statement
 [companyweb_base](companyweb_base/) | 16.0.1.0.7 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [companyweb_payment_info](companyweb_payment_info/) | 16.0.1.0.4 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
 [l10n_be_bpost_address_autocomplete](l10n_be_bpost_address_autocomplete/) | 16.0.1.0.0 |  | Bpost address autocomplete
