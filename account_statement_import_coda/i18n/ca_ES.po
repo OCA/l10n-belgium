@@ -20,38 +20,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: account_statement_import_coda
-#: model_terms:ir.ui.view,arch_db:account_statement_import_coda.account_statement_import_view
-msgid "Coded statement of account (.coda)"
+#: model_terms:ir.ui.view,arch_db:account_statement_import_coda.account_statement_import_form
+msgid "Coded statement of account (.coda or .CD2)"
 msgstr ""
 
 #. module: account_statement_import_coda
-#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:154
+#. odoo-python
+#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:0
 #, python-format
 msgid "Communication"
 msgstr ""
 
 #. module: account_statement_import_coda
-#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:139
+#. odoo-python
+#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:0
 #, python-format
 msgid "Counter Party"
 msgstr ""
 
 #. module: account_statement_import_coda
-#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:142
+#. odoo-python
+#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:0
 #, python-format
 msgid "Counter Party Account"
 msgstr ""
 
 #. module: account_statement_import_coda
-#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:145
+#. odoo-python
+#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:0
 #, python-format
 msgid "Counter Party Address"
 msgstr ""
 
 #. module: account_statement_import_coda
 #: model:ir.model,name:account_statement_import_coda.model_account_statement_import
-msgid "Import Bank Statement"
-msgstr "Importar extracte bancari"
+msgid "Import Bank Statement Files"
+msgstr ""
 
 #. module: account_statement_import_coda
 #: model:ir.model,name:account_statement_import_coda.model_account_journal
@@ -59,10 +63,14 @@ msgid "Journal"
 msgstr ""
 
 #. module: account_statement_import_coda
-#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:63
+#. odoo-python
+#: code:addons/account_statement_import_coda/wizard/account_statement_import_coda.py:0
 #, python-format
 msgid ""
 "The following problem occurred during import. The file might not be valid.\n"
 "\n"
 " %s"
 msgstr ""
+
+#~ msgid "Import Bank Statement"
+#~ msgstr "Importar extracte bancari"
