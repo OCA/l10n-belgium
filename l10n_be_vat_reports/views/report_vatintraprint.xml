@@ -43,7 +43,7 @@
                                     <td><span t-field="l.code" /></td>
                                     <td><span
                                             t-field="l.amount"
-                                            t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
+                                            t-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
                                         /></td>
                                 </tr>
                             </tbody>
@@ -51,7 +51,7 @@
 
                         <p><strong>Total: </strong><span
                                 t-field="o.amount_total"
-                                t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
+                                t-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
                             /></p>
                     </div>
                 </t>
