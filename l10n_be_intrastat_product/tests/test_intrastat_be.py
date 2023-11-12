@@ -11,25 +11,26 @@ class TestIntrastatBe(TransactionCase):
         cls.inv_obj = cls.env["account.move"]
         cls.fpos_obj = cls.env["account.fiscal.position"]
         cls.region_obj = cls.env["intrastat.region"]
-        cls.decl_obj = cls.env["l10n.be.intrastat.product.declaration"]
+        cls.decl_obj = cls.env["intrastat.product.declaration"]
 
         cls.company = cls.env.company
         cls.env.company.country_id = cls.env.ref("base.be")
+        cls.env.company.vat = "BE0820512013"
         cls.company.intrastat_region_id = cls.env.ref(
             "l10n_be_intrastat_product.intrastat_region_2"
         )
-        cls.fpos = cls.fpos_obj.create(
+        cls.fpos_b2b = cls.fpos_obj.create(
             {
                 "name": "Intrastat Fiscal Position (B2B)",
-                "intrastat": True,
+                "intrastat": "b2b",
                 "vat_required": True,
                 "country_group_id": cls.env.ref("base.europe").id,
             }
         )
-        cls.fpos_na = cls.fpos_obj.create(
+        cls.fpos_b2c = cls.fpos_obj.create(
             {
                 "name": "Intrastat Fiscal Position (B2C)",
-                "intrastat": True,
+                "intrastat": "b2c",
                 "vat_required": False,
                 "country_group_id": cls.env.ref("base.europe").id,
             }
@@ -78,7 +79,7 @@ class TestIntrastatBe(TransactionCase):
                 "country_id": cls.env.ref("base.nl").id,
                 "is_company": True,
                 "vat": "NL 123456782B90",
-                "property_account_position_id": cls.fpos.id,
+                "property_account_position_id": cls.fpos_b2b.id,
             }
         )
         cls.partner_b2b_2 = cls.env["res.partner"].create(
@@ -87,7 +88,7 @@ class TestIntrastatBe(TransactionCase):
                 "country_id": cls.env.ref("base.nl").id,
                 "is_company": True,
                 "vat": "NL000000000B00",
-                "property_account_position_id": cls.fpos.id,
+                "property_account_position_id": cls.fpos_b2b.id,
             }
         )
         cls.partner_b2b_na = cls.env["res.partner"].create(
@@ -95,7 +96,8 @@ class TestIntrastatBe(TransactionCase):
                 "name": "NL B2B NA",
                 "country_id": cls.env.ref("base.nl").id,
                 "is_company": True,
-                "property_account_position_id": cls.fpos_na.id,
+                "vat": "na",
+                "property_account_position_id": cls.fpos_b2b.id,
             }
         )
         cls.partner_b2c = cls.env["res.partner"].create(
@@ -103,7 +105,7 @@ class TestIntrastatBe(TransactionCase):
                 "name": "NL B2C",
                 "country_id": cls.env.ref("base.nl").id,
                 "is_company": False,
-                "property_account_position_id": cls.fpos.id,
+                "property_account_position_id": cls.fpos_b2c.id,
             }
         )
         cls.env["account.tax"].search([("company_id", "=", cls.company.id)]).write(
@@ -115,7 +117,6 @@ class TestIntrastatBe(TransactionCase):
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
             {
                 "partner_id": self.partner_b2b_1.id,
-                "fiscal_position_id": self.fpos.id,
             }
         )
         with Form(inv_out) as inv_form:
@@ -132,7 +133,7 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.generate_declaration()
+        declaration.done()
         clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(clines[0].vat, "NL123456782B90")
@@ -174,7 +175,7 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.generate_declaration()
+        declaration.done()
         clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(clines[1].amount_company_currency, -5000.0)
@@ -185,7 +186,6 @@ class TestIntrastatBe(TransactionCase):
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
             {
                 "partner_id": self.partner_b2b_na.id,
-                "fiscal_position_id": self.fpos_na.id,
             }
         )
         with Form(inv_out) as inv_form:
@@ -202,16 +202,14 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.generate_declaration()
+        declaration.done()
         dlines = declaration.declaration_line_ids
         self.assertEqual(dlines[0].vat, "QV999999999999")
 
     def test_be_sale_b2c(self):
-
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
             {
                 "partner_id": self.partner_b2c.id,
-                "fiscal_position_id": self.fpos.id,
             }
         )
         with Form(inv_out) as inv_form:
@@ -228,7 +226,7 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.generate_declaration()
+        declaration.done()
         # clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(dlines[0].vat, "QV999999999999")
@@ -238,7 +236,6 @@ class TestIntrastatBe(TransactionCase):
         inv_in1 = self.inv_obj.with_context(default_move_type="in_invoice").create(
             {
                 "partner_id": self.partner_b2b_1.id,
-                "fiscal_position_id": self.fpos.id,
             }
         )
         with Form(inv_in1) as inv_form:
@@ -250,7 +247,6 @@ class TestIntrastatBe(TransactionCase):
         inv_in2 = self.inv_obj.with_context(default_move_type="in_invoice").create(
             {
                 "partner_id": self.partner_b2b_2.id,
-                "fiscal_position_id": self.fpos.id,
             }
         )
         with Form(inv_in2) as inv_form:
@@ -269,7 +265,7 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.generate_declaration()
+        declaration.done()
         clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(clines[1].weight, 460.0)
