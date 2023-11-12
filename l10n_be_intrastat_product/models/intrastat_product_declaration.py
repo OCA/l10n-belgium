@@ -7,7 +7,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from lxml import etree
 
-from odoo import _, api, fields, models
+from odoo import _, api, models
 from odoo.exceptions import UserError
 
 from odoo.addons.report_xlsx_helper.report.report_xlsx_abstract import (
@@ -20,68 +20,18 @@ _logger = logging.getLogger(__name__)
 _INTRASTAT_XMLNS = "http://www.onegate.eu/2010-01-01"
 
 
-class L10nBeIntrastatProductDeclaration(models.Model):
-    _name = "l10n.be.intrastat.product.declaration"
-    _description = "Intrastat Product Declaration for Belgium"
-    _inherit = ["intrastat.product.declaration", "mail.thread"]
-
-    computation_line_ids = fields.One2many(
-        "l10n.be.intrastat.product.computation.line",
-        "parent_id",
-        string="Intrastat Product Computation Lines",
-        states={"done": [("readonly", True)]},
-    )
-    declaration_line_ids = fields.One2many(
-        "l10n.be.intrastat.product.declaration.line",
-        "parent_id",
-        string="Intrastat Product Declaration Lines",
-        states={"done": [("readonly", True)]},
-    )
-
-    def _get_intrastat_transaction(self, inv_line, notedict):
-        transaction = super()._get_intrastat_transaction(inv_line, notedict)
-        msg1 = _("Select a 1 digit intrastat transaction code.")
-        msg2 = _("Select a 2 digit intrastat transaction code.")
-        module = __name__.split("addons.")[1].split(".")[0]
-        if transaction:
-            if int(transaction.code) >= 10 and self.year <= "2021":
-                self._format_line_note(inv_line, notedict, [msg1])
-            elif int(transaction.code) < 10 and self.year > "2021":
-                self._format_line_note(inv_line, notedict, [msg2])
-        else:
-            if self.year <= "2021":
-                transaction = self.env.ref("%s.intrastat_transaction_1" % module)
-            else:
-                transaction = self.env.ref("%s.intrastat_transaction_11" % module)
-        invoice = inv_line.move_id
-        if not invoice.intrastat_transaction_id:
-            cp = invoice.commercial_partner_id
-            if not cp.is_company:
-                transaction = self.env.ref("%s.intrastat_transaction_12" % module)
-        return transaction
+class IntrastatProductDeclaration(models.Model):
+    _inherit = "intrastat.product.declaration"
 
     def _get_region(self, inv_line, notedict):
         region = super()._get_region(inv_line, notedict)
-        if not region:
+        if self.company_country_code == "BE" and not region:
             msg = _(
                 "The Intrastat Region of the Company is not set, "
                 "please configure it first."
             )
             self._account_config_warning(msg)
         return region
-
-    def _get_vat(self, inv_line, notedict):
-        inv = inv_line.move_id
-        cp = inv.commercial_partner_id
-        b2c = not cp.is_company
-        b2b_na = cp.is_company and (
-            (cp.vat or "").lower().strip() == "na"
-            or (not cp.vat and not inv.fiscal_position_id.vat_required)
-        )
-        if b2c or b2b_na:
-            return "QV999999999999"
-        else:
-            return super()._get_vat(inv_line, notedict)
 
     def _handle_refund(self, inv_line, line_vals, notedict):
         """
@@ -100,6 +50,8 @@ class L10nBeIntrastatProductDeclaration(models.Model):
         Move the refund handling to the 'intrastat_product' module and
         add refund unit tests.
         """
+        if self.company_country_code != "BE":
+            return
         refund = inv_line.move_id
         if refund.intrastat_transaction_id:
             line_vals["transaction_id"] = refund.intrastat_transaction_id.id
@@ -118,7 +70,7 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                     if self.company_id.intrastat_dispatches == "exempt":
                         line_vals.update(
                             {
-                                "hs_code_id": notedict["credit_note_code"].id,
+                                "hs_code_id": notedict["credit_note_code_origin"].id,
                                 "region_id": refund.src_dest_region_id.id,
                                 "transaction_id": False,
                             }
@@ -138,7 +90,7 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                     if self.company_id.intrastat_arrivals == "exempt":
                         line_vals.update(
                             {
-                                "hs_code_id": notedict["credit_note_code"].id,
+                                "hs_code_id": notedict["credit_note_code_origin"].id,
                                 "region_id": refund.src_dest_region_id.id,
                                 "transaction_id": False,
                             }
@@ -175,32 +127,31 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                     }
                 )
                 return
-
-            line_notes = [
-                _("Unable to determine the correct handling of Refund."),
-                _("Please check/set the Intrastat Transaction Code on the Refund."),
-            ]
-            self._format_line_note(inv_line, notedict, line_notes)
+            msg = _(
+                "Unable to determine the correct handling of Refund. "
+                "Please check/set the Intrastat Transaction Code on the Refund."
+            )
+            notedict["invoice"][notedict["inv_origin"]].add(msg)
 
     def _update_computation_line_vals(self, inv_line, line_vals, notedict):
         super()._update_computation_line_vals(inv_line, line_vals, notedict)
         # handling of refunds
-        inv = inv_line.move_id
-        if inv.move_type in ["in_refund", "out_refund"]:
-            self._handle_refund(inv_line, line_vals, notedict)
+        if self.company_country_code == "BE":
+            inv = inv_line.move_id
+            if inv.move_type in ["in_refund", "out_refund"]:
+                self._handle_refund(inv_line, line_vals, notedict)
 
-        if line_vals:
-            if self.declaration_type == "dispatches":
-                if not line_vals["vat"]:
-                    line_notes = [
-                        _("Missing VAT Number on partner '%s'")
-                        % inv.partner_id.name_get()[0][1]
-                    ]
-                    self._format_line_note(inv_line, notedict, line_notes)
-            # extended declaration
-            if self.reporting_level == "extended":
-                incoterm = self._get_incoterm(inv_line, notedict)
-                line_vals.update({"incoterm_id": incoterm.id})
+            if line_vals:
+                if self.declaration_type == "dispatches":
+                    if not line_vals.get("vat", ""):
+                        msg = _("Missing <em>VAT Number</em>")
+                        notedict["partner"][inv.partner_id.display_name][msg].add(
+                            notedict["inv_origin"]
+                        )
+                # extended declaration
+                if self.reporting_level == "extended":
+                    incoterm = self._get_incoterm(inv_line, notedict)
+                    line_vals.update({"incoterm_id": incoterm.id})
         return
 
     def _handle_invoice_accessory_cost(
@@ -220,95 +171,63 @@ class L10nBeIntrastatProductDeclaration(models.Model):
         stated on a separate line on the invoice), transport and insurance
         costs may not be included in the value of the goods.
         """
-
-    def _gather_invoices_init(self, notedict):
-        if self.company_id.country_id.code not in ("be", "BE"):
-            raise UserError(
-                _(
-                    "The Belgian Intrastat Declaration requires "
-                    "the Company's Country to be equal to 'Belgium'."
-                )
-            )
-
-        module = __name__.split("addons.")[1].split(".")[0]
-
-        # Special commodity codes
-        # Current version implements only regular credit notes
-        special_code = "99600000"
-        hs_code = self.env["hs.code"].search([("local_code", "=", special_code)])
-        if len(hs_code) > 1:
-            hs_code = hs_code.filtered(
-                lambda r: r.company_id == self.company_id
-            ) or hs_code.filtered(lambda r: not r.company_id)
-        if not hs_code:
-            msg = (
-                _(
-                    "Intrastat Code '%s' not found. "
-                    "\nYou can update your codes "
-                    "via the module intrastat_product_hscodes_import."
-                )
-                % special_code
-            )
-            raise UserError(msg)
-        notedict["credit_note_code"] = hs_code[0]
-
-        if self.year <= "2021":
-            notedict["transcation_21"] = self.env.ref(
-                "%s.intrastat_transaction_2" % module
+        if self.company_country_code != "BE":
+            return super()._handle_invoice_accessory_cost(
+                invoice,
+                lines_current_invoice,
+                total_inv_accessory_costs_cc,
+                total_inv_product_cc,
+                total_inv_weight,
             )
         else:
-            notedict["transcation_21"] = self.env.ref(
-                "%s.intrastat_transaction_21" % module
-            )
+            return
 
-    def _prepare_invoice_domain(self):
-        """
-        Domain should be based on fiscal position in stead of country.
-        Both in_ and out_refund must be included in order to cover
-        - credit notes with and without return
-        - companies subject to arrivals or dispatches only
-        """
-        domain = super()._prepare_invoice_domain()
-        if self.declaration_type == "arrivals":
-            domain.append(
-                ("move_type", "in", ("in_invoice", "in_refund", "out_refund"))
+    def _gather_invoices_init(self, notedict):
+        if self.company_country_code == "BE":
+            # Special commodity codes
+            # Current version implements only regular credit notes
+            special_code = "99600000"
+            hs_code = self.env["hs.code"].search(
+                [
+                    ("local_code", "=", special_code),
+                    "|",
+                    ("company_id", "=", self.company_id.id),
+                    ("company_id", "=", False),
+                ],
+                limit=1,
             )
-        elif self.declaration_type == "dispatches":
-            domain.append(
-                ("move_type", "in", ("out_invoice", "in_refund", "out_refund"))
+            if not hs_code:
+                msg = (
+                    _(
+                        "Intrastat Code '%s' not found. "
+                        "\nYou can update your codes "
+                        "via the module intrastat_product_hscodes_import."
+                    )
+                    % special_code
+                )
+                raise UserError(msg)
+            notedict.update(
+                {
+                    "credit_note_code_origin": hs_code,
+                }
             )
-        return domain
+        else:
+            return super()._gather_invoices_init(notedict)
 
     def _sanitize_vat(self, vat):
         return vat and vat.replace(" ", "").replace(".", "").upper()
 
-    @api.model
-    def _group_line_hashcode_fields(self, computation_line):
-        res = super()._group_line_hashcode_fields(computation_line)
-        if self.declaration_type == "arrivals":
-            del res["product_origin_country"]
-            del res["vat"]
-        if self.reporting_level == "extended":
-            res["incoterm"] = computation_line.incoterm_id.id or False
-        return res
-
-    @api.model
-    def _prepare_grouped_fields(self, computation_line, fields_to_sum):
-        vals = super()._prepare_grouped_fields(computation_line, fields_to_sum)
-        if self.reporting_level == "extended":
-            vals["incoterm_id"] = computation_line.incoterm_id.id
-        return vals
-
     def _check_generate_xml(self):
         self.ensure_one()
         res = super()._check_generate_xml()
-        if not self.declaration_line_ids:
-            res = self.generate_declaration()
+        if self.company_country_code == "BE":
+            if not self.declaration_line_ids:
+                res = self.generate_declaration()
         return res
 
     def _get_kbo_bce_nr(self):
         kbo_bce_nr = False
-        vat = self._sanitize_vat(self.company_id.partner_id.vat)
+        vat = self._sanitize_vat(self.company_id.vat)
         if vat and vat[:2] == "BE":
             kbo_bce_nr = vat[2:]
         return kbo_bce_nr
@@ -322,7 +241,12 @@ class L10nBeIntrastatProductDeclaration(models.Model):
         etree.SubElement(Administration, "Domain").text = "SXX"
 
     def _node_Item(self, parent, line, decl_code):
-        for fld in ("src_dest_country_id", "transaction_id", "region_id", "hs_code_id"):
+        for fld in (
+            "src_dest_country_code",
+            "transaction_id",
+            "region_code",
+            "hs_code_id",
+        ):
             if not line[fld]:
                 raise UserError(
                     _("Error while processing %(line)s:\nMissing '%(line_field)s'.")
@@ -336,9 +260,7 @@ class L10nBeIntrastatProductDeclaration(models.Model):
         etree.SubElement(
             Item, "Dim", attrib={"prop": "EXTTA"}
         ).text = line.transaction_id.code
-        etree.SubElement(
-            Item, "Dim", attrib={"prop": "EXREG"}
-        ).text = line.region_id.code
+        etree.SubElement(Item, "Dim", attrib={"prop": "EXREG"}).text = line.region_code
         etree.SubElement(
             Item, "Dim", attrib={"prop": "EXTGO"}
         ).text = line.hs_code_id.local_code
@@ -399,97 +321,99 @@ class L10nBeIntrastatProductDeclaration(models.Model):
 
     def _generate_xml(self):
         self.ensure_one()
-
-        if self.declaration_type == "arrivals":
-            decl_code = "19"
-            if self.reporting_level == "standard":
-                xsd = "ex19s"
+        if self.company_country_code == "BE":
+            if self.declaration_type == "arrivals":
+                decl_code = "19"
+                if self.reporting_level == "standard":
+                    xsd = "ex19s"
+                else:
+                    xsd = "ex19e"
             else:
-                xsd = "ex19e"
+                decl_code = "29"
+                if self.reporting_level == "standard":
+                    xsd = "intrastat_x_s"
+                else:
+                    xsd = "intrastat_x_e"
+
+            ns_map = {
+                None: _INTRASTAT_XMLNS,
+                "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            }
+            root = etree.Element("DeclarationReport", nsmap=ns_map)
+            self._node_Administration(root)
+            self._node_Report(root, decl_code)
+
+            xml_string = etree.tostring(
+                root, pretty_print=True, encoding="UTF-8", xml_declaration=True
+            )
+            module = __name__.split("addons.")[1].split(".")[0]
+            self.company_id._intrastat_check_xml_schema(
+                xml_string, "{}/static/data/{}.xsd".format(module, xsd)
+            )
+            return xml_string
         else:
-            decl_code = "29"
-            if self.reporting_level == "standard":
-                xsd = "intrastat_x_s"
-            else:
-                xsd = "intrastat_x_e"
-
-        ns_map = {
-            None: _INTRASTAT_XMLNS,
-            "xsi": "http://www.w3.org/2001/XMLSchema-instance",
-        }
-        root = etree.Element("DeclarationReport", nsmap=ns_map)
-        self._node_Administration(root)
-        self._node_Report(root, decl_code)
-
-        xml_string = etree.tostring(
-            root, pretty_print=True, encoding="UTF-8", xml_declaration=True
-        )
-        module = __name__.split("addons.")[1].split(".")[0]
-        self.company_id._intrastat_check_xml_schema(
-            xml_string, "{}/static/data/{}.xsd".format(module, xsd)
-        )
-        return xml_string
+            return super()._generate_xml()
 
     def _xls_computation_line_fields(self):
         res = super()._xls_computation_line_fields()
-        i = res.index("product_origin_country")
-        res.pop(i)
+        if self.company_country_code == "BE":
+            i = res.index("product_origin_country")
+            res.pop(i)
         return res
 
     def _xls_declaration_line_fields(self):
         res = super()._xls_declaration_line_fields()
-        if self.declaration_type == "dispatches":
-            i = res.index("hs_code")
-            res.insert(i + 1, "product_origin_country")
+        if self.company_country_code == "BE":
+            if self.declaration_type == "dispatches":
+                i = res.index("hs_code")
+                res.insert(i + 1, "product_origin_country")
         return res
 
 
-class L10nBeIntrastatProductComputationLine(models.Model):
-    _name = "l10n.be.intrastat.product.computation.line"
+class IntrastatProductComputationLine(models.Model):
     _inherit = "intrastat.product.computation.line"
     _description = "Intrastat Product Computation Lines for Belgium"
 
-    parent_id = fields.Many2one(
-        comodel_name="l10n.be.intrastat.product.declaration",
-        string="Intrastat Product Declaration",
-        ondelete="cascade",
-        readonly=True,
-    )
-    declaration_line_id = fields.Many2one(
-        comodel_name="l10n.be.intrastat.product.declaration.line",
-        string="Declaration Line",
-        readonly=True,
-    )
+    @api.depends("partner_id")
+    def _compute_vat(self):
+        for rec in self:
+            if rec.company_country_code == "BE" and (
+                rec.invoice_id.fiscal_position_id.intrastat == "b2c"
+                or (
+                    rec.invoice_id.fiscal_position_id.intrastat == "b2b"
+                    and (
+                        not rec.invoice_id.fiscal_position_id.vat_required
+                        or (
+                            rec.partner_id.vat
+                            and rec.partner_id.vat.lower().strip() == "na"
+                        )
+                    )
+                )
+            ):
+                rec.vat = "QV999999999999"
+            else:
+                super(IntrastatProductComputationLine, rec)._compute_vat()
+        return
 
     @api.constrains("vat")
     def _check_vat(self):
         for rec in self:
             if not rec.vat == "QV999999999999":
-                super(L10nBeIntrastatProductComputationLine, rec)._check_vat()
+                super(IntrastatProductComputationLine, rec)._check_vat()
         return
 
+    def _group_line_hashcode_fields(self):
+        res = super()._group_line_hashcode_fields()
+        if self.company_country_code == "BE":
+            if self.declaration_type == "arrivals":
+                del res["product_origin_country"]
+                del res["vat"]
+            if self.reporting_level == "extended":
+                res["incoterm"] = self.incoterm_id.id or False
+        return res
 
-class L10nBeIntrastatProductDeclarationLine(models.Model):
-    _name = "l10n.be.intrastat.product.declaration.line"
-    _inherit = "intrastat.product.declaration.line"
-    _description = "Intrastat Product Declaration Lines for Belgium"
-
-    parent_id = fields.Many2one(
-        comodel_name="l10n.be.intrastat.product.declaration",
-        string="Intrastat Product Declaration",
-        ondelete="cascade",
-        readonly=True,
-    )
-    computation_line_ids = fields.One2many(
-        comodel_name="l10n.be.intrastat.product.computation.line",
-        inverse_name="declaration_line_id",
-        string="Computation Lines",
-        readonly=True,
-    )
-
-    @api.constrains("vat")
-    def _check_vat(self):
-        for rec in self:
-            if not rec.vat == "QV999999999999":
-                super(L10nBeIntrastatProductDeclarationLine, rec)._check_vat()
-        return
+    def _prepare_grouped_fields(self, fields_to_sum):
+        vals = super()._prepare_grouped_fields(fields_to_sum)
+        if self.reporting_level == "extended":
+            vals["incoterm_id"] = self.incoterm_id.id
+        return vals
