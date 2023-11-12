@@ -24,7 +24,7 @@ addon | version | maintainers | summary
 [account_statement_import_coda](account_statement_import_coda/) | 14.0.1.0.3 |  | Import CODA Bank Statement
 [companyweb_base](companyweb_base/) | 14.0.1.1.4 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [companyweb_payment_info](companyweb_payment_info/) | 14.0.1.1.2 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
-[l10n_be_intrastat_product](l10n_be_intrastat_product/) | 14.0.1.1.3 | [![luc-demeyer](https://github.com/luc-demeyer.png?size=30px)](https://github.com/luc-demeyer) | Intrastat Product Declaration for Belgium
+[l10n_be_intrastat_product](l10n_be_intrastat_product/) | 14.0.1.2.0 | [![luc-demeyer](https://github.com/luc-demeyer.png?size=30px)](https://github.com/luc-demeyer) | Intrastat Product Declaration for Belgium
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 14.0.1.1.0 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 14.0.1.0.0 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
 [l10n_be_national_number](l10n_be_national_number/) | 14.0.1.0.0 | [![victor-champonnois](https://github.com/victor-champonnois.png?size=30px)](https://github.com/victor-champonnois) | Belgian National Number
