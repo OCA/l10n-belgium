@@ -12,7 +12,7 @@ from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
-CN_file_year = "2022"
+CN_file_year = "2023"
 CN_file_delimiter = ";"
 CN_LANGS = {
     "en": _("English"),
