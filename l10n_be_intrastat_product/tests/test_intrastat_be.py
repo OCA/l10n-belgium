@@ -1,10 +1,10 @@
 # Copyright 2009-2022 Noviat.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import Form, SavepointCase
+from odoo.tests.common import Form, TransactionCase
 
 
-class TestIntrastatBe(SavepointCase):
+class TestIntrastatBe(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -20,16 +20,18 @@ class TestIntrastatBe(SavepointCase):
         )
         cls.fpos = cls.fpos_obj.create(
             {
-                "name": "Intrastat Fiscal Position",
+                "name": "Intrastat Fiscal Position (B2B)",
                 "intrastat": True,
                 "vat_required": True,
+                "country_group_id": cls.env.ref("base.europe").id,
             }
         )
         cls.fpos_na = cls.fpos_obj.create(
             {
-                "name": "Intrastat Fiscal Position",
+                "name": "Intrastat Fiscal Position (B2C)",
                 "intrastat": True,
                 "vat_required": False,
+                "country_group_id": cls.env.ref("base.europe").id,
             }
         )
         cls.hs_code_cn = cls.env["hs.code"].create(
@@ -104,6 +106,9 @@ class TestIntrastatBe(SavepointCase):
                 "property_account_position_id": cls.fpos.id,
             }
         )
+        cls.env["account.tax"].search([("company_id", "=", cls.company.id)]).write(
+            {"country_id": cls.env.ref("base.be").id}
+        )
 
     def test_be_sale_b2b(self):
 
@@ -141,6 +146,9 @@ class TestIntrastatBe(SavepointCase):
         # OCA stock_picking_invoice_link module which is currently
         # not in the module dependency (we check the presence of
         # this module via hasattr)
+        sale_journal_rec = self.env["account.journal"].search(
+            [("type", "=", "sale")], limit=1
+        )
         reversal = (
             self.env["account.move.reversal"]
             .with_context(active_model="account.move", active_ids=inv_out.ids)
@@ -149,6 +157,7 @@ class TestIntrastatBe(SavepointCase):
                     "date": inv_out.date,
                     "reason": "test refund",
                     "refund_method": "refund",
+                    "journal_id": sale_journal_rec.id,
                 }
             )
             .reverse_moves()
