@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 from lxml import etree
 
 from odoo import _, api, fields, models
-from odoo.exceptions import RedirectWarning, UserError
+from odoo.exceptions import UserError
 
 from odoo.addons.report_xlsx_helper.report.report_xlsx_abstract import (
     ReportXlsxAbstract,
@@ -201,6 +201,7 @@ class L10nBeIntrastatProductDeclaration(models.Model):
             if self.reporting_level == "extended":
                 incoterm = self._get_incoterm(inv_line, notedict)
                 line_vals.update({"incoterm_id": incoterm.id})
+        return
 
     def _handle_invoice_accessory_cost(
         self,
@@ -240,18 +241,15 @@ class L10nBeIntrastatProductDeclaration(models.Model):
                 lambda r: r.company_id == self.company_id
             ) or hs_code.filtered(lambda r: not r.company_id)
         if not hs_code:
-            action = self.env.ref("%s.intrastat_installer_action" % module)
             msg = (
                 _(
                     "Intrastat Code '%s' not found. "
                     "\nYou can update your codes "
-                    "via the Intrastat Configuration Wizard."
+                    "via the module intrastat_product_hscodes_import."
                 )
                 % special_code
             )
-            raise RedirectWarning(
-                msg, action.id, _("Go to the Intrastat Configuration Wizard.")
-            )
+            raise UserError(msg)
         notedict["credit_note_code"] = hs_code[0]
 
         if self.year <= "2021":
@@ -327,8 +325,8 @@ class L10nBeIntrastatProductDeclaration(models.Model):
         for fld in ("src_dest_country_id", "transaction_id", "region_id", "hs_code_id"):
             if not line[fld]:
                 raise UserError(
-                    _("Error while processing %s:\nMissing '%s'.")
-                    % (line, line._fields[fld].string)
+                    _("Error while processing %(line)s:\nMissing '%(line_field)s'.")
+                    % {"line": line, "line_field": line._fields[fld].string}
                 )
         Item = etree.SubElement(parent, "Item")
         etree.SubElement(Item, "Dim", attrib={"prop": "EXTRF"}).text = decl_code
@@ -468,6 +466,7 @@ class L10nBeIntrastatProductComputationLine(models.Model):
         for rec in self:
             if not rec.vat == "QV999999999999":
                 super(L10nBeIntrastatProductComputationLine, rec)._check_vat()
+        return
 
 
 class L10nBeIntrastatProductDeclarationLine(models.Model):
@@ -493,3 +492,4 @@ class L10nBeIntrastatProductDeclarationLine(models.Model):
         for rec in self:
             if not rec.vat == "QV999999999999":
                 super(L10nBeIntrastatProductDeclarationLine, rec)._check_vat()
+        return
