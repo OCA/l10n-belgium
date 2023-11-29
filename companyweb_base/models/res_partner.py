@@ -448,7 +448,6 @@ class CompanywebPartner(models.Model):
             self.cweb_image_unset = False
 
     def _cweb_populate_data(self, cweb_response):
-
         self.cweb_creditLimit_enable = cweb_response["CreditLimit"]["IsEnabled"]
         cweb_has_creditLimit_value = cweb_response["CreditLimit"]["Value"]
         if self.cweb_creditLimit_enable and cweb_has_creditLimit_value:
@@ -537,7 +536,6 @@ class CompanywebPartner(models.Model):
         # self.env.user.notify_success(message=_("Companyweb Enhance OK"))
 
     def cweb_button_copy_address(self):
-
         if not self.env.user.has_group("companyweb_base.cweb_view"):
             raise UserError(_("Companyweb : You don't have access"))
         self.street = self.cweb_street

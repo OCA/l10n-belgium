@@ -17,43 +17,44 @@ Companyweb
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-belgium/tree/16.0/companyweb_base
+    :target: https://github.com/OCA/l10n-belgium/tree/17.0/companyweb_base
     :alt: OCA/l10n-belgium
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-belgium-16-0/l10n-belgium-16-0-companyweb_base
+    :target: https://translation.odoo-community.org/projects/l10n-belgium-17-0/l10n-belgium-17-0-companyweb_base
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-www.companyweb.be
+`www.companyweb.be <http://www.companyweb.be>`__
 
 Companyweb is the expert in company information in Belgium.
 
-This app provides insights into the financial health of Belgian companies, directly from the
-Odoo Customer view.
+This app provides insights into the financial health of Belgian
+companies, directly from the Odoo Customer view.
 
 Enhance the Odoo partner with Companyweb data, with one click:
 
-* Name and address
-* Status
-* Health barometer
-* Credit limit
-* Bankruptcy risk warnings
-* Key financial information (turnover, gross margin, profit/loss…)
-* etc
+-  Name and address
+-  Status
+-  Health barometer
+-  Credit limit
+-  Bankruptcy risk warnings
+-  Key financial information (turnover, gross margin, profit/loss…)
+-  etc
 
 Copy the address from Companyweb to your Odoo partner address.
 
-With this valuable information you can personally evaluate each company and know who
-you are doing business with.
+With this valuable information you can personally evaluate each company
+and know who you are doing business with.
 
-Try for free and get your credentials here: www.companyweb.be/integrations/37/odoo
+Try for free and get your credentials here:
+`www.companyweb.be/integrations/37/odoo <http://www.companyweb.be/integrations/37/odoo>`__
 
-Want to know how fast companies pay their invoices? Then also install the second module
-from Companyweb: payment experience.
+Want to know how fast companies pay their invoices? Then also install
+the second module from Companyweb: payment experience.
 
 **Table of contents**
 
@@ -69,58 +70,55 @@ This module can be installed in the usual way. It depends on the OCA
 Usage
 =====
 
-With this integration you get detailed information about a company based on the VAT
-number of the company.
+With this integration you get detailed information about a company based
+on the VAT number of the company.
 
 This module comes with 2 security groups.
 
-* View Companyweb Data : can see the Companyweb data tab in contacts
-* Download Companyweb Data : can actually enhance data
+-  View Companyweb Data : can see the Companyweb data tab in contacts
+-  Download Companyweb Data : can actually enhance data
 
-Once your user has the correct permissions, open a partner that has a belgian
-VAT number and click on the Companyweb button.
+Once your user has the correct permissions, open a partner that has a
+belgian VAT number and click on the Companyweb button.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_on_new_partner.png
-   :width: 90%
-   :alt: Partner form with Companyweb button
-   :align: center
+|image0|
 
-If you don't see the Companyweb button, refresh your browser page and check
-that the current user is in the correct Companyweb group.
+If you don't see the Companyweb button, refresh your browser page and
+check that the current user is in the correct Companyweb group.
 
-If your Companyweb credentials are not known in the system or have changed, you
-will be shown a wizard to enter them.
+If your Companyweb credentials are not known in the system or have
+changed, you will be shown a wizard to enter them.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_get_credentials.png
-   :alt: Companyweb credentials wizard
-   :align: center
+|image1|
 
-If everything runs smoothly you'll see a confirmation popup in the upper right
-corner of your screen.
+If everything runs smoothly you'll see a confirmation popup in the upper
+right corner of your screen.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_success_message.png
-   :alt: Companyweb confirmation popup
-   :align: center
+|image2|
 
 You can now view the Companyweb information in the corresponding tab.
 
-.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_companyweb_data.png
-   :width: 90%
-   :alt: Companyweb information tab
-   :align: center
+|image3|
 
-You can also use the "Copy Address" button to update the partner address with
-the one obtained from Companyweb.
+You can also use the "Copy Address" button to update the partner address
+with the one obtained from Companyweb.
+
+.. |image0| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_on_new_partner.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_get_credentials.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_success_message.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_companyweb_data.png
 
 Changelog
 =========
 
 15.0.1.0.2 (2022-02-08)
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 **Bugfixes**
 
-- The ``Gross Margin`` and ``Fiscal Year Profit/Loss`` field values were mixed up. This is now fixed. (`#135 <https://github.com/OCA/l10n-belgium/issues/135>`_)
+-  The ``Gross Margin`` and ``Fiscal Year Profit/Loss`` field values
+   were mixed up. This is now fixed.
+   (`#135 <https://github.com/OCA/l10n-belgium/issues/135>`__)
 
 Bug Tracker
 ===========
@@ -128,7 +126,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-belgium/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_base%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_base%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -136,34 +134,34 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * ACSONE SA/NV
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
-* Stéphane Bidoul <stephane.bidoul@acsone.eu>
+-  Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
+-  Stéphane Bidoul <stephane.bidoul@acsone.eu>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
-This module has been originally developed by `ACSONE <https://acsone.eu>`_ for
-Odoo version 8.
+This module has been originally developed by
+`ACSONE <https://acsone.eu>`__ for Odoo version 8.
 
-It was subsequently enhanced by Jacques-Etienne Baudoux (BCIM sprl). The data
-model of that version has been preserved to facilitate porting.
+It was subsequently enhanced by Jacques-Etienne Baudoux (BCIM sprl). The
+data model of that version has been preserved to facilitate porting.
 
-In 2021, the module was redeveloped under the current form, to support the new
-Companyweb SOAP api. This development has been funded by `Companyweb
-<https://www.companyweb.be>`__.
+In 2021, the module was redeveloped under the current form, to support
+the new Companyweb SOAP api. This development has been funded by
+`Companyweb <https://www.companyweb.be>`__.
 
-* Companyweb <info@companyweb.be>
-* Katrien Billen <katrien@companyweb.be>
+-  Companyweb <info@companyweb.be>
+-  Katrien Billen <katrien@companyweb.be>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -183,6 +181,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-xavier-bouquiaux| 
 
-This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/16.0/companyweb_base>`_ project on GitHub.
+This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/17.0/companyweb_base>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
