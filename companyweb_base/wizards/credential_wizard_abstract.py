@@ -4,7 +4,6 @@ from odoo import fields, models
 
 
 class CompanyWebCredentialWizardAbstract(models.AbstractModel):
-
     _name = "companyweb_base.credential_wizard_abstract"
     _description = "Ask for Companyweb login & password"
 
