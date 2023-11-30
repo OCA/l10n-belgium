@@ -7,7 +7,7 @@ from hashlib import sha1
 
 import zeep
 
-from odoo import _, api, fields, models, modules
+from odoo import _, api, fields, models, tools
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
@@ -139,8 +139,8 @@ class CompanywebPartner(models.Model):
     def _compute_cweb_image(self):
         for rec in self:
             if rec.cweb_image:
-                img_url = modules.module.get_resource_path(
-                    "companyweb_base", "static", "img", "cweb_barometer", rec.cweb_image
+                img_url = tools.misc.file_path(
+                    f"companyweb_base/static/img/cweb_barometer/{rec.cweb_image}"
                 )
                 if img_url:
                     img_url = (
@@ -154,7 +154,7 @@ class CompanywebPartner(models.Model):
 
     @api.depends("is_company", "vat")
     def _compute_cweb_show_button_enhance(self):
-        """for the button t be show
+        """for the button to be show
         the partner has to be a company and the partner.vat should be BE000000000"""
         for rec in self:
             if rec.is_company and rec.vat and rec.vat.startswith("BE"):
@@ -501,8 +501,9 @@ class CompanywebPartner(models.Model):
 
         if not user_login or not user_password:
             return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
-
-        client = zeep.Client("https://connect.companyweb.be/V1.3/alacarteservice.asmx")
+        IrConfigParameter = self.env["ir.config_parameter"].sudo()
+        url_param = IrConfigParameter.get_param("companyweb.alacarte", "")
+        client = zeep.Client(url_param)
         r = client.service.GetCompanyByVat(
             dict(
                 CompanyWebLogin=user_login,
@@ -532,8 +533,6 @@ class CompanywebPartner(models.Model):
         self._cweb_populate_dates(cweb_response)
         self._cweb_populate_score(cweb_response)
         self._cweb_populate_data(cweb_response)
-        # Wait for meb-notify to be migrated in 15
-        # self.env.user.notify_success(message=_("Companyweb Enhance OK"))
 
     def cweb_button_copy_address(self):
         if not self.env.user.has_group("companyweb_base.cweb_view"):
@@ -544,10 +543,6 @@ class CompanywebPartner(models.Model):
         self.country_id = self.cweb_country
         self.street2 = None
         self.state_id = None
-        # Wait for meb-notify to be migrated in 15
-        # self.env.user.notify_success(
-        #    message=_("Companyweb Address Successfully copied")
-        # )
 
     @api.model
     def _cweb_call_wizard_credentials(self, wizard_name):

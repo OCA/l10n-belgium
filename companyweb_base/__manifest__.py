@@ -8,11 +8,12 @@
     ),
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "version": "16.0.1.0.7",
+    "version": "17.0.1.0.0",
     "development_status": "Production/Stable",
     "license": "AGPL-3",
     "installable": True,
     "data": [
+        "data/ir_config_parameter.xml",
         "security/security.xml",
         "security/ir.model.access.csv",
         "views/partner_view.xml",
@@ -26,7 +27,6 @@
             "zeep",
         ],
     },
-    # Wait for meb-notify to be migrated in 15
-    # "depends": ["web_notify"],
+    "depends": ["contacts"],
     "maintainers": ["xavier-bouquiaux"],
 }
