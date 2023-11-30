@@ -1,27 +1,45 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+# API documentation : https://docs.companyweb.be
+
 import os
 from datetime import datetime
 
+import requests
+import werkzeug
 from freezegun import freeze_time
+from requests import PreparedRequest, Session
 from vcr_unittest import VCRMixin
 
+from odoo import Command
 from odoo.tests.common import TransactionCase
+
+_super_send = requests.Session.send
 
 
 class TestApiCweb(VCRMixin, TransactionCase):
+    @classmethod
+    def _request_handler(cls, s: Session, r: PreparedRequest, /, **kw):
+        """
+        Override to allow requests to the companyweb API
+        because odoo17 only permit calls to localhost
+        (see https://github.com/odoo/odoo/blob/17.0/odoo/tests/common.py#L265 )
+        """
+        url = werkzeug.urls.url_parse(r.url)
+        if url.host in ("connect.companyweb.be",):
+            return _super_send(s, r, **kw)
+        return super()._request_handler(s=s, r=r, **kw)
+
     def setUp(self, *args, **kwargs):
-        super(TestApiCweb, self).setUp(*args, **kwargs)
+        super().setUp(*args, **kwargs)
         demo_user = self.env.ref("base.user_demo")
         demo_user.cweb_login = os.environ.get("COMPANYWEB_TEST_LOGIN", "cwebtestlogin")
         demo_user.cweb_password = os.environ.get(
             "COMPANYWEB_TEST_PASSWORD", "cwebtestpassword"
         )
-        group = self.env["res.groups"].search(
-            [("id", "=", self.env.ref("companyweb_base.cweb_download").id)]
-        )
-        add_user = [(4, demo_user.id)]
-        group.write({"users": add_user})
+        group = self.env.ref("companyweb_base.cweb_download")
+        group.write({"users": [Command.link(demo_user.id)]})
 
         Partner = self.env["res.partner"].with_user(demo_user)
         self.p1 = Partner.create(
@@ -41,7 +59,9 @@ class TestApiCweb(VCRMixin, TransactionCase):
 
     @freeze_time("2021-03-23")  # because the login hash includes the date
     def test_cweb_button(self):
-        self.p1.with_context(lang="fr_Fr").cweb_button_enhance()
+        # companyweb response depends on request language
+        # we force the language so we know what to expect in the response
+        self.p1.with_context(lang="fr_FR").cweb_button_enhance()
         self.assertTrue(self.p1.cweb_prefLang_enable)
         self.assertTrue(
             self.p1.cweb_prefLang
