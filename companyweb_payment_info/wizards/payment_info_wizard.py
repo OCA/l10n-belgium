@@ -22,7 +22,6 @@ def _chunks(lst, chunk_size):
 
 
 class CompanyWebPaymentInfoWizard(models.TransientModel):
-
     _name = "companyweb_payment_info.payment_info_wizard"
     _description = "Companyweb Payment Info"
     wizard_text = fields.Html("wizard_text")
@@ -50,7 +49,6 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
 
     @api.model
     def _cweb_payment_info_step1(self):
-
         self._check_group()
 
         supplierVat = self.env.user.company_id.vat
@@ -114,7 +112,6 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
 
     @api.model
     def _cweb_payment_info_step2(self):
-
         self._check_group()
 
         client = zeep.Client(
@@ -225,7 +222,6 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             period_to_send.year,
         )
         if response_previous_period["PreviousPeriodExists"]:
-
             summary = _(
                 "<h2>Companyweb upload</h2>"
                 "You are about to submit <strong>{nb_invoice}</strong> open invoices <br/>"
@@ -339,7 +335,6 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         return str(version_base) + "&" + str(version_payment)
 
     def _cweb_send_batch(self, client, invoices_to_send, transaction_key):
-
         invoice_list_type = client.get_type("ns0:ArrayOfInvoiceRequest")
 
         for invoices_request_to_send_splitted in _chunks(

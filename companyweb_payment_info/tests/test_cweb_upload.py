@@ -42,7 +42,6 @@ class TestUpload(VCRMixin, TransactionCase):
         group.write({"users": add_user})
 
     def _init_company_vat(self):
-
         self.env.user.company_id.vat = "BE0835207216"
 
     def _init_cweb_credentials(self):
@@ -84,7 +83,6 @@ class TestUpload(VCRMixin, TransactionCase):
 
     @freeze_time("2022-01-13")  # because the login hash includes the date
     def test_upload_payment(self):
-
         # UserError because of security
         with self.assertRaises(UserError):
             self.env["companyweb_payment_info.payment_info_wizard"].with_user(
