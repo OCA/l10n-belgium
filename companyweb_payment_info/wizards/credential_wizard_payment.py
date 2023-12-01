@@ -4,7 +4,6 @@ from odoo import models
 
 
 class CompanyWebCredentialWizardPayment(models.TransientModel):
-
     _name = "companyweb_payment_info.credential_wizard_payment"
     _description = "Ask for Companyweb login & password"
     _inherit = ["companyweb_base.credential_wizard_abstract"]
