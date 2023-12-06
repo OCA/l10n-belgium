@@ -1,0 +1,2 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+cweb_downloader_right_wizard,cweb_downloader_right,model_companyweb_base_credential_wizard_base,cweb_download,1,1,1,1

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="companyweb_partner_view" model="ir.ui.view">
+        <field name="name">partner.cweb_info</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <p>
+                    <div>
+                        <field invisible="1" name="cweb_show_button_enhance" />
+                        <button
+                            aria-label="Enhance"
+                            class="btn-sm btn-link "
+                            icon="companyweb_base/static/img/logo-en.resized.png"
+                            invisible="not cweb_show_button_enhance"
+                            name="cweb_button_enhance"
+                            title="Enhance"
+                            type="object"
+                        />
+                    </div>
+                </p>
+            </field>
+            <notebook position="inside">
+                <field invisible="1" name="cweb_show_tab" />
+                <page
+                    groups="companyweb_base.cweb_view"
+                    invisible="not cweb_show_tab"
+                    string="Companyweb"
+                >
+                    <img
+                        alt="Companyweb"
+                        src="companyweb_base/static/img/logo-en.png"
+                    />
+                    <field invisible="1" name="cweb_name_enable" />
+                    <field invisible="1" name="cweb_jur_form_enable" />
+                    <field invisible="1" name="cweb_companystatus_enable" />
+                    <field invisible="1" name="cweb_companystatus_code" />
+                    <field invisible="1" name="cweb_address_enable" />
+                    <field invisible="1" name="cweb_creditLimit_enable" />
+                    <field invisible="1" name="cweb_creditLimit_info_unset" />
+                    <field invisible="1" name="cweb_startDate_enable" />
+                    <field invisible="1" name="cweb_endDate_enable" />
+                    <field invisible="1" name="cweb_score_enable" />
+                    <field invisible="1" name="cweb_image_unset" />
+                    <field invisible="1" name="cweb_warnings_enable" />
+                    <field invisible="1" name="cweb_url_enable" />
+                    <field invisible="1" name="cweb_url_report_enable" />
+                    <field invisible="1" name="cweb_vat_liable_enable" />
+                    <field invisible="1" name="cweb_balance_data_enable" />
+                    <field invisible="1" name="cweb_balance_year_unset" />
+                    <field invisible="1" name="cweb_closed_date_unset" />
+                    <field invisible="1" name="cweb_equityCapital_unset" />
+                    <field invisible="1" name="cweb_average_fte_unset" />
+                    <field invisible="1" name="cweb_addedValue_unset" />
+                    <field invisible="1" name="cweb_turnover_unset" />
+                    <field invisible="1" name="cweb_result_unset" />
+                    <field invisible="1" name="cweb_prefLang_enable" />
+                    <field invisible="1" name="cweb_currency_id" />
+                    <group name="cweb_group_mail">
+                        <group
+                            invisible="not cweb_name_enable"
+                            name="cweb_name"
+                            string="Global"
+                        >
+                            <field
+                                invisible="not cweb_lastupdate"
+                                name="cweb_lastupdate"
+                                string="Last Update"
+                            />
+                            <field
+                                invisible="not cweb_jur_form_enable or not cweb_jur_form"
+                                name="cweb_jur_form"
+                                string="Legal form"
+                            />
+                            <field
+                                invisible="not cweb_name_enable or not cweb_name"
+                                name="cweb_name"
+                                string="Name"
+                            />
+                            <field
+                                invisible="not cweb_prefLang_enable or not cweb_prefLang"
+                                name="cweb_prefLang"
+                                options="{'no_open': True}"
+                                string="Preferred languages"
+                            />
+                            <field
+                                invisible="not cweb_vat_liable_enable or not cweb_vat_liable"
+                                name="cweb_vat_liable"
+                                string="Subject to VAT"
+                            />
+                            <field
+                                decoration-danger="cweb_companystatus_code != '0'"
+                                invisible="not cweb_companystatus_enable or not cweb_companystatus"
+                                name="cweb_companystatus"
+                                string="Status"
+                            />
+                        </group>
+                        <!--end of group name-->
+                        <group
+                            invisible="not cweb_address_enable"
+                            name="cweb_address"
+                            string="Address"
+                        >
+                            <field
+                                groups="base.group_no_one"
+                                invisible="is_company"
+                                name="type"
+                                readonly="user_ids"
+                            />
+                            <span class="o_form_label o_td_label" name="cweb_address">
+                                <b invisible="type != 'contact'">
+                                    Seat
+                                </b>
+                            </span>
+                            <div class="o_address_format">
+                                <field
+                                    class="o_address_street"
+                                    name="cweb_street"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                                <field
+                                    class="o_address_city"
+                                    name="cweb_city"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                                <field
+                                    class="o_address_zip"
+                                    name="cweb_zip"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                                <field
+                                    class="o_address_country"
+                                    name="cweb_country"
+                                    options="{'no_open': True}"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                            </div>
+                            <span
+                                class="o_form_label o_td_label"
+                                name="cweb_show_button_address"
+                            >
+                            </span>
+                            <div>
+                                <field invisible="1" name="cweb_show_button_address" />
+                                <button
+                                    class="oe_highlight"
+                                    invisible="not cweb_show_button_address"
+                                    name="cweb_button_copy_address"
+                                    string="Copy Address"
+                                    type="object"
+                                />
+                            </div>
+                        </group>
+                        <!-- end of group address -->
+                    </group>
+                    <!-- end of group top -->
+                    <group name="cweb_group_bottom">
+                        <group name="cweb_financial">
+                            <field
+                                invisible="not cweb_balance_year_unset"
+                                name="cweb_balance_year"
+                                string="Book year"
+                            />
+                            <field
+                                invisible="not cweb_closed_date_unset"
+                                name="cweb_closed_date"
+                                string="Closing date of the book year"
+                            />
+                            <field
+                                invisible="not cweb_equityCapital_unset"
+                                name="cweb_equityCapital"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                string="Equity"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="not cweb_addedValue_unset"
+                                name="cweb_addedValue"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                string="Profit/Loss of the book year"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="not cweb_average_fte_unset"
+                                name="cweb_average_fte"
+                                string="Average number of staff in FTE"
+                            />
+                            <field
+                                invisible="not cweb_turnover_unset"
+                                name="cweb_turnover"
+                                options="{'currency_field': 'cweb_currency_id', 'digits':'12.0'}"
+                                string="Turnover"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="not cweb_result_unset"
+                                name="cweb_result"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                string="Gross margin"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="not cweb_warnings_enable or not cweb_warnings"
+                                name="cweb_warnings"
+                                string="Warnings"
+                            />
+                        </group>
+                        <!-- end of group financial -->
+                        <group name="cweb_group_barometer">
+                            <field
+                                invisible="not cweb_image_unset"
+                                name="cweb_image_tag"
+                                string="Health barometer"
+                            />
+                            <field
+                                decoration-danger="cweb_creditLimit == 0"
+                                invisible="not cweb_creditLimit_enable"
+                                name="cweb_creditLimit"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                string="Credit limit"
+                                widget="monetary"
+                            />
+                            <field
+                                decoration-danger="cweb_creditLimit == 0"
+                                invisible="not cweb_creditLimit_info_unset"
+                                name="cweb_creditLimit_info"
+                                string="Credit limit Info"
+                            />
+                        </group>
+                        <!-- end of group cweb_group_barometer -->
+                    </group>
+                    <!-- end of group bottom-->
+                    <group>
+                        <group>
+                            <field
+                                invisible="not cweb_startDate_enable or not cweb_startDate"
+                                name="cweb_startDate"
+                                string="Established"
+                            />
+                            <field
+                                invisible="not cweb_endDate_enable or not cweb_endDate"
+                                name="cweb_endDate"
+                                string="End date"
+                            />
+                        </group>
+                        <group>
+                            <field
+                                invisible="not cweb_url_enable or not cweb_url"
+                                name="cweb_url"
+                                string="Detail link"
+                                text="Detail"
+                                widget="url"
+                            />
+                            <field
+                                invisible="not cweb_url_report_enable or not cweb_url_report"
+                                name="cweb_url_report"
+                                string="Commercial report"
+                                text="Commercial report"
+                                widget="url"
+                            />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
