@@ -5,6 +5,7 @@ import html
 import re
 
 import zeep
+from dateutil.relativedelta import relativedelta
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
@@ -27,6 +28,8 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
     wizard_text = fields.Html("wizard_text")
     wizard_step = fields.Char(default="step1")
     wizard_email = fields.Char("wizard_email")
+    last_sent_month = fields.Integer()
+    last_sent_year = fields.Integer()
 
     def payment_info_entry_point(self):
         if self.wizard_step == "step1":
@@ -51,8 +54,8 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
     def _cweb_payment_info_step1(self):
         self._check_group()
 
-        supplierVat = self.env.user.company_id.vat
-        if not supplierVat or not supplierVat.startswith("BE"):
+        supplier_vat = self.env.user.company_id.vat
+        if not supplier_vat or not supplier_vat.startswith("BE"):
             raise UserError(
                 _(
                     "Companyweb : You need to set a valid belgian's vat "
@@ -69,31 +72,19 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             "https://payex.companyweb.be/v1/PaymentExperienceService.asmx"
         )
 
-        response_previous_period = self._get_previous_period(client, supplierVat)
+        response_previous_period = self._get_previous_period(client, supplier_vat)
         # 11/15/16 means bad credentials
         if response_previous_period["StatusCode"] in [11, 15, 16]:
             return self._cweb_call_wizard_credentials(_("Bad Credentials"))
-        last_date_sent = "%02d/%d" % (
-            response_previous_period["PreviousMonth"],
-            response_previous_period["PreviousYear"],
-        )
-        period_to_send = self._get_period_to_send()
-        if (
-            period_to_send.month == response_previous_period["PreviousMonth"]
-            and period_to_send.year == response_previous_period["PreviousYear"]
-        ):
-            raise UserError(
-                _("Companyweb : You already submitted invoices for {last_date}").format(
-                    last_date=last_date_sent
-                )
-            )
 
-        invoices_to_send = self._create_invoices_to_send(client)
-        if len(invoices_to_send) == 0:
-            raise UserError(_("Companyweb : No Invoices to send"))
+        self.last_sent_month = response_previous_period["PreviousMonth"]
+        self.last_sent_year = response_previous_period["PreviousYear"]
+        period_to_send = self._get_period_to_send()
+
+        invoices_to_send = self._create_invoices_to_send(client, period_to_send)
 
         summary = self._create_step1_summary(
-            response_previous_period, invoices_to_send, last_date_sent, period_to_send
+            response_previous_period, invoices_to_send, period_to_send
         )
 
         wizard = self.create(
@@ -101,14 +92,29 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
                 wizard_text=summary,
                 wizard_step="step2",
                 wizard_email=self.env.user.partner_id.email,
+                last_sent_month=self.last_sent_month,
+                last_sent_year=self.last_sent_year,
             )
         )
         return dict(wizard.get_formview_action(), target="new")
 
     def _get_period_to_send(self):
-        today = datetime.date.today()
-        first = today.replace(day=1)
-        return first - datetime.timedelta(days=1)
+        # We have to use last sent period
+        # The period to send is the month after the last period sent
+        return_date = fields.Date.today()
+
+        if not self.last_sent_year:
+            today = datetime.date.today()
+            first = today.replace(day=1)
+            return_date = first - datetime.timedelta(days=1)
+        else:
+            last_period_sent = "%d-%02d-01" % (
+                self.last_sent_year,
+                self.last_sent_month,
+            )
+            last_date_sent = fields.Date.from_string(last_period_sent)
+            return_date = last_date_sent + relativedelta(months=1)
+        return return_date
 
     @api.model
     def _cweb_payment_info_step2(self):
@@ -121,9 +127,12 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         wizard_email = (
             self.wizard_email if self.wizard_email else self.env.user.partner_id.email
         )
+        period_to_send = self._get_period_to_send()
 
-        invoices_to_send = self._create_invoices_to_send(client)
-        result_start_transaction = self._cweb_start_transaction(client, wizard_email)
+        invoices_to_send = self._create_invoices_to_send(client, period_to_send)
+        result_start_transaction = self._cweb_start_transaction(
+            client, wizard_email, period_to_send
+        )
         if result_start_transaction["StatusCode"] != 0:
             raise UserError(
                 _("Error from Companyweb : {status} : {message}").format(
@@ -133,9 +142,7 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             )
         transaction_key = result_start_transaction["TransactionKey"]
         self._cweb_send_batch(client, invoices_to_send, transaction_key)
-        result_summary = self._cweb_step3_summary(
-            client, transaction_key, invoices_to_send
-        )
+        result_summary = self._cweb_step3_summary(client, transaction_key)
 
         result_commit = self._cweb_commit_tran(client, transaction_key)
         if result_commit["StatusCode"] != 0:
@@ -165,7 +172,7 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         )
         return response_tran
 
-    def _cweb_step3_summary(self, client, transaction_key, invoices_to_send):
+    def _cweb_step3_summary(self, client, transaction_key):
         response_summary = client.service.Step3_GetSummary(
             dict(
                 CompanyWebLogin=self.env.user.cweb_login,
@@ -214,12 +221,15 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         self,
         response_previous_period,
         invoice_to_send,
-        last_period_sent,
         period_to_send,
     ):
         print_period_to_send = "%02d/%d" % (
             period_to_send.month,
             period_to_send.year,
+        )
+        print_last_period_sent = "%02d/%d" % (
+            self.last_sent_month,
+            self.last_sent_year,
         )
         if response_previous_period["PreviousPeriodExists"]:
             summary = _(
@@ -234,7 +244,7 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             ).format(
                 nb_invoice=len(invoice_to_send),
                 company=html.escape(self.env.user.company_id.name),
-                last_period=last_period_sent,
+                last_period=print_last_period_sent,
                 login=self.env.user.partner_id.email,
                 period=print_period_to_send,
             )
@@ -259,8 +269,8 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
 
         return summary
 
-    def _create_invoices_to_send(self, client):
-        open_invoices = self._get_open_invoices()
+    def _create_invoices_to_send(self, client, to_date):
+        open_invoices = self._get_open_invoices(to_date)
         if not open_invoices:
             return []
 
@@ -283,17 +293,18 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
             invoice_to_send.append(to_send)
         return invoice_to_send
 
-    def _get_open_invoices(self):
+    def _get_open_invoices(self, to_date):
         return self.env["account.move"].search(
             [
                 ("payment_state", "=", "not_paid"),
                 ("state", "=", "posted"),
                 ("move_type", "in", ["out_invoice"]),
                 ("company_id", "=", self.env.user.company_id.id),
+                ("date", "<=", to_date),
             ]
         )
 
-    def _get_previous_period(self, client, supplierVat):
+    def _get_previous_period(self, client, supplier_vat):
         response_previous_period = client.service.GetPreviousPeriod(
             dict(
                 CompanyWebLogin=self.env.user.cweb_login,
@@ -304,7 +315,7 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
                     self.env.user.cweb_password,
                     cweb_partner.SERVICE_INTEGRATOR_SECRET,
                 ),
-                SupplierVat=supplierVat,
+                SupplierVat=supplier_vat,
             )
         )
 
@@ -357,11 +368,7 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
                 )
             )
 
-    def _cweb_start_transaction(self, client, email):
-        today = datetime.date.today()
-        first = today.replace(day=1)
-        lastMonth = first - datetime.timedelta(days=1)
-
+    def _cweb_start_transaction(self, client, email, period_to_send):
         return client.service.Step1_StartTransaction(
             dict(
                 CompanyWebLogin=self.env.user.cweb_login,
@@ -374,8 +381,8 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
                 ),
                 PackageVersion=self._get_module_version(),
                 SupplierVat=self.env.user.company_id.vat,
-                PeriodYear=lastMonth.year,
-                PeriodMonth=lastMonth.month,
+                PeriodYear=str(period_to_send.year),
+                PeriodMonth="%02d" % period_to_send.month,
                 EmailAddress=email,
             )
         )
