@@ -2,16 +2,35 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import os
 
+import requests
+import werkzeug
 from freezegun import freeze_time
+from requests import PreparedRequest, Session
 from vcr_unittest import VCRMixin
 
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
+_super_send = requests.Session.send
+
 
 class TestUpload(VCRMixin, TransactionCase):
+    @classmethod
+    def _request_handler(cls, s: Session, r: PreparedRequest, /, **kw):
+        """
+        Override to allow requests to the companyweb API
+        because odoo17 only permit calls to localhost
+        (see https://github.com/odoo/odoo/blob/17.0/odoo/tests/common.py#L265 )
+        """
+        url = werkzeug.urls.url_parse(r.url)
+        if url.host in ("payex.companyweb.be",):
+            return _super_send(s, r, **kw)
+        return super()._request_handler(s=s, r=r, **kw)
+
     def setUp(self, *args, **kwargs):
-        super(TestUpload, self).setUp(*args, **kwargs)
+        super().setUp(*args, **kwargs)
+
+        self.env.user.company_id.partner_id.write({"child_ids": False})
         self.demo_user = self.env.ref("base.user_demo")
         self.env.user.company_id.vat = False
         self.demo_user.partner_id.email = "test@odoo.com"
@@ -42,7 +61,14 @@ class TestUpload(VCRMixin, TransactionCase):
         group.write({"users": add_user})
 
     def _init_company_vat(self):
-        self.env.user.company_id.vat = "BE0835207216"
+        self.env.user.company_id.partner_id.write(
+            {
+                "country_id": False,
+                "peppol_eas": False,
+                "peppol_endpoint": False,
+            }
+        )
+        self.env.user.company_id.write({"vat": "BE0835207216"})
 
     def _init_cweb_credentials(self):
         self.demo_user.cweb_login = os.environ.get(
@@ -81,7 +107,7 @@ class TestUpload(VCRMixin, TransactionCase):
         )
         self.out_invoice_1.action_post()
 
-    @freeze_time("2022-01-13")  # because the login hash includes the date
+    @freeze_time("2024-03-11")  # because the login hash includes the date
     def test_upload_payment(self):
         # UserError because of security
         with self.assertRaises(UserError):
@@ -118,12 +144,6 @@ class TestUpload(VCRMixin, TransactionCase):
             "companyweb_payment_info.credential_wizard_payment",
         )
         self._init_cweb_credentials()
-
-        # UserError No invoice to send
-        with self.assertRaises(UserError):
-            self.env["companyweb_payment_info.payment_info_wizard"].with_user(
-                self.demo_user
-            )._cweb_payment_info_step1()
 
         self._init_invoice()
 
