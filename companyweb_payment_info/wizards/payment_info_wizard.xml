@@ -7,7 +7,7 @@
             <form>
                 <field name="wizard_text" readonly="1" />
                 <field name="wizard_step" invisible="1" />
-                <div attrs="{'invisible': [('wizard_step', '!=','step2')]}">
+                <div invisible="wizard_step !='step2'">
                     If you want to receive the summary on another email please change it here :
                     <field name="wizard_email" />
                 </div>
