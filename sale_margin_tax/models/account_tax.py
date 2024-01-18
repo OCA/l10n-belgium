@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.tools.misc import formatLang
 
 
@@ -132,12 +132,17 @@ class AccountTax(models.Model):
         res = super()._prepare_tax_totals(base_lines, currency, tax_lines=tax_lines)
         filtered_groups = []
         hidden_taxes = 0
-        groups = res["groups_by_subtotal"].get("Untaxed Amount", [])
+        margin_group = self.env.ref("sale_margin_tax.tax_group_margin")
+        keys = list(res["groups_by_subtotal"].keys())
+        if len(keys) == 1:
+            group_key = keys[0]
+        else:  # make sure we get the right one
+            # if someone changes the translation of Untaxed Amount inconsistently
+            # with the value in the account module, that would break
+            group_key = margin_group.preceding_subtotal or _("Untaxed Amount")
+        groups = res["groups_by_subtotal"].get(group_key, [])
         for group in groups:
-            if (
-                group["tax_group_id"]
-                != self.env.ref("sale_margin_tax.tax_group_margin").id
-            ):
+            if group["tax_group_id"] != margin_group.id:
                 filtered_groups.append(group)
             else:
                 hidden_taxes += group["tax_group_amount"]
