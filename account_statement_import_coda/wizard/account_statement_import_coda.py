@@ -116,10 +116,10 @@ class AccountStatementImport(models.TransientModel):
             if st.type == MovementRecordType.GLOBALISATION
         }
         information_dict = {}
-        # build a dict of information by transaction_ref. The transaction_ref
-        # refers to the transaction_ref of a movement record
+        # build a dict of information by ref_move. The ref_move
+        # refers to the ref_move of a movement record
         for info_line in statement.informations:
-            infos = information_dict.setdefault(info_line.transaction_ref, [])
+            infos = information_dict.setdefault(info_line.ref_move, [])
             infos.append(info_line)
 
         for sequence, line in enumerate(
@@ -151,7 +151,7 @@ class AccountStatementImport(models.TransientModel):
             note.append(_("Counter Party Account") + ": " + line.counterparty_number)
         if line.counterparty_address:
             note.append(_("Counter Party Address") + ": " + line.counterparty_address)
-        infos = information_dict.get(line.transaction_ref, [])
+        infos = information_dict.get(line.ref_move, [])
         if line.communication or infos:
             communications = []
             if line.communication:
