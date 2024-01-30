@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="apb_01_out" model="account.tax.template">
-        <field name="sequence">1</field>
+        <field name="sequence">800</field>
         <field name="description">APB-OUT</field>
         <field name="name">APB Out</field>
         <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template" />
