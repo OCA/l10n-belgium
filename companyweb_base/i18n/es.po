@@ -20,7 +20,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
 msgid ""
 "<br/>\n"
-"                    <span>Click here to create your login information: </span>"
+"                    <span>Click here to create your login information: </"
+"span>"
 msgstr ""
 "<br/>\n"
 "                    <span>Haga clic aquí para crear su información de inicio "
@@ -30,13 +31,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid ""
 "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
-"                                <b attrs=\"{'invisible': [('type', '!=', 'contact')]}\">Seat</b>\n"
+"                                <b invisible=\"type != 'contact'\">\n"
+"                                    Seat\n"
+"                                </b>\n"
 "                            </span>"
 msgstr ""
-"<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
-"                                <b attrs=\"{'invisible': [('type', '!=', "
-"'contact')]}\">Asiento</b>\n"
-"                            </span>"
 
 #. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
@@ -82,7 +81,6 @@ msgstr "Web de la compañía"
 
 #. module: companyweb_base
 #. odoo-python
-#: code:addons/companyweb_base/models/res_partner.py:0
 #: code:addons/companyweb_base/models/res_partner.py:0
 #, python-format
 msgid "Companyweb : You don't have access"
@@ -541,11 +539,6 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: companyweb_base
-#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
-
-#. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
 msgid "Last Update"
 msgstr "Última actualización"
@@ -624,3 +617,17 @@ msgstr "Advertencias"
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
 msgid "https://www.companyweb.be"
 msgstr "https://www.companyweb.be"
+
+#~ msgid ""
+#~ "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
+#~ "                                <b attrs=\"{'invisible': [('type', '!=', "
+#~ "'contact')]}\">Seat</b>\n"
+#~ "                            </span>"
+#~ msgstr ""
+#~ "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
+#~ "                                <b attrs=\"{'invisible': [('type', '!=', "
+#~ "'contact')]}\">Asiento</b>\n"
+#~ "                            </span>"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
