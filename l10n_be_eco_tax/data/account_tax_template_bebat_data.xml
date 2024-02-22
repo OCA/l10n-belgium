@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="bebat_01" model="account.tax.template">
+        <field name="sequence">1</field>
+        <field name="description">BEBAT-75-OUT</field>
+        <field name="name">BEBAT 0.075 Out</field>
+        <field name="chart_template_id" ref="l10n_be.l10nbe_chart_template" />
+        <field name="price_include" eval="0" />
+        <field name="amount">0.075</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">sale</field>
+        <field
+            name="invoice_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('bebat_income_account'),
+                'tag_ids': [ref('tax_tag_ecotax')],
+            }),
+        ]"
+        />
+        <field
+            name="refund_repartition_line_ids"
+            eval="[(5, 0, 0),
+            (0,0, {
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'repartition_type': 'tax',
+                'account_id': ref('bebat_expense_account'),
+                'tag_ids': [ref('tax_tag_ecotax')],
+            }),
+        ]"
+        />
+        <field name="include_base_amount" eval="1" />
+    </record>
+
+</odoo>
