@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [companyweb_base](companyweb_base/) | 16.0.1.0.7 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [companyweb_payment_info](companyweb_payment_info/) | 16.0.1.0.4 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
 [l10n_be_antibiotic_tax](l10n_be_antibiotic_tax/) | 16.0.1.0.1 |  | Data module to support antibiotics taxes
+[l10n_be_apb_tax](l10n_be_apb_tax/) | 16.0.1.0.1 |  | Data module to support APB taxes
 [l10n_be_bpost_address_autocomplete](l10n_be_bpost_address_autocomplete/) | 16.0.1.0.0 |  | Bpost address autocomplete
 [l10n_be_eco_tax](l10n_be_eco_tax/) | 16.0.1.0.1 |  | Data module to support BEBAT and RECUPEL taxes
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 16.0.1.0.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
