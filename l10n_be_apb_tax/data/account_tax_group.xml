@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+  <record id="tax_group_apb" model="account.tax.group">
+    <field name="name">APB</field>
+    <field name="sequence">5</field>
+  </record>
+</odoo>
