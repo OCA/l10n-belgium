@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2023 len-foss/Financial Way
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_tax_form" model="ir.ui.view">
+        <field name="name">account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='amount']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible':[('amount_type','not in', ('margin', 'fixed', 'percent', 'division'))]}
+                </attribute>
+            </xpath>
+            <xpath expr="//div[preceding::label[@for='amount']]" position="attributes">
+                <attribute name="attrs">
+                    {'invisible':[('amount_type','not in', ('margin', 'fixed', 'percent', 'division'))]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_type']" position="after">
+                <field
+                    name="margin_name_template"
+                    attrs="{'invisible':[('amount_type','!=', 'margin')]}"
+                />
+                <field
+                    name="margin_description_template"
+                    attrs="{'invisible':[('amount_type','!=', 'margin')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

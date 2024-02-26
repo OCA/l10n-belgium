@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2018 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="report_invoice_document_margin_tax"
+        inherit_id="account.report_invoice_document"
+        priority="90"
+    >
+        <xpath
+            expr="//t[@t-value='current_subtotal + line.price_subtotal']"
+            position="attributes"
+        >
+            <attribute
+                name="t-value"
+            >current_subtotal + line.price_subtotal_report</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='line.price_subtotal']" position="attributes">
+            <attribute name="t-field">line.price_subtotal_report</attribute>
+        </xpath>
+    </template>
+</odoo>
