@@ -47,6 +47,7 @@ class PartnerVATList(models.TransientModel):
         partners = partner_vat_list_client_model.browse([])
         turnover_tags = ("00", "01", "02", "03", "45", "49")
         vat_tags = ("54", "64")
+        be_id = self.env.ref("base.be").id
 
         # query explanation:
         #
@@ -156,7 +157,9 @@ where
         }
         self.env.cr.execute(query, args)
         for seq, record in enumerate(self.env.cr.dictfetchall(), start=1):
-            record["vat"] = record["vat"].replace(" ", "").upper()
+            record["vat"] = self.env["res.partner"].fix_eu_vat_number(
+                be_id, record["vat"]
+            )
             record["seq"] = seq
             partners |= partner_vat_list_client_model.create(record)
 
