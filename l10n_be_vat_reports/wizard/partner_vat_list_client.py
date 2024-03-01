@@ -20,17 +20,17 @@ class VATListingClients(models.TransientModel):
     @api.constrains("vat")
     def _check_vat_number(self):
         """
-        Belgium VAT numbers must respect this pattern: 0[1-9]{1}[0-9]{8}
+        Belgium VAT numbers must respect this pattern: [0-1][0-9]{9}
         todo current code assumes vat numbers start with a two-letter
           country code
         """
-        be_vat_pattern = re.compile(r"^BE0[1-9]{1}[0-9]{8}$")
+        be_vat_pattern = re.compile(r"^BE[0-1][0-9]{9}$")
         for client in self:
             if not be_vat_pattern.match(client.vat):
                 raise ValidationError(
                     _(
                         "Belgian Intervat platform only accepts VAT numbers "
-                        "matching this pattern: 0[1-9]{1}[0-9]{8} (number "
+                        "matching this pattern: [0-1][0-9]{9} (number "
                         "part). Check vat number %s for client %s"
                     )
                     % (client.vat, client.name)
