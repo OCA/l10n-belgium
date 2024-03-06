@@ -3,3 +3,4 @@
 
   * Robin Keunen
   * hugues de keyzer
+  * Victor Champonnois

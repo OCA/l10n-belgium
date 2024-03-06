@@ -23,10 +23,9 @@ class TestVatReportsCommon(TransactionCase):
 
     def _create_test_invoice(self, invoice_tax):
         company = self.env.company
-        account_rev_type = self.env.ref("account.data_account_type_revenue")
         account_line = self.env["account.account"].search(
             [
-                ("user_type_id", "=", account_rev_type.id),
+                ("account_type", "=", "income"),
                 ("company_id", "=", company.id),
             ],
             limit=1,
@@ -59,5 +58,7 @@ class TestVatReportsCommon(TransactionCase):
         report = self.env["ir.actions.report"]._get_report_from_name(
             report_action["report_name"]
         )
-        report_result = report._render(report_action["context"]["active_ids"], {})
+        report_result = report._render(
+            report, report_action["context"]["active_ids"][0], {}
+        )
         return XML(report_result[0])

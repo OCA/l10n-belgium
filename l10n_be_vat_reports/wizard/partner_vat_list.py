@@ -5,7 +5,7 @@
 from datetime import date
 
 from odoo import _, api, fields, models
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 
 
 class PartnerVATList(models.TransientModel):
@@ -14,18 +14,17 @@ class PartnerVATList(models.TransientModel):
     _inherit = ["vat.declaration.mixin"]
 
     year = fields.Char(
-        "Year",
         required=True,
         default=lambda _: str(date.today().year - 1),
     )
-    limit_amount = fields.Integer("Limit Amount", required=True, default=250)
+    limit_amount = fields.Integer(required=True, default=250)
     partner_ids = fields.Many2many(
         comodel_name="partner.vat.list.client",
         string="Clients",
         help="You can remove clients/partners which you do "
         "not want to show in xml file",
     )
-    total_turnover = fields.Float("Total Turnover", compute="_compute_totals")
+    total_turnover = fields.Float(compute="_compute_totals")
     total_vat = fields.Float("Total VAT", compute="_compute_totals")
 
     @api.depends("partner_ids")
@@ -45,9 +44,19 @@ class PartnerVATList(models.TransientModel):
 
         partner_vat_list_client_model = self.env["partner.vat.list.client"]
         partners = partner_vat_list_client_model.browse([])
+        be_id = self.env.ref("base.be").id
         turnover_tags = ("00", "01", "02", "03", "45", "49")
         vat_tags = ("54", "64")
-        be_id = self.env.ref("base.be").id
+        turnover_tags_ids = []
+        vat_tags_ids = []
+        for tag in turnover_tags:
+            turnover_tags_ids += (
+                self.env["account.account.tag"]._get_tax_tags(tag, be_id).mapped("id")
+            )
+        for tag in vat_tags:
+            vat_tags_ids += (
+                self.env["account.account.tag"]._get_tax_tags(tag, be_id).mapped("id")
+            )
 
         # query explanation:
         #
@@ -79,22 +88,6 @@ class PartnerVATList(models.TransientModel):
         # finally, a condition limits the result to partners having a belgian
         # vat number and for which the turnover sum is at least limit_amount.
         query = """
-with turnover_tag as (
-    select aat.id
-    from account_account_tag as aat
-    inner join account_tax_report_line_tags_rel as atrltr on
-        atrltr.account_account_tag_id = aat.id
-    inner join account_tax_report_line as atrl on
-        atrltr.account_tax_report_line_id = atrl.id and
-        atrl.tag_name in %(turnover_tags)s),
-vat_tag as (
-    select aat.id
-    from account_account_tag as aat
-    inner join account_tax_report_line_tags_rel as atrltr on
-        atrltr.account_account_tag_id = aat.id
-    inner join account_tax_report_line as atrl on
-        atrltr.account_tax_report_line_id = atrl.id and
-        atrl.tag_name in %(vat_tags)s)
 select
     rp.name,
     rp.vat,
@@ -115,9 +108,8 @@ inner join (
     and exists (
         select 1
         from account_account_tag_account_move_line_rel as aatamlr
-        inner join turnover_tag as tt on
-            aatamlr.account_account_tag_id = tt.id
-        where aatamlr.account_move_line_id = aml.id)
+        where aatamlr.account_move_line_id = aml.id
+        and aatamlr.account_account_tag_id in %(turnover_tags_ids)s)
     group by 1) as aml1 on
     aml1.partner_id = rp.id
 left join (
@@ -138,9 +130,8 @@ left join (
         inner join account_account_tag_account_tax_repartition_line_rel
             as aatatrlr on
             aatatrlr.account_tax_repartition_line_id = atrl.id
-        inner join vat_tag as vt on
-            aatatrlr.account_account_tag_id = vt.id
-        where at.id = aml.tax_line_id)
+        where at.id = aml.tax_line_id
+        and aatatrlr.account_account_tag_id in %(vat_tags_ids)s)
     group by 1) as aml2 on
     aml2.partner_id = rp.id
 where
@@ -148,8 +139,8 @@ where
     aml1.total_amount >= %(limit_amount)s
         """
         args = {
-            "turnover_tags": turnover_tags,
-            "vat_tags": vat_tags,
+            "turnover_tags_ids": tuple(turnover_tags_ids),
+            "vat_tags_ids": tuple(vat_tags_ids),
             "date_from": date_from,
             "date_to": date_to,
             "company_id": self.env.company.id,

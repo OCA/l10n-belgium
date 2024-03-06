@@ -56,7 +56,6 @@ class PartnerVATIntra(models.TransientModel):
         )
 
     period_code = fields.Char(
-        string="Period Code",
         required=True,
         help="""This is where you have to set the period code for the """
         """intracom declaration using the format: ppyyyy
@@ -67,9 +66,9 @@ class PartnerVATIntra(models.TransientModel):
                PP can stand for a complete fiscal year: '00'.
                YYYY stands for the year (4 positions).""",
     )
-    month = fields.Integer("Month", compute="_compute_period")
-    quarter = fields.Integer("Quarter", compute="_compute_period")
-    year = fields.Integer("Year", compute="_compute_period")
+    month = fields.Integer(compute="_compute_period")
+    quarter = fields.Integer(compute="_compute_period")
+    year = fields.Integer(compute="_compute_period")
     date_start = fields.Date("Start date", required=True)
     date_end = fields.Date("End date", required=True)
     test_xml = fields.Boolean("Test XML file", help="Sets the XML output as test file")
@@ -93,7 +92,7 @@ class PartnerVATIntra(models.TransientModel):
     partner_wo_vat = fields.Integer(
         string="Partner without VAT", compute="_compute_sums"
     )
-    amount_total = fields.Float(string="Amount Total", compute="_compute_sums")
+    amount_total = fields.Float(compute="_compute_sums")
 
     @api.depends("period_code")
     def _compute_period(self):
@@ -131,11 +130,17 @@ class PartnerVATIntra(models.TransientModel):
 
     def get_partners(self):
         self.ensure_one()
-        tax_tags = {
+        be_id = self.env.ref("base.be").id
+        tax_tags_dict = {
             "44": "S",
             "46L": "L",
             "46T": "T",
         }
+        tax_tags_ids = []
+        for tag in tax_tags_dict.keys():
+            tax_tags_ids += (
+                self.env["account.account.tag"]._get_tax_tags(tag, be_id).mapped("id")
+            )
 
         # query explanation:
         #
@@ -151,18 +156,10 @@ class PartnerVATIntra(models.TransientModel):
         # moves, to ignore draft and cancelled ones) corresponding to these
         # tags, grouping by partner and tag.
         query = """
-with vat_tag as (
-    select aat.id, atrl.tag_name
-    from account_account_tag as aat
-    inner join account_tax_report_line_tags_rel as atrltr on
-        atrltr.account_account_tag_id = aat.id
-    inner join account_tax_report_line as atrl on
-        atrltr.account_tax_report_line_id = atrl.id and
-        atrl.tag_name in %s)
 select
     rp.name as partner_name,
     rp.vat,
-    vt.tag_name as intra_code,
+    aatamlr.account_account_tag_id as intra_code_id,
     round(sum(-aml.balance), 2) as amount
 from account_move_line as aml
 inner join account_move as am on
@@ -170,27 +167,26 @@ inner join account_move as am on
     am.state = 'posted'
 inner join account_account_tag_account_move_line_rel as aatamlr on
     aatamlr.account_move_line_id = aml.id
-inner join vat_tag as vt on
-    aatamlr.account_account_tag_id = vt.id
 left join res_partner as rp on
     aml.partner_id = rp.id
 where
     aml.date between %s and %s and
-    aml.company_id = %s
+    aml.company_id = %s and
+    aatamlr.account_account_tag_id in %s
 group by 1, 2, 3
         """
-        tax_tag_names = tuple(tax_tags.keys())
         company_id = self.env.company.id
-
         self.env.cr.execute(
-            query, (tax_tag_names, self.date_start, self.date_end, company_id)
+            query, (self.date_start, self.date_end, company_id, tuple(tax_tags_ids))
         )
 
         vat_intra_client_model = self.env["vat.intra.client"]
         clients = vat_intra_client_model.browse()
         for seq, row in enumerate(self.env.cr.dictfetchall(), start=1):
             amount = row["amount"] or 0.0
-            code = tax_tags.get(row["intra_code"], "")
+            tax_tag = self.env["account.account.tag"].browse(row["intra_code_id"]).name
+            tax_tag_no_sign = tax_tag.replace("+", "").replace("-", "")
+            code = tax_tags_dict.get(tax_tag_no_sign, "")
             vat = row.get("vat") or ""
             vat = vat.replace(" ", "").upper()
 
@@ -200,7 +196,7 @@ group by 1, 2, 3
                 "vat": vat,
                 "vatnum": vat[2:],
                 "country": vat[:2],
-                "intra_code": row["intra_code"],
+                "intra_code": tax_tag,
                 "code": code,
                 "amount": amount,
             }

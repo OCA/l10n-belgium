@@ -60,8 +60,7 @@ class VATDeclarationMixin(models.AbstractModel):
         compute="_compute_declarant_vat",
     )
     declarant_phone = fields.Char(
-        string="Declarant Phone",
         compute="_compute_declarant_phone",
     )
     declarant_reference = fields.Char(compute=_compute_declarant_reference)
-    comments = fields.Text("Comments")
+    comments = fields.Text()
