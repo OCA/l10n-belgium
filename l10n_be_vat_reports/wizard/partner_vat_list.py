@@ -166,14 +166,9 @@ where
         if not partners:
             raise UserError(_("No data found for the selected year."))
 
-        model_datas = self.env["ir.model.data"].search(
-            [
-                ("model", "=", "ir.ui.view"),
-                ("name", "=", "partner_vat_list_view_form_clients"),
-            ],
-            limit=1,
+        resource_id = self.env["ir.model.data"]._xmlid_to_res_id(
+            "l10n_be_vat_reports.partner_vat_list_view_form_clients"
         )
-        resource_id = model_datas.res_id
         self.partner_ids = partners.ids
         return {
             "name": _("VAT Listing"),

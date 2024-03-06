@@ -22,25 +22,25 @@
                     <ns2:Period>
                         <ns2:Month
                             t-if="partner_vat_intra.month"
-                            t-esc="partner_vat_intra.month"
+                            t-out="partner_vat_intra.month"
                         />
                         <ns2:Quarter
                             t-if="partner_vat_intra.quarter"
-                            t-esc="partner_vat_intra.quarter"
+                            t-out="partner_vat_intra.quarter"
                         />
-                        <ns2:Year t-esc="partner_vat_intra.year" />
+                        <ns2:Year t-out="partner_vat_intra.year" />
                     </ns2:Period>
                     <t t-foreach="partner_vat_intra.client_ids" t-as="vat_client">
                         <ns2:IntraClient t-att-SequenceNumber="vat_client.seq">
                             <ns2:CompanyVATNumber
                                 t-att-issuedBy="vat_client.country"
-                                t-esc="vat_client.vatnum"
+                                t-out="vat_client.vatnum"
                             />
-                            <ns2:Code t-esc="vat_client.code" />
-                            <ns2:Amount t-esc="'{:.2f}'.format(vat_client.amount)" />
+                            <ns2:Code t-out="vat_client.code" />
+                            <ns2:Amount t-out="'{:.2f}'.format(vat_client.amount)" />
                         </ns2:IntraClient>
                     </t>
-                    <ns2:Comment t-esc="partner_vat_intra.comments" />
+                    <ns2:Comment t-out="partner_vat_intra.comments" />
                 </ns2:IntraListing>
             </t>
         </ns2:IntraConsignment>

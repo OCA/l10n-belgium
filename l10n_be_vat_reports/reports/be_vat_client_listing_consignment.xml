@@ -20,7 +20,7 @@
                             t-call="l10n_be_vat_reports.l10n_be_vat_declarant_xml_template"
                         />
                     </ns2:Declarant>
-                    <ns2:Period t-esc="partner_vat_list.year" />
+                    <ns2:Period t-out="partner_vat_list.year" />
                     <t
                         t-foreach="partner_vat_list.partner_ids"
                         t-as="vat_listing_client"
@@ -28,17 +28,17 @@
                         <ns2:Client t-att-SequenceNumber="vat_listing_client.seq">
                             <ns2:CompanyVATNumber
                                 issuedBy="BE"
-                                t-esc="vat_listing_client.vat[2:]"
+                                t-out="vat_listing_client.vat[2:]"
                             />
                             <ns2:TurnOver
-                                t-esc="'{:.2f}'.format(vat_listing_client.turnover)"
+                                t-out="'{:.2f}'.format(vat_listing_client.turnover)"
                             />
                             <ns2:VATAmount
-                                t-esc="'{:.2f}'.format(vat_listing_client.vat_amount)"
+                                t-out="'{:.2f}'.format(vat_listing_client.vat_amount)"
                             />
                         </ns2:Client>
                     </t>
-                    <ns2:Comment t-esc="partner_vat_list.comments" />
+                    <ns2:Comment t-out="partner_vat_list.comments" />
                 </ns2:ClientListing>
             </t>
         </ns2:ClientListingConsignment>

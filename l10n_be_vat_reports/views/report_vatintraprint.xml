@@ -16,15 +16,15 @@
 
                         <div class="row mt32 mb32">
                             <strong>Company Name: </strong>
-                            <span t-esc="res_company.name" />
+                            <span t-out="res_company.name" />
                         </div>
                         <div class="row mt32 mb32">
                             <strong>Vat Number: </strong>
-                            <span t-esc="res_company.partner_id.vat" />
+                            <span t-out="res_company.partner_id.vat" />
                         </div>
                         <div class="row mt32 mb32">
                             <strong>Partners without VAT: </strong>
-                            <span t-esc="o.partner_wo_vat or '-'" />
+                            <span t-out="o.partner_wo_vat or '-'" />
                         </div>
 
                         <table class="table table-condensed">
