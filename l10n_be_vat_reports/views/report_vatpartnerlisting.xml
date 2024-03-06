@@ -13,7 +13,7 @@
                 <div class="page">
                     <div class="oe_structure" />
                     <h2>Annual Listing of VAT-Subjected</h2>
-                    <p><span t-esc="res_company.name" /> (<span t-field="o.year" />)</p>
+                    <p><span t-out="res_company.name" /> (<span t-field="o.year" />)</p>
 
                     <table class="table table-condensed">
                         <thead>
@@ -30,8 +30,8 @@
                                 <td />
                                 <td />
                                 <td />
-                                <td><span t-esc="o.total_turnover" /></td>
-                                <td><span t-esc="o.total_vat" /></td>
+                                <td><span t-out="o.total_turnover" /></td>
+                                <td><span t-out="o.total_vat" /></td>
                             </tr>
                             <tr t-foreach="o.partner_ids" t-as="l">
                                 <td><span t-field="l.seq" /></td>

@@ -209,11 +209,9 @@ group by 1, 2, 3
 
         self.client_ids = clients
 
-        model_datas = self.env["ir.model.data"].search(
-            [("model", "=", "ir.ui.view"), ("name", "=", "view_vat_intra")],
-            limit=1,
+        resource_id = self.env["ir.model.data"]._xmlid_to_res_id(
+            "l10n_be_vat_reports.view_vat_intra"
         )
-        resource_id = model_datas.res_id
         return {
             "name": _("VAT Intra Listing"),
             "res_id": self.id,
