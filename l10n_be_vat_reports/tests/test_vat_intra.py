@@ -68,7 +68,7 @@ class TestVatIntra(TestVatReportsCommon):
     def test_intra_include_archived_partners(self):
         self.partner.active = False
         # ensure change is done in the database
-        self.partner.flush()
+        self.partner.flush_recordset()
         wizard = self.env["partner.vat.intra"].create(
             {
                 "period_code": time.strftime("00%Y"),

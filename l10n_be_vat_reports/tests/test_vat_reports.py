@@ -60,7 +60,7 @@ class TestVatListing(TestVatReportsCommon):
     def test_vat_listing_include_archived_partners(self):
         self.partner.active = False
         # ensure change is done in the database
-        self.partner.flush()
+        self.partner.flush_recordset()
         year = fields.Date.today().year
         partner_vat_list = self.env["partner.vat.list"].create(
             {"year": year, "limit_amount": 1}
