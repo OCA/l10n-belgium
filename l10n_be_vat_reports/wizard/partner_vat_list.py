@@ -41,7 +41,8 @@ class PartnerVATList(models.TransientModel):
                 _("No VAT number associated with your company.")
             )
 
-        company_vat = company_vat.replace(" ", "").upper()
+        be_id = self.env.ref("base.be").id
+        company_vat = self.env["res.partner"].fix_eu_vat_number(be_id, company_vat)
         for listing in self:
             seq_declarantnum = self.env["ir.sequence"].next_by_code(
                 "declarantnum"
@@ -67,6 +68,7 @@ class PartnerVATList(models.TransientModel):
         date_start = date(int(self.year), 1, 1)
         date_stop = date(int(self.year), 12, 31)
 
+        be_id = self.env.ref("base.be").id
         partners = self.env["partner.vat.list.client"].browse([])
         be_partners = self.env["res.partner"].search([("vat", "ilike", "BE%")])
         if not be_partners:
@@ -140,7 +142,9 @@ class PartnerVATList(models.TransientModel):
         self.env.cr.execute(query, args)
         seq = 0
         for record in self.env.cr.dictfetchall():
-            record["vat"] = record["vat"].replace(" ", "").upper()
+            record["vat"] = self.env["res.partner"].fix_eu_vat_number(
+                be_id, record["vat"]
+                )
             if record["turnover"] >= self.limit_amount:
                 seq += 1
                 record["seq"] = seq
