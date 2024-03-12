@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+     Copyright 2004-2010 Tiny SPRL
+     Copyright 2018 ACSONE SA/NV
+     Copyright 2020 Coop IT Easy SC
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="report_l10nvatpartnerlisting">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure" />
+                    <h2>Annual Listing of VAT-Subjected</h2>
+                    <p><span t-out="res_company.name" /> (<span t-field="o.year" />)</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Nr</th>
+                                <th>Partner</th>
+                                <th>VAT Number</th>
+                                <th>Base Amount</th>
+                                <th>VAT Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td />
+                                <td />
+                                <td />
+                                <td><span t-out="o.total_turnover" /></td>
+                                <td><span t-out="o.total_vat" /></td>
+                            </tr>
+                            <tr t-foreach="o.partner_ids" t-as="l">
+                                <td><span t-field="l.seq" /></td>
+                                <td><span t-field="l.name" /></td>
+                                <td><span t-field="l.vat" /></td>
+                                <td><span t-field="l.turnover" /></td>
+                                <td><span t-field="l.vat_amount" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+            </t>
+        </t>
+    </template>
+</odoo>
