@@ -6,6 +6,12 @@ import time
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
+TAX_TAGS_DICT = {
+    "44": "S",
+    "46L": "L",
+    "46T": "T",
+}
+
 
 class PartnerVATIntra(models.TransientModel):
     """
@@ -131,13 +137,8 @@ class PartnerVATIntra(models.TransientModel):
     def get_partners(self):
         self.ensure_one()
         be_id = self.env.ref("base.be").id
-        tax_tags_dict = {
-            "44": "S",
-            "46L": "L",
-            "46T": "T",
-        }
         tax_tags_ids = []
-        for tag in tax_tags_dict.keys():
+        for tag in TAX_TAGS_DICT.keys():
             tax_tags_ids += (
                 self.env["account.account.tag"]._get_tax_tags(tag, be_id).mapped("id")
             )
@@ -186,7 +187,7 @@ group by 1, 2, 3
             amount = row["amount"] or 0.0
             tax_tag = self.env["account.account.tag"].browse(row["intra_code_id"]).name
             tax_tag_no_sign = tax_tag.replace("+", "").replace("-", "")
-            code = tax_tags_dict.get(tax_tag_no_sign, "")
+            code = TAX_TAGS_DICT.get(tax_tag_no_sign, "")
             vat = row.get("vat") or ""
             vat = vat.replace(" ", "").upper()
 
