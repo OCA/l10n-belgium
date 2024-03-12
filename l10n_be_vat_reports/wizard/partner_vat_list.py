@@ -7,6 +7,9 @@ from datetime import date
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
+TURNOVER_TAGS = ("00", "01", "02", "03", "45", "49")
+VAT_TAGS = ("54", "64")
+
 
 class PartnerVATList(models.TransientModel):
     _name = "partner.vat.list"
@@ -45,15 +48,13 @@ class PartnerVATList(models.TransientModel):
         partner_vat_list_client_model = self.env["partner.vat.list.client"]
         partners = partner_vat_list_client_model.browse([])
         be_id = self.env.ref("base.be").id
-        turnover_tags = ("00", "01", "02", "03", "45", "49")
-        vat_tags = ("54", "64")
         turnover_tags_ids = []
         vat_tags_ids = []
-        for tag in turnover_tags:
+        for tag in TURNOVER_TAGS:
             turnover_tags_ids += (
                 self.env["account.account.tag"]._get_tax_tags(tag, be_id).mapped("id")
             )
-        for tag in vat_tags:
+        for tag in VAT_TAGS:
             vat_tags_ids += (
                 self.env["account.account.tag"]._get_tax_tags(tag, be_id).mapped("id")
             )
