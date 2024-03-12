@@ -7,21 +7,17 @@
 -->
 <odoo>
     <record id="view_vat_intra_wizard" model="ir.ui.view">
-        <field name="name">Partner VAT intra</field>
+        <field name="name">Intracom VAT Declaration</field>
         <field name="model">partner.vat.intra</field>
         <field name="arch" type="xml">
-            <form string="Partner VAT intra">
-                <group>
-                    <separator string="Intracom VAT Declaration" />
-                </group>
+            <form string="Intracom VAT Declaration">
                 <notebook colspan="4">
                     <page string="General Information">
                         <group>
                             <field name="period_code" />
+                            <field name="date_start" />
+                            <field name="date_end" />
                         </group>
-                        <separator string="Dates" />
-                        <field name="date_start" />
-                        <field name="date_end" />
                         <separator string="Comments" />
                         <field name="comments" />
                     </page>
@@ -36,7 +32,6 @@
                         type="object"
                         class="oe_highlight"
                     />
-                    or
                     <button string="Cancel" class="oe_link" special="cancel" />
                 </footer>
             </form>
@@ -44,7 +39,7 @@
     </record>
 
     <record id="action_vat_intra" model="ir.actions.act_window">
-        <field name="name">Partner Vat Intra</field>
+        <field name="name">Intracom VAT Declaration</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">partner.vat.intra</field>
         <field name="view_mode">form</field>
@@ -53,17 +48,31 @@
     </record>
 
     <menuitem
-        name="Partner VAT Intra"
+        name="Intracom VAT Declaration"
         parent="l10n_be.account_reports_be_statements_menu"
         action="action_vat_intra"
         id="l10_be_vat_intra"
     />
 
     <record id="view_vat_intra" model="ir.ui.view">
-        <field name="name">Partner VAT intra</field>
+        <field name="name">Intracom VAT Declaration</field>
         <field name="model">partner.vat.intra</field>
         <field name="arch" type="xml">
-            <form string="Partner VAT intra">
+            <form string="Intracom VAT Declaration">
+        <header>
+            <button
+                        name="create_xml"
+                        string="Create XML"
+                        type="object"
+                        class="oe_highlight"
+                    />
+            <button
+                        name="print_vat_intra"
+                        string="Print"
+                        type="object"
+                        class="oe_highlight"
+                    />
+        </header>
                 <group>
                     <group>
                         <field name="period_code" readonly="1" />
@@ -98,22 +107,7 @@
                         />
                     </page>
                 </notebook>
-                <footer>
-                    <button
-                        name="create_xml"
-                        string="Create _XML"
-                        type="object"
-                        class="oe_highlight"
-                    />
-                    or
-                    <button
-                        name="print_vat_intra"
-                        string="Print PDF"
-                        type="object"
-                        class="oe_highlight"
-                    />
-                </footer>
-            </form>
+                    </form>
         </field>
     </record>
 </odoo>
