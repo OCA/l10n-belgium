@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-l10n-belgium"
-version = "17.0.20231206.0"
+version = "17.0.20240313.0"
 dependencies = [
     "odoo-addon-companyweb_base>=17.0dev,<17.1dev",
+    "odoo-addon-companyweb_payment_info>=17.0dev,<17.1dev",
 ]
 classifiers=[
     "Programming Language :: Python",
