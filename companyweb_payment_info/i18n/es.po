@@ -1,0 +1,252 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* companyweb_payment_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-08-06 13:11+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"<h2>Companyweb upload Status</h2>Here under a small summary, the full "
+"summary will be sent to <strong>{login}</strong> <br/>{inv_exp_date} : "
+"LinesWithInvalidExpirationDate <br/>{inv_date} : LinesWithInvalidInvoiceDate"
+" <br/>{inv_number} : LinesWithInvalidInvoiceNumber <br/>{inv_amount} : "
+"LinesWithInvalidOpenAmount <br/>{inv_vat} : LinesWithInvalidVatNumber "
+"<br/>{nb_accepted} : NumberOfLinesAccepted <br/>{nb_received} : "
+"NumberOfLinesRecieved <br/>"
+msgstr ""
+"<h2>Estado de carga de Companyweb</h2>Aquí, debajo de un pequeño resumen, el "
+"resumen completo se enviará a <strong>{login}</strong> <br/>{inv_exp_date} : "
+"LinesWithInvalidExpirationDate <br/>{inv_date} : LinesWithInvalidInvoiceDate "
+"<br/>{inv_number} : LinesWithInvalidInvoiceNumber <br/>{inv_amount} : "
+"LinesWithInvalidOpenAmount <br/>{inv_vat} : LinesWithInvalidVatNumber <br/"
+">{nb_accepted} : NumberOfLinesAccepted <br/>{nb_received} : "
+"NumberOfLinesRecieved <br/>"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"<h2>Companyweb upload</h2>You are about to submit "
+"<strong>{nb_invoice}</strong> open invoices <br/>to Companyweb for the "
+"company <strong>{company}</strong>.<br/><strong>It's the first time you use "
+"this feature for this company</strong><br/>Your odoo login : "
+"<strong>{login}</strong> will received a full summary at the end of this "
+"transaction <br/>Make sure you have closed your bank statements for period "
+"<strong>{period}</strong>."
+msgstr ""
+"<h2>Carga de Companyweb</h2>Está a punto de enviar <strong>{nb_invoice}</"
+"strong> facturas abiertas <br/>a Companyweb para la empresa "
+"<strong>{company}</strong>.<br/> <strong>Es la primera vez que utiliza esta "
+"función para esta empresa</strong><br/>Su inicio de sesión de odoo: "
+"<strong>{login}</strong> recibirá un resumen completo al final de esta "
+"transacción <br/>Asegúrese de haber cerrado sus estados de cuenta bancarios "
+"para el período <strong>{period}</strong>."
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"<h2>Companyweb upload</h2>You are about to submit "
+"<strong>{nb_invoice}</strong> open invoices <br/>to Companyweb for the "
+"company <strong>{company}</strong>.<br/>The previous period that was sent is"
+" <strong>{last_period}</strong>.<br/>Your odoo login : "
+"<strong>{login}</strong> will receive a full summary at the end of this "
+"transaction <br/>Make sure you have closed your bank statements for period "
+"<strong>{period}</strong>."
+msgstr ""
+"<h2>Carga de Companyweb</h2>Está a punto de enviar <strong>{nb_invoice}</"
+"strong> facturas abiertas <br/>a Companyweb para la empresa "
+"<strong>{company}</strong>.<br/> El período anterior que se envió es "
+"<strong>{last_period}</strong>.<br/>Su inicio de sesión de odoo: "
+"<strong>{login}</strong> recibirá un resumen completo al final de esta "
+"transacción <br/>Asegúrese de haber cerrado sus estados de cuenta bancarios "
+"para el período <strong>{period}</strong>."
+
+#. module: companyweb_payment_info
+#: model:ir.model,name:companyweb_payment_info.model_companyweb_payment_info_credential_wizard_payment
+msgid "Ask for Companyweb login & password"
+msgstr ""
+"Solicitar nombre de usuario y contraseña de la página web de la compañía"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Bad Credentials"
+msgstr "Malas credenciales"
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Companyweb : No Invoices to send"
+msgstr "Companyweb : No hay facturas que enviar"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Companyweb : You already submitted invoices for {last_date}"
+msgstr "Compañíaweb : Ya ha presentado facturas para {last_date}"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"Companyweb : You need to be in the security group :\n"
+"                    Upload Companyweb Invoices to perform this action"
+msgstr ""
+"Compañíaweb : Necesita estar en el grupo de seguridad :\n"
+"Cargar facturas de la compañía para realizar esta acción"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"Companyweb : You need to set a valid belgian's vat field for the current "
+"company : {company}"
+msgstr ""
+"Compañíaweb : Necesita establecer un campo de iva belga válido para la "
+"compañía actual : {company}"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__cweb_login
+msgid "Companyweb Login"
+msgstr "Iniciar sesión en la Compañíaweb"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__cweb_password
+msgid "Companyweb Password"
+msgstr "Contraseña de la Compañíaweb"
+
+#. module: companyweb_payment_info
+#: model:ir.actions.server,name:companyweb_payment_info.cweb_payment_info_action
+#: model:ir.model,name:companyweb_payment_info.model_companyweb_payment_info_payment_info_wizard
+#: model:ir.ui.menu,name:companyweb_payment_info.your_menu_id
+msgid "Companyweb Payment Info"
+msgstr "Información de pago de la compañíaweb"
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid "Continue Process"
+msgstr "Continuar el proceso"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__create_uid
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__create_date
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__display_name
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Enter your Credentials"
+msgstr "Introduzca sus credenciales"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Error from Companyweb : {status} : {message}"
+msgstr "Error de la compañíaweb : {status} : {message}"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__id
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid ""
+"If you want to receive the summary on another email please change it here :"
+msgstr "Si desea recibir el resumen en otro correo electrónico, cámbielo aquí:"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment____last_update
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__write_uid
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__write_date
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: companyweb_payment_info
+#. odoo-python
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Unexpected step {step}"
+msgstr "Paso inesperado {step}"
+
+#. module: companyweb_payment_info
+#: model:res.groups,name:companyweb_payment_info.cweb_upload
+msgid "Upload Companyweb Invoices"
+msgstr "Cargar facturas en la web de la compañía"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__wizard_step
+msgid "Wizard Step"
+msgstr "Paso de asistente"
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid "or"
+msgstr "o"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__wizard_email
+msgid "wizard_email"
+msgstr "wizard_email"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__wizard_text
+msgid "wizard_text"
+msgstr "wizard_text"

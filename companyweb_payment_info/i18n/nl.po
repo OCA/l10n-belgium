@@ -1,0 +1,238 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* companyweb_payment_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-13 08:39+0000\n"
+"PO-Revision-Date: 2021-09-13 08:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid ""
+"<h2>Companyweb upload Status</h2>Here under a small summary, the full "
+"summary will be sent to <strong>{login}</strong> <br/>{inv_exp_date} : "
+"LinesWithInvalidExpirationDate <br/>{inv_date} : "
+"LinesWithInvalidInvoiceDate <br/>{inv_number} : "
+"LinesWithInvalidInvoiceNumber <br/>{inv_amount} : "
+"LinesWithInvalidOpenAmount <br/>{inv_vat} : LinesWithInvalidVatNumber <br/>"
+"{nb_accepted} : NumberOfLinesAccepted <br/>{nb_received} : "
+"NumberOfLinesRecieved <br/>"
+msgstr ""
+"<h2>Companyweb upload Status</h2>Hieronder een beknopte samenvatting,  het "
+"volledige overzicht wordt gestuurd naar  <strong>{login}</strong> <br/>{inv_exp_date} : "
+"Aantal lijnen met ongeldige vervaldatum <br/>{inv_date} : Aantal lijnen met "
+"ongeldige factuurdatum <br/>{inv_number} : Aantal lijnen met ongeldig factuurnummer "
+"<br/>{inv_number} : Aantal lijnen met ongeldig openstaand bedrag <br/>{inv_vat} : Aantal "
+"lijnen met ongeldig ondernemingsnummer <br/>{nb_accepted} : Aantal aanvaarde lijnen <br/"
+">{nb_received} : Aantal ontvangen lijnen <br/>"
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid ""
+"<h2>Companyweb upload</h2>You are about to submit <strong>{nb_invoice}"
+"</strong> open invoices <br/>to Companyweb for the company <strong>"
+"{company}</strong>.<br/>The previous period that was sent is <strong>"
+"{last_period}</strong>.<br/>Your odoo login : <strong>{login}</strong> "
+"will receive a full summary at the end of this transaction <br/>Make sure "
+"you have closed your bank statements for period <strong>{period}</strong>."
+msgstr ""
+"<h2>Companyweb upload</h2>Je staat op het punt je in te dienen <strong>{nb_invoice}"
+"</strong> openstaande factuur <br/>to Companyweb voor het bedrijf <strong>"
+"{company}</strong>.<br/>De vorige periode die is verzonden is <strong>"
+"{last_period}</strong>.<br/>Uw odoo-login : <strong>{login}</strong> "
+"zal aan het einde van deze transactie een volledig samenvatting ontvangen <br/> Zorg "
+"ervoor dat u uw bankafschriften voor een periode heeft afgesloten  <strong>{period}</strong>."
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid ""
+"<h2>Companyweb upload</h2>You are about to submit <strong>{nb_invoice}"
+"</strong> open invoices <br/>to Companyweb for the company <strong>"
+"{company}</strong>.<br/><strong>It's the first time you use this feature "
+"for this company</strong><br/>Your odoo login : <strong>{login}</strong> "
+"will received a full summary at the end of this transaction <br/>Make sure "
+"you have closed your bank statements for period <strong>{period}</strong>."
+msgstr ""
+"<h2>Companyweb upload</h2>Je staat op het punt je in te dienen <strong>{nb_invoice}"
+"</strong> openstaande factuur <br/>to Companyweb voor het bedrijf <strong>{company}"
+"</strong>.<br/><strong>Het is de eerste keer dat u deze functie voor dit "
+"bedrijf gebruikt </strong><br/>Uw odoo-login : <strong>{login}</strong> zal aan "
+"het einde van deze transactie een volledig samenvatting ontvangen <br/> Zorg "
+"ervoor dat u uw bankafschriften voor een periode heeft afgesloten <strong>"
+"{period}</strong>."
+
+#. module: companyweb_payment_info
+#: model:ir.model,name:companyweb_payment_info.model_companyweb_payment_info_credential_wizard_payment
+msgid "Ask for Companyweb login & password"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Bad Credentials"
+msgstr "Slechte referenties"
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Companyweb : No Invoices to send"
+msgstr "Companyweb : Geen facturen om te verzenden"
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid "Companyweb : You already submitted invoices for {last_date}"
+msgstr "Companyweb : U heeft al facturen ingediend voor {last_date} "
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid ""
+"Companyweb : You need to be in the security group :\n"
+"                    Upload Companyweb Invoices to perform this action"
+msgstr ""
+"You need to be in the security group :\n"
+"                   Upload Companyweb Invoices om deze actie uit te voeren"
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid ""
+"Companyweb : You need to set a valid belgian's vat field for the current "
+"company : {company}"
+msgstr ""
+"Companyweb : U moet een geldig belgische tva-veld instellen voor het huidige "
+"bedrijf : {company}"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__cweb_login
+msgid "Companyweb Login"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__cweb_password
+msgid "Companyweb Password"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.actions.server,name:companyweb_payment_info.cweb_payment_info_action
+#: model:ir.model,name:companyweb_payment_info.model_companyweb_payment_info_payment_info_wizard
+#: model:ir.ui.menu,name:companyweb_payment_info.your_menu_id
+msgid "Companyweb Payment Info"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid "Continue Process"
+msgstr "Doorgaan"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__create_uid
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__create_date
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__display_name
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Enter your Credentials"
+msgstr "Voer uw inloggegevens in"
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, fuzzy, python-format
+msgid "Error from Companyweb : {status} : {message}"
+msgstr "Fout van Companyweb : {status} : {message}"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__id
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid ""
+"If you want to receive the summary on another email please change it here :"
+msgstr ""
+"Als u de samenvatting in een andere e-mail wilt ontvangen, kunt u deze hier "
+"wijzigen :"
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment____last_update
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__write_uid
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment__write_date
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
+#, python-format
+msgid "Unexpected step {step}"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:res.groups,name:companyweb_payment_info.cweb_upload
+msgid "Upload Companyweb Invoices"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__wizard_step
+msgid "Wizard Step"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
+msgid "or"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__wizard_email
+msgid "wizard_email"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__wizard_text
+msgid "wizard_text"
+msgstr ""
