@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -70,20 +70,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #: model_terms:ir.ui.view,arch_db:companyweb_payment_info.companyweb_payment_info_wizard_prepare
 msgid "Cancel"
-msgstr ""
-
-#. module: companyweb_payment_info
-#. odoo-python
-#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
-msgid "Companyweb : No Invoices to send"
-msgstr ""
-
-#. module: companyweb_payment_info
-#. odoo-python
-#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
-msgid "Companyweb : You already submitted invoices for {last_date}"
 msgstr ""
 
 #. module: companyweb_payment_info
@@ -173,9 +159,13 @@ msgid ""
 msgstr ""
 
 #. module: companyweb_payment_info
-#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_credential_wizard_payment____last_update
-#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard____last_update
-msgid "Last Modified on"
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__last_sent_month
+msgid "Last Sent Month"
+msgstr ""
+
+#. module: companyweb_payment_info
+#: model:ir.model.fields,field_description:companyweb_payment_info.field_companyweb_payment_info_payment_info_wizard__last_sent_year
+msgid "Last Sent Year"
 msgstr ""
 
 #. module: companyweb_payment_info
