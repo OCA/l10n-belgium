@@ -4,13 +4,10 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
-            <field name="vat" position="after">
-                <field
-                    name="kbo_bce_number"
-                    attrs="{'invisible': [('country_code', '!=', 'BE')]}"
-                />
+            <div name="vat_vies_container" position="after">
+                <field name="kbo_bce_number" invisible="country_code != 'BE'" />
                 <field name="country_code" invisible="1" />
-            </field>
+            </div>
         </field>
     </record>
 </odoo>

@@ -110,11 +110,8 @@ class ResPartner(models.Model):
         if kbn and not vat:
             has_kbo_bce_number = True
             vat_number = kbn.replace(".", "")
-            if self.vies_vat_check("BE", vat_number):
-                sync_vals["vat"] = "BE " + vat_number
-                # cf. l10n_be_coa_multilang for the 'vat_subjected' field
-                if hasattr(self, "vat_subjected"):
-                    sync_vals["vat_subjected"] = True
+            sync_vals["vat"] = "BE " + vat_number
+            sync_vals["vies_vat_to_check"] = "BE " + vat_number
 
         if has_kbo_bce_number and not country_id:
             sync_vals["country_id"] = be.id
