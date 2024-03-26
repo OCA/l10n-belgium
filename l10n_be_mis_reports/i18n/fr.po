@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2024-01-22 16:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -261,8 +262,7 @@ msgstr "Régularisation d'impôts et reprise de provisions fiscales [77]"
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr230
 msgid "Adjustment to Amounts Written Off on Financial Fixed Assets [761]"
-msgstr ""
-"Reprises de réductions de valeur sur immobilisations financières [761]"
+msgstr "Reprises de réductions de valeur sur immobilisations financières [761]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_pl_fr229
@@ -613,14 +613,16 @@ msgstr "Réserves disponibles [133]"
 msgid ""
 "BELGIUM BALANCE SHEET AFTER APPROPRIATION [m01-f] - Company with capital "
 "(abridged model)"
-msgstr "BILAN BELGE APRÈS RÉPARTITION [m01-f] - Société à capital (modèle abrégé)"
+msgstr ""
+"BILAN BELGE APRÈS RÉPARTITION [m01-f] - Société à capital (modèle abrégé)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_bs_m02_f
 msgid ""
 "BELGIUM BALANCE SHEET AFTER APPROPRIATION [m02-f] - Company with capital "
 "(full model)"
-msgstr "BILAN BELGE APRÈS RÉPARTITION [m02-f] - Société à capital (modèle complet)"
+msgstr ""
+"BILAN BELGE APRÈS RÉPARTITION [m02-f] - Société à capital (modèle complet)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_bs_m04_f
@@ -640,13 +642,13 @@ msgstr "BILAN BELGE APRÈS RÉPARTITION [m05-f] - Association (modèle complet)"
 msgid ""
 "BELGIUM BALANCE SHEET AFTER APPROPRIATION [m07-f] - Company with capital "
 "(micro model)"
-msgstr "BILAN BELGE APRÈS RÉPARTITION [m07-f] - Société à capital (modèle micro)"
+msgstr ""
+"BILAN BELGE APRÈS RÉPARTITION [m07-f] - Société à capital (modèle micro)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_bs_m08_f
 msgid ""
-"BELGIUM BALANCE SHEET AFTER APPROPRIATION [m08-f] - Association (micro "
-"model)"
+"BELGIUM BALANCE SHEET AFTER APPROPRIATION [m08-f] - Association (micro model)"
 msgstr "BILAN BELGE APRÈS RÉPARTITION [m08-f] - Association (modèle micro)"
 
 #. module: l10n_be_mis_reports
@@ -654,21 +656,24 @@ msgstr "BILAN BELGE APRÈS RÉPARTITION [m08-f] - Association (modèle micro)"
 msgid ""
 "BELGIUM BALANCE SHEET AFTER APPROPRIATION [m81-f] - Company w/o capital "
 "(abridged model)"
-msgstr "BILAN BELGE APRÈS RÉPARTITION [m81-f] - Société sans capital (modèle abrégé)"
+msgstr ""
+"BILAN BELGE APRÈS RÉPARTITION [m81-f] - Société sans capital (modèle abrégé)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_bs_m82_f
 msgid ""
 "BELGIUM BALANCE SHEET AFTER APPROPRIATION [m82-f] - Company w/o capital "
 "(full model)"
-msgstr "BILAN BELGE APRÈS RÉPARTITION [m82-f] - Société sans capital (modèle complet)"
+msgstr ""
+"BILAN BELGE APRÈS RÉPARTITION [m82-f] - Société sans capital (modèle complet)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_bs_m87_f
 msgid ""
 "BELGIUM BALANCE SHEET AFTER APPROPRIATION [m87-f] - Company w/o capital "
 "(micro model)"
-msgstr "BILAN BELGE APRÈS RÉPARTITION [m87-f] - Société sans capital (modèle micro)"
+msgstr ""
+"BILAN BELGE APRÈS RÉPARTITION [m87-f] - Société sans capital (modèle micro)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_pl_m01_f
@@ -709,19 +714,22 @@ msgstr "COMPTE DE RÉSULTATS BELGE [m08-f] - Association (modèle micro)"
 msgid ""
 "BELGIUM PROFIT AND LOSS ACCOUNT [m81-f] - Company w/o capital (abridged "
 "model)"
-msgstr "COMPTE DE RÉSULTATS BELGE [m81-f] - Société sans capital (modèle abrégé)"
+msgstr ""
+"COMPTE DE RÉSULTATS BELGE [m81-f] - Société sans capital (modèle abrégé)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_pl_m82_f
 msgid ""
 "BELGIUM PROFIT AND LOSS ACCOUNT [m82-f] - Company w/o capital (full model)"
-msgstr "COMPTE DE RÉSULTATS BELGE [m82-f] - Société sans capital (modèle complet)"
+msgstr ""
+"COMPTE DE RÉSULTATS BELGE [m82-f] - Société sans capital (modèle complet)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.new_mis_report_pl_m87_f
 msgid ""
 "BELGIUM PROFIT AND LOSS ACCOUNT [m87-f] - Company w/o capital (micro model)"
-msgstr "COMPTE DE RÉSULTATS BELGE [m87-f] - Société sans capital (modèle micro)"
+msgstr ""
+"COMPTE DE RÉSULTATS BELGE [m87-f] - Société sans capital (modèle micro)"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report,name:l10n_be_mis_reports.mis_report_bs
@@ -1043,8 +1051,8 @@ msgstr ""
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_pl_m05_f_rub_630
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_pl_m08_f_rub_630
 msgid ""
-"Depreciation of and other amounts written off formation expenses, intangible"
-" and tangible fixed assets [630]"
+"Depreciation of and other amounts written off formation expenses, intangible "
+"and tangible fixed assets [630]"
 msgstr ""
 "Amortissements et réductions de valeur sur frais d'établissement, sur "
 "immobilisations incorporelles et corporelles [630]"
@@ -1071,8 +1079,7 @@ msgstr "CAPITAUX PROPRES [10/15]"
 #: model:mis.report.kpi,description:l10n_be_mis_reports.mis_report_bs_fr120
 msgid "Enterprises Linked by Participating Interests [282/3]"
 msgstr ""
-"Autres entreprises avec lesquelles il existe un lien de participation "
-"[282/3]"
+"Autres entreprises avec lesquelles il existe un lien de participation [282/3]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m01_f_rub_163
@@ -1880,8 +1887,7 @@ msgstr "Autres créances [41]"
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m02_f_rub_282_3
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m82_f_rub_282_3
 msgid "Other companies linked by participating interests [282/3]"
-msgstr ""
-"Entreprises avec lesquelles il existe un lien de participation [282/3]"
+msgstr "Entreprises avec lesquelles il existe un lien de participation [282/3]"
 
 #. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m05_f_rub_284_8
