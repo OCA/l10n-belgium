@@ -19,6 +19,9 @@ class TestSaleMarginTaxCase(TransactionCase):
         vals_tax = {"name": "Margin Tax", "amount": 21.0, "amount_type": "margin"}
         cls.tax_margin = cls.env["account.tax"].create(vals_tax)
 
+        vals_tax_other = {"name": "Other Tax", "amount": 21.0, "amount_type": "percent"}
+        cls.tax_other = cls.env["account.tax"].create(vals_tax_other)
+
         vals_sale = {
             "partner_id": cls.partner.id,
             "partner_invoice_id": cls.partner.id,
@@ -52,3 +55,8 @@ class TestSaleMarginTaxCase(TransactionCase):
         }
 
         cls.sale = cls.env["sale.order"].create(vals_sale)
+
+        langs = cls.env["res.lang"].with_context(active_test=False)
+        cls.lang = langs.search([("code", "=", "fr_BE")])
+        cls.lang.active = True
+        # cls.env["ir.translation"].load_module_terms(["base"], [cls.lang.code])

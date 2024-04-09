@@ -36,6 +36,13 @@ class AccountTax(models.Model):
     amount_type = fields.Selection(
         selection_add=[("margin", "Tax on margin")], ondelete={"margin": "cascade"}
     )
+    margin_mention = fields.Char(
+        translate=True,
+        string="Mention on invoice",
+        default="Livraison soumise au régime particulier d'imposition"
+        " de la marge bénéficiaire. TVA non déductible.",
+        help="This mention will be automatically added to the invoice.",
+    )
     margin_name_template = fields.Char(
         translate=True,
         string="Template used for the generated tax names",

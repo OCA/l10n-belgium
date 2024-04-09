@@ -19,6 +19,10 @@
             </xpath>
             <xpath expr="//field[@name='amount_type']" position="after">
                 <field
+                    name="margin_mention"
+                    attrs="{'invisible':[('amount_type','!=', 'margin')]}"
+                />
+                <field
                     name="margin_name_template"
                     attrs="{'invisible':[('amount_type','!=', 'margin')]}"
                 />

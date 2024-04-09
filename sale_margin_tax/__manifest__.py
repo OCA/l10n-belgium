@@ -6,7 +6,7 @@
 {
     "name": "Sale Margin Tax",
     "summary": """Sell used goods on the Belgian margin tax.""",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "author": "len-foss,Financial Way,ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
