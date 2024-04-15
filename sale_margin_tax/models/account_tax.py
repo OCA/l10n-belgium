@@ -85,7 +85,7 @@ class AccountTax(models.Model):
             vals["name"] = self._get_margin_tax_name(tax_percent)
             desc_template = self.margin_description_template or ""
             vals["description"] = desc_template.format(tax_percent)
-            tax = Tax.create(vals)
+            tax = self.copy(vals)
         return tax
 
     def _get_margin_tax_name(self, tax_percent):

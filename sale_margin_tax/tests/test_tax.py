@@ -27,6 +27,9 @@ class TestSaleMarginTax(TestSaleMarginTaxCase):
         self.assertEqual(invoice.amount_total, 115)
         self.assertTrue("marg" in invoice.narration)
 
+        # then: tax tags are properly copied from the margin tax
+        self.assertEqual(invoice.line_ids.tax_tag_ids, self.tags)
+
     def test_mixed_taxes(self):
         """First line has normal tax, other is on margin"""
         # given:
