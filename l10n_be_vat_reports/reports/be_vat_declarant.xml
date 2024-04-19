@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+     Copyright 2022 Coop IT Easy SC
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="l10n_be_vat_declarant_xml_template">
+        <VATNumber t-out="vat_declaration.declarant_vat" />
+        <Name t-out="vat_declaration.declarant_partner_id.name" />
+        <Street t-out="vat_declaration.declarant_partner_id.street" />
+        <PostCode t-out="vat_declaration.declarant_partner_id.zip" />
+        <City t-out="vat_declaration.declarant_partner_id.city" />
+        <CountryCode t-out="vat_declaration.declarant_partner_id.country_id.code" />
+        <EmailAddress t-out="vat_declaration.declarant_partner_id.email" />
+        <Phone t-out="vat_declaration.declarant_phone" />
+    </template>
+</odoo>

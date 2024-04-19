@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+     Copyright 2004-2010 Tiny SPRL
+     Copyright 2018 ACSONE SA/NV
+     Copyright 2020 Coop IT Easy SC
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="view_vat_intra_wizard" model="ir.ui.view">
+        <field name="name">Intracom VAT Declaration</field>
+        <field name="model">partner.vat.intra</field>
+        <field name="arch" type="xml">
+            <form string="Intracom VAT Declaration">
+                <notebook colspan="4">
+                    <page string="General Information">
+                        <group>
+                            <field name="period_code" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                        </group>
+                        <separator string="Comments" />
+                        <field name="comments" />
+                    </page>
+                    <page string="European Countries">
+                        <field name="country_ids" colspan="4" nolabel="1" />
+                    </page>
+                </notebook>
+                <footer>
+                    <button
+                        name="get_partners"
+                        string="View Customers"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vat_intra" model="ir.actions.act_window">
+        <field name="name">Intracom VAT Declaration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">partner.vat.intra</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_vat_intra_wizard" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        name="Intracom VAT Declaration"
+        parent="l10n_be.account_reports_be_statements_menu"
+        action="action_vat_intra"
+        id="l10_be_vat_intra"
+    />
+
+    <record id="view_vat_intra" model="ir.ui.view">
+        <field name="name">Intracom VAT Declaration</field>
+        <field name="model">partner.vat.intra</field>
+        <field name="arch" type="xml">
+            <form string="Intracom VAT Declaration">
+        <header>
+            <button
+                        name="create_xml"
+                        string="Create XML"
+                        type="object"
+                        class="oe_highlight"
+                    />
+            <button
+                        name="print_vat_intra"
+                        string="Print"
+                        type="object"
+                        class="oe_highlight"
+                    />
+        </header>
+                <group>
+                    <group>
+                        <field name="period_code" readonly="1" />
+                    </group>
+                    <group>
+                        <field name="date_start" readonly="1" />
+                        <field name="date_end" readonly="1" />
+                    </group>
+                </group>
+                <notebook>
+                    <page name="client_list" string="Client List">
+                        <field name="client_ids">
+                            <tree>
+                                <field name="seq" />
+                                <field name="partner_name" />
+                                <field name="vat" />
+                                <field name="country" />
+                                <field name="code" />
+                                <field name="amount" />
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="comments" string="Comments">
+                        <field name="comments" />
+                    </page>
+                    <page name="eu_countries" string="European Countries">
+                        <field
+                            name="country_ids"
+                            colspan="4"
+                            nolabel="1"
+                            readonly="1"
+                        />
+                    </page>
+                </notebook>
+                    </form>
+        </field>
+    </record>
+</odoo>

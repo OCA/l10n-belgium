@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="l10n_be_vat_listing_consignment_xml_template">
+        <ns2:ClientListingConsignment
+            xmlns="http://www.minfin.fgov.be/InputCommon"
+            xmlns:ns2="http://www.minfin.fgov.be/ClientListingConsignment"
+            ClientListingsNbr="1"
+        >
+            <t t-foreach="docs" t-as="partner_vat_list">
+                <ns2:ClientListing
+                    SequenceNumber="1"
+                    t-att-ClientsNbr="len(partner_vat_list.partner_ids)"
+                    t-att-DeclarantReference="partner_vat_list.declarant_reference"
+                    t-att-TurnOverSum="'{:.2f}'.format(partner_vat_list.total_turnover)"
+                    t-att-VATAmountSum="'{:.2f}'.format(partner_vat_list.total_vat)"
+                >
+                    <ns2:Declarant>
+                        <t t-set="vat_declaration" t-value="partner_vat_list" />
+                        <t
+                            t-call="l10n_be_vat_reports.l10n_be_vat_declarant_xml_template"
+                        />
+                    </ns2:Declarant>
+                    <ns2:Period t-out="partner_vat_list.year" />
+                    <t
+                        t-foreach="partner_vat_list.partner_ids"
+                        t-as="vat_listing_client"
+                    >
+                        <ns2:Client t-att-SequenceNumber="vat_listing_client.seq">
+                            <ns2:CompanyVATNumber
+                                issuedBy="BE"
+                                t-out="vat_listing_client.vat[2:]"
+                            />
+                            <ns2:TurnOver
+                                t-out="'{:.2f}'.format(vat_listing_client.turnover)"
+                            />
+                            <ns2:VATAmount
+                                t-out="'{:.2f}'.format(vat_listing_client.vat_amount)"
+                            />
+                        </ns2:Client>
+                    </t>
+                    <ns2:Comment t-out="partner_vat_list.comments" />
+                </ns2:ClientListing>
+            </t>
+        </ns2:ClientListingConsignment>
+    </template>
+
+    <record model="ir.actions.report" id="l10n_be_vat_listing_consignment_xml_report">
+        <field name="name">BE VAT Listing Consignment - XML</field>
+        <field
+            name="report_name"
+        >l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template</field>
+        <field
+            name="report_file"
+        >l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_template</field>
+        <field name="report_type">qweb-xml</field>
+        <field name="print_report_name">'BE VAT Client Listing Consignment'</field>
+        <field name="model">partner.vat.list</field>
+        <field name="xml_declaration">true</field>
+    </record>
+</odoo>
