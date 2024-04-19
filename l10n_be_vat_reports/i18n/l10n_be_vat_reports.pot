@@ -91,7 +91,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Belgian Intervat platform only accepts VAT numbers matching this pattern: "
-"0[1-9]{1}[0-9]{8} (number part). Check vat number %s for client %s"
+"[0-1][0-9]{9} (number part). Check vat number %s for client %s"
 msgstr ""
 
 #. module: l10n_be_vat_reports
