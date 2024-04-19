@@ -32,6 +32,7 @@ addon | version | maintainers | summary
 [l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 16.0.1.0.0 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
 [l10n_be_partner_identification](l10n_be_partner_identification/) | 16.0.1.0.0 |  | Belgium Partner Identification Numbers
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 16.0.1.0.1 |  | Belgium - KBO/BCE numbers
+[l10n_be_vat_reports](l10n_be_vat_reports/) | 16.0.1.0.1 |  | Belgium VAT Reports
 
 [//]: # (end addons)
 
