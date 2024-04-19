@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -87,11 +87,12 @@ msgid "Base Amount"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/partner_vat_list_client.py:0
 #, python-format
 msgid ""
 "Belgian Intervat platform only accepts VAT numbers matching this pattern: "
-"0[1-9]{1}[0-9]{8} (number part). Check vat number %s for client %s"
+"[0-1][0-9]{9} (number part). Check vat number %(vat)s for client %(vat)s"
 msgstr ""
 
 #. module: l10n_be_vat_reports
@@ -144,12 +145,8 @@ msgstr ""
 
 #. module: l10n_be_vat_reports
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
-msgid "Create XML"
-msgstr ""
-
-#. module: l10n_be_vat_reports
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
-msgid "Create _XML"
+msgid "Create XML"
 msgstr ""
 
 #. module: l10n_be_vat_reports
@@ -176,11 +173,6 @@ msgstr ""
 #. module: l10n_be_vat_reports
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
 msgid "Customers"
-msgstr ""
-
-#. module: l10n_be_vat_reports
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
-msgid "Dates"
 msgstr ""
 
 #. module: l10n_be_vat_reports
@@ -215,7 +207,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__display_name
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__display_name
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__display_name
-#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__display_name
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__display_name
 msgid "Display Name"
 msgstr ""
@@ -246,7 +237,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__id
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__id
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__id
-#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__id
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__id
 msgid "ID"
 msgstr ""
@@ -257,6 +247,9 @@ msgid "Intra Code"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#: model:ir.actions.act_window,name:l10n_be_vat_reports.action_vat_intra
+#: model:ir.ui.menu,name:l10n_be_vat_reports.l10_be_vat_intra
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
 msgid "Intracom VAT Declaration"
 msgstr ""
@@ -265,7 +258,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra____last_update
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list____last_update
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client____last_update
-#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin____last_update
 #: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -297,6 +289,7 @@ msgid "Month"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
 #: code:addons/l10n_be_vat_reports/wizard/vat_declaration_mixin.py:0
 #, python-format
@@ -304,12 +297,14 @@ msgid "No VAT number associated with your company."
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/partner_vat_list.py:0
 #, python-format
 msgid "No data found for the selected year."
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
 #: code:addons/l10n_be_vat_reports/wizard/partner_vat_list.py:0
 #, python-format
@@ -339,7 +334,6 @@ msgstr ""
 #. module: l10n_be_vat_reports
 #: model:ir.actions.report,name:l10n_be_vat_reports.action_report_l10nvatintraprint
 #: model:ir.model,name:l10n_be_vat_reports.model_partner_vat_intra
-#: model:ir.ui.menu,name:l10n_be_vat_reports.l10_be_vat_intra
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
 msgid "Partner VAT Intra"
 msgstr ""
@@ -355,19 +349,8 @@ msgid "Partner VAT Listing"
 msgstr ""
 
 #. module: l10n_be_vat_reports
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
-msgid "Partner VAT intra"
-msgstr ""
-
-#. module: l10n_be_vat_reports
 #: model:ir.model,name:l10n_be_vat_reports.model_partner_vat_list
 msgid "Partner VAT list"
-msgstr ""
-
-#. module: l10n_be_vat_reports
-#: model:ir.actions.act_window,name:l10n_be_vat_reports.action_vat_intra
-msgid "Partner Vat Intra"
 msgstr ""
 
 #. module: l10n_be_vat_reports
@@ -381,6 +364,7 @@ msgid "Period Code"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
 #, python-format
 msgid "Period code is not valid."
@@ -388,12 +372,8 @@ msgstr ""
 
 #. module: l10n_be_vat_reports
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
-msgid "Print"
-msgstr ""
-
-#. module: l10n_be_vat_reports
 #: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
-msgid "Print PDF"
+msgid "Print"
 msgstr ""
 
 #. module: l10n_be_vat_reports
@@ -418,6 +398,7 @@ msgid "Start date"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
 #, python-format
 msgid "Start date cannot be after the end date."
@@ -480,12 +461,14 @@ msgid "VAT Declaration Mixin"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
 #, python-format
 msgid "VAT Intra Listing"
 msgstr ""
 
 #. module: l10n_be_vat_reports
+#. odoo-python
 #: code:addons/l10n_be_vat_reports/wizard/partner_vat_list.py:0
 #, python-format
 msgid "VAT Listing"
@@ -523,11 +506,4 @@ msgstr ""
 #: model:ir.model.fields,help:l10n_be_vat_reports.field_partner_vat_list__partner_ids
 msgid ""
 "You can remove clients/partners which you do not want to show in xml file"
-msgstr ""
-
-#. module: l10n_be_vat_reports
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_parameters
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
-#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
-msgid "or"
 msgstr ""
