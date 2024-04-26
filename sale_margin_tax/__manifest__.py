@@ -14,6 +14,7 @@
     "data": [
         "views/tax.xml",
         "data/account_tax.xml",
+        "data/product.xml",
         "reports/report_invoice_document.xml",
     ],
 }

@@ -55,6 +55,33 @@ class TestSaleMarginTax(TestSaleMarginTaxCase):
         self.assertEqual(invoice.amount_total, 136)
         self.assertTrue("marg" in invoice.narration)
 
+    def test_negative_margin(self):
+        # given:
+        self.sale.order_line[1].unlink()
+        # margin is -2 since we buy it for 10
+        self.sale.order_line[0].price_unit = 8
+
+        # when
+        self.sale.action_confirm()
+
+        # then: tax is properly applied for the first line
+        self.assertEqual(self.sale.amount_tax, 0)
+        # total: 4 * 8 = 32
+        self.assertEqual(self.sale.amount_total, 4 * 8)
+        # margin is negative but the mention should be there anyway
+        self.assertTrue("marg" in self.sale.note)
+
+        # when
+        invoice = self.sale._create_invoices()
+
+        # then: invoice values are coherent with it
+        self.assertAlmostEqual(invoice.amount_tax, 0)
+        self.assertEqual(invoice.amount_total, 32)
+        self.assertTrue("marg" in invoice.narration)
+        # the margin line is 0
+        margin_line = invoice.invoice_line_ids.filtered("is_margin_line")
+        self.assertEqual(margin_line.balance, 0)
+
     def test_no_margin_tax(self):
         """Sell one product with normal tax; nothing fancy should happen."""
         # given

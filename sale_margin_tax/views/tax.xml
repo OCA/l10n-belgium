@@ -30,6 +30,10 @@
                     name="margin_description_template"
                     attrs="{'invisible':[('amount_type','!=', 'margin')]}"
                 />
+                <field
+                    name="margin_base_tax_id"
+                    attrs="{'invisible':[('amount_type','!=', 'margin')]}"
+                />
             </xpath>
         </field>
     </record>

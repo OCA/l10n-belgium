@@ -16,7 +16,17 @@ class TestSaleMarginTaxCase(TransactionCase):
         vals_product_2 = {"name": "P2", "standard_price": 5}
         cls.product_2 = cls.env["product.product"].create(vals_product_2)
 
-        vals_tax = {"name": "Margin Tax", "amount": 21.0, "amount_type": "margin"}
+        margin_group = cls.env.ref("sale_margin_tax.tax_group_margin")
+
+        vals_tax_null = {"name": "M0", "amount": 0, "amount_type": "margin"}
+        cls.tax_null = cls.env["account.tax"].create(vals_tax_null)
+        vals_tax = {
+            "name": "Margin Tax",
+            "amount": 21.0,
+            "amount_type": "margin",
+            "margin_base_tax_id": cls.tax_null.id,
+            "tax_group_id": margin_group.id,
+        }
         cls.tax_margin = cls.env["account.tax"].create(vals_tax)
 
         vals_tax_other = {"name": "Other Tax", "amount": 21.0, "amount_type": "percent"}
@@ -26,13 +36,20 @@ class TestSaleMarginTaxCase(TransactionCase):
         cls.tag_vat = cls.env["account.account.tag"].create(vals_tag_vat)
         vals_tag_base = {"name": "Base", "applicability": "taxes"}
         cls.tag_base = cls.env["account.account.tag"].create(vals_tag_base)
-        cls.tags = cls.tag_base + cls.tag_vat
+        vals_tag_margin = {"name": "Margin", "applicability": "taxes"}
+        cls.tag_margin = cls.env["account.account.tag"].create(vals_tag_margin)
+        cls.tags = cls.tag_base + cls.tag_vat + cls.tag_margin
 
         lines = cls.tax_margin.invoice_repartition_line_ids
-        line_base = lines.filtered(lambda l: l.repartition_type == "base")
-        line_margin = lines.filtered(lambda l: l.repartition_type == "tax")
+        line_margin = lines.filtered(lambda l: l.repartition_type == "base")
+        line_tax = lines.filtered(lambda l: l.repartition_type == "tax")
+        line_margin.tag_ids = [(6, 0, cls.tag_margin.ids)]
+        line_tax.tag_ids = [(6, 0, cls.tag_vat.ids)]
+
+        # the repartition line for the base is on the null tax
+        rls = cls.tax_null.invoice_repartition_line_ids
+        line_base = rls.filtered(lambda l: l.repartition_type == "base")
         line_base.tag_ids = [(6, 0, cls.tag_base.ids)]
-        line_margin.tag_ids = [(6, 0, cls.tag_vat.ids)]
 
         vals_sale = {
             "partner_id": cls.partner.id,
@@ -71,4 +88,3 @@ class TestSaleMarginTaxCase(TransactionCase):
         langs = cls.env["res.lang"].with_context(active_test=False)
         cls.lang = langs.search([("code", "=", "fr_BE")])
         cls.lang.active = True
-        # cls.env["ir.translation"].load_module_terms(["base"], [cls.lang.code])

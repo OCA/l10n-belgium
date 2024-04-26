@@ -5,8 +5,14 @@
     <template
         id="report_invoice_document_margin_tax"
         inherit_id="account.report_invoice_document"
-        priority="90"
+        priority="99"
     >
+        <xpath expr="//t[@t-set='lines']" position="replace">
+            <t
+                t-set="lines"
+                t-value="o.invoice_report_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"
+            />
+        </xpath>
         <xpath
             expr="//t[@t-value='current_subtotal + line.price_subtotal']"
             position="attributes"
@@ -17,6 +23,10 @@
         </xpath>
         <xpath expr="//span[@t-field='line.price_subtotal']" position="attributes">
             <attribute name="t-field">line.price_subtotal_report</attribute>
+        </xpath>
+<!--        <span class="text-nowrap" t-field="line.price_unit"/>-->
+        <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+            <span class="text-nowrap" t-field="line.price_unit_report" />
         </xpath>
     </template>
 </odoo>

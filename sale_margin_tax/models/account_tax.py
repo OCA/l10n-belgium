@@ -33,6 +33,10 @@ class AccountTax(models.Model):
 
     _inherit = "account.tax"
 
+    is_margin_tax = fields.Boolean(
+        compute="_compute_is_margin_tax",
+        help="True if this tax is a margin tax.",
+    )
     amount_type = fields.Selection(
         selection_add=[("margin", "Tax on margin")], ondelete={"margin": "cascade"}
     )
@@ -55,6 +59,16 @@ class AccountTax(models.Model):
         default="Margin: {:.2f}%",
         help="This name can accept the rate as parameter, e.g. use 'Margin: {:.2f}%'",
     )
+    margin_base_tax_id = fields.Many2one(
+        "account.tax",
+        string="Base Tax",
+        help="The tax to be applied on the base amount of the margin tax.",
+    )
+
+    def _compute_is_margin_tax(self):
+        margin_group = self.env.ref("sale_margin_tax.tax_group_margin")
+        for tax in self:
+            tax.is_margin_tax = tax.tax_group_id == margin_group
 
     def _get_or_create_margin_tax(self, base_amount, margin):
         """On non margin tax, simply return the tax;

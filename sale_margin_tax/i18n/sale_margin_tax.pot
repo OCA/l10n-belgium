@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_margin_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,help:sale_margin_tax.field_account_tax__amount_type
+msgid ""
+"\n"
+"    - Group of Taxes: The tax is a set of sub taxes.\n"
+"    - Fixed: The tax amount stays the same whatever the price.\n"
+"    - Percentage of Price: The tax amount is a % of the price:\n"
+"        e.g 100 * (1 + 10%) = 110 (not price included)\n"
+"        e.g 110 / (1 + 10%) = 100 (price included)\n"
+"    - Percentage of Price Tax Included: The tax amount is a division of the price:\n"
+"        e.g 180 / (1 - 10%) = 200 (not price included)\n"
+"        e.g 200 * (1 - 10%) = 180 (price included)\n"
+"        "
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_bank_statement_line__has_margin_taxes
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_move__has_margin_taxes
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_move_line__has_margin_taxes
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_payment__has_margin_taxes
+#: model:ir.model.fields,field_description:sale_margin_tax.field_sale_order__has_margin_taxes
+msgid "Has Margin Taxes"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model,name:sale_margin_tax.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model,name:sale_margin_tax.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:account.tax,name:sale_margin_tax.tax_margin
+msgid "Margin 21%"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:account.tax,margin_mention:sale_margin_tax.tax_margin
+msgid "Margin EN mention"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:account.tax,margin_description_template:sale_margin_tax.tax_margin
+msgid "Margin Tax"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:account.tax,margin_name_template:sale_margin_tax.tax_margin
+msgid "Margin: {}%"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_tax__margin_mention
+msgid "Mention on invoice"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model,name:sale_margin_tax.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model,name:sale_margin_tax.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_move_line__price_subtotal_report
+msgid "Subtotal (Report)"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model,name:sale_margin_tax.model_account_tax
+msgid "Tax"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_tax__amount_type
+msgid "Tax Computation"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields.selection,name:sale_margin_tax.selection__account_tax__amount_type__margin
+msgid "Tax on margin"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_tax__margin_description_template
+msgid "Template used for the generated tax description"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,field_description:sale_margin_tax.field_account_tax__margin_name_template
+msgid "Template used for the generated tax names"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,help:sale_margin_tax.field_account_tax__margin_mention
+msgid "This mention will be automatically added to the invoice."
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,help:sale_margin_tax.field_account_tax__margin_description_template
+msgid "This name can accept the rate as parameter, e.g. use 'Margin: {:.2f}%'"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:ir.model.fields,help:sale_margin_tax.field_account_tax__margin_name_template
+msgid "This name must accept the rate as parameter, e.g. use 'Margin: {}%'"
+msgstr ""
+
+#. module: sale_margin_tax
+#. odoo-python
+#: code:addons/sale_margin_tax/models/account_tax.py:0
+#, python-format
+msgid "Untaxed Amount"
+msgstr ""
+
+#. module: sale_margin_tax
+#: model:account.tax.group,name:sale_margin_tax.tax_group_margin
+msgid "[Margin Tax]"
+msgstr ""

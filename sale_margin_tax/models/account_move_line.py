@@ -6,23 +6,35 @@ from odoo import api, fields, models
 
 
 class AccountMoveLine(models.Model):
-    _inherit = "account.move.line"
+    _name = "account.move.line"
+    _inherit = ["account.move.line", "margin.line.mixin"]
 
-    has_margin_taxes = fields.Boolean(compute="_compute_has_margin_taxes")
     price_subtotal_report = fields.Monetary(
         string="Subtotal (Report)",
         compute="_compute_price_subtotal_report",
         currency_field="currency_id",
     )
-
-    @api.depends("tax_ids")
-    def _compute_has_margin_taxes(self):
-        mg = self.env.ref("sale_margin_tax.tax_group_margin")
-        for line in self:
-            line.has_margin_taxes = mg in line.mapped("tax_ids.tax_group_id")
+    price_unit_report = fields.Monetary(
+        string="Price Unit (Report)",
+        compute="_compute_price_subtotal_report",
+        currency_field="currency_id",
+    )
+    is_margin_line = fields.Boolean(
+        help="True if this line is a margin line.",
+        default=False,
+    )
+    margin_line_id = fields.Many2one(
+        "account.move.line",
+        help="The margin line for this line.",
+    )
 
     @api.depends("price_subtotal", "price_total", "has_margin_taxes")
     def _compute_price_subtotal_report(self):
         for line in self:
-            price = line.price_total if line.has_margin_taxes else line.price_subtotal
+            price = line.price_subtotal
+            price_unit = line.price_unit
+            if line.has_margin_taxes:
+                price = line.price_total + line.margin_line_id.price_total
+                price_unit = price_unit + line.margin_line_id.price_unit
             line.price_subtotal_report = price
+            line.price_unit_report = price_unit
