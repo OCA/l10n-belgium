@@ -142,12 +142,6 @@ class IntrastatProductDeclaration(models.Model):
                 self._handle_refund(inv_line, line_vals, notedict)
 
             if line_vals:
-                if self.declaration_type == "dispatches":
-                    if not line_vals.get("vat", ""):
-                        msg = _("Missing <em>VAT Number</em>")
-                        notedict["partner"][inv.partner_id.display_name][msg].add(
-                            notedict["inv_origin"]
-                        )
                 # extended declaration
                 if self.reporting_level == "extended":
                     incoterm = self._get_incoterm(inv_line, notedict)
