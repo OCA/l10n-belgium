@@ -133,7 +133,8 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.done()
+        declaration.draft2confirmed()
+        declaration.confirmed2done()
         clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(clines[0].vat, "NL123456782B90")
@@ -175,7 +176,8 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.done()
+        declaration.draft2confirmed()
+        declaration.confirmed2done()
         clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(clines[1].amount_company_currency, -5000.0)
@@ -202,7 +204,8 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.done()
+        declaration.draft2confirmed()
+        declaration.confirmed2done()
         dlines = declaration.declaration_line_ids
         self.assertEqual(dlines[0].vat, "QV999999999999")
 
@@ -226,7 +229,8 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.done()
+        declaration.draft2confirmed()
+        declaration.confirmed2done()
         # clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(dlines[0].vat, "QV999999999999")
@@ -265,7 +269,8 @@ class TestIntrastatBe(TransactionCase):
             }
         )
         declaration.action_gather()
-        declaration.done()
+        declaration.draft2confirmed()
+        declaration.confirmed2done()
         clines = declaration.computation_line_ids
         dlines = declaration.declaration_line_ids
         self.assertEqual(clines[1].weight, 460.0)
