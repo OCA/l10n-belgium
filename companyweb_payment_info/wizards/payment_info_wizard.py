@@ -234,10 +234,10 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         if response_previous_period["PreviousPeriodExists"]:
             summary = _(
                 "<h2>Companyweb upload</h2>"
-                "You are about to submit <strong>{nb_invoice}</strong> open invoices <br/>"
-                "to Companyweb for the company <strong>{company}</strong>.<br/>"
-                "The previous period that was sent is <strong>{last_period}</strong>.<br/>"
-                "Your odoo login : <strong>{login}</strong> will receive a full "
+                "You are about to submit <strong>{nb_invoice}</strong> open invoices "
+                "<br/>to Companyweb for the company <strong>{company}</strong>.<br/>"
+                "The previous period that was sent is <strong>{last_period}</strong>."
+                "<br/>Your odoo login : <strong>{login}</strong> will receive a full "
                 "summary at the end of this transaction <br/>"
                 "Make sure you have closed your bank statements for period "
                 "<strong>{period}</strong>."
@@ -252,12 +252,12 @@ class CompanyWebPaymentInfoWizard(models.TransientModel):
         else:
             summary = _(
                 "<h2>Companyweb upload</h2>"
-                "You are about to submit <strong>{nb_invoice}</strong> open invoices <br/>"
-                "to Companyweb for the company <strong>{company}</strong>.<br/>"
+                "You are about to submit <strong>{nb_invoice}</strong> open invoices "
+                "<br/>to Companyweb for the company <strong>{company}</strong>.<br/>"
                 "<strong>It's the first time you use this feature "
                 "for this company</strong><br/>"
-                "Your odoo login : <strong>{login}</strong> will received a full summary "
-                "at the end of this transaction <br/>"
+                "Your odoo login : <strong>{login}</strong> will received a full "
+                "summary at the end of this transaction <br/>"
                 "Make sure you have closed your bank statements for "
                 "period <strong>{period}</strong>."
             ).format(
