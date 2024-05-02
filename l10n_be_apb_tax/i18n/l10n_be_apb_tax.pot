@@ -20,14 +20,14 @@ msgstr ""
 
 #. module: l10n_be_apb_tax
 #: model:account.tax,name:l10n_be_apb_tax.1_apb_01_out
-#: model:account.tax,name:l10n_be_apb_tax.2_apb_01_out
+#: model:account.tax,name:l10n_be_apb_tax.3_apb_01_out
 #: model:account.tax.template,name:l10n_be_apb_tax.apb_01_out
 msgid "APB Out"
 msgstr ""
 
 #. module: l10n_be_apb_tax
 #: model:account.account,name:l10n_be_apb_tax.1_apb_income_account
-#: model:account.account,name:l10n_be_apb_tax.2_apb_income_account
+#: model:account.account,name:l10n_be_apb_tax.3_apb_income_account
 #: model:account.account.template,name:l10n_be_apb_tax.apb_income_account
 msgid "APB Sale"
 msgstr ""
@@ -39,7 +39,7 @@ msgstr ""
 
 #. module: l10n_be_apb_tax
 #: model:account.tax,description:l10n_be_apb_tax.1_apb_01_out
-#: model:account.tax,description:l10n_be_apb_tax.2_apb_01_out
+#: model:account.tax,description:l10n_be_apb_tax.3_apb_01_out
 #: model:account.tax.template,description:l10n_be_apb_tax.apb_01_out
 msgid "APB-OUT"
 msgstr ""
