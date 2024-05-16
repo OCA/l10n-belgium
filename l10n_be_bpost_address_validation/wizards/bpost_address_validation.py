@@ -11,6 +11,7 @@ from ..models.bpost_address import BpostAddress
 
 class BpostAddressValidationWizard(models.TransientModel):
     _name = "bpost.address.validation.wizard"
+    _description = "Check address validity and propose change if needed"
 
     partner_id = fields.Many2one("res.partner", readonly=True)
     is_valid = fields.Boolean(compute="_compute_response_address")
