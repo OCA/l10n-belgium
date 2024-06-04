@@ -57,3 +57,7 @@ class SaleOrderLine(models.Model):
         }
         vals.update(base_values)
         return vals
+
+    def _get_invoice_lines(self):
+        res = super()._get_invoice_lines()
+        return res.filtered(lambda l: not l.is_margin_line)
