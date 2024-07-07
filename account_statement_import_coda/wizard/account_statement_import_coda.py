@@ -8,7 +8,7 @@ import re
 from dateutil import parser as date_parser
 
 from odoo import _, api, models
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -109,7 +109,7 @@ class AccountStatementImport(models.TransientModel):
             if statement_date:
                 parsed_date = date_parser.parse(statement_date)
                 year = "%s/" % parsed_date.year
-            vals.update({"name": "{}{}".format(year, statement.paper_seq_number)})
+            vals.update({"name": f"{year}{statement.paper_seq_number}"})
 
         globalisation_dict = {
             st.ref_move: st
@@ -125,7 +125,7 @@ class AccountStatementImport(models.TransientModel):
 
         for sequence, line in enumerate(
             filter(
-                lambda l: l.type != MovementRecordType.GLOBALISATION,
+                lambda s: s.type != MovementRecordType.GLOBALISATION,
                 statement.movements,
             )
         ):
