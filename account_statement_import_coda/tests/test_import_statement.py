@@ -6,9 +6,9 @@ import base64
 from markupsafe import Markup
 
 from odoo.exceptions import UserError
-from odoo.modules.module import get_module_resource
 from odoo.tests.common import TransactionCase
 from odoo.tools import float_compare
+from odoo.tools.misc import file_open
 
 
 class TestCodaFile(TransactionCase):
@@ -28,6 +28,7 @@ class TestCodaFile(TransactionCase):
             }
         )
         eur = self.env.ref("base.EUR")
+        eur.write({"active": True})
         journal_vals = {
             "name": "Bank Journal - (test coda)",
             "code": "TBNK",
@@ -40,12 +41,12 @@ class TestCodaFile(TransactionCase):
         self.journal = self.env["account.journal"].create(journal_vals)
         self.statement_import_model = self.env["account.statement.import"]
         self.bank_statement_model = self.env["account.bank.statement"]
-        coda_file_path = get_module_resource(
-            "account_statement_import_coda",
-            "test_coda_file",
-            "Ontvangen_CODA.2012-01-11-18.59.15.txt",
+        self.coda_file = base64.b64encode(
+            file_open(
+                "account_statement_import_coda/test_coda_file/Ontvangen_CODA.2012-01-11-18.59.15.txt",
+                "rb",
+            ).read()
         )
-        self.coda_file = base64.b64encode(open(coda_file_path, "rb").read())
 
     def test_coda_file_import(self):
         bank_statement_import = self.statement_import_model.create(
