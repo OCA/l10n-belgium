@@ -1,2 +1,3 @@
 freezegun
 vcrpy-unittest
+odoo-addon-mis_builder @ git+https://github.com/OCA/mis-builder@refs/pull/607/head#subdirectory=mis_builder
