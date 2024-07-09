@@ -3,8 +3,7 @@
 
 import re
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo import api, models
 
 
 def check_bbacomm(val):
@@ -24,47 +23,18 @@ def check_bbacomm(val):
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    reference_type = fields.Selection(
-        selection_add=[("bba", "BBA Structured Communication")],
-        ondelete={"bba": "set default"},
-    )
-
     @api.constrains("reference_type", "ref")
     def _check_communication(self):
         for rec in self:
-            if rec.reference_type == "bba":
+            if (
+                rec.journal_id.invoice_reference_model == "be"
+                and rec.journal_id.invoice_reference_type == "invoice"
+                and rec.reference_type == "structured"
+            ):
                 return check_bbacomm(rec.ref)
-        return True
 
-    @api.model
-    def _update_reference_vals(self, vals):
-        reference = vals.get("ref", False)
-        reference_type = vals.get("reference_type", False)
-        if reference_type == "bba":
-            if not reference:
-                raise UserError(
-                    _(
-                        "Empty BBA Structured Communication! "
-                        "Please fill in a unique BBA Structured Communication."
-                    )
-                )
-            reference = re.sub(r"\D", "", reference)
-            vals["ref"] = (
-                "+++"
-                + reference[0:3]
-                + "/"
-                + reference[3:7]
-                + "/"
-                + reference[7:]
-                + "+++"
-            )
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            self._update_reference_vals(vals)
-        return super().create(vals_list)
-
-    def write(self, vals):
-        self._update_reference_vals(vals)
-        return super().write(vals)
+    def _get_invoice_reference_be_invoice(self):
+        self.ensure_one()
+        if self.reference_type == "none":
+            return ""
+        return super()._get_invoice_reference_be_invoice()

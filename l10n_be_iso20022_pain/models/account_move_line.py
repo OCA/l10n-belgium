@@ -7,10 +7,9 @@ from odoo import models
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    def _prepare_payment_line_vals(self, payment_order):
+    def _get_communication(self):
         self.ensure_one()
-        vals = super()._prepare_payment_line_vals(payment_order)
-        communication_type = self.move_id.reference_type
-        if "communication" in vals and communication_type == "bba":
-            vals["communication"] = self.move_id.ref.replace("+", "").replace("/", "")
-        return vals
+        communication_type, communication = super()._get_communication()
+        if self.move_id.reference_type == "structured":
+            communication = communication.replace("+", "").replace("/", "")
+        return communication_type, communication

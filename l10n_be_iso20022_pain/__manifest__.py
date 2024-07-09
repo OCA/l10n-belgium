@@ -5,7 +5,7 @@
     "name": "ISO 20022 PAIN Support for Belgium",
     "summary": """
         This module adds Belgium-specific support to account_payment_order.""",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.2",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",

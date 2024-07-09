@@ -45,7 +45,7 @@ class TestL10nBeIso20022Pain(TransactionCase):
                         },
                     )
                 ],
-                "reference_type": "bba",
+                "reference_type": "structured",
                 "ref": "+++868/0542/73023+++",
                 "payment_mode_id": cls.payment_mode.id,
             }
@@ -55,8 +55,8 @@ class TestL10nBeIso20022Pain(TransactionCase):
         return {
             "currency_id": self.env.ref("base.EUR").id,
             "partner_id": self.env.ref("base.res_partner_2").id,
-            "communication_type": "bba",
             "amount_currency": 123.321,
+            "communication_type": "structured",
         }
 
     def test_create_account_payment_line_01(self):
