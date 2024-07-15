@@ -10,10 +10,13 @@ from .account_move import check_bbacomm
 class AccountPaymentLine(models.Model):
     _inherit = "account.payment.line"
 
-    @api.constrains("communication", "communication_type")
+    @api.constrains("order_id", "communication", "communication_type")
     def _check_communication(self):
         for rec in self:
-            if rec.communication_type == "structured" and not check_bbacomm(
-                rec.communication
+            if (
+                rec.order_id.journal_id.invoice_reference_type == "invoice"
+                and rec.order_id.journal_id.invoice_reference_model == "be"
+                and rec.communication_type == "structured"
+                and not check_bbacomm(rec.communication)
             ):
                 raise ValidationError(_("Invalid BBA Structured Communication !"))

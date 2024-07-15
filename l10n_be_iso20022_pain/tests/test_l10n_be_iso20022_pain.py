@@ -20,6 +20,8 @@ class TestL10nBeIso20022Pain(TransactionCase):
         cls.journal_model = cls.env["account.journal"]
         # INSTANCES
         cls.bank_journal = cls.journal_model.search([("type", "=", "bank")], limit=1)
+        cls.bank_journal.invoice_reference_type = "invoice"
+        cls.bank_journal.invoice_reference_model = "be"
         # Instance: Payment Mode
         cls.payment_mode = cls.payment_mode_model.create(
             {
@@ -50,6 +52,13 @@ class TestL10nBeIso20022Pain(TransactionCase):
                 "payment_mode_id": cls.payment_mode.id,
             }
         )
+        cls.payment_order = cls.env["account.payment.order"].create(
+            {
+                "payment_type": "inbound",
+                "payment_mode_id": cls.payment_mode.id,
+                "journal_id": cls.bank_journal.id,
+            }
+        )
 
     def _prepare_payment_line_creation_dict(self):
         return {
@@ -57,6 +66,7 @@ class TestL10nBeIso20022Pain(TransactionCase):
             "partner_id": self.env.ref("base.res_partner_2").id,
             "amount_currency": 123.321,
             "communication_type": "structured",
+            "order_id": self.payment_order.id,
         }
 
     def test_create_account_payment_line_01(self):
@@ -131,4 +141,34 @@ class TestL10nBeIso20022Pain(TransactionCase):
         """
         vals = self._prepare_payment_line_creation_dict()
         vals["communication"] = "868054273023"
+        self.payment_line_model.create(vals)
+
+    def test_create_account_payment_line_06(self):
+        """
+        Data:
+            - No invoice, no payment line, nothing
+        Test case:
+            - Create a new payment line with invalid BBA communication
+              (too long) but the bank journal invoice_reference_type is none
+        Expected result:
+            - The payment line is created with the valid communication
+        """
+        self.bank_journal.invoice_reference_type = "none"
+        vals = self._prepare_payment_line_creation_dict()
+        vals["communication"] = "86805427302"
+        self.payment_line_model.create(vals)
+
+    def test_create_account_payment_line_07(self):
+        """
+        Data:
+            - No invoice, no payment line, nothing
+        Test case:
+            - Create a new payment line with invalid BBA communication
+              (too long) but the bank journal invoice_reference_model is not be
+        Expected result:
+            - The payment line is created with the valid communication
+        """
+        self.bank_journal.invoice_reference_model = False
+        vals = self._prepare_payment_line_creation_dict()
+        vals["communication"] = "86805427302"
         self.payment_line_model.create(vals)

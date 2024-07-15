@@ -9,6 +9,7 @@
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "depends": ["account_payment_order"],
+    "depends": ["account_payment_order", "l10n_be"],
     "installable": True,
+    "data": ["views/account_journal.xml"],
 }
