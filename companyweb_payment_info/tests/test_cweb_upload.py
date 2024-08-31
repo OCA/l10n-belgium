@@ -123,7 +123,7 @@ class TestUpload(VCRMixin, TransactionCase):
                 self.demo_user
             )._cweb_payment_info_step1()
 
-        self.env.user.company_id.vat = "FR0835207216"
+        self.env.user.company_id.vat = "FR23334175221"
 
         # UserError bad on users's company
         with self.assertRaises(UserError):
