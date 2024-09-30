@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -275,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -301,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -369,10 +369,10 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:77286cf03d7fe5c34efac30a602baaf600af3d111cc132d64038c62517c174e9
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-belgium/tree/16.0/l10n_be_intrastat_product"><img alt="OCA/l10n-belgium" src="https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-belgium-16-0/l10n-belgium-16-0-l10n_be_intrastat_product"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-belgium/tree/17.0/l10n_be_intrastat_product"><img alt="OCA/l10n-belgium" src="https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-belgium-17-0/l10n-belgium-17-0-l10n_be_intrastat_product"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module implements the Belgian Intrastat reporting.</p>
-<p>The report can be reviewed and corrected where needed before
-the creation of the XML file for the online declaration (ONEGATE).</p>
+<p>The report can be reviewed and corrected where needed before the
+creation of the XML file for the online declaration (ONEGATE).</p>
 <p>More information can be found on the National Bank website:
 <a class="reference external" href="https://www.nbb.be/en/statistics/foreign-trade">https://www.nbb.be/en/statistics/foreign-trade</a></p>
 <p><strong>Table of contents</strong></p>
@@ -399,17 +399,18 @@ the creation of the XML file for the online declaration (ONEGATE).</p>
 <h1><a class="toc-backref" href="#toc-entry-1">Installation</a></h1>
 <div class="section" id="conflicting-modules">
 <h2><a class="toc-backref" href="#toc-entry-2">Conflicting modules</a></h2>
-<p>This module conflicts with the <em>account_intrastat</em> and <em>l10n_be_intrastat</em>
-modules from the Odoo Enterprise addons.
-If you have already installed these modules,
-you should uninstall them before installing this module.</p>
+<p>This module conflicts with the <em>account_intrastat</em> and
+<em>l10n_be_intrastat</em> modules from the Odoo Enterprise addons. If you have
+already installed these modules, you should uninstall them before
+installing this module.</p>
 </div>
 <div class="section" id="refund-handling">
 <h2><a class="toc-backref" href="#toc-entry-3">Refund handling</a></h2>
 <p>We recommend to also install the OCA stock_picking_invoice_link module,
-cf. <a class="reference external" href="https://github.com/OCA/stock-logistics-workflow">https://github.com/OCA/stock-logistics-workflow</a>.
-This modules establishes a link between invoice lines and stock pickings.
-When this module is installed the declaration will take into account refunds created via return pickings.</p>
+cf. <a class="reference external" href="https://github.com/OCA/stock-logistics-workflow">https://github.com/OCA/stock-logistics-workflow</a>. This modules
+establishes a link between invoice lines and stock pickings. When this
+module is installed the declaration will take into account refunds
+created via return pickings.</p>
 </div>
 </div>
 <div class="section" id="configuration">
@@ -420,7 +421,8 @@ When this module is installed the declaration will take into account refunds cre
 <ul class="simple">
 <li>Arrivals : Exempt, Standard or Extended</li>
 <li>Dispatches : Exempt, Standard or Extended</li>
-<li>Default Intrastat Transport Mode (Required for Extended Declaration)</li>
+<li>Default Intrastat Transport Mode (Required for Extended
+Declaration)</li>
 <li>Default Intrastat Region</li>
 </ul>
 <p>Section Customer Invoices:</p>
@@ -428,79 +430,59 @@ When this module is installed the declaration will take into account refunds cre
 <li>Default Incoterm</li>
 </ul>
 </li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<ul>
 <li><p class="first">Warehouse</p>
 <p>Intrastat Region to cope with warehouses in different regions</p>
 </li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<ul>
-<li><p class="first">Inrastat Codes, Supplementary Units, Transaction Tyoes, Transport Modes, Regions</p>
+<li><p class="first">Inrastat Codes, Supplementary Units, Transaction Tyoes, Transport
+Modes, Regions</p>
 <p>Cf. menu Accounting / Configuration / Intrastat</p>
-<p>The configuration data is loaded when installing the module.
-We do not recommend to change these settings.</p>
-<p>A configuration wizard (part of the <strong>intrastat_product</strong> module) also allows to update the
-Intrastat Codes so that you can easily synchronise your Odoo instance with the latest list
-of codes supplied by the configuration wizard.
-(an update is published on an annual basis by the Belgian National Bank).</p>
+<p>The configuration data is loaded when installing the module. We do
+not recommend to change these settings.</p>
+<p>A configuration wizard (part of the <strong>intrastat_product</strong> module)
+also allows to update the Intrastat Codes so that you can easily
+synchronise your Odoo instance with the latest list of codes supplied
+by the configuration wizard. (an update is published on an annual
+basis by the Belgian National Bank).</p>
 </li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<ul>
 <li><p class="first">Product</p>
-<p>You can define a default Intrastat Code on the Product or the Product Category.</p>
+<p>You can define a default Intrastat Code on the Product or the Product
+Category.</p>
 </li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<ul>
 <li><p class="first">Fiscal Positions</p>
-<p>Check your Fiscal Positions and set the ‘Intrastat’ field for transactions that must be included
-in the intrastat declaration.
-We recommend to set the ‘VAT required’ flag on the ‘Intra Community Regime’ Fiscal Position
-for B2B customers.</p>
-<p>If you have B2C customers or B2B customers which are not subject to VAT you can create a
-‘Intra Community Regime NA’ Fiscal Position on which the ‘Intrastat’ field is set to B2C
-while the ‘VAT required’ flag has been turned off.</p>
+<p>Check your Fiscal Positions and set the ‘Intrastat’ field for
+transactions that must be included in the intrastat declaration. We
+recommend to set the ‘VAT required’ flag on the ‘Intra Community
+Regime’ Fiscal Position for B2B customers.</p>
+<p>If you have B2C customers or B2B customers which are not subject to
+VAT you can create a ‘Intra Community Regime NA’ Fiscal Position on
+which the ‘Intrastat’ field is set to B2C while the ‘VAT required’
+flag has been turned off.</p>
 </li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<ul>
 <li><p class="first">Partner</p>
 <p>Ensure that your B2B Customer records have a valid VAT Number.</p>
-<p>Consider the use of the OCA <strong>account_fiscal_position_vat_check module</strong> to enforce the correct setting.
-Cf. <a class="reference external" href="https://github.com/OCA/account-financial-tools">https://github.com/OCA/account-financial-tools</a>.</p>
+<p>Consider the use of the OCA <strong>account_fiscal_position_vat_check
+module</strong> to enforce the correct setting. Cf.
+<a class="reference external" href="https://github.com/OCA/account-financial-tools">https://github.com/OCA/account-financial-tools</a>.</p>
 </li>
 </ul>
 </div>
 <div class="section" id="known-issues-roadmap">
 <h1><a class="toc-backref" href="#toc-entry-5">Known issues / Roadmap</a></h1>
 <ul class="simple">
-<li>The current version of the Belgian Intrastat reporting module is only based on invoices.
-Since associated stock moves are not taken into consideration, it is possible that manual
-corrections are required, e.g.
-Product movements without invoices are not included in the current version
-of this module and must be added manually to the report lines
-before generating the ONEGATE XML declaration.</li>
-<li>Refunds on invoices within the same reporting period are deducted from the declaration lines.
-No controls are executed on Refunds that are not linked to an invoice
-in the same reporting period.
-Such Refunds are reported under the default transaction code for refunds.
-It is recommend to manually set the correct transaction code while Credit Notes
-are created.</li>
-<li>The current version of the Belgian Intrastat reporting module does not perform a
-cross-check with the VAT declaration.</li>
+<li>The current version of the Belgian Intrastat reporting module is only
+based on invoices. Since associated stock moves are not taken into
+consideration, it is possible that manual corrections are required,
+e.g. Product movements without invoices are not included in the
+current version of this module and must be added manually to the
+report lines before generating the ONEGATE XML declaration.</li>
+<li>Refunds on invoices within the same reporting period are deducted
+from the declaration lines. No controls are executed on Refunds that
+are not linked to an invoice in the same reporting period. Such
+Refunds are reported under the default transaction code for refunds.
+It is recommend to manually set the correct transaction code while
+Credit Notes are created.</li>
+<li>The current version of the Belgian Intrastat reporting module does
+not perform a cross-check with the VAT declaration.</li>
 </ul>
 </div>
 <div class="section" id="changelog">
@@ -516,7 +498,7 @@ cross-check with the VAT declaration.</li>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/l10n-belgium/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/l10n-belgium/issues/new?body=module:%20l10n_be_intrastat_product%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/l10n-belgium/issues/new?body=module:%20l10n_be_intrastat_product%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -530,27 +512,25 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="contributors">
 <h2><a class="toc-backref" href="#toc-entry-10">Contributors</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>Noviat &lt;<a class="reference external" href="https://noviat.com">https://noviat.com</a>&gt;</dt>
-<dd><ul class="first last">
+<li>Noviat &lt;<a class="reference external" href="https://noviat.com">https://noviat.com</a>&gt;<ul>
 <li>Luc De Meyer &lt;<a class="reference external" href="mailto:luc.demeyer&#64;noviat.com">luc.demeyer&#64;noviat.com</a>&gt;</li>
 <li>Jérémy Didderen &lt;<a class="reference external" href="mailto:jeremy.didderen&#64;noviat.com">jeremy.didderen&#64;noviat.com</a>&gt;</li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
 </div>
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-11">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainers</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/luc-demeyer"><img alt="luc-demeyer" src="https://github.com/luc-demeyer.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/jdidderen-noviat"><img alt="jdidderen-noviat" src="https://github.com/jdidderen-noviat.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/l10n-belgium/tree/16.0/l10n_be_intrastat_product">OCA/l10n-belgium</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/l10n-belgium/tree/17.0/l10n_be_intrastat_product">OCA/l10n-belgium</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
