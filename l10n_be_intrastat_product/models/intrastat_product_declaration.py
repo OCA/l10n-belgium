@@ -64,7 +64,6 @@ class IntrastatProductDeclaration(models.Model):
             return_picking = False
 
         if return_picking:
-
             if refund.move_type == "in_refund":
                 if self.declaration_type == "arrivals":
                     if self.company_id.intrastat_dispatches == "exempt":
@@ -342,7 +341,7 @@ class IntrastatProductDeclaration(models.Model):
             )
             module = __name__.split("addons.")[1].split(".")[0]
             self.company_id._intrastat_check_xml_schema(
-                xml_string, "{}/static/data/{}.xsd".format(module, xsd)
+                xml_string, f"{module}/static/data/{xsd}.xsd"
             )
             return xml_string
         else:
