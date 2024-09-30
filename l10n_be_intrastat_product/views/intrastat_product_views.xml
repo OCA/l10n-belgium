@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <record
@@ -14,24 +14,18 @@
         />
         <field name="arch" type="xml">
             <field name="region_id" position="attributes">
-                <attribute name="attrs" operation="update">
-                    {
-                        "invisible": [],
-                    }
-                </attribute>
-            </field>
-            <field name="region_id" position="attributes">
                 <attribute name="invisible" />
             </field>
             <field name="amount_accessory_cost_company_currency" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="incoterm_id" position="attributes">
-                <attribute name="invisible" />
                 <attribute
-                    name="attrs"
-                >{'required': [('reporting_level', '=', 'extended')],
-                  'invisible': [('reporting_level', '!=', 'extended')]}</attribute>
+                    name="required"
+                >[('reporting_level','=','extended')]</attribute>
+                <attribute
+                    name="invisible"
+                >[('reporting_level','!=','extended')]</attribute>
             </field>
         </field>
     </record>
@@ -49,11 +43,7 @@
         />
         <field name="arch" type="xml">
             <field name="region_id" position="attributes">
-                <attribute name="attrs" operation="update">
-                    {
-                        "column_invisible": [],
-                    }
-                </attribute>
+                <attribute name="column_invisible" />
             </field>
             <field name="amount_accessory_cost_company_currency" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -75,15 +65,16 @@
         <field name="arch" type="xml">
             <field name="vat" position="attributes">
                 <attribute
-                    name="attrs"
-                >{'invisible': [('declaration_type', '=', 'arrivals')]}</attribute>
+                    name="invisible"
+                >[('declaration_type','=','arrivals')]</attribute>
             </field>
             <field name="incoterm_id" position="attributes">
-                <attribute name="invisible" />
                 <attribute
-                    name="attrs"
-                >{'required': [('reporting_level', '=', 'extended')],
-                  'invisible': [('reporting_level', '!=', 'extended')]}</attribute>
+                    name="required"
+                >[('reporting_level','=','extended')]</attribute>
+                <attribute
+                    name="invisible"
+                >[('reporting_level','!=','extended')]</attribute>
             </field>
         </field>
     </record>
@@ -102,8 +93,8 @@
         <field name="arch" type="xml">
             <field name="vat" position="attributes">
                 <attribute
-                    name="attrs"
-                >{'invisible': [('declaration_type', '=', 'arrivals')]}</attribute>
+                    name="invisible"
+                >[('declaration_type','=','arrivals')]</attribute>
             </field>
         </field>
     </record>

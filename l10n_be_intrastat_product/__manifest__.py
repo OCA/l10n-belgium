@@ -3,7 +3,7 @@
 
 {
     "name": "Intrastat Product Declaration for Belgium",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Intrastat",
     "license": "AGPL-3",
     "summary": "Intrastat Product Declaration for Belgium",
