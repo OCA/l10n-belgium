@@ -8,23 +8,39 @@ class TestIntrastatBe(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+
+        be = cls.env.ref("base.be")
+        nl = cls.env.ref("base.nl")
+        europe = cls.env.ref("base.europe")
+
         cls.inv_obj = cls.env["account.move"]
         cls.fpos_obj = cls.env["account.fiscal.position"]
         cls.region_obj = cls.env["intrastat.region"]
         cls.decl_obj = cls.env["intrastat.product.declaration"]
 
         cls.company = cls.env.company
-        cls.env.company.country_id = cls.env.ref("base.be")
-        cls.env.company.vat = "BE0820512013"
-        cls.company.intrastat_region_id = cls.env.ref(
-            "l10n_be_intrastat_product.intrastat_region_2"
+        cls.company.partner_id.update(
+            {
+                "company_registry": "0820512013",
+                "vat": "BE0820512013",
+                "country_id": be.id,
+            }
+        )
+        cls.company.update(
+            {
+                "account_fiscal_country_id": be.id,
+                "intrastat_region_id": cls.env.ref(
+                    "l10n_be_intrastat_product.intrastat_region_2"
+                ).id,
+            }
         )
         cls.fpos_b2b = cls.fpos_obj.create(
             {
                 "name": "Intrastat Fiscal Position (B2B)",
                 "intrastat": "b2b",
                 "vat_required": True,
-                "country_group_id": cls.env.ref("base.europe").id,
+                "country_id": be.id,
+                "country_group_id": europe.id,
             }
         )
         cls.fpos_b2c = cls.fpos_obj.create(
@@ -32,7 +48,8 @@ class TestIntrastatBe(TransactionCase):
                 "name": "Intrastat Fiscal Position (B2C)",
                 "intrastat": "b2c",
                 "vat_required": False,
-                "country_group_id": cls.env.ref("base.europe").id,
+                "country_id": be.id,
+                "country_group_id": europe.id,
             }
         )
         cls.hs_code_cn = cls.env["hs.code"].create(
@@ -59,7 +76,7 @@ class TestIntrastatBe(TransactionCase):
                 "weight": 500.0,
                 "list_price": 5000.0,
                 "standard_price": 3000.0,
-                "origin_country_id": cls.env.ref("base.be").id,
+                "origin_country_id": be.id,
                 "hs_code_id": cls.hs_code_horse.id,
             }
         )
@@ -69,14 +86,14 @@ class TestIntrastatBe(TransactionCase):
                 "weight": 230.0,
                 "list_price": 2000.0,
                 "standard_price": 1200.0,
-                "origin_country_id": cls.env.ref("base.be").id,
+                "origin_country_id": be.id,
                 "hs_code_id": cls.hs_code_horse.id,
             }
         )
         cls.partner_b2b_1 = cls.env["res.partner"].create(
             {
                 "name": "NL B2B 1",
-                "country_id": cls.env.ref("base.nl").id,
+                "country_id": nl.id,
                 "is_company": True,
                 "vat": "NL 123456782B90",
                 "property_account_position_id": cls.fpos_b2b.id,
@@ -85,7 +102,7 @@ class TestIntrastatBe(TransactionCase):
         cls.partner_b2b_2 = cls.env["res.partner"].create(
             {
                 "name": "NL B2B 2",
-                "country_id": cls.env.ref("base.nl").id,
+                "country_id": nl.id,
                 "is_company": True,
                 "vat": "NL000000000B00",
                 "property_account_position_id": cls.fpos_b2b.id,
@@ -94,7 +111,7 @@ class TestIntrastatBe(TransactionCase):
         cls.partner_b2b_na = cls.env["res.partner"].create(
             {
                 "name": "NL B2B NA",
-                "country_id": cls.env.ref("base.nl").id,
+                "country_id": nl.id,
                 "is_company": True,
                 "vat": "na",
                 "property_account_position_id": cls.fpos_b2b.id,
@@ -103,14 +120,15 @@ class TestIntrastatBe(TransactionCase):
         cls.partner_b2c = cls.env["res.partner"].create(
             {
                 "name": "NL B2C",
-                "country_id": cls.env.ref("base.nl").id,
+                "country_id": nl.id,
                 "is_company": False,
                 "property_account_position_id": cls.fpos_b2c.id,
             }
         )
-        cls.env["account.tax"].search([("company_id", "=", cls.company.id)]).write(
-            {"country_id": cls.env.ref("base.be").id}
-        )
+        taxes = cls.env["account.tax"].search([("company_id", "=", cls.company.id)])
+        taxes.mapped("tax_group_id").update({"country_id": be.id})
+        taxes.update({"country_id": be.id})
+        cls.taxes = taxes
 
     def test_be_sale_b2b(self):
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
@@ -140,7 +158,7 @@ class TestIntrastatBe(TransactionCase):
         self.assertEqual(dlines[0].src_dest_country_code, "NL")
 
         # handle refund for company with no arrivals declaration
-        # TODO: add also return use case but this one is more
+        # TODO: add also return use case but this one is more work
         # since it implies creation of SO, with pickings and
         # refund created for pickings.
         # The current implementation is also based upon the
@@ -157,7 +175,6 @@ class TestIntrastatBe(TransactionCase):
                 {
                     "date": inv_out.date,
                     "reason": "test refund",
-                    "refund_method": "refund",
                     "journal_id": sale_journal_rec.id,
                 }
             )
