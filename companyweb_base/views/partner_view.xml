@@ -139,8 +139,7 @@
                             <span
                                 class="o_form_label o_td_label"
                                 name="cweb_show_button_address"
-                            >
-                            </span>
+                            />
                             <div>
                                 <field invisible="1" name="cweb_show_button_address" />
                                 <button

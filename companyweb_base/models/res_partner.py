@@ -144,9 +144,9 @@ class CompanywebPartner(models.Model):
                 )
                 if img_url:
                     img_url = (
-                        "/companyweb_base/static/img/cweb_barometer/%s" % rec.cweb_image
+                        f"/companyweb_base/static/img/cweb_barometer/{rec.cweb_image}"
                     )
-                    rec.cweb_image_tag = '<img src="%s"/>' % img_url
+                    rec.cweb_image_tag = f'<img src="{img_url}"/>'
                 else:
                     rec.cweb_image_tag = None
             else:
