@@ -7,7 +7,7 @@ from hashlib import sha1
 
 import zeep
 
-from odoo import _, api, fields, models, tools
+from odoo import api, fields, models, tools
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
@@ -492,7 +492,7 @@ class CompanywebPartner(models.Model):
         based on status make decision
         When status is ok -> populate fields"""
         if not self.env.user.has_group("companyweb_base.cweb_download"):
-            raise UserError(_("Companyweb : You don't have access"))
+            raise UserError(self.env._("Companyweb : You don't have access"))
         user_login = self.env.user.cweb_login
         user_password = self.env.user.cweb_password
         user_lang = self.env.context.get("lang")[:2].upper()
@@ -520,7 +520,7 @@ class CompanywebPartner(models.Model):
             return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
         elif r["StatusCode"] != 0:
             raise UserError(
-                _("Companyweb status : {status} : {message} ").format(
+                self.env._("Companyweb status : {status} : {message} ").format(
                     status=r["StatusCode"], message=r["StatusMessage"]
                 )
             )
@@ -536,7 +536,7 @@ class CompanywebPartner(models.Model):
 
     def cweb_button_copy_address(self):
         if not self.env.user.has_group("companyweb_base.cweb_view"):
-            raise UserError(_("Companyweb : You don't have access"))
+            raise UserError(self.env._("Companyweb : You don't have access"))
         self.street = self.cweb_street
         self.city = self.cweb_city
         self.zip = self.cweb_zip

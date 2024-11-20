@@ -33,6 +33,9 @@ class TestApiCweb(VCRMixin, TransactionCase):
 
     def setUp(self, *args, **kwargs):
         super().setUp(*args, **kwargs)
+
+        self._install_language("fr")
+
         demo_user = self.env.ref("base.user_demo")
         demo_user.cweb_login = os.environ.get("COMPANYWEB_TEST_LOGIN", "cwebtestlogin")
         demo_user.cweb_password = os.environ.get(
@@ -56,6 +59,23 @@ class TestApiCweb(VCRMixin, TransactionCase):
             "filter_headers": ["Authorization"],
             "decode_compressed_response": True,
         }
+
+    def _install_language(self, lang_code="en_US"):
+        """Install the language if not already installed."""
+        # Check if the language already exists
+        lang = self.env["res.lang"].search([("code", "=", lang_code)], limit=1)
+        if not lang:
+            # If the language doesn't exist, create and load it
+            lang_id = self.env.ref(f"base.lang_{lang_code}").id
+            lang_wizard = self.env["base.language.install"].create(
+                {
+                    "lang_ids": [Command.link(lang_id)],
+                }
+            )
+            lang_wizard.lang_install()
+
+        # Set the language as active
+        self.env["res.lang"].search([("code", "=", lang_code)]).write({"active": True})
 
     @freeze_time("2021-03-23")  # because the login hash includes the date
     def test_cweb_button(self):
