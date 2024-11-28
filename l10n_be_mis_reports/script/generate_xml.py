@@ -204,7 +204,8 @@ def _write_report_kpi_records(
     :return: the xml document with all his KPI's
     """
     odoo = xml_document.documentElement
-    # sequence starts at 10 and is incremented by 10 each time, following the json layout
+    # sequence starts at 10 and is incremented by 10 each time, following the
+    # json layout
     sequence = 10
     if accounts_dict["section"]["sectionsOrTables"][0].get("section"):
         nb_tables = len(accounts_dict["section"]["sectionsOrTables"])
@@ -301,8 +302,8 @@ def _write_report_kpi_records(
                                 f"{_get_indent(calc_dict, rubcode, 1, rubcode_list)}",
                             )
                     record.appendChild(style_id_field)
-                    # Create field 'auto_expand_accounts' and 'auto_expand_accounts_style_id'
-                    # and add as record's child
+                    # Create field 'auto_expand_accounts' and
+                    # 'auto_expand_accounts_style_id' and add as record's child
                     if _needs_auto_expand(calc) and rubcode != "9900":
                         auto_expand_field = xml_document.createElement("field")
                         auto_expand_field.setAttribute("name", "auto_expand_accounts")
@@ -331,8 +332,10 @@ def _write_report_kpi_records(
 def _get_account_label(account_data_list, lang="en"):
     """
     This method gets the label of an account
-    :param account_data_list: a list containing account label and data for period N and N-1
-    :param lang: (string) language code for the document's language ('de', 'en', 'fr', 'nl')
+    :param account_data_list: a list containing account label and data for period
+                              N and N-1
+    :param lang: (string) language code for the document's language
+                 ('de', 'en', 'fr', 'nl')
     :return: the label of the account
     """
     label = ""
@@ -536,7 +539,10 @@ def _create_rubcode_sequence(
     result = ""
     nb_of_accounts = len(range(int(first_account), int(last_account) + 1))
     if first_account[0] < last_account[0]:
-        result = f"{first_account}{first_account_letter}%,{last_account}{last_account_letter}%"
+        result = (
+            f"{first_account}{first_account_letter}%,"
+            f"{last_account}{last_account_letter}%"
+        )
     else:
         for account_nb in range(int(first_account), int(last_account) + 1):
             if str(account_nb) not in rubcode_list:
@@ -554,7 +560,8 @@ def _create_rubcode_sequence(
 def _get_rubcode_list(account_data_list):
     """
     This method gets the list of all the rubric codes in accounts_list
-    :param account_data_list: a list containing account label and data for period N and N-1
+    :param account_data_list: a list containing account label and data for period
+                              N and N-1
     :return: a list containing all account_data_list's rubric codes
     """
     rubcodes = []

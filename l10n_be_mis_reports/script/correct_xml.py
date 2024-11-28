@@ -29,7 +29,10 @@ RUBRICS_TO_CORRECT_DICT = {
     },
     # Profit & Loss
     "pl": {
-        "rub_9900": "-balp[70%,71%,72%,73%,74%,760%,761%,762%,763%,764%,765%,766%,767%,768%,60%,61%]",
+        "rub_9900": (
+            "-balp[70%,71%,72%,73%,74%,"
+            "760%,761%,762%,763%,764%,765%,766%,767%,768%,60%,61%]"
+        ),
         "rub_76A": "-balp[760%,761%,762%,763%,764%,765%,766%,767%,768%]",
         "rub_66A": "balp[660%,661%,662%,663%,664%,665%,666%,667%,669%]",
         "rub_76B": "-balp[769%]",
@@ -77,7 +80,8 @@ def correct_xml(xml_template_file):
                     _add_unallocated_fy_profit(dom, node, xml_template_file)
                 if "m87" not in xml_template_file.name:
                     continue
-                # The expression of this rubric is not present in the m87 calculation JSON file
+                # The expression of this rubric is not present in the m87
+                # calculation JSON file
                 if "rub_130_1" in rubcode:
                     expression = tuple(
                         filter(
