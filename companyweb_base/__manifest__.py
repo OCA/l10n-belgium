@@ -25,6 +25,8 @@
     "external_dependencies": {
         "python": [
             "zeep",
+            "freezegun",
+            "vcrpy-unittest",
         ],
     },
     "depends": ["contacts"],
