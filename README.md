@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [account_statement_import_coda](account_statement_import_coda/) | 17.0.1.0.0 |  | Import CODA Bank Statement
-[companyweb_base](companyweb_base/) | 17.0.1.0.0 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+[companyweb_base](companyweb_base/) | 17.0.1.0.1 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [companyweb_payment_info](companyweb_payment_info/) | 17.0.1.0.1 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 17.0.1.0.0 |  | Belgium - KBO/BCE numbers
 
