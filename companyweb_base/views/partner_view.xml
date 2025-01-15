@@ -12,7 +12,7 @@
                         <button
                             aria-label="Enhance"
                             class="btn-sm btn-link "
-                            icon="companyweb_base/static/img/logo-en.resized.png"
+                            icon="/companyweb_base/static/img/logo-en.resized.png"
                             invisible="not cweb_show_button_enhance"
                             name="cweb_button_enhance"
                             title="Enhance"
