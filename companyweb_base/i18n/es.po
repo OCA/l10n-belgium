@@ -20,12 +20,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
 msgid ""
 "<br/>\n"
-"                    <span>Click here to create your login information: </"
-"span>"
+"                <span>Click here to create your login information: </span>"
 msgstr ""
-"<br/>\n"
-"                    <span>Haga clic aquí para crear su información de inicio "
-"de sesión: </span>"
 
 #. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
@@ -87,7 +83,6 @@ msgstr "Web de la compañía"
 #. module: companyweb_base
 #. odoo-python
 #: code:addons/companyweb_base/models/res_partner.py:0
-#, python-format
 msgid "Companyweb : You don't have access"
 msgstr "Web de la compañía: Usted no tiene acceso"
 
@@ -444,7 +439,6 @@ msgstr "Divisa de la web de la compañía"
 #. module: companyweb_base
 #. odoo-python
 #: code:addons/companyweb_base/models/res_partner.py:0
-#, python-format
 msgid "Companyweb status : {status} : {message} "
 msgstr "estado de la web dela compañía :{status} : {message} "
 
@@ -622,6 +616,15 @@ msgstr "Advertencias"
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
 msgid "https://www.companyweb.be"
 msgstr "https://www.companyweb.be"
+
+#~ msgid ""
+#~ "<br/>\n"
+#~ "                    <span>Click here to create your login information: </"
+#~ "span>"
+#~ msgstr ""
+#~ "<br/>\n"
+#~ "                    <span>Haga clic aquí para crear su información de "
+#~ "inicio de sesión: </span>"
 
 #~ msgid ""
 #~ "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
