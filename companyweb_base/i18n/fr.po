@@ -1,0 +1,637 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* companyweb_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-10 12:55+0000\n"
+"PO-Revision-Date: 2021-03-11 12:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid ""
+"<br/>\n"
+"                    <span>Click here to create your login information: </"
+"span>"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
+"                                <b invisible=\"type != 'contact'\">\n"
+"                                    Seat\n"
+"                                </b>\n"
+"                            </span>"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Address"
+msgstr "Adresse"
+
+#. module: companyweb_base
+#: model:ir.model,name:companyweb_base.model_companyweb_base_credential_wizard_abstract
+#: model:ir.model,name:companyweb_base.model_companyweb_base_credential_wizard_base
+msgid "Ask for Companyweb login & password"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Average number of staff in FTE"
+msgstr "Effectif moyen du personnel en FTE"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Book year"
+msgstr "Exercice"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Closing date of the book year"
+msgstr "Date de clôture de l'exercice"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Commercial report"
+msgstr "Rapport Commercial"
+
+#. module: companyweb_base
+#: model:ir.module.category,name:companyweb_base.companyweb
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Companyweb"
+msgstr "Companyweb"
+
+#. module: companyweb_base
+#. odoo-python
+#: code:addons/companyweb_base/models/res_partner.py:0
+#, python-format
+msgid "Companyweb : You don't have access"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_address_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_address_enable
+msgid "Companyweb Address Enabled"
+msgstr "Companyweb Adresse Activée"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_average_fte
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_average_fte
+msgid "Companyweb Average number of staff in FTE"
+msgstr "Companyweb Effectif moyen du personnel en FTE"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_average_fte_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_average_fte_unset
+msgid "Companyweb Average number of staff in FTE Unset"
+msgstr "Companyweb Effectif moyen du personnel en FTE Non Défini"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_balance_data_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_balance_data_enable
+msgid "Companyweb Balance Data Enabled"
+msgstr "Companyweb Données Comptes annuels Activées"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_balance_year
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_balance_year
+msgid "Companyweb Balance Year"
+msgstr "Companyweb Exercice"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_balance_year_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_balance_year_unset
+msgid "Companyweb Balance Year Unset"
+msgstr "Companyweb Exercice Non Défini"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_image
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_image
+msgid "Companyweb Barometer Image"
+msgstr "Companyweb Image Baromètre"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_image_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_image_unset
+msgid "Companyweb Barometer Image Unset"
+msgstr "Companyweb Image Baromètre Non Définie"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_image_tag
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_image_tag
+msgid "Companyweb Barometer Image tag"
+msgstr "Companyweb Balise Image Baromètre"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_show_button_address
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_show_button_address
+msgid "Companyweb Button Address Enabled"
+msgstr "Companyweb Boutton Adresse Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_show_button_enhance
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_show_button_enhance
+msgid "Companyweb Button Enhance Enabled"
+msgstr "Companyweb Boutton Enrichissement Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_city
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_city
+msgid "Companyweb City"
+msgstr "Companyweb Ville"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_closed_date
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_closed_date
+msgid "Companyweb Closed Date"
+msgstr "Companyweb Date de clôture de l'exercice"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_closed_date_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_closed_date_unset
+msgid "Companyweb Closed Date Unset"
+msgstr "ompanyweb Date de clôture de l'exercice Non Définie"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_companystatus
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_companystatus
+msgid "Companyweb Company Status"
+msgstr "Companyweb Statut de la société"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_companystatus_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_companystatus_enable
+msgid "Companyweb Company Status Enabled"
+msgstr "Companyweb Statut de la société Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_companystatus_code
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_companystatus_code
+msgid "Companyweb Company StatusCode"
+msgstr "Companyweb Code du Statut de la société"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_country
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_country
+msgid "Companyweb Country"
+msgstr "Companyweb Pays"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_creditLimit
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_creditLimit
+msgid "Companyweb Credit limit"
+msgstr "Companyweb Limites de crédit"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_creditLimit_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_creditLimit_enable
+msgid "Companyweb Credit limit Enabled"
+msgstr "Companyweb Limites de crédit Activés"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_creditLimit_info
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_creditLimit_info
+msgid "Companyweb Credit limit Info"
+msgstr "Companyweb Informations Limites de crédit"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_creditLimit_info_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_creditLimit_info_unset
+msgid "Companyweb Credit limit Info Unset"
+msgstr "Companyweb Informations Limites de crédit Non Définies"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_creditLimit_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_creditLimit_unset
+msgid "Companyweb Credit limit Unset"
+msgstr "Companyweb Limites de crédit Non Définies"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_url
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_url
+msgid "Companyweb Detailed Report"
+msgstr "Companyweb Lien de détail"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_url_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_url_enable
+msgid "Companyweb Detailed Report Enabled"
+msgstr "Companyweb Lien de détail Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_endDate
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_endDate
+msgid "Companyweb End Date"
+msgstr "Companyweb Date de fin"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_endDate_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_endDate_enable
+msgid "Companyweb End date Enabled"
+msgstr "Companyweb Date de fin Activée"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_equityCapital
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_equityCapital
+msgid "Companyweb Equity Capital"
+msgstr "Companyweb Capitaux propres"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_equityCapital_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_equityCapital_unset
+msgid "Companyweb Equity Capital Unset"
+msgstr "Companyweb Capitaux propres Non Définis"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_result
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_result
+msgid "Companyweb Fiscal Year Profit/Loss (+/-)"
+msgstr "Companyweb Bénéfice/Perte de l'exercice"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_result_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_result_unset
+msgid "Companyweb Fiscal Year Profit/Loss (+/-) Unset"
+msgstr "Companyweb Bénéfice/Perte de l'exercice Non Défini"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_addedValue
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_addedValue
+msgid "Companyweb Gross Margin (+/-)"
+msgstr "Companyweb Marge brute"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_addedValue_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_addedValue_unset
+msgid "Companyweb Gross Margin (+/-) Unset"
+msgstr "Companyweb Marge brute Non Définie"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_jur_form
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_jur_form
+msgid "Companyweb Juridical Form"
+msgstr "Companyweb Forme juridique"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_jur_form_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_jur_form_enable
+msgid "Companyweb Juridical Form Enabled"
+msgstr "Companyweb Forme juridique Activée"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_lastupdate
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_lastupdate
+msgid "Companyweb Last Update"
+msgstr "Companyweb Date de Dernière Mise à Jour"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__cweb_login
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__cweb_login
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_login
+msgid "Companyweb Login"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_name
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_name
+msgid "Companyweb Name"
+msgstr "Companyweb Nom"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_name_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_name_enable
+msgid "Companyweb Name Enabled"
+msgstr "Companyweb Nom Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_abstract__cweb_password
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__cweb_password
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_password
+msgid "Companyweb Password"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_zip
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_zip
+msgid "Companyweb Postal code"
+msgstr "Companyweb Code Postal"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_prefLang
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_prefLang
+msgid "Companyweb Preferred Language"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_prefLang_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_prefLang_enable
+msgid "Companyweb Preferred Language Enabled"
+msgstr "Companyweb Langues préférées Activées"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_score
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_score
+msgid "Companyweb Score"
+msgstr "Companyweb Score"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_score_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_score_enable
+msgid "Companyweb Score Enabled"
+msgstr "Companyweb Score Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_startDate
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_startDate
+msgid "Companyweb Start Date"
+msgstr "Companyweb Création"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_startDate_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_startDate_enable
+msgid "Companyweb Start Date Enabled"
+msgstr "Companyweb Création Activée"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_street
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_street
+msgid "Companyweb Street"
+msgstr "Companyweb Rue"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_vat_liable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_vat_liable
+msgid "Companyweb Subject to VAT"
+msgstr "Companyweb Assujettie à la TVA"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_vat_liable_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_vat_liable_enable
+msgid "Companyweb Subject to VAT Enabled"
+msgstr "Companyweb Assujettie à la TVA Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_show_tab
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_show_tab
+msgid "Companyweb Tab Enabled"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_turnover
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_turnover
+msgid "Companyweb Turnover"
+msgstr "Companyweb Chiffre d'affaires"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_turnover_unset
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_turnover_unset
+msgid "Companyweb Turnover Unset"
+msgstr "Companyweb Chiffre d'affaires Non Défini"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_url_report
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_url_report
+msgid "Companyweb Url Report"
+msgstr "Companyweb Rapport Commercial"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_url_report_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_url_report_enable
+msgid "Companyweb Url Report Enabled"
+msgstr "Companyweb Rapport Commercial Activé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_warnings
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_warnings
+msgid "Companyweb Warnings"
+msgstr "Companyweb Avertissements"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_warnings_enable
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_warnings_enable
+msgid "Companyweb Warnings Enabled"
+msgstr "Companyweb Avertissements Activés"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_res_partner__cweb_currency_id
+#: model:ir.model.fields,field_description:companyweb_base.field_res_users__cweb_currency_id
+msgid "Companyweb currency"
+msgstr "Companyweb monnaie"
+
+#. module: companyweb_base
+#. odoo-python
+#: code:addons/companyweb_base/models/res_partner.py:0
+#, python-format
+msgid "Companyweb status : {status} : {message} "
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model,name:companyweb_base.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Copy Address"
+msgstr "Copier l'adresse"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Credit limit"
+msgstr "Limites de crédit"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Credit limit Info"
+msgstr "Limites de crédit informations"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Detail"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Detail link"
+msgstr "Lien de détail"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: companyweb_base
+#: model:res.groups,name:companyweb_base.cweb_download
+msgid "Dowload Companyweb Data"
+msgstr "Télécharger Données Companyweb"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "End date"
+msgstr "Date de fin"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Enhance"
+msgstr "Enrichir"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Equity"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Established"
+msgstr "Capitaux propres"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "Follow this link"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Global"
+msgstr "Globale"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Gross margin"
+msgstr "Marge brute"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Health barometer"
+msgstr "Barometre de santé"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__id
+msgid "ID"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Last Update"
+msgstr "Date de dernière mise à jour"
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Legal form"
+msgstr "Forme juridique"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Name"
+msgstr "Nom"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Preferred languages"
+msgstr "Langues préférées"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Profit/Loss of the book year"
+msgstr "Bénéfice/Perte de l'exercice"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "Save"
+msgstr "Sauver"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Status"
+msgstr "Statut"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Subject to VAT"
+msgstr "Assujettie à la TVA"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Turnover"
+msgstr "Chiffre d'affaires"
+
+#. module: companyweb_base
+#: model:ir.model,name:companyweb_base.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: companyweb_base
+#: model:ir.module.category,description:companyweb_base.companyweb
+msgid "User access level for then Companyweb module"
+msgstr ""
+
+#. module: companyweb_base
+#: model:res.groups,name:companyweb_base.cweb_view
+msgid "View Companyweb Data"
+msgstr "Voir les données de Companyweb"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+msgid "Warnings"
+msgstr "Avertissements"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_credential_wizard
+msgid "https://www.companyweb.be"
+msgstr ""
+
+#~ msgid ""
+#~ "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
+#~ "                                <b attrs=\"{'invisible': [('type', '!=', "
+#~ "'contact')]}\">Seat</b>\n"
+#~ "                            </span>"
+#~ msgstr ""
+#~ "<span class=\"o_form_label o_td_label\" name=\"cweb_address\">\n"
+#~ "                                <b attrs=\"{'invisible': [('type', '!=', "
+#~ "'contact')]}\">Siège</b>\n"
+#~ "                            </span>"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Date de dernière modification"
+
+#, python-format
+#~ msgid "Companyweb Enhance OK"
+#~ msgstr "Companyweb Enrichissement OK"
+
+#~ msgid "Companyweb Base"
+#~ msgstr "Companyweb Base"
