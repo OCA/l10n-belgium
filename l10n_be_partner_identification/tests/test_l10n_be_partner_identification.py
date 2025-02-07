@@ -1,10 +1,11 @@
 #  ©  2016 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-import odoo.tests.common as common
 from odoo.exceptions import ValidationError
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestL10nBePartnerIdentification(common.TransactionCase):
+
+class TestL10nBePartnerIdentification(BaseCommon):
     def test_validate_national_registry_number(self):
         partner_id_category = self.env.ref(
             "l10n_be_partner_identification."
