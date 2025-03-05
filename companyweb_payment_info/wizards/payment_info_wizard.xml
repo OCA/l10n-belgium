@@ -1,5 +1,4 @@
 <odoo>
-
     <record model="ir.ui.view" id="companyweb_payment_info_wizard_prepare">
         <field name="name">Companyweb Payment Info Prepare Wizard</field>
         <field name="model">companyweb_payment_info.payment_info_wizard</field>
@@ -13,18 +12,17 @@
                 </div>
                 <footer>
                     <button
-                        string="Continue Process"
-                        name="payment_info_entry_point"
-                        type="object"
-                        class="oe_highlight"
-                    />
+                    string="Continue Process"
+                    name="payment_info_entry_point"
+                    type="object"
+                    class="oe_highlight"
+                />
                 or
                     <button string="Cancel" class="oe_link" special="cancel" />
                 </footer>
             </form>
         </field>
     </record>
-
 
     <record id="cweb_payment_info_action" model="ir.actions.server">
         <field name="name">Companyweb Payment Info</field>
@@ -41,5 +39,4 @@
         action="cweb_payment_info_action"
         parent="account.menu_finance_receivables"
     />
-
 </odoo>
