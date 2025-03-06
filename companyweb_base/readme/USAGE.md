@@ -33,3 +33,6 @@ with the one obtained from Companyweb.
 
 You can change your credentials on the user form.
 ![](https://raw.githubusercontent.com/OCA/l10n-belgium/18.0/companyweb_base/static/description/doc_credentials.png)
+
+Also available via user preferences
+![](https://raw.githubusercontent.com/OCA/l10n-belgium/18.0/companyweb_base/static/description/doc_credentials_pref.png)
