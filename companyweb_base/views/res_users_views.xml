@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Update user form !-->
+    <record id="view_users_form" model="ir.ui.view">
+        <field name="name">res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="arch" type="xml">
+            <page name="account_security" position="after">
+                <page string="Companyweb" name="companyweb">
+                    <group>
+                        <group string="Credentials" name="credentials">
+                            <label for="cweb_login" />
+                            <div class="o_row">
+                                <field name="cweb_login" />
+                            </div>
+                            <label for="cweb_password" />
+                            <div class="o_row">
+                                <field name="cweb_password" password="True" />
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="view_users_form_simple_modif" model="ir.ui.view">
+        <field name="name">res.users.preferences.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+        <field name="arch" type="xml">
+            <page name="page_devices" position="after">
+                <page string="Companyweb" name="companyweb">
+                    <group>
+                        <group string="Credentials" name="credentials">
+                            <label for="cweb_login" />
+                            <div class="o_row">
+                                <field name="cweb_login" />
+                            </div>
+                            <label for="cweb_password" />
+                            <div class="o_row">
+                                <field name="cweb_password" password="True" />
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
