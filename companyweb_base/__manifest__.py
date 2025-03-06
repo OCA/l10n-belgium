@@ -16,6 +16,7 @@
         "security/security.xml",
         "security/ir.model.access.csv",
         "views/partner_view.xml",
+        "views/res_users_view.xml",
         "wizards/credential_wizard.xml",
     ],
     "images": [
