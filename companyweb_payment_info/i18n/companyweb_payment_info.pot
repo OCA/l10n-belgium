@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid ""
 "<h2>Companyweb upload Status</h2>Here under a small summary, the full "
 "summary will be sent to <strong>{login}</strong> <br/>{inv_exp_date} : "
@@ -30,7 +29,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid ""
 "<h2>Companyweb upload</h2>You are about to submit "
 "<strong>{nb_invoice}</strong> open invoices <br/>to Companyweb for the "
@@ -44,7 +42,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid ""
 "<h2>Companyweb upload</h2>You are about to submit "
 "<strong>{nb_invoice}</strong> open invoices <br/>to Companyweb for the "
@@ -63,7 +60,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid "Bad Credentials"
 msgstr ""
 
@@ -75,7 +71,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid ""
 "Companyweb : You need to be in the security group :\n"
 "                    Upload Companyweb Invoices to perform this action"
@@ -84,7 +79,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid ""
 "Companyweb : You need to set a valid belgian's vat field for the current "
 "company : {company}"
@@ -133,16 +127,12 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid "Enter your Credentials"
 msgstr ""
 
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid "Error from Companyweb : {status} : {message}"
 msgstr ""
 
@@ -183,7 +173,6 @@ msgstr ""
 #. module: companyweb_payment_info
 #. odoo-python
 #: code:addons/companyweb_payment_info/wizards/payment_info_wizard.py:0
-#, python-format
 msgid "Unexpected step {step}"
 msgstr ""
 
