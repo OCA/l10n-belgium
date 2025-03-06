@@ -77,6 +77,8 @@ msgstr "Informe comercial"
 #. module: companyweb_base
 #: model:ir.module.category,name:companyweb_base.companyweb
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
+#: model_terms:ir.ui.view,arch_db:companyweb_base.view_users_form
+#: model_terms:ir.ui.view,arch_db:companyweb_base.view_users_form_simple_modif
 msgid "Companyweb"
 msgstr "Web de la compañía"
 
@@ -461,6 +463,12 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:companyweb_base.field_companyweb_base_credential_wizard_base__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: companyweb_base
+#: model_terms:ir.ui.view,arch_db:companyweb_base.view_users_form
+#: model_terms:ir.ui.view,arch_db:companyweb_base.view_users_form_simple_modif
+msgid "Credentials"
+msgstr ""
 
 #. module: companyweb_base
 #: model_terms:ir.ui.view,arch_db:companyweb_base.companyweb_partner_view
