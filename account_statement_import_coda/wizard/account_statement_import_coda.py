@@ -54,11 +54,18 @@ class AccountStatementImport(models.TransientModel):
     def _parse_file(self, data_file):
         if not self._check_coda(data_file):
             return super()._parse_file(data_file)
-        vals_bank_statements = []
+
+        parsed_statements = []
         try:
             statements = Parser().parse(data_file)
             for statement in statements:
-                vals_bank_statements.append(self.get_st_vals(statement))
+                parsed_statements.append(
+                    (
+                        statement.currency,
+                        self._get_acc_number(statement.acc_number),
+                        [self.get_st_vals(statement)],
+                    )
+                )
         except Exception as e:
             _logger.exception("Error when parsing coda file")
             raise UserError(
@@ -68,13 +75,7 @@ class AccountStatementImport(models.TransientModel):
                 )
                 % e
             ) from e
-
-        acc_number = None
-        currency = None
-        if statements:
-            acc_number = statements[0].acc_number
-            currency = statement.currency
-        return currency, self._get_acc_number(acc_number), vals_bank_statements
+        return parsed_statements
 
     def get_st_vals(self, statement):
         """
