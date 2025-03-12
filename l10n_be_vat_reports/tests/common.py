@@ -3,13 +3,19 @@
 
 from lxml.etree import XML
 
+from odoo.fields import Command
 from odoo.tests.common import TransactionCase
 
 
 class TestVatReportsCommon(TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        company = cls.env.ref("l10n_be.demo_company_be")
+        cls.env.user.company_id = company
+        cls.env.user.company_ids = [Command.set(company.ids)]
+
     def _create_test_data(self, invoice_tax):
-        chart = self.env.ref("l10n_be.l10nbe_chart_template")
-        chart.try_loading()
         company = self.env.company
         company.partner_id.write({"vat": "PT999999990"})
         self.partner = self.env["res.partner"].create(

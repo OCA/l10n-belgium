@@ -61,6 +61,8 @@ jobs:
         run: manifestoo -d . check-dev-status --default-dev-status=Beta
       - name: Initialize test db
         run: oca_init_test_database
+      - name: Load l10n_generic_coa
+        run: odoo -d odoo -i l10n_generic_coa --stop-after-init
       - name: Run tests
         run: oca_run_tests
       - uses: codecov/codecov-action@v4

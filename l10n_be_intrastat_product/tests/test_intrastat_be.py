@@ -15,6 +15,7 @@ class TestIntrastatBe(TransactionCase):
 
         cls.company = cls.env.company
         cls.env.company.country_id = cls.env.ref("base.be")
+        cls.env.company.account_fiscal_country_id = cls.env.ref("base.be")
         cls.env.company.vat = "BE0820512013"
         cls.company.intrastat_region_id = cls.env.ref(
             "l10n_be_intrastat_product.intrastat_region_2"
@@ -113,7 +114,6 @@ class TestIntrastatBe(TransactionCase):
         )
 
     def test_be_sale_b2b(self):
-
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
             {
                 "partner_id": self.partner_b2b_1.id,
@@ -149,7 +149,7 @@ class TestIntrastatBe(TransactionCase):
         # not in the module dependency (we check the presence of
         # this module via hasattr)
         sale_journal_rec = self.env["account.journal"].search(
-            [("type", "=", "sale")], limit=1
+            [("type", "=", "sale"), ("company_id", "=", self.env.company.id)], limit=1
         )
         reversal = (
             self.env["account.move.reversal"]
@@ -184,7 +184,6 @@ class TestIntrastatBe(TransactionCase):
         self.assertEqual(dlines[0].amount_company_currency, 0.0)
 
     def test_be_sale_b2b_na(self):
-
         inv_out = self.inv_obj.with_context(default_move_type="out_invoice").create(
             {
                 "partner_id": self.partner_b2b_na.id,
@@ -236,7 +235,6 @@ class TestIntrastatBe(TransactionCase):
         self.assertEqual(dlines[0].vat, "QV999999999999")
 
     def test_be_purchase(self):
-
         inv_in1 = self.inv_obj.with_context(default_move_type="in_invoice").create(
             {
                 "partner_id": self.partner_b2b_1.id,
