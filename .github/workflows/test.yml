@@ -61,6 +61,8 @@ jobs:
         run: manifestoo -d . check-dev-status --default-dev-status=Beta
       - name: Initialize test db
         run: oca_init_test_database
+      - name: Pre-install l10n_belgium because some modules don't depend on it but need an account chart
+        run: odoo -d odoo -i l10n_be --stop-after-init
       - name: Run tests
         run: oca_run_tests
       - uses: codecov/codecov-action@v4
