@@ -12,7 +12,6 @@
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",
-        "wizards/payment_info_wizard.xml",
     ],
     "images": [
         "static/description/doc_companyweb_data.png",
