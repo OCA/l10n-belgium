@@ -40,3 +40,15 @@ You can now view the Companyweb information in the corresponding tab.
 
 You can also use the "Copy Address" button to update the partner address with
 the one obtained from Companyweb.
+
+You can change your credentials on the user form.
+
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_credentials.png
+   :alt: Companyweb credentials on user form
+   :align: center
+
+Also available via user preferences
+
+.. figure:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_credentials_pref.png
+   :alt: Companyweb credentials on user preferences dialog
+   :align: center
