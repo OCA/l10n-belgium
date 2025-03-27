@@ -6,7 +6,6 @@
         <field name="arch" type="xml">
             <div name="vat_vies_container" position="after">
                 <field name="kbo_bce_number" invisible="country_code != 'BE'" />
-                <field name="country_code" invisible="1" />
             </div>
         </field>
     </record>

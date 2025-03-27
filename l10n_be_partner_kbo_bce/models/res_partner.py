@@ -18,12 +18,11 @@ class ResPartner(models.Model):
         ),
         search=lambda s, *a: s._search_identification("l10n_be_kbo_bce", *a),
     )
-    country_code = fields.Char(related="country_id.code")
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get("is_company"):
+            if vals.get("company_type", "") == "company" or vals.get("is_company"):
                 if "vat" in vals or "kbo_bce_number" in vals:
                     self._sync_kbo_bce_number(vals)
         return super().create(vals_list)
