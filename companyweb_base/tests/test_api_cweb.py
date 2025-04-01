@@ -147,7 +147,7 @@ class TestApiCweb(VCRMixin, TransactionCase):
         self.assertTrue(self.p1.cweb_turnover == 46825985)
         self.assertTrue(self.p1.cweb_turnover_unset)
 
-        self.p1.with_context(lang="fr_Fr").cweb_button_copy_address()
+        self.p1.with_context(lang="fr_FR").cweb_button_copy_address()
         self.assertTrue(self.p1.street == self.p1.cweb_street)
         self.assertTrue(self.p1.city == self.p1.cweb_city)
         self.assertTrue(self.p1.zip == self.p1.cweb_zip)
