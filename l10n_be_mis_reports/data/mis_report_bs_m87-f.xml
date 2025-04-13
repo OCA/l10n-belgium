@@ -1,0 +1,1013 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2023 ACSONE SA/NV
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record model="mis.report" id="new_mis_report_bs_m87_f">
+    <field
+            name="name"
+        >BELGIUM BALANCE SHEET AFTER APPROPRIATION [m87-f] - Company w/o capital (micro model)</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_base" />
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_20">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_20</field>
+    <field name="description">FORMATION EXPENSES [20]</field>
+    <field name="expression">bals[20%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">10</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_21_28">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_21_28</field>
+    <field name="description">FIXED ASSETS [21/28]</field>
+    <field name="expression">+rub_21 +rub_22_27 +rub_28</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">20</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_21">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_21</field>
+    <field name="description">Intangible fixed assets [21]</field>
+    <field name="expression">bals[21%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">30</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_22_27">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_22_27</field>
+    <field name="description">Tangible fixed assets [22/27]</field>
+    <field name="expression">+rub_22 +rub_23 +rub_24 +rub_25 +rub_26 +rub_27</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">40</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_22">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_22</field>
+    <field name="description">Land and buildings [22]</field>
+    <field name="expression">bals[22%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">50</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_23">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_23</field>
+    <field name="description">Plant, machinery and equipment [23]</field>
+    <field name="expression">bals[23%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">60</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_24">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_24</field>
+    <field name="description">Furniture and vehicles [24]</field>
+    <field name="expression">bals[24%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">70</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_25">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_25</field>
+    <field name="description">Leasing and other similar rights [25]</field>
+    <field name="expression">bals[25%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">80</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_26">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_26</field>
+    <field name="description">Other tangible fixed assets [26]</field>
+    <field name="expression">bals[26%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">90</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_27">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_27</field>
+    <field
+            name="description"
+        >Assets under construction and advance payments [27]</field>
+    <field name="expression">bals[27%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">100</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_28">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_28</field>
+    <field name="description">Financial fixed assets [28]</field>
+    <field name="expression">bals[28%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">110</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_29_58">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_29_58</field>
+    <field name="description">CURRENT ASSETS [29/58]</field>
+    <field
+            name="expression"
+        >+rub_29 +rub_3 +rub_40_41 +rub_50_53 +rub_54_58 +rub_490_1</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">120</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_29">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_29</field>
+    <field name="description">Amounts receivable after more than one year [29]</field>
+    <field name="expression">+rub_290 +rub_291</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">130</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_290">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_290</field>
+    <field name="description">Trade debtors [290]</field>
+    <field name="expression">bals[290%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">140</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_291">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_291</field>
+    <field name="description">Other amounts receivable [291]</field>
+    <field name="expression">bals[291%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">150</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_3">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_3</field>
+    <field name="description">Stocks and contracts in progress [3]</field>
+    <field name="expression">+rub_30_36 +rub_37</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">160</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_30_36">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_30_36</field>
+    <field name="description">Stocks [30/36]</field>
+    <field name="expression">bals[30%,31%,32%,33%,34%,35%,36%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">170</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_37">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_37</field>
+    <field name="description">Contracts in progress [37]</field>
+    <field name="expression">bals[37%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">180</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_40_41">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_40_41</field>
+    <field name="description">Amounts receivable within one year [40/41]</field>
+    <field name="expression">+rub_40 +rub_41</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">190</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_40">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_40</field>
+    <field name="description">Trade debtors [40]</field>
+    <field name="expression">bals[40%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">200</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_41">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_41</field>
+    <field name="description">Other amounts receivable [41]</field>
+    <field name="expression">bals[41%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">210</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_50_53">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_50_53</field>
+    <field name="description">Current investments [50/53]</field>
+    <field name="expression">bals[50%,51%,52%,53%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">220</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_54_58">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_54_58</field>
+    <field name="description">Cash at bank and in hand [54/58]</field>
+    <field name="expression">bals[54%,55%,56%,57%,58%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">230</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_490_1">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_490_1</field>
+    <field name="description">Accruals and deferred income [490/1]</field>
+    <field name="expression">bals[490%,491%,499%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">240</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_20_58">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_20_58</field>
+    <field name="description">TOTAL ASSETS [20/58]</field>
+    <field name="expression">+rub_20 +rub_21_28 +rub_29_58</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_1" />
+    <field name="sequence">250</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_10_15">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_10_15</field>
+    <field name="description">EQUITY [10/15]</field>
+    <field
+            name="expression"
+        >+rub_10_11 +rub_12 +rub_13 +rub_14 +rub_6_7 +rub_15 -rub_19</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">260</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_10_11">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_10_11</field>
+    <field name="description">Contributions [10/11]</field>
+    <field name="expression">+rub_110 +rub_111</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">270</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_110">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_110</field>
+    <field name="description">Available [110]</field>
+    <field name="expression">-bals[110%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">280</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_111">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_111</field>
+    <field name="description">Not available [111]</field>
+    <field name="expression">-bals[111%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">290</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_12">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_12</field>
+    <field name="description">Revaluation surpluses [12]</field>
+    <field name="expression">-bals[12%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">300</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_13">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_13</field>
+    <field name="description">Reserves [13]</field>
+    <field name="expression">+rub_130_1 +rub_132 +rub_133</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">310</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_130_1">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_130_1</field>
+    <field name="description">Reserves not available [130/1]</field>
+    <field name="expression">+rub_1311 +rub_1312 +rub_1313 +rub_1319</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">320</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_1311">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_1311</field>
+    <field name="description">Reserves statutorily not available [1311]</field>
+    <field name="expression">-bals[1311%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">330</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_1312">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_1312</field>
+    <field name="description">Aquisition of own shares [1312]</field>
+    <field name="expression">-bals[1312%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">340</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_1313">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_1313</field>
+    <field name="description">Financial support [1313]</field>
+    <field name="expression">-bals[1313%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">350</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_1319">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_1319</field>
+    <field name="description">Other [1319]</field>
+    <field name="expression">-bals[1319%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">360</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_132">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_132</field>
+    <field name="description">Untaxed reserves [132]</field>
+    <field name="expression">-bals[132%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">370</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_133">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_133</field>
+    <field name="description">Available reserves [133]</field>
+    <field name="expression">-bals[133%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">380</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_14">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_14</field>
+    <field name="description">Accumulated profits (losses) [14]</field>
+    <field name="expression">-bals[14%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">390</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_6_7">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_6_7</field>
+    <field name="description">Unallocated FY Profits (Losses)</field>
+    <field name="expression">-bals[6%,7%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">395</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_15">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_15</field>
+    <field name="description">Capital subsidies [15]</field>
+    <field name="expression">-bals[15%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">400</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_19">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_19</field>
+    <field
+            name="description"
+        >Advance to shareholders on the distribution of net assets [19]</field>
+    <field name="expression">-bals[19%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">410</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_16">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_16</field>
+    <field name="description">PROVISIONS AND DEFERRED TAXES [16]</field>
+    <field name="expression">+rub_160_5 +rub_168</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">420</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_160_5">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_160_5</field>
+    <field name="description">Provisions for liabilities and charges [160/5]</field>
+    <field name="expression">+rub_160 +rub_161 +rub_162 +rub_163 +rub_164_5</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">430</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_160">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_160</field>
+    <field name="description">Pensions and similar obligations [160]</field>
+    <field name="expression">-bals[160%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">440</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_161">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_161</field>
+    <field name="description">Taxes [161]</field>
+    <field name="expression">-bals[161%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">450</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_162">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_162</field>
+    <field name="description">Major repairs and maintenance [162]</field>
+    <field name="expression">-bals[162%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">460</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_163">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_163</field>
+    <field name="description">Environmental obligations [163]</field>
+    <field name="expression">-bals[163%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">470</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_164_5">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_164_5</field>
+    <field name="description">Other liabilities and charges [164/5]</field>
+    <field name="expression">-bals[164%,165%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">480</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_168">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_168</field>
+    <field name="description">Deferred taxes [168]</field>
+    <field name="expression">-bals[168%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">490</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_17_49">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_17_49</field>
+    <field name="description">AMOUNTS PAYABLE [17/49]</field>
+    <field name="expression">+rub_17 +rub_42_48 +rub_492_3</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_2" />
+    <field name="sequence">500</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_17">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_17</field>
+    <field name="description">Amounts payable after more than one year [17]</field>
+    <field name="expression">+rub_170_4 +rub_175 +rub_176 +rub_178_9</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">510</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_170_4">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_170_4</field>
+    <field name="description">Financial debts [170/4]</field>
+    <field name="expression">+rub_172_3 +rub_174_0</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="sequence">520</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_172_3">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_172_3</field>
+    <field
+            name="description"
+        >Credit institutions, leasing and other similar obligations [172/3]</field>
+    <field name="expression">-bals[172%,173%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">530</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_174_0">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_174_0</field>
+    <field name="description">Other loans [174/0]</field>
+    <field name="expression">-bals[170%,171%,174%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">540</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_175">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_175</field>
+    <field name="description">Trade debts [175]</field>
+    <field name="expression">-bals[175%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">550</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_176">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_176</field>
+    <field name="description">Advances received on contracts in progress [176]</field>
+    <field name="expression">-bals[176%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">560</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_178_9">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_178_9</field>
+    <field name="description">Other amounts payable [178/9]</field>
+    <field name="expression">-bals[178%,179%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">570</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_42_48">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_42_48</field>
+    <field name="description">Amounts payable within one year [42/48]</field>
+    <field name="expression">+rub_42 +rub_43 +rub_44 +rub_46 +rub_45 +rub_47_48</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="sequence">580</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_42">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_42</field>
+    <field
+            name="description"
+        >Current portion of amounts payable after more than one year falling due within one year [42]</field>
+    <field name="expression">-bals[42%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">590</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_43">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_43</field>
+    <field name="description">Financial debts [43]</field>
+    <field name="expression">+rub_430_8 +rub_439</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="sequence">600</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_430_8">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_430_8</field>
+    <field name="description">Credit institutions [430/8]</field>
+    <field name="expression">-bals[430%,431%,432%,433%,434%,435%,436%,437%,438%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">610</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_439">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_439</field>
+    <field name="description">Other loans [439]</field>
+    <field name="expression">-bals[439%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">620</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_44">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_44</field>
+    <field name="description">Trade debts [44]</field>
+    <field name="expression">+rub_440_4 +rub_441</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="sequence">630</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_440_4">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_440_4</field>
+    <field name="description">Suppliers [440/4]</field>
+    <field name="expression">-bals[440%,442%,443%,444%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">640</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_441">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_441</field>
+    <field name="description">Bills of exchange payable [441]</field>
+    <field name="expression">-bals[441%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">650</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_46">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_46</field>
+    <field name="description">Advances received on contracts in progress [46]</field>
+    <field name="expression">-bals[46%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">660</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_45">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_45</field>
+    <field name="description">Taxes, remuneration and social security [45]</field>
+    <field name="expression">+rub_450_3 +rub_454_9</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="sequence">670</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_450_3">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_450_3</field>
+    <field name="description">Taxes [450/3]</field>
+    <field name="expression">-bals[450%,451%,452%,453%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">680</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_454_9">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_454_9</field>
+    <field name="description">Remuneration and social security [454/9]</field>
+    <field name="expression">-bals[454%,455%,456%,457%,458%,459%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">690</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_47_48">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_47_48</field>
+    <field name="description">Other amounts payable [47/48]</field>
+    <field name="expression">-bals[47%,48%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_4" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">700</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_492_3">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_492_3</field>
+    <field name="description">Accruals and deferred income [492/3]</field>
+    <field name="expression">-bals[492%,493%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_3" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">710</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m87_f_rub_10_49">
+    <field name="report_id" ref="new_mis_report_bs_m87_f" />
+    <field name="name">rub_10_49</field>
+    <field name="description">TOTAL LIABILITIES [10/49]</field>
+    <field name="expression">+rub_10_15 +rub_16 +rub_17_49</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_1" />
+    <field name="sequence">720</field>
+  </record>
+</odoo>
