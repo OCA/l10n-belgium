@@ -14,8 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_be_intrastat_product
-#: model:ir.actions.act_window,name:l10n_be_intrastat_product.l10n_be_intrastat_product_declaration_action
-#: model:ir.ui.menu,name:l10n_be_intrastat_product.l10n_be_intrastat_product_declaration_menu
 #: model:res.groups,name:l10n_be_intrastat_product.group_l10n_be_intrastat_product
 msgid "Belgian Intrastat Product Declaration"
 msgstr ""
