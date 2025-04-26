@@ -3,7 +3,7 @@
 # Copyright 2020 Coop IT Easy SC
 import time
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 TAX_TAGS_DICT = {
@@ -126,13 +126,13 @@ class PartnerVATIntra(models.TransientModel):
     def _check_period_code(self):
         for rec in self:
             if len(rec.period_code) != 6:
-                raise UserError(_("Period code is not valid."))
+                raise UserError(self.env._("Period code is not valid."))
 
     @api.constrains("date_start", "date_end")
     def _check_dates(self):
         for rec in self:
             if not rec.date_start <= rec.date_end:
-                raise UserError(_("Start date cannot be after the end date."))
+                raise UserError(self.env._("Start date cannot be after the end date."))
 
     def get_partners(self):
         self.ensure_one()
@@ -210,7 +210,7 @@ group by 1, 2, 3
             "l10n_be_vat_reports.view_vat_intra"
         )
         return {
-            "name": _("VAT Intra Listing"),
+            "name": self.env._("VAT Intra Listing"),
             "res_id": self.id,
             "view_type": "form",
             "view_mode": "form",
@@ -230,7 +230,7 @@ group by 1, 2, 3
             country = ads.country_id.code if ads.country_id else ""
 
             if ads.street and ads.street2:
-                street = "%s %s" % (ads.street, ads.street2)
+                street = f"{ads.street} {ads.street2}"
             elif ads.street:
                 street = ads.street
             else:
@@ -260,7 +260,7 @@ group by 1, 2, 3
         company = self.env.company
         company_vat = company.partner_id.vat
         if not company_vat:
-            raise UserError(_("No VAT number associated with your company."))
+            raise UserError(self.env._("No VAT number associated with your company."))
         company_vat = company_vat.replace(" ", "").upper()
         email = company.partner_id.email or ""
         phone = company.partner_id.phone or ""
@@ -302,7 +302,7 @@ group by 1, 2, 3
         self.ensure_one()
 
         if not self.client_ids:
-            raise UserError(_("No record to print."))
+            raise UserError(self.env._("No record to print."))
 
         return self.env.ref(
             "l10n_be_vat_reports.action_report_l10nvatintraprint"

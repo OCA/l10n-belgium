@@ -3,7 +3,7 @@
 
 import re
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -48,7 +48,9 @@ class VATDeclarationMixin(models.AbstractModel):
         for rec in self:
             declarant_vat = rec.declarant_vat
             if not declarant_vat:
-                raise ValidationError(_("No VAT number associated with your company."))
+                raise ValidationError(
+                    self.env._("No VAT number associated with your company.")
+                )
             seq_declarantnum = self.env["ir.sequence"].next_by_code("declarantnum")
             rec.declarant_reference = declarant_vat + seq_declarantnum[-4:]
 

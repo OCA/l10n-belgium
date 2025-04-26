@@ -65,6 +65,8 @@ Contributors
   - hugues de keyzer
   - Victor Champonnois
 
+- Jacques-Etienne Baudoux (BCIM) <je@bcim.be>
+
 Maintainers
 -----------
 

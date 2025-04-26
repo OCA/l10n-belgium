@@ -9,8 +9,7 @@ from .common import TestVatReportsCommon
 
 class TestVatIntra(TestVatReportsCommon):
     def _get_tax(self):
-        return self.env.ref("l10n_be.%s_attn_VAT-OUT-00-EU-S" % self.env.company.id)
-
+        return self.env.ref(f"account.{self.env.company.id}_attn_VAT-OUT-00-EU-S")
 
     def setUp(self):
         super().setUp()

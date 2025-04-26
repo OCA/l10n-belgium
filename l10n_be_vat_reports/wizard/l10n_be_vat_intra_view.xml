@@ -85,14 +85,14 @@
                 <notebook>
                     <page name="client_list" string="Client List">
                         <field name="client_ids">
-                            <tree>
+                            <list>
                                 <field name="seq" />
                                 <field name="partner_name" />
                                 <field name="vat" />
                                 <field name="country" />
                                 <field name="code" />
                                 <field name="amount" />
-                            </tree>
+                            </list>
                         </field>
                     </page>
                     <page name="comments" string="Comments">

@@ -4,7 +4,7 @@
 
 from datetime import date
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 TURNOVER_TAGS = ("00", "01", "02", "03", "45", "49")
@@ -127,7 +127,7 @@ left join (
         select 1
         from account_tax as at
         inner join account_tax_repartition_line as atrl on
-            at.id in (atrl.invoice_tax_id, atrl.refund_tax_id)
+            at.id = atrl.tax_id
         inner join account_account_tag_account_tax_repartition_line_rel
             as aatatrlr on
             aatatrlr.account_tax_repartition_line_id = atrl.id
@@ -156,14 +156,14 @@ where
             partners |= partner_vat_list_client_model.create(record)
 
         if not partners:
-            raise UserError(_("No data found for the selected year."))
+            raise UserError(self.env._("No data found for the selected year."))
 
         resource_id = self.env["ir.model.data"]._xmlid_to_res_id(
             "l10n_be_vat_reports.partner_vat_list_view_form_clients"
         )
         self.partner_ids = partners.ids
         return {
-            "name": _("VAT Listing"),
+            "name": self.env._("VAT Listing"),
             "res_id": self.id,
             "view_type": "form",
             "view_mode": "form",
@@ -183,7 +183,7 @@ where
         self.ensure_one()
 
         if not self.partner_ids:
-            raise UserError(_("No record to print."))
+            raise UserError(self.env._("No record to print."))
 
         return self.env.ref(
             "l10n_be_vat_reports.action_report_l10nvatpartnerlisting"

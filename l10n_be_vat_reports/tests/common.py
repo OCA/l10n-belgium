@@ -4,14 +4,15 @@
 from lxml.etree import XML
 
 from odoo.fields import Command
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestVatReportsCommon(TransactionCase):
+class TestVatReportsCommon(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        company = cls.env.ref("l10n_be.demo_company_be")
+        company = cls.env.ref("base.demo_company_be")
         cls.env.user.company_id = company
         cls.env.user.company_ids = [Command.set(company.ids)]
 
@@ -32,7 +33,7 @@ class TestVatReportsCommon(TransactionCase):
         account_line = self.env["account.account"].search(
             [
                 ("account_type", "=", "income"),
-                ("company_id", "=", company.id),
+                ("company_ids", "in", company.id),
             ],
             limit=1,
         )

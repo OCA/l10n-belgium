@@ -108,16 +108,16 @@
         </field>
     </record>
 
-    <record id="partner_vat_list_client_view_tree" model="ir.ui.view">
-        <field name="name">partner_vat_list_client_view_tree</field>
+    <record id="partner_vat_list_client_view_list" model="ir.ui.view">
+        <field name="name">partner_vat_list_client_view_list</field>
         <field name="model">partner.vat.list.client</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="vat" />
                 <field name="turnover" />
                 <field name="vat_amount" />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>
