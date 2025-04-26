@@ -59,20 +59,20 @@
         <field name="model">partner.vat.intra</field>
         <field name="arch" type="xml">
             <form string="Intracom VAT Declaration">
-        <header>
-            <button
+                <header>
+                    <button
                         name="create_xml"
                         string="Create XML"
                         type="object"
                         class="oe_highlight"
                     />
-            <button
+                    <button
                         name="print_vat_intra"
                         string="Print"
                         type="object"
                         class="oe_highlight"
                     />
-        </header>
+                </header>
                 <group>
                     <group>
                         <field name="period_code" readonly="1" />
@@ -107,7 +107,7 @@
                         />
                     </page>
                 </notebook>
-                    </form>
+            </form>
         </field>
     </record>
 </odoo>

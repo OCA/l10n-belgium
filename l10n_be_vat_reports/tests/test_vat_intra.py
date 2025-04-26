@@ -11,6 +11,7 @@ class TestVatIntra(TestVatReportsCommon):
     def _get_tax(self):
         return self.env.ref("l10n_be.%s_attn_VAT-OUT-00-EU-S" % self.env.company.id)
 
+
     def setUp(self):
         super().setUp()
         self._create_test_data(self._get_tax())
