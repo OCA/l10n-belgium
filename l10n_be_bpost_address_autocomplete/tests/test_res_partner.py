@@ -1,4 +1,7 @@
+import requests
+
 from odoo.tests.common import TransactionCase
+from odoo.tools.misc import mute_logger
 
 
 class TestResPartner(TransactionCase):
@@ -25,3 +28,14 @@ class TestResPartner(TransactionCase):
         self.partner_be.is_belgian_address = False
         self.partner_be._onchange_is_belgian_address()
         self.assertFalse(self.partner_be.country_id == self.env.ref("base.be"))
+
+    @mute_logger("py.warnings")
+    def test_api_call(self):
+        response = requests.get(
+            "https://webservices-pub.bpost.be/ws/"
+            "ExternalMailingAddressProofingCSREST_v1/address/autocomplete?"
+            "id=1&q=watterloo",
+            timeout=10,
+            verify=False,
+        )
+        self.assertEqual(response.status_code, 200)

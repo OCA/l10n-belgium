@@ -224,11 +224,9 @@ let BpAddressAutocomplete = class BpAddressAutocomplete extends s$1 {
     }
     async _sendRequest(input) {
         this.count++;
-        await fetch(`https://webservices-pub.bpost.be/ws/ExternalMailingAddressProofingCSREST_v1/address/autocomplete?id=${this.count}&q=${input.value}`, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            },
-        }).then(response => {
+        await fetch(
+            `https://webservices-pub.bpost.be/ws/ExternalMailingAddressProofingCSREST_v1/address/autocomplete?id=${this.count}&q=${input.value}`
+        ).then(response => {
             if (!response.ok) {
                 this.suggestions = [];
                 throw new Error("Network response was not OK");
