@@ -108,7 +108,7 @@ class AccountStatementImport(models.TransientModel):
             year = ""
             if statement_date:
                 parsed_date = date_parser.parse(statement_date)
-                year = "%s/" % parsed_date.year
+                year = f"{parsed_date.year}/"
             vals.update({"name": f"{year}{statement.paper_seq_number}"})
 
         globalisation_dict = {
