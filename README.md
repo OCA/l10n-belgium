@@ -22,10 +22,10 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [account_bank_statement_import_coda](account_bank_statement_import_coda/) | 12.0.1.0.1 |  | Import CODA Bank Statement
-[companyweb_base](companyweb_base/) | 12.0.1.1.2 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+[companyweb_base](companyweb_base/) | 12.0.1.1.2 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 12.0.1.0.1 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 12.0.1.0.1 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
-[l10n_be_national_number](l10n_be_national_number/) | 12.0.1.0.0 | [![victor-champonnois](https://github.com/victor-champonnois.png?size=30px)](https://github.com/victor-champonnois) | Belgian National Number
+[l10n_be_national_number](l10n_be_national_number/) | 12.0.1.0.0 | <a href='https://github.com/victor-champonnois'><img src='https://github.com/victor-champonnois.png' width='32' height='32' style='border-radius:50%;' alt='victor-champonnois'/></a> | Belgian National Number
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 12.0.1.0.1 |  | Belgium - KBO/BCE numbers
 [l10n_be_vat_reports](l10n_be_vat_reports/) | 12.0.2.0.3 |  | Belgium VAT Reports
 
