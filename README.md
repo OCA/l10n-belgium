@@ -22,9 +22,9 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [account_statement_import_coda](account_statement_import_coda/) | 17.0.1.0.0 |  | Import CODA Bank Statement
-[companyweb_base](companyweb_base/) | 17.0.1.1.0 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
-[companyweb_payment_info](companyweb_payment_info/) | 17.0.1.0.1 | [![xavier-bouquiaux](https://github.com/xavier-bouquiaux.png?size=30px)](https://github.com/xavier-bouquiaux) | Send your customer payment information to Companyweb
-[l10n_be_intrastat_product](l10n_be_intrastat_product/) | 17.0.1.0.0 | [![luc-demeyer](https://github.com/luc-demeyer.png?size=30px)](https://github.com/luc-demeyer) [![jdidderen-noviat](https://github.com/jdidderen-noviat.png?size=30px)](https://github.com/jdidderen-noviat) | Intrastat Product Declaration for Belgium
+[companyweb_base](companyweb_base/) | 17.0.1.1.0 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
+[companyweb_payment_info](companyweb_payment_info/) | 17.0.1.0.1 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Send your customer payment information to Companyweb
+[l10n_be_intrastat_product](l10n_be_intrastat_product/) | 17.0.1.0.0 | <a href='https://github.com/luc-demeyer'><img src='https://github.com/luc-demeyer.png' width='32' height='32' style='border-radius:50%;' alt='luc-demeyer'/></a> <a href='https://github.com/jdidderen-noviat'><img src='https://github.com/jdidderen-noviat.png' width='32' height='32' style='border-radius:50%;' alt='jdidderen-noviat'/></a> | Intrastat Product Declaration for Belgium
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 17.0.2.0.0 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
 [l10n_be_partner_kbo_bce](l10n_be_partner_kbo_bce/) | 17.0.1.0.0 |  | Belgium - KBO/BCE numbers
 
