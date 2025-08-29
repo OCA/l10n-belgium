@@ -79,7 +79,6 @@
                     />
                 </VATDeclaration>
             </t>
-
         </VATConsignment>
     </template>
 
@@ -96,5 +95,4 @@
         <field name="model">be.vat.declaration.wizard</field>
         <field name="xml_declaration">true</field>
     </record>
-
 </odoo>
