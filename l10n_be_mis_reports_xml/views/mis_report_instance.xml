@@ -16,16 +16,16 @@
                     name="export_xml"
                     string="Export XML"
                     icon="fa-file-code-o"
-                    attrs="{'invisible': [('_is_be_vat_declaration', '=', False)]}"
+                    invisible="not _is_be_vat_declaration"
                 />
             </xpath>
         </field>
     </record>
 
-    <record id="mis_report_instance_view_tree" model="ir.ui.view">
-        <field name="name">mis_report_instance_view_tree_inherit</field>
+    <record id="mis_report_instance_view_list" model="ir.ui.view">
+        <field name="name">mis_report_instance_view_list_inherit</field>
         <field name="model">mis.report.instance</field>
-        <field name="inherit_id" ref="mis_builder.mis_report_instance_view_tree" />
+        <field name="inherit_id" ref="mis_builder.mis_report_instance_view_list" />
         <field name="arch" type="xml">
             <xpath expr="//button[@name='export_xls']" position="after">
                 <field name="_is_be_vat_declaration" invisible="1" />
@@ -34,7 +34,7 @@
                     name="export_xml"
                     string="Export XML"
                     icon="fa-file-code-o"
-                    attrs="{'invisible': [('_is_be_vat_declaration', '=', False)]}"
+                    invisible="not _is_be_vat_declaration"
                 />
             </xpath>
         </field>
