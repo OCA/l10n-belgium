@@ -20,7 +20,6 @@ class MisReportInstance(models.Model):
         self.ensure_one()
         return {
             "type": "ir.actions.act_window",
-            "view_type": "form",
             "view_mode": "form",
             "res_model": "be.vat.declaration.wizard",
             "target": "new",
