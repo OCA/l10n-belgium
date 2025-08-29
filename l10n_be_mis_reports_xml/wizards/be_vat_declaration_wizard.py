@@ -83,7 +83,7 @@ class BeVATDeclarationWizard(models.TransientModel):
         }
 
         data = {
-            k: "{:.2f}".format(round(v, 2))
+            k: f"{round(v, 2):.2f}"
             for k, v in data.items()
             if k.startswith("grid") and v
         }
