@@ -1,0 +1,509 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_be_vat_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.report,print_report_name:l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_report
+msgid "'BE VAT Client Listing Consignment'"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.report,print_report_name:l10n_be_vat_reports.l10n_be_vat_intra_consignment_xml_report
+msgid "'BE VAT Intra Consignment'"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "<strong>Company Name: </strong>"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "<strong>Partners without VAT: </strong>"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "<strong>Total: </strong>"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "<strong>Vat Number: </strong>"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__amount
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "Amount"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__amount_total
+msgid "Amount Total"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.ui.menu,name:l10n_be_vat_reports.partner_vat_list_menu
+msgid "Annual Listing Of VAT-Subjected Customers"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.report,name:l10n_be_vat_reports.action_report_l10nvatpartnerlisting
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatpartnerlisting
+msgid "Annual Listing of VAT-Subjected"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+msgid "Annual Listing of VAT-Subjected Customers"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.report,name:l10n_be_vat_reports.l10n_be_vat_intra_consignment_xml_report
+msgid "BE VAT Intra Consignment - XML"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.report,name:l10n_be_vat_reports.l10n_be_vat_listing_consignment_xml_report
+msgid "BE VAT Listing Consignment - XML"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__turnover
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatpartnerlisting
+msgid "Base Amount"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/partner_vat_list_client.py:0
+#, python-format
+msgid ""
+"Belgian Intervat platform only accepts VAT numbers matching this pattern: "
+"[0-1][0-9]{9} (number part). Check vat number %(vat)s for client %(vat)s"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_parameters
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
+msgid "Client List"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__name
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__partner_name
+msgid "Client Name"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__client_ids
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__partner_ids
+msgid "Clients"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__code
+msgid "Code"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "Code (Tax Code)"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__comments
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__comments
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__comments
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
+msgid "Comments"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__country
+msgid "Country"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
+msgid "Create XML"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__create_uid
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__create_uid
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__create_uid
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__create_date
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__create_date
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__create_date
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+msgid "Customer List"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+msgid "Customers"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__declarant_phone
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__declarant_phone
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__declarant_phone
+msgid "Declarant Phone"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__declarant_reference
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__declarant_reference
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__declarant_reference
+msgid "Declarant Reference"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__declarant_vat
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__declarant_vat
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__declarant_vat
+msgid "Declarant Tax ID"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__declarant_partner_id
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__declarant_partner_id
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_declaration_mixin__declarant_partner_id
+msgid "Declarant partner"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__display_name
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__display_name
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__display_name
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__date_end
+msgid "End date"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__country_ids
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
+msgid "European Countries"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+msgid "Free Comments to be Added to the Declaration"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
+msgid "General Information"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__id
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__id
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__id
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__intra_code
+msgid "Intra Code"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.act_window,name:l10n_be_vat_reports.action_vat_intra
+#: model:ir.ui.menu,name:l10n_be_vat_reports.l10_be_vat_intra
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
+msgid "Intracom VAT Declaration"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra____last_update
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list____last_update
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client____last_update
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__write_uid
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__write_uid
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__write_uid
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__write_date
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__write_date
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__write_date
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__limit_amount
+msgid "Limit Amount"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__month
+msgid "Month"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
+#: code:addons/l10n_be_vat_reports/wizard/vat_declaration_mixin.py:0
+#, python-format
+msgid "No VAT number associated with your company."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/partner_vat_list.py:0
+#, python-format
+msgid "No data found for the selected year."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
+#: code:addons/l10n_be_vat_reports/wizard/partner_vat_list.py:0
+#, python-format
+msgid "No record to print."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatpartnerlisting
+msgid "Nr"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatpartnerlisting
+msgid "Partner"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "Partner Name"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "Partner VAT"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.report,name:l10n_be_vat_reports.action_report_l10nvatintraprint
+#: model:ir.model,name:l10n_be_vat_reports.model_partner_vat_intra
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatintraprint
+msgid "Partner VAT Intra"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model,name:l10n_be_vat_reports.model_partner_vat_list_client
+msgid "Partner VAT List Clients"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.actions.act_window,name:l10n_be_vat_reports.partner_vat_list_action_parameters
+msgid "Partner VAT Listing"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model,name:l10n_be_vat_reports.model_partner_vat_list
+msgid "Partner VAT list"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__partner_wo_vat
+msgid "Partner without VAT"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__period_code
+msgid "Period Code"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
+#, python-format
+msgid "Period code is not valid."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_clients
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra
+msgid "Print"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__quarter
+msgid "Quarter"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__seq
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__seq
+msgid "Sequence"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,help:l10n_be_vat_reports.field_partner_vat_intra__test_xml
+msgid "Sets the XML output as test file"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__date_start
+msgid "Start date"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
+#, python-format
+msgid "Start date cannot be after the end date."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__test_xml
+msgid "Test XML file"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,help:l10n_be_vat_reports.field_partner_vat_intra__period_code
+msgid ""
+"This is where you have to set the period code for the intracom declaration using the format: ppyyyy\n"
+"               PP can stand for a month: from '01' to '12'.\n"
+"               PP can stand for a trimester: '31','32','33','34'\n"
+"                   The first figure means that it is a trimester\n"
+"                   The second figure identify the trimester.\n"
+"               PP can stand for a complete fiscal year: '00'.\n"
+"               YYYY stands for the year (4 positions)."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_parameters
+msgid ""
+"This wizard will create an XML file for VAT details and total invoiced "
+"amounts per partner."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__total_turnover
+msgid "Total Turnover"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__total_vat
+msgid "Total VAT"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,help:l10n_be_vat_reports.field_partner_vat_list_client__name
+msgid "Used as file name."
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__vat
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__vat
+msgid "VAT"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list_client__vat_amount
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatpartnerlisting
+msgid "VAT Amount"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model,name:l10n_be_vat_reports.model_vat_declaration_mixin
+msgid "VAT Declaration Mixin"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/l10n_be_vat_intra.py:0
+#, python-format
+msgid "VAT Intra Listing"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#. odoo-python
+#: code:addons/l10n_be_vat_reports/wizard/partner_vat_list.py:0
+#, python-format
+msgid "VAT Listing"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.report_l10nvatpartnerlisting
+msgid "VAT Number"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_vat_intra_client__vatnum
+msgid "VAT number"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model,name:l10n_be_vat_reports.model_vat_intra_client
+msgid "Vat Intra Client"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.partner_vat_list_view_form_parameters
+#: model_terms:ir.ui.view,arch_db:l10n_be_vat_reports.view_vat_intra_wizard
+msgid "View Customers"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_intra__year
+#: model:ir.model.fields,field_description:l10n_be_vat_reports.field_partner_vat_list__year
+msgid "Year"
+msgstr ""
+
+#. module: l10n_be_vat_reports
+#: model:ir.model.fields,help:l10n_be_vat_reports.field_partner_vat_intra__client_ids
+#: model:ir.model.fields,help:l10n_be_vat_reports.field_partner_vat_list__partner_ids
+msgid ""
+"You can remove clients/partners which you do not want to show in xml file"
+msgstr ""

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="l10n_be_vat_intra_consignment_xml_template">
+        <ns2:IntraConsignment
+            xmlns="http://www.minfin.fgov.be/InputCommon"
+            xmlns:ns2="http://www.minfin.fgov.be/IntraConsignment"
+            IntraListingsNbr="1"
+        >
+            <t t-foreach="docs" t-as="partner_vat_intra">
+                <ns2:IntraListing
+                    SequenceNumber="1"
+                    t-att-ClientsNbr="len(partner_vat_intra.client_ids)"
+                    t-att-DeclarantReference="partner_vat_intra.declarant_reference"
+                    t-att-AmountSum="'{:.2f}'.format(partner_vat_intra.amount_total)"
+                >
+                    <ns2:Declarant>
+                        <t t-set="vat_declaration" t-value="partner_vat_intra" />
+                        <t
+                            t-call="l10n_be_vat_reports.l10n_be_vat_declarant_xml_template"
+                        />
+                    </ns2:Declarant>
+                    <ns2:Period>
+                        <ns2:Month
+                            t-if="partner_vat_intra.month"
+                            t-out="partner_vat_intra.month"
+                        />
+                        <ns2:Quarter
+                            t-if="partner_vat_intra.quarter"
+                            t-out="partner_vat_intra.quarter"
+                        />
+                        <ns2:Year t-out="partner_vat_intra.year" />
+                    </ns2:Period>
+                    <t t-foreach="partner_vat_intra.client_ids" t-as="vat_client">
+                        <ns2:IntraClient t-att-SequenceNumber="vat_client.seq">
+                            <ns2:CompanyVATNumber
+                                t-att-issuedBy="vat_client.country"
+                                t-out="vat_client.vatnum"
+                            />
+                            <ns2:Code t-out="vat_client.code" />
+                            <ns2:Amount t-out="'{:.2f}'.format(vat_client.amount)" />
+                        </ns2:IntraClient>
+                    </t>
+                    <ns2:Comment t-out="partner_vat_intra.comments" />
+                </ns2:IntraListing>
+            </t>
+        </ns2:IntraConsignment>
+    </template>
+
+    <record model="ir.actions.report" id="l10n_be_vat_intra_consignment_xml_report">
+        <field name="name">BE VAT Intra Consignment - XML</field>
+        <field
+            name="report_name"
+        >l10n_be_vat_reports.l10n_be_vat_intra_consignment_xml_template</field>
+        <field
+            name="report_file"
+        >l10n_be_vat_reports.l10n_be_vat_intra_consignment_xml_template</field>
+        <field name="report_type">qweb-xml</field>
+        <field name="print_report_name">'BE VAT Intra Consignment'</field>
+        <field name="model">partner.vat.intra</field>
+        <field name="xml_declaration">true</field>
+    </record>
+</odoo>
