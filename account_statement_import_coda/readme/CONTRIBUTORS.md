@@ -1,0 +1,3 @@
+- Laurent Mignon \<laurent.mignon@acsone.eu\>
+- Stéphane Bidoul \<stephane.bidoul@acsone.eu\>
+- Jacques-Etienne Baudoux (BCIM) \<je@bcim.be\>
