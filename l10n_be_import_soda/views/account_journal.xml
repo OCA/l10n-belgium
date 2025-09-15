@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="account_journal_dashboard_kanban_view" model="ir.ui.view">
+        <field name="name">account.journal.dashboard.kanban</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@id='new_misc_entry_button']" position="after">
+                <widget
+                    name="account_file_uploader"
+                    groups="account.group_account_user"
+                    btnClass="btn btn-secondary float-start oe_kanban_action"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_journal_form" model="ir.ui.view">
+        <field name="name">account.journal.form.import_soda</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="import_soda" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
