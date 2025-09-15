@@ -64,8 +64,6 @@ class TestUpload(VCRMixin, TransactionCase):
         self.env.user.company_id.partner_id.write(
             {
                 "country_id": False,
-                "peppol_eas": False,
-                "peppol_endpoint": False,
             }
         )
         self.env.user.company_id.write({"vat": "BE0835207216"})
