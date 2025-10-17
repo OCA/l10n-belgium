@@ -77,17 +77,18 @@ class BeVATDeclarationWizard(models.TransientModel):
 
     def prepare_xml_data(self):
         self.ensure_one()
-        kpi_matrix_dict = self.mr_instance_id.compute()
-        data = {
-            row["row_id"]: row["cells"][0]["val"] for row in kpi_matrix_dict["body"]
-        }
-
-        data = {
+        report = self.mr_instance_id.report_id
+        data = report.evaluate(
+            report._prepare_aep(self.mr_instance_id.company_id),
+            self.mr_instance_id.date_from,
+            self.mr_instance_id.date_to,
+        )
+        xml_data = {
             k: f"{round(v, 2):.2f}"
             for k, v in data.items()
             if k.startswith("grid") and v
         }
-        return data
+        return xml_data
 
     def compute_declarant_reference(self):
         return self.env["ir.sequence"].next_by_code("be.vat.declaration.declarant")
