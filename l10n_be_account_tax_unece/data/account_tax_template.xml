@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<record id="l10n_be.attn_VAT-OUT-21-L" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_s" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-21-S" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_s" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-12-S" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_s" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-12-L" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_s" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-06-S" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_s" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-06-L" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_s" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-00-S" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_e" />
+</record>
+
+<record id="l10n_be.attn_VAT-OUT-00-L" model="account.tax.template">
+    <field name="unece_type_id" ref="account_tax_unece.tax_type_vat" />
+    <field name="unece_categ_id" ref="account_tax_unece.tax_categ_e" />
+</record>
+</odoo>
