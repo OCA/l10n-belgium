@@ -182,13 +182,7 @@ class IntrastatProductDeclaration(models.Model):
             # Current version implements only regular credit notes
             special_code = "99600000"
             hs_code = self.env["hs.code"].search(
-                [
-                    ("local_code", "=", special_code),
-                    "|",
-                    ("company_id", "=", self.company_id.id),
-                    ("company_id", "=", False),
-                ],
-                limit=1,
+                [("local_code", "=", special_code)], limit=1
             )
             if not hs_code:
                 msg = (
