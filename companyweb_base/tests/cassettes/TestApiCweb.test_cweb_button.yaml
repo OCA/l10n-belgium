@@ -1,0 +1,643 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zeep/3.2.0 (www.python-zeep.org)
+    method: GET
+    uri: https://connect.companyweb.be/V1.3/alacarteservice.asmx
+  response:
+    body:
+      string: <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+        xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://connect.companyweb.be/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+        targetNamespace="http://connect.companyweb.be/" name="AlacarteServiceV1_3"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"><wsdl:types><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" targetNamespace="http://connect.companyweb.be/"><xs:import
+        namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><xs:import
+        namespace="http://schemas.datacontract.org/2004/07/System"/><xs:element name="GetCompanyByVat"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestCompanyByVat"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="GetCompanyByVatResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="GetCompanyByVatResult" type="tns:ResponseCompanyByVatV1_3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="SearchCompanies"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestSearch"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="SearchCompaniesResponse"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="SearchCompaniesResult" type="tns:ResponseSearch"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_Step1_GetChangeDates"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_Step1_GetChangeDatesResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Alerts_Step1_GetChangeDatesResult" type="tns:ResponseStep1"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_Step2_GetVatList"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_Step2_GetVatListResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Alerts_Step2_GetVatListResult" type="tns:ResponseStep2"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_Step3_CompanyOnVat"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestStep3_CompanyOnVat"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_Step3_CompanyOnVatResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Alerts_Step3_CompanyOnVatResult" type="tns:ResponseCompanyByVatV1_3"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_AddCompany"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestAddToAlerts"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_AddCompanyResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Alerts_AddCompanyResult" type="tns:ResponseAddToAlerts"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_RemoveCompany"><xs:complexType><xs:sequence><xs:element minOccurs="0"
+        maxOccurs="1" name="request" type="tns:RequestRemoveFromAlerts"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_RemoveCompanyResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Alerts_RemoveCompanyResult" type="tns:ResponseRemoveFromAlerts"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_AddListOfCompanies"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="request" type="tns:RequestAddListToAlerts"/></xs:sequence></xs:complexType></xs:element><xs:element
+        name="Alerts_AddListOfCompaniesResponse"><xs:complexType><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Alerts_AddListOfCompaniesResult" type="tns:ResponseAddListToAlerts"/></xs:sequence></xs:complexType></xs:element><xs:complexType
+        name="RequestCompanyByVat"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="VatNumber" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Language" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebLogin" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebPassword" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="ServiceIntegrator" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestCompanyByVat" nillable="true" type="tns:RequestCompanyByVat"/><xs:complexType
+        name="ResponseCompanyByVatV1_3"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="CompanyResponse"
+        type="tns:CompanyResponseV1_3"/></xs:sequence></xs:complexType><xs:element
+        name="ResponseCompanyByVatV1_3" nillable="true" type="tns:ResponseCompanyByVatV1_3"/><xs:complexType
+        name="RequestSearch"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="Language" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="SearchTerm" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="FilterPostalCode" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebLogin" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebPassword" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="ServiceIntegrator" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestSearch" nillable="true" type="tns:RequestSearch"/><xs:complexType
+        name="ResponseSearch"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="SearchResponseList"
+        nillable="true" type="tns:ArrayOfSearchResponseItem"/></xs:sequence></xs:complexType><xs:element
+        name="ResponseSearch" nillable="true" type="tns:ResponseSearch"/><xs:complexType
+        name="RequestStep1"><xs:sequence><xs:element minOccurs="0" maxOccurs="1" name="CompanyWebLogin"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="CompanyWebPassword"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="ServiceIntegrator"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="LoginHash"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="RequestStep1"
+        nillable="true" type="tns:RequestStep1"/><xs:complexType name="ResponseStep1"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="StatusCode" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="StatusMessage" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="ChangeDates" nillable="true" type="tns:ArrayOfChangeDate"/></xs:sequence></xs:complexType><xs:element
+        name="ResponseStep1" nillable="true" type="tns:ResponseStep1"/><xs:complexType
+        name="RequestStep2"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="ChangedDate"
+        type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="Language" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Step2Token" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep2" nillable="true" type="tns:RequestStep2"/><xs:complexType
+        name="ResponseStep2"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="ChangedVatList"
+        nillable="true" type="tns:ArrayOfChangedVat"/></xs:sequence></xs:complexType><xs:element
+        name="ResponseStep2" nillable="true" type="tns:ResponseStep2"/><xs:complexType
+        name="RequestStep3_CompanyOnVat"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="ChangedDate" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1"
+        name="VatNumber" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Language" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Step3Token" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebLogin" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebPassword" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="ServiceIntegrator" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestStep3_CompanyOnVat" nillable="true" type="tns:RequestStep3_CompanyOnVat"/><xs:complexType
+        name="RequestAddToAlerts"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="VatNumber" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebLogin" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CompanyWebPassword" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="ServiceIntegrator" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestAddToAlerts" nillable="true" type="tns:RequestAddToAlerts"/><xs:complexType
+        name="ResponseAddToAlerts"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseAddToAlerts"
+        nillable="true" type="tns:ResponseAddToAlerts"/><xs:complexType name="RequestRemoveFromAlerts"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="VatNumber" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestRemoveFromAlerts" nillable="true" type="tns:RequestRemoveFromAlerts"/><xs:complexType
+        name="ResponseRemoveFromAlerts"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="ResponseRemoveFromAlerts"
+        nillable="true" type="tns:ResponseRemoveFromAlerts"/><xs:complexType name="RequestAddListToAlerts"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="VatNumbers" type="tns:ArrayOfString"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebLogin" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyWebPassword" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ServiceIntegrator" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LoginHash" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RequestAddListToAlerts" nillable="true" type="tns:RequestAddListToAlerts"/><xs:complexType
+        name="ResponseAddListToAlerts"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="StatusCode" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="StatusMessage"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="Count_ActiveAlerts"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="Count_Adds" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="Count_Updates" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="Count_Invalids" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="ResponseAddListToAlerts" nillable="true" type="tns:ResponseAddListToAlerts"/><xs:complexType
+        name="CompanyResponseV1_3"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="MetaData" type="tns:CompanyResponseMetaData"/><xs:element minOccurs="0"
+        maxOccurs="1" name="PreferredLanguages" type="tns:PreferredLanguagesResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="VatNumber" type="tns:IntegerResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="VatEnabled" type="tns:BooleanResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyName" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CommercialName" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ShortName" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LegalForm" type="tns:LegalFormResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="TelephoneNumber" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyStatus" type="tns:CompanyStatusResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="StartDate" type="tns:IntegerResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="EndDate" type="tns:IntegerResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Score" type="tns:ScoreResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CreditLimit" type="tns:CreditLimitResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="PaymentExperience" type="tns:PaymentExperienceResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="WarningsOverview" type="tns:WarningsOverviewResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CurrentManagement" type="tns:ManagementListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ExternalManagement" type="tns:ManagementListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="MainActivity" type="tns:ActivityResponseFragmentV1_1"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Activities" type="tns:ActivityListResponseFragmentV1_1"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Establishments" type="tns:EstablishmentsListResponseFragmentV1_1"/><xs:element
+        minOccurs="0" maxOccurs="1" name="JointCommitees" type="tns:JointCommiteesListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="SocialSecurityInformation" type="tns:SocialSecurityResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ParentCompanies" type="tns:ParticipationsListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="SubsidiaryCompanies" type="tns:ParticipationsListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="SocialSecuritySummons" type="tns:SocialSecuritySummonsListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="JudicialAgreements" type="tns:JudicialAgreementsListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Curators" type="tns:CuratorListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="BankruptcyOpen" type="tns:BankruptcyResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="BankruptcyClose" type="tns:BankruptcyResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="DetailUrl" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="ReportUrl" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CustomReportUrl" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="BalanceUrl" type="tns:StringResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Publications" type="tns:PublicationsListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Balances" type="tns:BookYearListResponseFragment"/><xs:element
+        minOccurs="0" maxOccurs="1" name="KycLinkedEntities" type="tns:KycLinkedEntitiesResponseFragment"/></xs:sequence></xs:complexType><xs:element
+        name="CompanyResponseV1_3" nillable="true" type="tns:CompanyResponseV1_3"/><xs:complexType
+        name="ArrayOfSearchResponseItem"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="SearchResponseItem" type="tns:SearchResponseItem"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfSearchResponseItem" nillable="true" type="tns:ArrayOfSearchResponseItem"/><xs:complexType
+        name="ArrayOfChangeDate"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="ChangeDate" type="tns:ChangeDate"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfChangeDate" nillable="true" type="tns:ArrayOfChangeDate"/><xs:complexType
+        name="ArrayOfChangedVat"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="ChangedVat" type="tns:ChangedVat"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfChangedVat" nillable="true" type="tns:ArrayOfChangedVat"/><xs:complexType
+        name="ArrayOfString"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="string" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfString" nillable="true" type="tns:ArrayOfString"/><xs:complexType
+        name="CompanyResponseMetaData"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="RemainingHits" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="CompanyResponseMetaData" nillable="true" type="tns:CompanyResponseMetaData"/><xs:complexType
+        name="PreferredLanguagesResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:PreferredLanguages"/></xs:sequence></xs:complexType><xs:element
+        name="PreferredLanguagesResponseFragment" nillable="true" type="tns:PreferredLanguagesResponseFragment"/><xs:complexType
+        name="IntegerResponseFragment"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="1" maxOccurs="1"
+        name="Value" type="xs:int"/></xs:sequence></xs:complexType><xs:element name="IntegerResponseFragment"
+        nillable="true" type="tns:IntegerResponseFragment"/><xs:complexType name="BooleanResponseFragment"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element
+        minOccurs="1" maxOccurs="1" name="Value" type="xs:boolean"/></xs:sequence></xs:complexType><xs:element
+        name="BooleanResponseFragment" nillable="true" type="tns:BooleanResponseFragment"/><xs:complexType
+        name="StringResponseFragment"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Value" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="StringResponseFragment" nillable="true" type="tns:StringResponseFragment"/><xs:complexType
+        name="LegalFormResponseFragment"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Value" type="tns:LegalForm"/></xs:sequence></xs:complexType><xs:element
+        name="LegalFormResponseFragment" nillable="true" type="tns:LegalFormResponseFragment"/><xs:complexType
+        name="AddressResponseFragment"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Value" type="tns:Address"/></xs:sequence></xs:complexType><xs:element
+        name="AddressResponseFragment" nillable="true" type="tns:AddressResponseFragment"/><xs:complexType
+        name="CompanyStatusResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:Status"/></xs:sequence></xs:complexType><xs:element
+        name="CompanyStatusResponseFragment" nillable="true" type="tns:CompanyStatusResponseFragment"/><xs:complexType
+        name="ScoreResponseFragment"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Value" type="tns:Score"/></xs:sequence></xs:complexType><xs:element
+        name="ScoreResponseFragment" nillable="true" type="tns:ScoreResponseFragment"/><xs:complexType
+        name="CreditLimitResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:CreditLimit"/></xs:sequence></xs:complexType><xs:element
+        name="CreditLimitResponseFragment" nillable="true" type="tns:CreditLimitResponseFragment"/><xs:complexType
+        name="PaymentExperienceResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:PaymentExperience"/></xs:sequence></xs:complexType><xs:element
+        name="PaymentExperienceResponseFragment" nillable="true" type="tns:PaymentExperienceResponseFragment"/><xs:complexType
+        name="WarningsOverviewResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:WarningsOverview"/></xs:sequence></xs:complexType><xs:element
+        name="WarningsOverviewResponseFragment" nillable="true" type="tns:WarningsOverviewResponseFragment"/><xs:complexType
+        name="ManagementListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfManagement"/></xs:sequence></xs:complexType><xs:element
+        name="ManagementListResponseFragment" nillable="true" type="tns:ManagementListResponseFragment"/><xs:complexType
+        name="ActivityResponseFragmentV1_1"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:ActivityV1_1"/></xs:sequence></xs:complexType><xs:element
+        name="ActivityResponseFragmentV1_1" nillable="true" type="tns:ActivityResponseFragmentV1_1"/><xs:complexType
+        name="ActivityListResponseFragmentV1_1"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfActivityV1_1"/></xs:sequence></xs:complexType><xs:element
+        name="ActivityListResponseFragmentV1_1" nillable="true" type="tns:ActivityListResponseFragmentV1_1"/><xs:complexType
+        name="EstablishmentsListResponseFragmentV1_1"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfEstablishmentV1_1"/></xs:sequence></xs:complexType><xs:element
+        name="EstablishmentsListResponseFragmentV1_1" nillable="true" type="tns:EstablishmentsListResponseFragmentV1_1"/><xs:complexType
+        name="JointCommiteesListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfJointCommitee"/></xs:sequence></xs:complexType><xs:element
+        name="JointCommiteesListResponseFragment" nillable="true" type="tns:JointCommiteesListResponseFragment"/><xs:complexType
+        name="SocialSecurityResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:SocialSecurityInformation"/></xs:sequence></xs:complexType><xs:element
+        name="SocialSecurityResponseFragment" nillable="true" type="tns:SocialSecurityResponseFragment"/><xs:complexType
+        name="ParticipationsListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfParticipation"/></xs:sequence></xs:complexType><xs:element
+        name="ParticipationsListResponseFragment" nillable="true" type="tns:ParticipationsListResponseFragment"/><xs:complexType
+        name="SocialSecuritySummonsListResponseFragment"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfRszPublication"/></xs:sequence></xs:complexType><xs:element
+        name="SocialSecuritySummonsListResponseFragment" nillable="true" type="tns:SocialSecuritySummonsListResponseFragment"/><xs:complexType
+        name="JudicialAgreementsListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfJudicialAgreement"/></xs:sequence></xs:complexType><xs:element
+        name="JudicialAgreementsListResponseFragment" nillable="true" type="tns:JudicialAgreementsListResponseFragment"/><xs:complexType
+        name="CuratorListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfCurator"/></xs:sequence></xs:complexType><xs:element
+        name="CuratorListResponseFragment" nillable="true" type="tns:CuratorListResponseFragment"/><xs:complexType
+        name="BankruptcyResponseFragment"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Value" type="tns:BankrupcyPublication"/></xs:sequence></xs:complexType><xs:element
+        name="BankruptcyResponseFragment" nillable="true" type="tns:BankruptcyResponseFragment"/><xs:complexType
+        name="PublicationsListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfPublication"/></xs:sequence></xs:complexType><xs:element
+        name="PublicationsListResponseFragment" nillable="true" type="tns:PublicationsListResponseFragment"/><xs:complexType
+        name="BookYearListResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" nillable="true" type="tns:ArrayOfBalans"/></xs:sequence></xs:complexType><xs:element
+        name="BookYearListResponseFragment" nillable="true" type="tns:BookYearListResponseFragment"/><xs:complexType
+        name="KycLinkedEntitiesResponseFragment"><xs:sequence><xs:element minOccurs="1"
+        maxOccurs="1" name="IsEnabled" type="xs:boolean"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Value" type="tns:KycLinkedEntities"/></xs:sequence></xs:complexType><xs:element
+        name="KycLinkedEntitiesResponseFragment" nillable="true" type="tns:KycLinkedEntitiesResponseFragment"/><xs:complexType
+        name="SearchResponseItem"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="VatNumber" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="CompanyName"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="Street" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="City" type="xs:string"/><xs:element minOccurs="1"
+        maxOccurs="1" name="IsActive" type="xs:boolean"/></xs:sequence></xs:complexType><xs:element
+        name="SearchResponseItem" nillable="true" type="tns:SearchResponseItem"/><xs:complexType
+        name="ChangeDate"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="DateOfChange"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="NumberOfChanges"
+        type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="Step2Token" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="ChangeDate" nillable="true" type="tns:ChangeDate"/><xs:complexType name="ChangedVat"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="DateOfChange" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="VatNumber" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Step3Token" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="ChangedVat" nillable="true" type="tns:ChangedVat"/><xs:complexType name="PreferredLanguages"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="UsesDutch" type="xs:boolean"/><xs:element
+        minOccurs="1" maxOccurs="1" name="UsesFrench" type="xs:boolean"/><xs:element
+        minOccurs="1" maxOccurs="1" name="UsesGerman" type="xs:boolean"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LanguageString" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="PreferredLanguages" nillable="true" type="tns:PreferredLanguages"/><xs:complexType
+        name="LegalForm"><xs:sequence><xs:element minOccurs="0" maxOccurs="1" name="Abbreviation"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="Code" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="LegalForm" nillable="true" type="tns:LegalForm"/><xs:complexType name="Address"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Street" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="HouseNumber" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="PostalCode" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="City" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CountryCode" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Line1" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="Line2"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="Address"
+        nillable="true" type="tns:Address"/><xs:complexType name="Status"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="Code" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Info" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="Status" nillable="true" type="tns:Status"/><xs:complexType name="Score"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="1" name="Info" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="ScoreImage" type="xs:string"/><xs:element minOccurs="1"
+        maxOccurs="1" name="ScoreAsInt" type="xs:int"/><xs:element minOccurs="1" maxOccurs="1"
+        name="ScoreAsDecimal" type="xs:decimal"/></xs:sequence></xs:complexType><xs:element
+        name="Score" nillable="true" type="tns:Score"/><xs:complexType name="CreditLimit"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="Limit" type="xs:decimal"/><xs:element minOccurs="1"
+        maxOccurs="1" name="Code" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Info" type="xs:string"/></xs:sequence></xs:complexType><xs:element name="CreditLimit"
+        nillable="true" type="tns:CreditLimit"/><xs:complexType name="PaymentExperience"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="PercentagePayedAfter0To30Days" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="PercentagePayedAfter30To60Days" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="PercentagePayedAfter60To90Days" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="PercentagePayedAfter90To120Days" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="PercentagePayedAfter120To160Days" type="xs:decimal"/><xs:element
+        minOccurs="1" maxOccurs="1" name="PercentagePayedAfter160DaysOrMore" type="xs:decimal"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Warning" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="ReportUrl" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="PaymentExperience" nillable="true" type="tns:PaymentExperience"/><xs:complexType
+        name="WarningsOverview"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="Warnings" type="tns:ArrayOfString"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Url" type="xs:string"/></xs:sequence></xs:complexType><xs:element name="WarningsOverview"
+        nillable="true" type="tns:WarningsOverview"/><xs:complexType name="ArrayOfManagement"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="unbounded" nillable="true" name="Management" type="tns:Management"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfManagement" nillable="true" type="tns:ArrayOfManagement"/><xs:complexType
+        name="ActivityV1_1"><xs:sequence><xs:element minOccurs="0" maxOccurs="1" name="Source"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Description" type="xs:string"/><xs:element
+        minOccurs="1" maxOccurs="1" name="IsMainCategory" type="xs:boolean"/></xs:sequence></xs:complexType><xs:element
+        name="ActivityV1_1" nillable="true" type="tns:ActivityV1_1"/><xs:complexType
+        name="ArrayOfActivityV1_1"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="ActivityV1_1" type="tns:ActivityV1_1"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfActivityV1_1" nillable="true" type="tns:ArrayOfActivityV1_1"/><xs:complexType
+        name="ArrayOfEstablishmentV1_1"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="EstablishmentV1_1" type="tns:EstablishmentV1_1"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfEstablishmentV1_1" nillable="true" type="tns:ArrayOfEstablishmentV1_1"/><xs:complexType
+        name="ArrayOfJointCommitee"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="JointCommitee" type="tns:JointCommitee"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfJointCommitee" nillable="true" type="tns:ArrayOfJointCommitee"/><xs:complexType
+        name="SocialSecurityInformation"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="RegistrationId" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="SocialSecurityInformation" nillable="true" type="tns:SocialSecurityInformation"/><xs:complexType
+        name="ArrayOfParticipation"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="Participation" type="tns:Participation"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfParticipation" nillable="true" type="tns:ArrayOfParticipation"/><xs:complexType
+        name="ArrayOfRszPublication"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="RszPublication" type="tns:RszPublication"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfRszPublication" nillable="true" type="tns:ArrayOfRszPublication"/><xs:complexType
+        name="ArrayOfJudicialAgreement"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="JudicialAgreement" type="tns:JudicialAgreement"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfJudicialAgreement" nillable="true" type="tns:ArrayOfJudicialAgreement"/><xs:complexType
+        name="ArrayOfCurator"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="Curator" type="tns:Curator"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfCurator" nillable="true" type="tns:ArrayOfCurator"/><xs:complexType
+        name="BankrupcyPublication"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="Griffie" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="Date"
+        type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="Reason" type="xs:string"/><xs:element
+        minOccurs="1" maxOccurs="1" name="ClaimsDate" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Info" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="BankrupcyPublication" nillable="true" type="tns:BankrupcyPublication"/><xs:complexType
+        name="ArrayOfPublication"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="Publication" type="tns:Publication"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfPublication" nillable="true" type="tns:ArrayOfPublication"/><xs:complexType
+        name="ArrayOfBalans"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="Balans" type="tns:Balans"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfBalans" nillable="true" type="tns:ArrayOfBalans"/><xs:complexType
+        name="KycLinkedEntities"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="Root" type="tns:KycLinkedCompany"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LinkedCompanies" nillable="true" type="tns:ArrayOfKycLinkedCompany"/><xs:element
+        minOccurs="0" maxOccurs="1" name="LinkedPersons" nillable="true" type="tns:ArrayOfKycLinkedPerson"/></xs:sequence></xs:complexType><xs:element
+        name="KycLinkedEntities" nillable="true" type="tns:KycLinkedEntities"/><xs:complexType
+        name="Management"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="FunctionCode"
+        type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="FunctionDescription"
+        type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="StartDate"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="EndDate" type="xs:int"/><xs:element
+        minOccurs="1" maxOccurs="1" name="CompanyVatNumber" type="xs:int"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyRepresentedBy" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="PersonName" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Type" type="xs:string"/><xs:element minOccurs="1"
+        maxOccurs="1" name="MandateId" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="Management" nillable="true" type="tns:Management"/><xs:complexType name="EstablishmentV1_1"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="EstablishmentNumber" type="xs:long"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Name" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Address" type="tns:Address"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Activities" type="tns:ActivityListResponseFragmentV1_1"/><xs:element
+        minOccurs="1" maxOccurs="1" name="StartDate" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="EstablishmentV1_1" nillable="true" type="tns:EstablishmentV1_1"/><xs:complexType
+        name="JointCommitee"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="Code" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="Description"
+        type="xs:string"/></xs:sequence></xs:complexType><xs:element name="JointCommitee"
+        nillable="true" type="tns:JointCommitee"/><xs:complexType name="Participation"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="VatNumber" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Name" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="CountryCode" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1"
+        name="NumberOfShares" type="xs:long"/><xs:element minOccurs="1" maxOccurs="1"
+        name="SharesPercentage" type="xs:decimal"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Subsidiaries" nillable="true" type="tns:ArrayOfParticipation"/></xs:sequence></xs:complexType><xs:element
+        name="Participation" nillable="true" type="tns:Participation"/><xs:complexType
+        name="RszPublication"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="PublicationDate" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Title" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="RszPublication" nillable="true" type="tns:RszPublication"/><xs:complexType
+        name="JudicialAgreement"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="Status" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1" name="StartDate"
+        type="xs:int"/><xs:element minOccurs="1" maxOccurs="1" name="EndDate" type="xs:int"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Griffie" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="JudicialAgreement" nillable="true" type="tns:JudicialAgreement"/><xs:complexType
+        name="Curator"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="AppointedDate"
+        type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Address" type="tns:Address"/><xs:element
+        minOccurs="0" maxOccurs="1" name="Fax" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Telephone" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Email" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="Curator" nillable="true" type="tns:Curator"/><xs:complexType name="Publication"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="Id" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Type" type="xs:string"/><xs:element minOccurs="1" maxOccurs="1"
+        name="PublicationDate" type="xs:int"/><xs:element minOccurs="0" maxOccurs="1"
+        name="Title" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="Language"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="PdfNumber"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="Url" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="Publication" nillable="true" type="tns:Publication"/><xs:complexType
+        name="Balans"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="BookYear"
+        type="xs:int"/><xs:element minOccurs="0" maxOccurs="1" name="BalansData" nillable="true"
+        type="tns:ArrayOfBalansData"/></xs:sequence></xs:complexType><xs:element name="Balans"
+        nillable="true" type="tns:Balans"/><xs:complexType name="KycLinkedCompany"><xs:sequence><xs:element
+        minOccurs="1" maxOccurs="1" name="Vat" type="xs:int"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Name" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LegalForm" type="tns:LegalForm"/><xs:element minOccurs="0" maxOccurs="1"
+        name="LinkType" type="xs:string"/><xs:element minOccurs="0" maxOccurs="1"
+        name="SharesPercentage" type="tns:KycSharesPercentage"/><xs:element minOccurs="0"
+        maxOccurs="1" name="SharesDate" type="tns:KycSharesDate"/></xs:sequence></xs:complexType><xs:element
+        name="KycLinkedCompany" nillable="true" type="tns:KycLinkedCompany"/><xs:complexType
+        name="ArrayOfKycLinkedCompany"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="KycLinkedCompany" type="tns:KycLinkedCompany"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfKycLinkedCompany" nillable="true" type="tns:ArrayOfKycLinkedCompany"/><xs:complexType
+        name="ArrayOfKycLinkedPerson"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="KycLinkedPerson" type="tns:KycLinkedPerson"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfKycLinkedPerson" nillable="true" type="tns:ArrayOfKycLinkedPerson"/><xs:complexType
+        name="ArrayOfBalansData"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded"
+        nillable="true" name="BalansData" type="tns:BalansData"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfBalansData" nillable="true" type="tns:ArrayOfBalansData"/><xs:complexType
+        name="KycSharesPercentage"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsAvailable" type="xs:boolean"/><xs:element nillable="true" minOccurs="1"
+        maxOccurs="1" name="Value" type="xs:decimal"/></xs:sequence></xs:complexType><xs:element
+        name="KycSharesPercentage" nillable="true" type="tns:KycSharesPercentage"/><xs:complexType
+        name="KycSharesDate"><xs:sequence><xs:element minOccurs="1" maxOccurs="1"
+        name="IsAvailable" type="xs:boolean"/><xs:element nillable="true" minOccurs="1"
+        maxOccurs="1" name="Value" type="xs:int"/></xs:sequence></xs:complexType><xs:element
+        name="KycSharesDate" nillable="true" type="tns:KycSharesDate"/><xs:complexType
+        name="KycLinkedPerson"><xs:sequence><xs:element minOccurs="0" maxOccurs="1"
+        name="Chain" nillable="true" type="tns:ArrayOfKycLink"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Firstname" type="xs:string"/><xs:element minOccurs="0"
+        maxOccurs="1" name="Lastname" type="xs:string"/><xs:element minOccurs="1"
+        maxOccurs="1" name="IsDuplicatePath" type="xs:boolean"/></xs:sequence></xs:complexType><xs:element
+        name="KycLinkedPerson" nillable="true" type="tns:KycLinkedPerson"/><xs:complexType
+        name="BalansData"><xs:sequence><xs:element minOccurs="0" maxOccurs="1" name="Key"
+        type="xs:string"/><xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string"/></xs:sequence></xs:complexType><xs:element
+        name="BalansData" nillable="true" type="tns:BalansData"/><xs:complexType name="ArrayOfKycLink"><xs:sequence><xs:element
+        minOccurs="0" maxOccurs="unbounded" nillable="true" name="KycLink" type="tns:KycLink"/></xs:sequence></xs:complexType><xs:element
+        name="ArrayOfKycLink" nillable="true" type="tns:ArrayOfKycLink"/><xs:complexType
+        name="KycLink"><xs:sequence><xs:element minOccurs="1" maxOccurs="1" name="Vat"
+        type="xs:int"/></xs:sequence></xs:complexType><xs:element name="KycLink" nillable="true"
+        type="tns:KycLink"/></xs:schema></wsdl:types><wsdl:message name="AlacarteServiceV1_3_GetCompanyByVat_InputMessage"><wsdl:part
+        name="parameters" element="tns:GetCompanyByVat"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_GetCompanyByVat_OutputMessage"><wsdl:part name="parameters"
+        element="tns:GetCompanyByVatResponse"/></wsdl:message><wsdl:message name="AlacarteServiceV1_3_SearchCompanies_InputMessage"><wsdl:part
+        name="parameters" element="tns:SearchCompanies"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_SearchCompanies_OutputMessage"><wsdl:part name="parameters"
+        element="tns:SearchCompaniesResponse"/></wsdl:message><wsdl:message name="AlacarteServiceV1_3_Alerts_Step1_GetChangeDates_InputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_Step1_GetChangeDates"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_Step1_GetChangeDates_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_Step1_GetChangeDatesResponse"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_Step2_GetVatList_InputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_Step2_GetVatList"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_Step2_GetVatList_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_Step2_GetVatListResponse"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_Step3_CompanyOnVat_InputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_Step3_CompanyOnVat"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_Step3_CompanyOnVat_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_Step3_CompanyOnVatResponse"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_AddCompany_InputMessage"><wsdl:part name="parameters"
+        element="tns:Alerts_AddCompany"/></wsdl:message><wsdl:message name="AlacarteServiceV1_3_Alerts_AddCompany_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_AddCompanyResponse"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_RemoveCompany_InputMessage"><wsdl:part name="parameters"
+        element="tns:Alerts_RemoveCompany"/></wsdl:message><wsdl:message name="AlacarteServiceV1_3_Alerts_RemoveCompany_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_RemoveCompanyResponse"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_AddListOfCompanies_InputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_AddListOfCompanies"/></wsdl:message><wsdl:message
+        name="AlacarteServiceV1_3_Alerts_AddListOfCompanies_OutputMessage"><wsdl:part
+        name="parameters" element="tns:Alerts_AddListOfCompaniesResponse"/></wsdl:message><wsdl:portType
+        name="AlacarteServiceV1_3"><wsdl:operation name="GetCompanyByVat"><wsdl:input
+        message="tns:AlacarteServiceV1_3_GetCompanyByVat_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_GetCompanyByVat_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="SearchCompanies"><wsdl:input message="tns:AlacarteServiceV1_3_SearchCompanies_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_SearchCompanies_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Alerts_Step1_GetChangeDates"><wsdl:input message="tns:AlacarteServiceV1_3_Alerts_Step1_GetChangeDates_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_Alerts_Step1_GetChangeDates_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Alerts_Step2_GetVatList"><wsdl:input message="tns:AlacarteServiceV1_3_Alerts_Step2_GetVatList_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_Alerts_Step2_GetVatList_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Alerts_Step3_CompanyOnVat"><wsdl:input message="tns:AlacarteServiceV1_3_Alerts_Step3_CompanyOnVat_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_Alerts_Step3_CompanyOnVat_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Alerts_AddCompany"><wsdl:input message="tns:AlacarteServiceV1_3_Alerts_AddCompany_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_Alerts_AddCompany_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Alerts_RemoveCompany"><wsdl:input message="tns:AlacarteServiceV1_3_Alerts_RemoveCompany_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_Alerts_RemoveCompany_OutputMessage"/></wsdl:operation><wsdl:operation
+        name="Alerts_AddListOfCompanies"><wsdl:input message="tns:AlacarteServiceV1_3_Alerts_AddListOfCompanies_InputMessage"/><wsdl:output
+        message="tns:AlacarteServiceV1_3_Alerts_AddListOfCompanies_OutputMessage"/></wsdl:operation></wsdl:portType><wsdl:binding
+        name="BasicHttpBinding_AlacarteServiceV1_3" type="tns:AlacarteServiceV1_3"><soap:binding
+        transport="http://schemas.xmlsoap.org/soap/http"/><wsdl:operation name="GetCompanyByVat"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/GetCompanyByVat"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="SearchCompanies"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/SearchCompanies"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Alerts_Step1_GetChangeDates"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/Alerts_Step1_GetChangeDates"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Alerts_Step2_GetVatList"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/Alerts_Step2_GetVatList"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Alerts_Step3_CompanyOnVat"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/Alerts_Step3_CompanyOnVat"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Alerts_AddCompany"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/Alerts_AddCompany"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Alerts_RemoveCompany"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/Alerts_RemoveCompany"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="Alerts_AddListOfCompanies"><soap:operation
+        soapAction="http://connect.companyweb.be/AlacarteServiceV1_3/Alerts_AddListOfCompanies"
+        style="document"/><wsdl:input><soap:body use="literal"/></wsdl:input><wsdl:output><soap:body
+        use="literal"/></wsdl:output></wsdl:operation></wsdl:binding><wsdl:service
+        name="AlacarteServiceV1_3"><wsdl:port name="BasicHttpBinding_AlacarteServiceV1_3"
+        binding="tns:BasicHttpBinding_AlacarteServiceV1_3"><soap:address location="https://connect.companyweb.be/V1.3/alacarteservice.asmx"/></wsdl:port></wsdl:service></wsdl:definitions>
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Tue, 23 Mar 2021 12:39:09 GMT
+      Server:
+      - Undisclosed
+      Strict-Transport-Security:
+      - max-age=31536000
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - ARR/3.0
+      content-length:
+      - '52036'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '<?xml version=''1.0'' encoding=''utf-8''?>
+
+      <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:GetCompanyByVat
+      xmlns:ns0="http://connect.companyweb.be/"><ns0:request><ns0:VatNumber>BE0405056855</ns0:VatNumber><ns0:Language>FR</ns0:Language><ns0:CompanyWebLogin>cwebtestlogin</ns0:CompanyWebLogin><ns0:CompanyWebPassword>cwebtestpassword</ns0:CompanyWebPassword><ns0:ServiceIntegrator>acsone</ns0:ServiceIntegrator><ns0:LoginHash>f6044cbfa65a16bb8496893c032e8b9c80fe145b</ns0:LoginHash></ns0:request></ns0:GetCompanyByVat></soap-env:Body></soap-env:Envelope>'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '586'
+      Content-Type:
+      - text/xml; charset=utf-8
+      SOAPAction:
+      - '"http://connect.companyweb.be/AlacarteServiceV1_3/GetCompanyByVat"'
+      User-Agent:
+      - Zeep/3.4.0 (www.python-zeep.org)
+    method: POST
+    uri: https://connect.companyweb.be/V1.3/alacarteservice.asmx
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><s:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body><GetCompanyByVatResponse
+        xmlns=\"http://connect.companyweb.be/\"><GetCompanyByVatResult xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><StatusCode>0</StatusCode><StatusMessage>Success</StatusMessage><CompanyResponse><MetaData><RemainingHits>249</RemainingHits></MetaData><PreferredLanguages><IsEnabled>true</IsEnabled><Value><UsesDutch>true</UsesDutch><UsesFrench>false</UsesFrench><UsesGerman>false</UsesGerman><LanguageString>nl</LanguageString></Value></PreferredLanguages><VatNumber><IsEnabled>true</IsEnabled><Value>405056855</Value></VatNumber><VatEnabled><IsEnabled>true</IsEnabled><Value>true</Value></VatEnabled><CompanyName><IsEnabled>true</IsEnabled><Value>Scheerders
+        van Kerchove's Verenigde Fabrieken</Value></CompanyName><CommercialName><IsEnabled>false</IsEnabled><Value/></CommercialName><ShortName><IsEnabled>false</IsEnabled><Value/></ShortName><LegalForm><IsEnabled>true</IsEnabled><Value><Abbreviation>SA</Abbreviation><Code>14</Code></Value></LegalForm><Address><IsEnabled>true</IsEnabled><Value><Street>Aerschotstraat</Street><HouseNumber>114</HouseNumber><PostalCode>9100</PostalCode><City>Sint-Niklaas</City><CountryCode>be</CountryCode><Line1>Aerschotstraat
+        114</Line1><Line2>9100 Sint-Niklaas</Line2></Value></Address><TelephoneNumber><IsEnabled>false</IsEnabled></TelephoneNumber><CompanyStatus><IsEnabled>true</IsEnabled><Value><Code>0</Code><Info>Actif</Info></Value></CompanyStatus><StartDate><IsEnabled>true</IsEnabled><Value>19280929</Value></StartDate><EndDate><IsEnabled>true</IsEnabled><Value>0</Value></EndDate><Score><IsEnabled>true</IsEnabled><Value><Info>score</Info><ScoreImage>pos-03.png</ScoreImage><ScoreAsInt>3</ScoreAsInt><ScoreAsDecimal>0.3</ScoreAsDecimal></Value></Score><CreditLimit><IsEnabled>true</IsEnabled><Value><Limit>1321000</Limit><Code>0</Code><Info/></Value></CreditLimit><PaymentExperience><IsEnabled>false</IsEnabled></PaymentExperience><WarningsOverview><IsEnabled>true</IsEnabled><Value><Warnings><string>Liquidit\xE9
+        au sens strict &lt; 0.65 (\xB02017) (\xB02018) (\xB02019)</string></Warnings><Url>https://www.companyweb.be/company/405056855/warnings</Url></Value></WarningsOverview><CurrentManagement><IsEnabled>false</IsEnabled></CurrentManagement><ExternalManagement><IsEnabled>false</IsEnabled></ExternalManagement><MainActivity><IsEnabled>false</IsEnabled></MainActivity><Activities><IsEnabled>false</IsEnabled></Activities><Establishments><IsEnabled>false</IsEnabled></Establishments><JointCommitees><IsEnabled>false</IsEnabled></JointCommitees><SocialSecurityInformation><IsEnabled>false</IsEnabled></SocialSecurityInformation><ParentCompanies><IsEnabled>false</IsEnabled></ParentCompanies><SubsidiaryCompanies><IsEnabled>false</IsEnabled></SubsidiaryCompanies><SocialSecuritySummons><IsEnabled>false</IsEnabled></SocialSecuritySummons><JudicialAgreements><IsEnabled>false</IsEnabled></JudicialAgreements><Curators><IsEnabled>false</IsEnabled></Curators><BankruptcyOpen><IsEnabled>false</IsEnabled></BankruptcyOpen><BankruptcyClose><IsEnabled>false</IsEnabled></BankruptcyClose><DetailUrl><IsEnabled>true</IsEnabled><Value>https://www.companyweb.be/company/405056855</Value></DetailUrl><ReportUrl><IsEnabled>true</IsEnabled><Value>https://reporting.companyweb.be/rappLoad.asp?lang=F&amp;login=ACSONESOAP&amp;vat=405056855&amp;key=12604a43a7fd63ee823752b8d9c2fd31</Value></ReportUrl><CustomReportUrl><IsEnabled>false</IsEnabled></CustomReportUrl><BalanceUrl><IsEnabled>false</IsEnabled><Value/></BalanceUrl><Publications><IsEnabled>false</IsEnabled></Publications><Balances><IsEnabled>true</IsEnabled><Value><Balans><BookYear>2019</BookYear><BalansData><BalansData><Key>CloseDate</Key><Value>2019-12-31</Value></BalansData><BalansData><Key>Rub10_15</Key><Value>23086258</Value></BalansData><BalansData><Key>Rub70</Key><Value>46825985</Value></BalansData><BalansData><Key>Rub9087</Key><Value>247.9</Value></BalansData><BalansData><Key>Rub9800</Key><Value>18226650</Value></BalansData><BalansData><Key>Rub9904</Key><Value>41206</Value></BalansData></BalansData></Balans></Value></Balances><KycLinkedEntities><IsEnabled>false</IsEnabled></KycLinkedEntities></CompanyResponse></GetCompanyByVatResult></GetCompanyByVatResponse></s:Body></s:Envelope>"
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Tue, 23 Mar 2021 12:39:09 GMT
+      Server:
+      - Undisclosed
+      Strict-Transport-Security:
+      - max-age=31536000
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - ARR/3.0
+      content-length:
+      - '4466'
+    status:
+      code: 200
+      message: OK
+version: 1
