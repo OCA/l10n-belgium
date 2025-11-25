@@ -6,7 +6,8 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form" />
         <field name="arch" type="xml">
-            <page name="account_security" position="after">
+            <!-- Note: Odoo 19 renamed account_security to page_security -->
+            <page name="page_security" position="after">
                 <page string="Companyweb" name="companyweb">
                     <group>
                         <group string="Credentials" name="credentials">
@@ -30,7 +31,8 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form_simple_modif" />
         <field name="arch" type="xml">
-            <page name="page_devices" position="after">
+            <!-- Note: Odoo 19 removed page_devices, using page_security instead -->
+            <page name="page_security" position="after">
                 <page string="Companyweb" name="companyweb">
                     <group>
                         <group string="Credentials" name="credentials">
