@@ -1,7 +1,8 @@
 # Copyright 2009-2022 Noviat.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests import Form
+from odoo.tests.common import TransactionCase
 
 
 class TestIntrastatBe(TransactionCase):
@@ -104,7 +105,7 @@ class TestIntrastatBe(TransactionCase):
                 "name": "NL B2B 2",
                 "country_id": nl.id,
                 "is_company": True,
-                "vat": "NL000000000B00",
+                "vat": "NL000000012B01",
                 "property_account_position_id": cls.fpos_b2b.id,
             }
         )

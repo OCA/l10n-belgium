@@ -7,7 +7,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from lxml import etree
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.exceptions import UserError
 
 from odoo.addons.report_xlsx_helper.report.report_xlsx_abstract import (
@@ -26,7 +26,7 @@ class IntrastatProductDeclaration(models.Model):
     def _get_region(self, inv_line, notedict):
         region = super()._get_region(inv_line, notedict)
         if self.company_country_code == "BE" and not region:
-            msg = _(
+            msg = self.env._(
                 "The Intrastat Region of the Company is not set, "
                 "please configure it first."
             )
@@ -126,7 +126,7 @@ class IntrastatProductDeclaration(models.Model):
                     }
                 )
                 return
-            msg = _(
+            msg = self.env._(
                 "Unable to determine the correct handling of Refund. "
                 "Please check/set the Intrastat Transaction Code on the Refund."
             )
@@ -191,7 +191,7 @@ class IntrastatProductDeclaration(models.Model):
             )
             if not hs_code:
                 msg = (
-                    _(
+                    self.env._(
                         "Intrastat Code '%s' not found. "
                         "\nYou can update your codes "
                         "via the module intrastat_product_hscodes_import."
@@ -242,7 +242,9 @@ class IntrastatProductDeclaration(models.Model):
         ):
             if not line[fld]:
                 raise UserError(
-                    _("Error while processing %(line)s:\nMissing '%(line_field)s'.")
+                    self.env._(
+                        "Error while processing %(line)s:\n" "Missing '%(line_field)s'."
+                    )
                     % {"line": line, "line_field": line._fields[fld].string}
                 )
         Item = etree.SubElement(parent, "Item")
