@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record
         id="l10n_be_intrastat_product_computation_line_view_form"
         model="ir.ui.view"
@@ -187,5 +186,4 @@
         action="l10n_be_intrastat_product_declaration_action"
         groups="group_l10n_be_intrastat_product"
     />
-
 </odoo>
