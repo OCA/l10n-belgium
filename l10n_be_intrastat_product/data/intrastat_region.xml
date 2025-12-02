@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo noupdate="1">
-
     <record id="intrastat_region_1" model="intrastat.region">
         <field name="code">1</field>
         <field name="name">Flemish region</field>
@@ -25,5 +24,4 @@
         <field name="country_id" ref="base.be" />
         <field name="description">Includes 19 districts</field>
     </record>
-
 </odoo>
