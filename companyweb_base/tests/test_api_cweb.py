@@ -36,15 +36,28 @@ class TestApiCweb(VCRMixin, TransactionCase):
 
         self._install_language("fr")
 
-        demo_user = self.env.ref("base.user_demo")
-        demo_user.cweb_login = os.environ.get("COMPANYWEB_TEST_LOGIN", "cwebtestlogin")
-        demo_user.cweb_password = os.environ.get(
-            "COMPANYWEB_TEST_PASSWORD", "cwebtestpassword"
+        # Create test user instead of using demo data
+        cweb_group = self.env.ref("companyweb_base.cweb_download")
+        contacts_group = self.env.ref("base.group_partner_manager")
+        user_group = self.env.ref("base.group_user")
+        test_user = self.env["res.users"].create(
+            {
+                "name": "Test User",
+                "login": "test_cweb_user",
+                "email": "test@example.com",
+                "group_ids": [
+                    Command.link(cweb_group.id),
+                    Command.link(contacts_group.id),
+                    Command.link(user_group.id),
+                ],
+                "cweb_login": os.environ.get("COMPANYWEB_TEST_LOGIN", "cwebtestlogin"),
+                "cweb_password": os.environ.get(
+                    "COMPANYWEB_TEST_PASSWORD", "cwebtestpassword"
+                ),
+            }
         )
-        group = self.env.ref("companyweb_base.cweb_download")
-        group.write({"users": [Command.link(demo_user.id)]})
 
-        Partner = self.env["res.partner"].with_user(demo_user)
+        Partner = self.env["res.partner"].with_user(test_user)
         self.p1 = Partner.create(
             {
                 "name": "Acsone SA",
