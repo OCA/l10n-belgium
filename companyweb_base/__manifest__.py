@@ -3,8 +3,7 @@
 {
     "name": "Companyweb",
     "summary": (
-        "Know who you are dealing with. "
-        "Enhance Odoo partner data from companyweb.be."
+        "Know who you are dealing with. Enhance Odoo partner data from companyweb.be."
     ),
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
