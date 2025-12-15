@@ -12,15 +12,15 @@ from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
-# Companyweb is ok with those key being visible on github
+# Companyweb is ok with those keys being visible on Github
 SERVICE_INTEGRATOR_ID = "acsone"
 SERVICE_INTEGRATOR_SECRET = "ECAB8ACF-9AE1-4E90-BD0D-05A1F47A3FE9"
 
 
-class CompanywebPartner(models.Model):
+class ResPartner(models.Model):
     _inherit = "res.partner"
     cweb_currency_id = fields.Many2one(
-        "res.currency", string="Companyweb currency", readonly=True
+        "res.currency", "Companyweb Currency", readonly=True
     )
     cweb_lastupdate = fields.Datetime("Companyweb Last Update", readonly=True)
     cweb_name = fields.Char("Companyweb Name", readonly=True)
@@ -39,22 +39,17 @@ class CompanywebPartner(models.Model):
     cweb_street = fields.Char("Companyweb Street", readonly=True)
     cweb_zip = fields.Char("Companyweb Postal code", readonly=True)
     cweb_city = fields.Char("Companyweb City", readonly=True)
-    cweb_country = fields.Many2one(
-        "res.country", string="Companyweb Country", readonly=True
-    )
+    cweb_country_id = fields.Many2one("res.country", "Companyweb Country", readonly=True)
     cweb_address_enable = fields.Boolean("Companyweb Address Enabled", readonly=True)
 
     cweb_creditLimit = fields.Float("Companyweb Credit limit", readonly=True)
     cweb_creditLimit_unset = fields.Boolean(
-        "Companyweb Credit limit Unset", readonly=True
+        "Companyweb Credit Limit Unset", readonly=True
     )
     cweb_creditLimit_enable = fields.Boolean(
-        "Companyweb Credit limit Enabled", readonly=True
+        "Companyweb Credit Limit Enabled", readonly=True
     )
     cweb_creditLimit_info = fields.Char("Companyweb Credit limit Info", readonly=True)
-    cweb_creditLimit_info_unset = fields.Boolean(
-        "Companyweb Credit limit Info Unset", readonly=True
-    )
 
     cweb_startDate = fields.Date("Companyweb Start Date", readonly=True)
     cweb_startDate_enable = fields.Boolean(
@@ -66,10 +61,9 @@ class CompanywebPartner(models.Model):
     cweb_score_enable = fields.Boolean("Companyweb Score Enabled", readonly=True)
 
     cweb_image_tag = fields.Html(
-        "Companyweb Barometer Image tag", compute="_compute_cweb_image", readonly=True
+        "Companyweb Barometer Image Tag", compute="_compute_cweb_image", readonly=True
     )
     cweb_image = fields.Char("Companyweb Barometer Image", readonly=True)
-    cweb_image_unset = fields.Boolean("Companyweb Barometer Image Unset", readonly=True)
 
     cweb_warnings = fields.Html("Companyweb Warnings", readonly=True)
     cweb_warnings_enable = fields.Boolean("Companyweb Warnings Enabled", readonly=True)
@@ -77,9 +71,9 @@ class CompanywebPartner(models.Model):
     cweb_url_enable = fields.Boolean(
         "Companyweb Detailed Report Enabled", readonly=True
     )
-    cweb_url_report = fields.Char("Companyweb Url Report", readonly=True)
+    cweb_url_report = fields.Char("Companyweb URL Report", readonly=True)
     cweb_url_report_enable = fields.Boolean(
-        "Companyweb Url Report Enabled", readonly=True
+        "Companyweb URL Report Enabled", readonly=True
     )
     cweb_vat_liable = fields.Boolean("Companyweb Subject to VAT", readonly=True)
     cweb_vat_liable_enable = fields.Boolean(
@@ -89,13 +83,7 @@ class CompanywebPartner(models.Model):
         "Companyweb Balance Data Enabled", readonly=True
     )
     cweb_balance_year = fields.Char("Companyweb Balance Year", readonly=True)
-    cweb_balance_year_unset = fields.Boolean(
-        "Companyweb Balance Year Unset", readonly=True
-    )
     cweb_closed_date = fields.Date("Companyweb Closed Date", readonly=True)
-    cweb_closed_date_unset = fields.Boolean(
-        "Companyweb Closed Date Unset", readonly=True
-    )
     cweb_equityCapital = fields.Float("Companyweb Equity Capital", readonly=True)
     cweb_equityCapital_unset = fields.Boolean(
         "Companyweb Equity Capital Unset", readonly=True
@@ -118,7 +106,7 @@ class CompanywebPartner(models.Model):
     cweb_result_unset = fields.Boolean(
         "Companyweb Fiscal Year Profit/Loss (+/-) Unset", readonly=True
     )
-    cweb_prefLang = fields.Many2one(
+    cweb_prefLang_id = fields.Many2one(
         "res.lang", string="Companyweb Preferred Language", readonly=True
     )
     cweb_prefLang_enable = fields.Boolean(
@@ -154,7 +142,7 @@ class CompanywebPartner(models.Model):
 
     @api.depends("is_company", "vat")
     def _compute_cweb_show_button_enhance(self):
-        """for the button to be show
+        """for the button to be shown
         the partner has to be a company and the partner.vat should be BE000000000"""
         for rec in self:
             if rec.is_company and rec.vat and rec.vat.startswith("BE"):
@@ -167,18 +155,18 @@ class CompanywebPartner(models.Model):
         "cweb_street",
         "cweb_zip",
         "cweb_city",
-        "cweb_country",
+        "cweb_country_id",
     )
     def _compute_cweb_show_button_address(self):
-        """for the button to be show
-        the partner has have cweb_address enabled and data for the address field"""
+        """for the button to be shown
+        the partner has to have cweb_address enabled and data for the address field"""
         for rec in self:
             if (
                 rec.cweb_address_enable
                 and rec.cweb_street
                 and rec.cweb_zip
                 and rec.cweb_city
-                and rec.cweb_country
+                and rec.cweb_country_id
             ):
                 rec.cweb_show_button_address = True
             else:
@@ -261,9 +249,9 @@ class CompanywebPartner(models.Model):
                 .with_context(active_test=False)
                 .search([("iso_code", "=", cweb_lang)])
             )
-            self.cweb_prefLang = lang
+            self.cweb_prefLang_id = lang
         else:
-            self.cweb_prefLang = None
+            self.cweb_prefLang_id = None
 
         self.cweb_companystatus_enable = cweb_response["CompanyStatus"]["IsEnabled"]
         cweb_has_companystatus_value = cweb_response["CompanyStatus"]["Value"]
@@ -288,14 +276,14 @@ class CompanywebPartner(models.Model):
             self.cweb_street = cweb_has_address_value["Line1"]
             self.cweb_zip = cweb_has_address_value["PostalCode"]
             self.cweb_city = cweb_has_address_value["City"]
-            self.cweb_country = self._cweb_get_country(
+            self.cweb_country_id = self._cweb_get_country(
                 cweb_has_address_value["CountryCode"]
             )
         else:
             self.cweb_street = None
             self.cweb_zip = None
             self.cweb_city = None
-            self.cweb_country = None
+            self.cweb_country_id = None
 
     def _cweb_populate_balans(self, cweb_response):
         self.cweb_balance_data_enable = cweb_response["Balances"]["IsEnabled"]
@@ -304,11 +292,10 @@ class CompanywebPartner(models.Model):
             currency = self.env["res.currency"].search([("name", "=", "EUR")])
             self.cweb_currency_id = currency
             self.cweb_balance_year = cweb_has_balance_value["Balans"][0]["BookYear"]
-            self.cweb_balance_year_unset = True
             balans_data = cweb_has_balance_value["Balans"][0]["BalansData"][
                 "BalansData"
             ]
-            for data in balans_data:
+            for data in balance_data:
                 if data["Key"] == "CloseDate":
                     try:
                         self.cweb_closed_date = datetime.strptime(
@@ -316,7 +303,6 @@ class CompanywebPartner(models.Model):
                         )
                     except ValueError:
                         self.cweb_closed_date = None
-                        self.cweb_closed_date_unset = False
                 if data["Key"] == "Rub10_15":
                     value = data["Value"]
                     self._cweb_set_equityCapital_data(value)
@@ -334,10 +320,10 @@ class CompanywebPartner(models.Model):
                     self._cweb_set_result_data(value)
 
         elif self.cweb_balance_data_enable and not cweb_has_balance_value:
-            self._cweb_unset_balans_date()
-            self._cweb_empty_balans_data()
+            self._cweb_unset_balance_data()
+            self._cweb_empty_balance_data()
         else:
-            self._cweb_empty_balans_data()
+            self._cweb_empty_balance_data()
 
     def _cweb_set_equityCapital_data(self, value):
         if value or value == 0:
@@ -374,15 +360,14 @@ class CompanywebPartner(models.Model):
         else:
             self.cweb_result_unset = False
 
-    def _cweb_unset_balans_date(self):
-        self.cweb_closed_date_unset = False
+    def _cweb_unset_balance_data(self):
         self.cweb_equityCapital_unset = False
         self.cweb_turnover_unset = False
         self.cweb_average_fte_unset = False
         self.cweb_addedValue_unset = False
         self.cweb_result_unset = False
 
-    def _cweb_empty_balans_data(self):
+    def _cweb_empty_balance_data(self):
         self.cweb_closed_date = False
         self.cweb_equityCapital = False
         self.cweb_turnover = False
@@ -438,14 +423,10 @@ class CompanywebPartner(models.Model):
             self.cweb_score = cweb_response["Score"]["Value"]["ScoreAsInt"]
             cweb_has_cweb_image_value = cweb_response["Score"]["Value"]["ScoreImage"]
             if cweb_has_cweb_image_value:
-                self.cweb_image_unset = True
                 self.cweb_image = cweb_response["Score"]["Value"]["ScoreImage"]
-            else:
-                self.cweb_image_unset = False
         else:
             self.cweb_score = None
             self.cweb_image = None
-            self.cweb_image_unset = False
 
     def _cweb_populate_data(self, cweb_response):
         self.cweb_creditLimit_enable = cweb_response["CreditLimit"]["IsEnabled"]
@@ -462,13 +443,9 @@ class CompanywebPartner(models.Model):
                 self.cweb_creditLimit_info = cweb_response["CreditLimit"]["Value"][
                     "Info"
                 ]
-                self.cweb_creditLimit_info_unset = True
-            else:
-                self.cweb_creditLimit_info_unset = False
         else:
             self.cweb_creditLimit = None
             self.cweb_creditLimit_info = None
-            self.cweb_creditLimit_info_unset = False
             self.cweb_creditLimit_unset = False
 
         self.cweb_warnings_enable = cweb_response["WarningsOverview"]["IsEnabled"]
@@ -491,6 +468,7 @@ class CompanywebPartner(models.Model):
         make the API CALL
         based on status make decision
         When status is ok -> populate fields"""
+        self.ensure_one()
         if not self.env.user.has_group("companyweb_base.cweb_download"):
             raise UserError(self.env._("Companyweb : You don't have access"))
         user_login = self.env.user.cweb_login
@@ -526,9 +504,10 @@ class CompanywebPartner(models.Model):
             )
 
         cweb_response = r["CompanyResponse"]
+        # values = self._cweb_parse(cweb_response)
         self._cweb_populate_general(cweb_response)
         self._cweb_populate_address(cweb_response)
-        self._cweb_populate_balans(cweb_response)
+        self._cweb_populate_balance(cweb_response)
         self._cweb_populate_url(cweb_response)
         self._cweb_populate_dates(cweb_response)
         self._cweb_populate_score(cweb_response)
@@ -540,7 +519,7 @@ class CompanywebPartner(models.Model):
         self.street = self.cweb_street
         self.city = self.cweb_city
         self.zip = self.cweb_zip
-        self.country_id = self.cweb_country
+        self.country_id = self.cweb_country_id
         self.street2 = None
         self.state_id = None
 

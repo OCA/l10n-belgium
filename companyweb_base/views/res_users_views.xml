@@ -6,7 +6,7 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form" />
         <field name="arch" type="xml">
-            <page name="account_security" position="after">
+            <notebook position="inside">
                 <page string="Companyweb" name="companyweb">
                     <group>
                         <group string="Credentials" name="credentials">
@@ -21,7 +21,7 @@
                         </group>
                     </group>
                 </page>
-            </page>
+            </notebook>
         </field>
     </record>
 
@@ -30,7 +30,7 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form_simple_modif" />
         <field name="arch" type="xml">
-            <page name="page_devices" position="after">
+            <notebook position="inside">
                 <page string="Companyweb" name="companyweb">
                     <group>
                         <group string="Credentials" name="credentials">
@@ -45,7 +45,7 @@
                         </group>
                     </group>
                 </page>
-            </page>
+            </notebook>
         </field>
     </record>
 </odoo>

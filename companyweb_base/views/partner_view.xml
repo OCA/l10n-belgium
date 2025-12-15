@@ -32,30 +32,7 @@
                         alt="Companyweb"
                         src="companyweb_base/static/img/logo-en.png"
                     />
-                    <field invisible="1" name="cweb_name_enable" />
-                    <field invisible="1" name="cweb_jur_form_enable" />
-                    <field invisible="1" name="cweb_companystatus_enable" />
                     <field invisible="1" name="cweb_companystatus_code" />
-                    <field invisible="1" name="cweb_address_enable" />
-                    <field invisible="1" name="cweb_creditLimit_enable" />
-                    <field invisible="1" name="cweb_creditLimit_info_unset" />
-                    <field invisible="1" name="cweb_startDate_enable" />
-                    <field invisible="1" name="cweb_endDate_enable" />
-                    <field invisible="1" name="cweb_score_enable" />
-                    <field invisible="1" name="cweb_image_unset" />
-                    <field invisible="1" name="cweb_warnings_enable" />
-                    <field invisible="1" name="cweb_url_enable" />
-                    <field invisible="1" name="cweb_url_report_enable" />
-                    <field invisible="1" name="cweb_vat_liable_enable" />
-                    <field invisible="1" name="cweb_balance_data_enable" />
-                    <field invisible="1" name="cweb_balance_year_unset" />
-                    <field invisible="1" name="cweb_closed_date_unset" />
-                    <field invisible="1" name="cweb_equityCapital_unset" />
-                    <field invisible="1" name="cweb_average_fte_unset" />
-                    <field invisible="1" name="cweb_addedValue_unset" />
-                    <field invisible="1" name="cweb_turnover_unset" />
-                    <field invisible="1" name="cweb_result_unset" />
-                    <field invisible="1" name="cweb_prefLang_enable" />
                     <field invisible="1" name="cweb_currency_id" />
                     <group name="cweb_group_mail">
                         <group
@@ -79,8 +56,8 @@
                                 string="Name"
                             />
                             <field
-                                invisible="not cweb_prefLang_enable or not cweb_prefLang"
-                                name="cweb_prefLang"
+                                invisible="not cweb_prefLang_enable or not cweb_prefLang_id"
+                                name="cweb_prefLang_id"
                                 options="{'no_open': True}"
                                 string="Preferred languages"
                             />
@@ -131,7 +108,7 @@
                                 />
                                 <field
                                     class="o_address_country"
-                                    name="cweb_country"
+                                    name="cweb_country_id"
                                     options="{'no_open': True}"
                                     readonly="type == 'contact' and not parent_id"
                                 />
@@ -157,12 +134,12 @@
                     <group name="cweb_group_bottom">
                         <group name="cweb_financial">
                             <field
-                                invisible="not cweb_balance_year_unset"
+                                invisible="not cweb_balance_year"
                                 name="cweb_balance_year"
                                 string="Book year"
                             />
                             <field
-                                invisible="not cweb_closed_date_unset"
+                                invisible="not cweb_closed_date"
                                 name="cweb_closed_date"
                                 string="Closing date of the book year"
                             />
@@ -208,7 +185,7 @@
                         <!-- end of group financial -->
                         <group name="cweb_group_barometer">
                             <field
-                                invisible="not cweb_image_unset"
+                                invisible="not cweb_image"
                                 name="cweb_image_tag"
                                 string="Health barometer"
                             />
@@ -222,7 +199,7 @@
                             />
                             <field
                                 decoration-danger="cweb_creditLimit == 0"
-                                invisible="not cweb_creditLimit_info_unset"
+                                invisible="not cweb_creditLimit_info"
                                 name="cweb_creditLimit_info"
                                 string="Credit limit Info"
                             />
