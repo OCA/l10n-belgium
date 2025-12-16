@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.companyweb</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90" />
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app
+                    data-string="Companyweb"
+                    string="Companyweb"
+                    name="companyweb_base"
+                    groups="companyweb_base.cweb_download"
+                >
+                    <block title="Credentials" name="companyweb_credentials">
+                        <setting
+                            id="companyweb_credentials"
+                            help="Get a subscription from Companyweb and fill in your credentials."
+                            company_dependent="1"
+                        >
+                            <group>
+                                <field name="cweb_login" string="Login" />
+                                <field
+                                    name="cweb_password"
+                                    string="Password"
+                                    password="True"
+                                />
+                            </group>
+                        </setting>
+                    </block>
+                    <block title="Data" name="companyweb_data_settings">
+                        <setting
+                            string="Copy Data"
+                            help="Choose which contact fields should be filled with Companyweb data."
+                            company_dependent="1"
+                        >
+                            <group>
+                                <group>
+                                    <field name="fill_cweb_name" string="Name" />
+                                    <field
+                                        name="fill_cweb_commercial_name"
+                                        string="Commercial Name"
+                                    />
+                                    <field name="fill_cweb_street" string="Street" />
+                                    <field name="fill_cweb_zip" string="ZIP" />
+                                    <field name="fill_cweb_city" string="City" />
+                                    <field
+                                        name="fill_cweb_country_id"
+                                        string="Country"
+                                    />
+                                </group>
+                                <group>
+                                    <field name="fill_cweb_email" string="Email" />
+                                    <field name="fill_cweb_phone" string="Phone" />
+                                    <field name="fill_cweb_website" string="Website" />
+                                    <field name="fill_cweb_vat" string="VAT" />
+                                    <field
+                                        name="fill_cweb_registry"
+                                        string="Company ID"
+                                    />
+                                </group>
+                            </group>
+                        </setting>
+                    </block>
+                    <block title="Followup" name="companyweb_followup_settings">
+                        <setting
+                            id="companyweb_followup_enable"
+                            help="Keep your contact data in sync with Companyweb. Click 'Add to Companyweb Alerts' on Partner's Companyweb tab or in contacts action menu."
+                            company_dependent="1"
+                        >
+                            <field name="companyweb_followup_enable" />
+                            <div
+                                class="alert alert-warning mt-3"
+                                role="alert"
+                                invisible="not companyweb_followup_enable"
+                            >
+                                <i class="fa fa-warning me-2" />
+                                <span
+                                >Once a contact is added to the watch list, it cannot be removed again. Approach Companyweb for removal.</span>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_companyweb_config" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">main</field>
+        <field name="context">{'module' : 'companyweb_base', 'bin_size': False}</field>
+    </record>
+
+    <menuitem
+        id="menu_companyweb_settings"
+        parent="contacts.res_partner_menu_config"
+        name="Companyweb"
+        action="action_companyweb_config"
+        groups="companyweb_base.cweb_download"
+        sequence="0"
+    />
+</odoo>

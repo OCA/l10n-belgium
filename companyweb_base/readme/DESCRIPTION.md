@@ -1,27 +1,31 @@
-www.companyweb.be
+Know exactly who you are doing business with
+============================================
 
-Companyweb is the expert in company information in Belgium.
+The Companyweb app for Odoo offers direct access to accurate, up-to-date and reliable business data on companies in Belgium, the Netherlands and Luxembourg.
+Gain valuable insights into the financial health, payment capacity, stability, and other crucial factors of your customers, prospects, and suppliers.
+This user-friendly solution supports customer knowledge, risk analysis and credit management directly within your Odoo environment.
 
-This app provides insights into the financial health of Belgian
-companies, directly from the Odoo Customer view.
+------------
+Key Features
+------------
 
-Enhance the Odoo partner with Companyweb data, with one click:
+Instantly create and enrich your Odoo partners with trusted Companyweb data
+---------------------------------------------------------------------------
 
-  - Name and address
-  - Status
-  - Health barometer
-  - Credit limit
-  - Bankruptcy risk warnings
-  - Key financial information (turnover, gross margin, profit/loss…)
-  - etc
+Create new contacts in seconds by entering a company name, VAT, or registration number, and enrich existing records with a single click using the Companyweb button. Save hours of manual verification and avoid data entry errors and inconsistencies.
+Financial health assessment
+Quickly evaluate the financial health of companies with key indicators such as company status, financial risk indicators, credit limit, health barometer, and other crucial financial figures.
 
-Copy the address from Companyweb to your Odoo partner address.
+Alerts Service
+--------------
 
-With this valuable information you can personally evaluate each company
-and know who you are doing business with.
+Keep your company records consistently updated. Never miss a change of address, a decrease in credit limit, financial warnings, or other critical updates.
 
-Try for free and get your credentials here:
-www.companyweb.be/integrations/37/odoo
+Coverage across Belgium, the Netherlands and Luxembourg
+-------------------------------------------------------
+Access reliable company information for companies operating in the Benelux region.
 
-Want to know how fast companies pay their invoices? Then also install
-the second module from Companyweb: payment experience.
+
+Payment Behavior Insights
+-------------------------
+Gain insights into how companies pay their suppliers and make smarter credit and risk decisions.

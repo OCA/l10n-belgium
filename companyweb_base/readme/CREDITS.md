@@ -11,7 +11,7 @@ the new Companyweb SOAP api. This development has been funded by
   - Companyweb \<<info@companyweb.be>\>
   - Katrien Billen \<<katrien@companyweb.be>\>
 
-In 2025, the migration to v19, together with new features backported to v17 and v18, have been funded by
+In 2025, the migration to v19, the migration to the SOAP API v2 together with new features, have been funded by
 [Companyweb](https://www.companyweb.be).
 
   - Companyweb \<<info@companyweb.be>\>

@@ -7,8 +7,8 @@ class CompanyWebCredentialWizardAbstract(models.AbstractModel):
     _name = "companyweb_base.credential_wizard_abstract"
     _description = "Ask for Companyweb login & password"
 
-    cweb_login = fields.Char("Companyweb Login", required=True)
-    cweb_password = fields.Char("Companyweb Password", required=True)
+    cweb_login = fields.Char("Login", required=True)
+    cweb_password = fields.Char("Password", required=True)
 
     def _return_action(self):
         return True
@@ -18,6 +18,7 @@ class CompanyWebCredentialWizardAbstract(models.AbstractModel):
         save information given in the form to the logged-in user
         """
         self.ensure_one()
-        self.env.user.cweb_login = self.cweb_login
-        self.env.user.cweb_password = self.cweb_password
+        company_sudo = self.env.company.sudo()
+        company_sudo.cweb_login = self.cweb_login
+        company_sudo.cweb_password = self.cweb_password
         return self._return_action()

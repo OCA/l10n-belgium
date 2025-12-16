@@ -1,538 +1,819 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-import html
 import logging
 from datetime import datetime
-from hashlib import sha1
+from uuid import uuid4
 
-import zeep
+from odoo import api, exceptions, fields, models, tools
 
-from odoo import api, fields, models, tools
-from odoo.exceptions import UserError
+from ..cweb_const import (
+    ADDRESS_FIELDS,
+    ALLOWED_COUNTRY_CODES,
+    DATE_FIELDS,
+    FILL_FIELD_MAP,
+    FLOAT_FIELDS,
+)
+from ..cweb_format import (
+    format_date,
+    format_float_value,
+    format_industry,
+    format_liable_party,
+    format_warnings,
+    get_country_id,
+    get_currency_id,
+    get_lang_id,
+)
+from ..cweb_utils import (
+    cweb_get,
+    cweb_push,
+    cweb_sync,
+    get_all_enable_fields,
+    get_balance_values,
+    get_country_code_from_vat,
+    get_data_values,
+    get_nested_values,
+)
+
+CWEB_FIELD_ARGS = {"readonly": True, "copy": False}
+CWEB_SYNC_STATUS_NONE = "none"
+CWEB_SYNC_STATUS_PENDING = "pending"
+CWEB_SYNC_STATUS_ACTIVE = "active"
 
 _logger = logging.getLogger(__name__)
-
-# Companyweb is ok with those keys being visible on Github
-SERVICE_INTEGRATOR_ID = "acsone"
-SERVICE_INTEGRATOR_SECRET = "ECAB8ACF-9AE1-4E90-BD0D-05A1F47A3FE9"
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
-    cweb_currency_id = fields.Many2one(
-        "res.currency", "Companyweb Currency", readonly=True
-    )
-    cweb_lastupdate = fields.Datetime("Companyweb Last Update", readonly=True)
-    cweb_name = fields.Char("Companyweb Name", readonly=True)
-    cweb_name_enable = fields.Boolean("Companyweb Name Enabled", readonly=True)
-    cweb_jur_form = fields.Char("Companyweb Juridical Form", readonly=True)
-    cweb_jur_form_enable = fields.Boolean(
-        "Companyweb Juridical Form Enabled", readonly=True
-    )
-    cweb_companystatus = fields.Char("Companyweb Company Status", readonly=True)
-    cweb_companystatus_code = fields.Char(
-        "Companyweb Company StatusCode", readonly=True
-    )
-    cweb_companystatus_enable = fields.Boolean(
-        "Companyweb Company Status Enabled", readonly=True
-    )
-    cweb_street = fields.Char("Companyweb Street", readonly=True)
-    cweb_zip = fields.Char("Companyweb Postal code", readonly=True)
-    cweb_city = fields.Char("Companyweb City", readonly=True)
-    cweb_country_id = fields.Many2one("res.country", "Companyweb Country", readonly=True)
-    cweb_address_enable = fields.Boolean("Companyweb Address Enabled", readonly=True)
 
-    cweb_creditLimit = fields.Float("Companyweb Credit limit", readonly=True)
-    cweb_creditLimit_unset = fields.Boolean(
-        "Companyweb Credit Limit Unset", readonly=True
+    # System data
+    cweb_lastupdate = fields.Datetime("Last Update", **CWEB_FIELD_ARGS)
+    cweb_error = fields.Char(
+        "Error", help="Error when enhancing contact with Companyweb"
     )
-    cweb_creditLimit_enable = fields.Boolean(
-        "Companyweb Credit Limit Enabled", readonly=True
-    )
-    cweb_creditLimit_info = fields.Char("Companyweb Credit limit Info", readonly=True)
 
-    cweb_startDate = fields.Date("Companyweb Start Date", readonly=True)
-    cweb_startDate_enable = fields.Boolean(
-        "Companyweb Start Date Enabled", readonly=True
+    # Cweb main data fields (in main response of API, comes with _enable field)
+    cweb_name_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_name = fields.Char(
+        "Companyweb Name",
+        **CWEB_FIELD_ARGS,
+        help="The official company name, for example 'Nationale Maatschappij Der "
+        "Belgisch Spoorwegen' or 'Plopsa'.",
     )
-    cweb_endDate = fields.Date("Companyweb End Date", readonly=True)
-    cweb_endDate_enable = fields.Boolean("Companyweb End date Enabled", readonly=True)
-    cweb_score = fields.Char("Companyweb Score", readonly=True)
-    cweb_score_enable = fields.Boolean("Companyweb Score Enabled", readonly=True)
-
-    cweb_image_tag = fields.Html(
-        "Companyweb Barometer Image Tag", compute="_compute_cweb_image", readonly=True
+    cweb_commercial_name_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_commercial_name = fields.Char(
+        "Companyweb Commercial Name",
+        **CWEB_FIELD_ARGS,
+        help="Commercial company name, for example 'Plopsa Coo'",
     )
-    cweb_image = fields.Char("Companyweb Barometer Image", readonly=True)
-
-    cweb_warnings = fields.Html("Companyweb Warnings", readonly=True)
-    cweb_warnings_enable = fields.Boolean("Companyweb Warnings Enabled", readonly=True)
-    cweb_url = fields.Char("Companyweb Detailed Report", readonly=True)
-    cweb_url_enable = fields.Boolean(
-        "Companyweb Detailed Report Enabled", readonly=True
+    cweb_jur_form_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_jur_form = fields.Char(
+        "Legal Form",
+        **CWEB_FIELD_ARGS,
+        help="Legal form of the company, such as 'NV', 'SA', 'NP' etc.",
     )
-    cweb_url_report = fields.Char("Companyweb URL Report", readonly=True)
-    cweb_url_report_enable = fields.Boolean(
-        "Companyweb URL Report Enabled", readonly=True
+    cweb_vat_liable_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_vat_liable = fields.Boolean(
+        "Subject to VAT",
+        **CWEB_FIELD_ARGS,
+        help="Is the company subject to VAT or not",
     )
-    cweb_vat_liable = fields.Boolean("Companyweb Subject to VAT", readonly=True)
-    cweb_vat_liable_enable = fields.Boolean(
-        "Companyweb Subject to VAT Enabled", readonly=True
+    cweb_vat_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_vat = fields.Char(
+        "Companyweb VAT",
+        **CWEB_FIELD_ARGS,
+        help="Company VAT number",
     )
-    cweb_balance_data_enable = fields.Boolean(
-        "Companyweb Balance Data Enabled", readonly=True
-    )
-    cweb_balance_year = fields.Char("Companyweb Balance Year", readonly=True)
-    cweb_closed_date = fields.Date("Companyweb Closed Date", readonly=True)
-    cweb_equityCapital = fields.Float("Companyweb Equity Capital", readonly=True)
-    cweb_equityCapital_unset = fields.Boolean(
-        "Companyweb Equity Capital Unset", readonly=True
-    )
-    cweb_average_fte = fields.Float(
-        "Companyweb Average number of staff in FTE", readonly=True
-    )
-    cweb_average_fte_unset = fields.Boolean(
-        "Companyweb Average number of staff in FTE Unset", readonly=True
-    )
-    cweb_addedValue = fields.Float("Companyweb Gross Margin (+/-)", readonly=True)
-    cweb_addedValue_unset = fields.Boolean(
-        "Companyweb Gross Margin (+/-) Unset", readonly=True
-    )
-    cweb_turnover = fields.Float("Companyweb Turnover", readonly=True)
-    cweb_turnover_unset = fields.Boolean("Companyweb Turnover Unset", readonly=True)
-    cweb_result = fields.Float(
-        "Companyweb Fiscal Year Profit/Loss (+/-)", readonly=True
-    )
-    cweb_result_unset = fields.Boolean(
-        "Companyweb Fiscal Year Profit/Loss (+/-) Unset", readonly=True
-    )
+    cweb_prefLang_enable = fields.Boolean(**CWEB_FIELD_ARGS)
     cweb_prefLang_id = fields.Many2one(
-        "res.lang", string="Companyweb Preferred Language", readonly=True
+        "res.lang",
+        string="Preferred Language",
+        **CWEB_FIELD_ARGS,
+        help="Preferred languages for communication, based on publication languages, "
+        "among other factors.",
     )
-    cweb_prefLang_enable = fields.Boolean(
-        "Companyweb Preferred Language Enabled", readonly=True
+    cweb_registry_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_registry = fields.Char(
+        "Company Registry",
+        **CWEB_FIELD_ARGS,
+        help="The official registration number of a company. \n"
+        "• Belgium: KBO, BCE, CBE\n"
+        "• Netherlands: KvK\n"
+        "• Luxemburg: RCS",
+    )
+    cweb_country_code_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_country_code = fields.Char(
+        "Companyweb Country Code",
+        **CWEB_FIELD_ARGS,
+        help="The official code of Belgium, The Netherlands and Luxembourg",
+    )
+    cweb_main_industry_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_main_industry = fields.Char(
+        "Main Industry",
+        **CWEB_FIELD_ARGS,
+        help="The main activity of this company (NACE)",
+    )
+    cweb_industries_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_industries = fields.Text(
+        "Other Activities",
+        **CWEB_FIELD_ARGS,
+        help="A list of the declared activities (NACE)",
+    )
+    cweb_email_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_email = fields.Char("Companyweb Email", **CWEB_FIELD_ARGS)
+    cweb_website_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_website = fields.Char("Companyweb Website", **CWEB_FIELD_ARGS)
+    cweb_phone_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_phone = fields.Char("Companyweb Phone", **CWEB_FIELD_ARGS)
+    cweb_peppol_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_peppol = fields.Boolean(
+        "Registered on Peppol",
+        **CWEB_FIELD_ARGS,
+        help="A PEPPOL ID is a unique identification code used within the PEPPOL "
+        "network for electronic communication, enabling standardized invoicing, "
+        "ordering, and reporting in compliance with EU regulations.",
+    )
+    cweb_sync_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_sync = fields.Boolean(
+        "In Alerts",
+        **CWEB_FIELD_ARGS,
+        help="Partner is being synchronized with Companyweb. To remove from alerts, "
+        "please contact Companyweb.",
+    )
+    cweb_sync_reference = fields.Char(
+        **CWEB_FIELD_ARGS,
+        index="btree_not_null",
+        help="Identifies the record from Odoo with the one saved in the Alerts list at "
+        "Companyweb",
     )
 
-    cweb_show_button_enhance = fields.Boolean(
-        "Companyweb Button Enhance Enabled", compute="_compute_cweb_show_button_enhance"
+    # NL specific fields
+    cweb_rsin_number_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_rsin_number = fields.Char(
+        "Companyweb RSIN",
+        **CWEB_FIELD_ARGS,
+        help="RSIN: 'Rechtspersonen en Samenwerkingsverbanden "
+        "Informatienummer' is used to exchange data with other government "
+        "organisations, such as the Netherlands Tax Administration. "
+        "(Netherlands only)",
     )
+    cweb_liable_party_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_liable_party = fields.Text(
+        "Liable Party",
+        **CWEB_FIELD_ARGS,
+        help="A 403 declaration is a liability statement in which the parent company "
+        "accepts joint and several liability for the debts of its subsidiary. "
+        "As a result, the subsidiary is not required; to publish its own annual "
+        "accounts its figures are included in the consolidated financial "
+        "statements of the parent company. (Netherlands only)",
+    )
+
+    # Cweb nested data fields (nested in a main data field of the response)
+    cweb_currency_id = fields.Many2one(
+        "res.currency", "Companyweb Currency", **CWEB_FIELD_ARGS
+    )
+
+    # Companystatus
+    cweb_companystatus_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_companystatus = fields.Char(
+        "Companyweb Status",
+        **CWEB_FIELD_ARGS,
+        help="Whether a company is active or not",
+    )
+    cweb_companystatus_code = fields.Char(
+        "Companyweb Company StatusCode", **CWEB_FIELD_ARGS
+    )
+
+    # Address
+    cweb_address_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_street = fields.Char(
+        "Companyweb Street",
+        **CWEB_FIELD_ARGS,
+        help="Address of the registered office or headquarters",
+    )
+    cweb_zip = fields.Char("Companyweb Postal code", **CWEB_FIELD_ARGS)
+    cweb_city = fields.Char("Companyweb City", **CWEB_FIELD_ARGS)
+    cweb_country_code_address = fields.Char("Address Country Code", **CWEB_FIELD_ARGS)
+    cweb_country_id = fields.Many2one(
+        "res.country", "Companyweb Country", **CWEB_FIELD_ARGS
+    )
+
+    # Credit limit
+    cweb_creditLimit_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_creditLimit = fields.Monetary(
+        "Companyweb Credit Limit", currency_field="cweb_currency_id", **CWEB_FIELD_ARGS
+    )
+    cweb_creditLimit_unset = fields.Boolean(
+        "Companyweb Credit Limit Unset", **CWEB_FIELD_ARGS
+    )
+    cweb_creditLimit_info = fields.Char("Credit Limit Info", **CWEB_FIELD_ARGS)
+    cweb_warnings_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_warnings = fields.Text(
+        "Warnings",
+        **CWEB_FIELD_ARGS,
+        help="Financial warning signs about the company",
+    )
+
+    # Balance
+    cweb_startDate_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_startDate = fields.Date(
+        "Established", **CWEB_FIELD_ARGS, help="Date of establishment of the company"
+    )
+    cweb_endDate_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_endDate = fields.Date(
+        "End Date",
+        **CWEB_FIELD_ARGS,
+        help="Date at which the company stopped its activity",
+    )
+    cweb_score_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_score = fields.Char(
+        "Companyweb Score",
+        **CWEB_FIELD_ARGS,
+        help="The Companyweb health barometer",
+    )
+    cweb_image = fields.Char("Companyweb Barometer Image", **CWEB_FIELD_ARGS)
+    cweb_balance_data_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_balance_year = fields.Char("Book Year", **CWEB_FIELD_ARGS)
+    cweb_closed_date = fields.Date("To Date", **CWEB_FIELD_ARGS)
+    cweb_equityCapital = fields.Float("Equity", **CWEB_FIELD_ARGS)
+    cweb_equityCapital_unset = fields.Boolean(
+        "Companyweb Equity Capital Unset", **CWEB_FIELD_ARGS
+    )
+    cweb_average_fte = fields.Float("Average number of staff in FTE", **CWEB_FIELD_ARGS)
+    cweb_average_fte_unset = fields.Boolean(
+        "Companyweb Average number of staff in FTE Unset", **CWEB_FIELD_ARGS
+    )
+    cweb_addedValue = fields.Float("Profit/Loss of the Book Year", **CWEB_FIELD_ARGS)
+    cweb_addedValue_unset = fields.Boolean(
+        "Companyweb Gross Margin (+/-) Unset", **CWEB_FIELD_ARGS
+    )
+    cweb_turnover = fields.Float("Turnover", **CWEB_FIELD_ARGS)
+    cweb_turnover_unset = fields.Boolean("Companyweb Turnover Unset", **CWEB_FIELD_ARGS)
+    cweb_result = fields.Float("Gross Margin", **CWEB_FIELD_ARGS)
+    cweb_result_unset = fields.Boolean("Gross Margin Unset", **CWEB_FIELD_ARGS)
+
+    # Reports
+    cweb_url_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_url = fields.Char(
+        "Details",
+        **CWEB_FIELD_ARGS,
+        help="Further details about this company on companyweb.be",
+    )
+    cweb_url_report_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_url_report = fields.Char(
+        "Commercial Report",
+        **CWEB_FIELD_ARGS,
+        help="Detailed report about this company on companyweb.be",
+    )
+    cweb_url_payment_experience_enable = fields.Boolean(**CWEB_FIELD_ARGS)
+    cweb_url_payment_experience = fields.Char(
+        "Payment Experience",
+        **CWEB_FIELD_ARGS,
+        help="A link to the payment experience report on companyweb.be",
+    )
+
+    # Helper fields
     cweb_show_button_address = fields.Boolean(
         "Companyweb Button Address Enabled", compute="_compute_cweb_show_button_address"
     )
     cweb_show_tab = fields.Boolean(
         "Companyweb Tab Enabled", compute="_compute_cweb_cweb_show_tab"
     )
+    cweb_show_button_enhance = fields.Boolean(
+        "Companyweb Button Enhance Enabled", compute="_compute_cweb_show_button_enhance"
+    )
+    cweb_image_tag = fields.Html(
+        "Health Barometer",
+        compute="_compute_cweb_image_tag",
+    )
+
+    # Config fields
+    companyweb_followup_enable = fields.Boolean(
+        compute="_compute_companyweb_followup_enable"
+    )
+    companyweb_sync_status = fields.Selection(
+        [
+            (CWEB_SYNC_STATUS_NONE, "None"),
+            (CWEB_SYNC_STATUS_PENDING, "Pending"),
+            (CWEB_SYNC_STATUS_ACTIVE, "Active"),
+        ],
+        "Alert Status",
+        default=CWEB_SYNC_STATUS_NONE,
+        readonly=True,
+        copy=False,
+    )
+
+    @api.depends_context("company")
+    @api.depends("company_id")
+    def _compute_companyweb_followup_enable(self):
+        env_company = self.env.company
+        for partner in self:
+            company = partner.company_id or env_company
+            partner.companyweb_followup_enable = company.companyweb_followup_enable
+
+    @api.depends("is_company", "vat", "country_id")
+    def _compute_cweb_show_button_enhance(self):
+        """
+        Show button for type company if VAT starts with valid country code
+        or valid country is set
+        """
+        for rec in self:
+            rec.cweb_show_button_enhance = bool(
+                rec.is_company
+                and (
+                    not rec.country_id
+                    or (rec.vat and get_country_code_from_vat(rec.vat))
+                    or rec.country_id.code in ALLOWED_COUNTRY_CODES
+                )
+            )
 
     @api.depends("cweb_image")
-    def _compute_cweb_image(self):
+    def _compute_cweb_image_tag(self):
         for rec in self:
+            cweb_image_tag = None
             if rec.cweb_image:
-                img_url = tools.misc.file_path(
-                    f"companyweb_base/static/img/cweb_barometer/{rec.cweb_image}"
-                )
-                if img_url:
-                    img_url = (
-                        f"/companyweb_base/static/img/cweb_barometer/{rec.cweb_image}"
-                    )
-                    rec.cweb_image_tag = f'<img src="{img_url}"/>'
-                else:
-                    rec.cweb_image_tag = None
-            else:
-                rec.cweb_image_tag = None
+                path = f"companyweb_base/static/img/cweb_barometer/{rec.cweb_image}"
+                try:
+                    tools.misc.file_path(path)
+                    cweb_image_tag = f'<img class="img-fluid" src="/{path}"/>'
+                except FileNotFoundError:
+                    _logger.warning("File not found: %s", path)
+            rec.cweb_image_tag = cweb_image_tag
 
-    @api.depends("is_company", "vat")
-    def _compute_cweb_show_button_enhance(self):
-        """for the button to be shown
-        the partner has to be a company and the partner.vat should be BE000000000"""
-        for rec in self:
-            if rec.is_company and rec.vat and rec.vat.startswith("BE"):
-                rec.cweb_show_button_enhance = True
-            else:
-                rec.cweb_show_button_enhance = False
-
-    @api.depends(
-        "cweb_address_enable",
-        "cweb_street",
-        "cweb_zip",
-        "cweb_city",
-        "cweb_country_id",
-    )
+    @api.depends(*ADDRESS_FIELDS)
     def _compute_cweb_show_button_address(self):
         """for the button to be shown
         the partner has to have cweb_address enabled and data for the address field"""
         for rec in self:
-            if (
-                rec.cweb_address_enable
-                and rec.cweb_street
-                and rec.cweb_zip
-                and rec.cweb_city
-                and rec.cweb_country_id
-            ):
-                rec.cweb_show_button_address = True
-            else:
-                rec.cweb_show_button_address = False
+            rec.cweb_show_button_address = all(rec[field] for field in ADDRESS_FIELDS)
 
-    @api.depends(
-        "cweb_name_enable",
-        "cweb_jur_form_enable",
-        "cweb_address_enable",
-        "cweb_creditLimit_enable",
-        "cweb_startDate_enable",
-        "cweb_endDate_enable",
-        "cweb_score_enable",
-        "cweb_warnings_enable",
-        "cweb_url_enable",
-        "cweb_vat_liable_enable",
-        "cweb_balance_data_enable",
-        "cweb_prefLang_enable",
-        "cweb_companystatus_enable",
-        "cweb_url_report_enable",
-    )
+    @api.depends(*get_all_enable_fields())
     def _compute_cweb_cweb_show_tab(self):
-        """for the tab with data to be shown
-        at least one of the field _enable has to be true"""
+        """
+        Show cweb tab if there's an error message or any of the enable fields is True
+        """
         for rec in self:
-            if (
-                rec.cweb_name_enable
-                or rec.cweb_jur_form_enable
-                or rec.cweb_address_enable
-                or rec.cweb_creditLimit_enable
-                or rec.cweb_startDate_enable
-                or rec.cweb_endDate_enable
-                or rec.cweb_score_enable
-                or rec.cweb_warnings_enable
-                or rec.cweb_url_enable
-                or rec.cweb_vat_liable_enable
-                or rec.cweb_balance_data_enable
-                or rec.cweb_prefLang_enable
-                or rec.cweb_companystatus_enable
-                or rec.cweb_url_report_enable
-            ):
-                rec.cweb_show_tab = True
+            rec.cweb_show_tab = rec.cweb_error or any(
+                rec[enable_field] for enable_field in get_all_enable_fields()
+            )
+
+    def _cweb_format(self, values):
+        """
+        In-place formatting of specific dict and M2O in values
+        """
+        # Transform values to M2O IDs
+        values["cweb_prefLang_id"] = (
+            lang_code := values.get("cweb_prefLang_id")
+        ) and get_lang_id(self.env, lang_code)
+        values["cweb_country_id"] = (
+            country_code_address := values.get("cweb_country_code_address")
+        ) and get_country_id(self.env, country_code_address)
+        values["cweb_currency_id"] = (
+            currency_name := values.get("cweb_currency_id")
+        ) and get_currency_id(self.env, currency_name)
+
+        # Transform Text and HTML
+        values["cweb_warnings"] = (
+            warnings := values.get("cweb_warnings")
+        ) and format_warnings(warnings)
+        values["cweb_main_industry"] = (
+            main_industry := values.get("cweb_main_industry")
+        ) and format_industry(main_industry)
+        values["cweb_industries"] = (
+            industries := values.get("cweb_industries")
+        ) and "\n".join(format_industry(industry) for industry in industries)
+        values["cweb_liable_party"] = (
+            liable_party_dict := values.get("cweb_liable_party")
+        ) and format_liable_party(liable_party_dict, self.env)
+        values["cweb_peppol"] = bool(values["cweb_peppol"])
+
+        # Transform Dates
+        for field in DATE_FIELDS:
+            values[field] = format_date(values[field])
+
+        # Format floats and flag as set or unset
+        for float_field in FLOAT_FIELDS:
+            if float_field in values:
+                value = format_float_value(values[float_field])
+                values[float_field] = value
+                values[f"{float_field}_unset"] = value is None
+
+        return values
+
+    def _cweb_parse(self, cweb_response):
+        """
+        Parse cweb data to odoo-field values
+        """
+        values = {
+            "cweb_lastupdate": datetime.now(),
+            **get_data_values(cweb_response),
+            **get_nested_values(cweb_response),
+            **get_balance_values(cweb_response),
+        }
+        values = self._cweb_format(values)
+        return values
+
+    def _cweb_populate(self, cweb_response):
+        """
+        Fill cweb fields
+        """
+        self.ensure_one()
+        values = self._cweb_parse(cweb_response)
+        if "cweb_sync" in values and values.get("cweb_sync", False):
+            values["companyweb_sync_status"] = CWEB_SYNC_STATUS_ACTIVE
+        self.write(values)
+
+    def _get_cweb_credentials(self):
+        IrConfigParameter = self.env["ir.config_parameter"].sudo()
+        url = IrConfigParameter.get_param("companyweb.alacarte", "")
+
+        if "V2.0" not in url:
+            raise exceptions.ValidationError(
+                self.env._("Companyweb: Please use the address for API V2.0"),
+            )
+
+        login = self.env.company.cweb_login
+        password = self.env.company.cweb_password
+        lang = self.env.context.get("lang", self.env.user.lang)[:2].upper()
+        if lang not in ["FR", "NL"]:
+            lang = "EN"
+        return url, login, password, lang
+
+    def _cweb_call_get(self, args):
+        """
+        Raises:
+            - Access error
+        Returns:
+            - Error
+            - Search results
+        """
+        if not self.env.user.has_group("companyweb_base.cweb_download"):
+            raise exceptions.AccessDenied(
+                self.env._("Companyweb: You don't have access to download data")
+            )
+        error = ""
+        url, login, password, lang = self._get_cweb_credentials()
+        status, cweb_response = cweb_get(url, login, password, lang, args)
+        if status == -1:
+            error = self.env._(
+                "Missing values for company search: %(message)s",
+                message=cweb_response,
+            )
+        elif status != 0:
+            error = self.env._(
+                "Companyweb status %(status)i: %(message)s",
+                status=status,
+                message=cweb_response,
+            )
+        return error, cweb_response
+
+    def _cweb_enhance(self):
+        errors = []
+        for partner in self:
+            args = {}
+            if partner.vat:
+                args["vat"] = partner.vat
+            if partner.company_registry:
+                args["registry"] = partner.company_registry
+            if partner.country_id:
+                if (
+                    country_code := partner.country_id.code
+                ) not in ALLOWED_COUNTRY_CODES:
+                    errors.append(
+                        self.env._(
+                            "Companyweb only supports companies based in "
+                            "%(country_codes)s",
+                            country_codes=ALLOWED_COUNTRY_CODES,
+                        )
+                    )
+                    continue
+                else:
+                    args["country_code"] = country_code
+
+            error, cweb_response = self._cweb_call_get(args)
+
+            if error:
+                partner.cweb_error = error
+                errors.append(error)
             else:
-                rec.cweb_show_tab = False
+                partner.cweb_error = False
+                partner._cweb_populate(cweb_response)
+        return errors
+
+    def _cweb_copy_address(self):
+        if not self.env.user.has_group("companyweb_base.cweb_view"):
+            raise exceptions.AccessDenied(
+                self.env._("Companyweb: You don't have access")
+            )
+        env_company = self.env.company
+        for partner in self:
+            company = partner.company_id or env_company
+            for cweb_field, odoo_field in FILL_FIELD_MAP.items():
+                if company[f"fill_{cweb_field}"]:
+                    partner[odoo_field] = partner[cweb_field]
+            partner.street2 = None
+            partner.state_id = None
 
     @api.model
-    def _cweb_create_hash(self, login, password, secret):
-        """method used for the API call
-        it generates the 'loginhash' needed by the API"""
-        today = datetime.now().strftime("%Y%m%d")
-        text = (today + login + password + secret).lower()
-        return sha1(text.encode("utf-8")).hexdigest()
-
-    def _cweb_get_country(self, country_code):
-        country = self.env["res.country"].search([("code", "=", country_code.upper())])
-        return country
-
-    def _cweb_populate_general(self, cweb_response):
-        self.cweb_lastupdate = datetime.now()
-        self.cweb_name_enable = cweb_response["CompanyName"]["IsEnabled"]
-        cweb_has_name_value = cweb_response["CompanyName"]["Value"]
-        if self.cweb_name_enable and cweb_has_name_value:
-            self.cweb_name = cweb_has_name_value
-        else:
-            self.cweb_name = None
-
-        self.cweb_jur_form_enable = cweb_response["LegalForm"]["IsEnabled"]
-        cweb_has_jur_form_value = cweb_response["LegalForm"]["Value"]
-        if self.cweb_jur_form_enable and cweb_has_jur_form_value:
-            self.cweb_jur_form = cweb_has_jur_form_value["Abbreviation"]
-        else:
-            self.cweb_jur_form = None
-
-        self.cweb_prefLang_enable = cweb_response["PreferredLanguages"]["IsEnabled"]
-        cweb_has_prefLang_value = cweb_response["PreferredLanguages"]["Value"]
-        if self.cweb_prefLang_enable and cweb_has_prefLang_value:
-            cweb_lang = cweb_response["PreferredLanguages"]["Value"]["LanguageString"]
-            lang = (
-                self.env["res.lang"]
-                .with_context(active_test=False)
-                .search([("iso_code", "=", cweb_lang)])
-            )
-            self.cweb_prefLang_id = lang
-        else:
-            self.cweb_prefLang_id = None
-
-        self.cweb_companystatus_enable = cweb_response["CompanyStatus"]["IsEnabled"]
-        cweb_has_companystatus_value = cweb_response["CompanyStatus"]["Value"]
-        if self.cweb_companystatus_enable and cweb_has_companystatus_value:
-            self.cweb_companystatus = cweb_has_companystatus_value["Info"]
-            self.cweb_companystatus_code = cweb_has_companystatus_value["Code"]
-        else:
-            self.cweb_companystatus = None
-            self.cweb_companystatus_code = None
-
-        self.cweb_vat_liable_enable = cweb_response["VatEnabled"]["IsEnabled"]
-        cweb_has_vat_liable_value = cweb_response["VatEnabled"]["Value"]
-        if self.cweb_vat_liable_enable and cweb_has_vat_liable_value:
-            self.cweb_vat_liable = cweb_has_vat_liable_value
-        else:
-            self.cweb_vat_liable = None
-
-    def _cweb_populate_address(self, cweb_response):
-        self.cweb_address_enable = cweb_response["Address"]["IsEnabled"]
-        cweb_has_address_value = cweb_response["Address"]["Value"]
-        if self.cweb_address_enable and cweb_has_address_value:
-            self.cweb_street = cweb_has_address_value["Line1"]
-            self.cweb_zip = cweb_has_address_value["PostalCode"]
-            self.cweb_city = cweb_has_address_value["City"]
-            self.cweb_country_id = self._cweb_get_country(
-                cweb_has_address_value["CountryCode"]
-            )
-        else:
-            self.cweb_street = None
-            self.cweb_zip = None
-            self.cweb_city = None
-            self.cweb_country_id = None
-
-    def _cweb_populate_balans(self, cweb_response):
-        self.cweb_balance_data_enable = cweb_response["Balances"]["IsEnabled"]
-        cweb_has_balance_value = cweb_response["Balances"]["Value"]
-        if self.cweb_balance_data_enable and cweb_has_balance_value:
-            currency = self.env["res.currency"].search([("name", "=", "EUR")])
-            self.cweb_currency_id = currency
-            self.cweb_balance_year = cweb_has_balance_value["Balans"][0]["BookYear"]
-            balans_data = cweb_has_balance_value["Balans"][0]["BalansData"][
-                "BalansData"
-            ]
-            for data in balance_data:
-                if data["Key"] == "CloseDate":
-                    try:
-                        self.cweb_closed_date = datetime.strptime(
-                            str(data["Value"]), "%Y-%m-%d"
-                        )
-                    except ValueError:
-                        self.cweb_closed_date = None
-                if data["Key"] == "Rub10_15":
-                    value = data["Value"]
-                    self._cweb_set_equityCapital_data(value)
-                if data["Key"] == "Rub70":
-                    value = data["Value"]
-                    self._cweb_set_turnover_date(value)
-                if data["Key"] == "Rub9087":
-                    value = data["Value"]
-                    self._cweb_set_average_fte_data(value)
-                if data["Key"] == "Rub9904":
-                    value = data["Value"]
-                    self._cweb_set_addedValue_data(value)
-                if data["Key"] == "Rub9800":
-                    value = data["Value"]
-                    self._cweb_set_result_data(value)
-
-        elif self.cweb_balance_data_enable and not cweb_has_balance_value:
-            self._cweb_unset_balance_data()
-            self._cweb_empty_balance_data()
-        else:
-            self._cweb_empty_balance_data()
-
-    def _cweb_set_equityCapital_data(self, value):
-        if value or value == 0:
-            self.cweb_equityCapital = float(value)
-            self.cweb_equityCapital_unset = True
-        else:
-            self.cweb_equityCapital_unset = False
-
-    def _cweb_set_turnover_date(self, value):
-        if value or value == 0:
-            self.cweb_turnover_unset = True
-            self.cweb_turnover = float(value)
-        else:
-            self.cweb_turnover_unset = False
-
-    def _cweb_set_average_fte_data(self, value):
-        if value or value == 0:
-            self.cweb_average_fte_unset = True
-            self.cweb_average_fte = float(value)
-        else:
-            self.cweb_average_fte_unset = False
-
-    def _cweb_set_addedValue_data(self, value):
-        if value or value == 0:
-            self.cweb_addedValue = float(value)
-            self.cweb_addedValue_unset = True
-        else:
-            self.cweb_addedValue_unset = False
-
-    def _cweb_set_result_data(self, value):
-        if value or value == 0:
-            self.cweb_result = float(value)
-            self.cweb_result_unset = True
-        else:
-            self.cweb_result_unset = False
-
-    def _cweb_unset_balance_data(self):
-        self.cweb_equityCapital_unset = False
-        self.cweb_turnover_unset = False
-        self.cweb_average_fte_unset = False
-        self.cweb_addedValue_unset = False
-        self.cweb_result_unset = False
-
-    def _cweb_empty_balance_data(self):
-        self.cweb_closed_date = False
-        self.cweb_equityCapital = False
-        self.cweb_turnover = False
-        self.cweb_average_fte = False
-        self.cweb_addedValue = False
-        self.cweb_result = False
-        self.cweb_balance_year = False
-
-    def _cweb_populate_url(self, cweb_response):
-        self.cweb_url_enable = cweb_response["DetailUrl"]["IsEnabled"]
-        cweb_has_url_value = cweb_response["DetailUrl"]["Value"]
-        if self.cweb_url_enable and cweb_has_url_value:
-            self.cweb_url = cweb_has_url_value
-        else:
-            self.cweb_url = None
-        self.cweb_url_report_enable = cweb_response["ReportUrl"]["IsEnabled"]
-
-        cweb_has_url_report_value = cweb_response["ReportUrl"]["Value"]
-        if self.cweb_url_report_enable and cweb_has_url_report_value:
-            self.cweb_url_report = cweb_has_url_report_value
-        else:
-            self.cweb_url_report = None
-
-    def _cweb_populate_dates(self, cweb_response):
-        self.cweb_startDate_enable = cweb_response["StartDate"]["IsEnabled"]
-        cweb_has_startDate_value = cweb_response["StartDate"]["Value"]
-        if self.cweb_startDate_enable and cweb_has_startDate_value:
-            try:
-                self.cweb_startDate = datetime.strptime(
-                    str(cweb_response["StartDate"]["Value"]), "%Y%m%d"
-                )
-            except ValueError:
-                self.cweb_startDate = None
-        else:
-            self.cweb_startDate = None
-
-        self.cweb_endDate_enable = cweb_response["EndDate"]["IsEnabled"]
-        cweb_has_endDate_value = cweb_response["EndDate"]["Value"]
-        if self.cweb_endDate_enable and cweb_has_endDate_value:
-            try:
-                self.cweb_endDate = datetime.strptime(
-                    str(cweb_response["EndDate"]["Value"]), "%Y%m%d"
-                )
-            except ValueError:
-                self.cweb_endDate = False
-        else:
-            self.cweb_endDate = None
-
-    def _cweb_populate_score(self, cweb_response):
-        self.cweb_score_enable = cweb_response["Score"]["IsEnabled"]
-        cweb_has_score_value = cweb_response["Score"]["Value"]
-        if self.cweb_score_enable and cweb_has_score_value:
-            self.cweb_score = cweb_response["Score"]["Value"]["ScoreAsInt"]
-            cweb_has_cweb_image_value = cweb_response["Score"]["Value"]["ScoreImage"]
-            if cweb_has_cweb_image_value:
-                self.cweb_image = cweb_response["Score"]["Value"]["ScoreImage"]
-        else:
-            self.cweb_score = None
-            self.cweb_image = None
-
-    def _cweb_populate_data(self, cweb_response):
-        self.cweb_creditLimit_enable = cweb_response["CreditLimit"]["IsEnabled"]
-        cweb_has_creditLimit_value = cweb_response["CreditLimit"]["Value"]
-        if self.cweb_creditLimit_enable and cweb_has_creditLimit_value:
-            limit = cweb_response["CreditLimit"]["Value"]["Limit"]
-            if limit or limit == 0:
-                self.cweb_creditLimit = limit
-                self.cweb_creditLimit_unset = True
-            else:
-                self.cweb_creditLimit_unset = False
-                self.cweb_creditLimit = None
-            if cweb_response["CreditLimit"]["Value"]["Info"]:
-                self.cweb_creditLimit_info = cweb_response["CreditLimit"]["Value"][
-                    "Info"
-                ]
-        else:
-            self.cweb_creditLimit = None
-            self.cweb_creditLimit_info = None
-            self.cweb_creditLimit_unset = False
-
-        self.cweb_warnings_enable = cweb_response["WarningsOverview"]["IsEnabled"]
-        cweb_has_warnings_value = cweb_response["WarningsOverview"]["Value"]
-        if self.cweb_warnings_enable and cweb_has_warnings_value:
-            if cweb_has_warnings_value["Warnings"]:
-                self.cweb_warnings = ""
-                for rec in cweb_has_warnings_value["Warnings"]["string"]:
-                    self.cweb_warnings += "- " + html.escape(rec) + "<br/>"
-            else:
-                self.cweb_warnings = None
-        elif self.cweb_warnings_enable:
-            self.cweb_warnings = None
-        else:
-            self.cweb_warnings = None
+    def _cweb_ensure_credentials(self):
+        return bool(self.env.company.cweb_login and self.env.company.cweb_password)
 
     def cweb_button_enhance(self):
-        """Main logic of the module
-        Validate that the logged in user has credentials
-        make the API CALL
-        based on status make decision
-        When status is ok -> populate fields"""
+        """
+        Populate cweb fields from Companyweb
+        """
         self.ensure_one()
         if not self.env.user.has_group("companyweb_base.cweb_download"):
-            raise UserError(self.env._("Companyweb : You don't have access"))
-        user_login = self.env.user.cweb_login
-        user_password = self.env.user.cweb_password
-        user_lang = self.env.context.get("lang")[:2].upper()
-        if user_lang not in ["FR", "NL"]:
-            user_lang = "EN"
-
-        if not user_login or not user_password:
-            return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
-        IrConfigParameter = self.env["ir.config_parameter"].sudo()
-        url_param = IrConfigParameter.get_param("companyweb.alacarte", "")
-        client = zeep.Client(url_param)
-        r = client.service.GetCompanyByVat(
-            dict(
-                CompanyWebLogin=user_login,
-                CompanyWebPassword=user_password,
-                ServiceIntegrator=SERVICE_INTEGRATOR_ID,
-                LoginHash=self._cweb_create_hash(
-                    user_login, user_password, SERVICE_INTEGRATOR_SECRET
-                ),
-                Language=user_lang,
-                VatNumber=self.vat,
+            raise exceptions.AccessDenied(
+                self.env._("Companyweb: You don't have access to download data")
             )
-        )
-        if r["StatusCode"] in [101, 302]:
-            return self._cweb_call_wizard_credentials("Enter Companyweb credentials")
-        elif r["StatusCode"] != 0:
-            raise UserError(
-                self.env._("Companyweb status : {status} : {message} ").format(
-                    status=r["StatusCode"], message=r["StatusMessage"]
-                )
-            )
+        if not self._cweb_ensure_credentials():
+            return self._cweb_call_wizard_credentials()
+        if not self.vat and not self.company_registry:
+            return self._cweb_call_wizard_search()
 
-        cweb_response = r["CompanyResponse"]
-        # values = self._cweb_parse(cweb_response)
-        self._cweb_populate_general(cweb_response)
-        self._cweb_populate_address(cweb_response)
-        self._cweb_populate_balance(cweb_response)
-        self._cweb_populate_url(cweb_response)
-        self._cweb_populate_dates(cweb_response)
-        self._cweb_populate_score(cweb_response)
-        self._cweb_populate_data(cweb_response)
+        errors = self._cweb_enhance()
+        if errors:
+            msg = (
+                errors[0]
+                if len(errors) == 1
+                else "\n".join(f"- {error}" for error in errors)
+            )
+            self.cweb_error = msg
+            raise exceptions.ValidationError(msg)
+        self.cweb_error = False
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "type": "success",
+                "message": self.env._("Successfully fetched Companyweb data"),
+                "sticky": False,
+                "next": {
+                    "type": "ir.actions.client",
+                    "tag": "soft_reload",
+                },
+            },
+        }
 
     def cweb_button_copy_address(self):
-        if not self.env.user.has_group("companyweb_base.cweb_view"):
-            raise UserError(self.env._("Companyweb : You don't have access"))
-        self.street = self.cweb_street
-        self.city = self.cweb_city
-        self.zip = self.cweb_zip
-        self.country_id = self.cweb_country_id
-        self.street2 = None
-        self.state_id = None
+        """
+        Copy Companyweb data to res.partner fields
+        """
+        self.ensure_one()
+        self._cweb_copy_address()
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "type": "success",
+                "message": self.env._("Copied Companyweb data to Contact"),
+                "sticky": False,
+                "next": {
+                    "type": "ir.actions.client",
+                    "tag": "soft_reload",
+                },
+            },
+        }
+
+    def _cweb_call_wizard_search(self):
+        self.ensure_one()
+        # Pass partner in context to trigger default_get and populate search terms
+        wizard = (
+            self.env["companyweb.search.wizard"]
+            .with_context(default_partner_id=self.id)
+            .create({})
+        )
+        # Do initial search
+        return wizard.companyweb_search()
 
     @api.model
-    def _cweb_call_wizard_credentials(self, wizard_name):
+    def _cweb_call_wizard_credentials(self):
+        self.ensure_one()
         wizard_form = self.env.ref("companyweb_base.companyweb_credential_wizard")
         return {
-            "name": wizard_name,
+            "name": "Enter Companyweb Credentials",
             "type": "ir.actions.act_window",
-            "view_type": "form",
             "view_mode": "form",
             "res_model": "companyweb_base.credential_wizard_base",
             "view_id": wizard_form.id,
             "target": "new",
             "context": self.env.context,
         }
+
+    def _push_followup_partners(self, partner_list):
+        error = ""
+        args = [{"AlertCompany": partner_list}]
+        url, login, password, lang = self._get_cweb_credentials()
+        status, cweb_response = cweb_push(url, login, password, lang, args)
+        if status != 0:
+            cweb_error = self.env._(
+                "Companyweb error %(status)i: %(message)s",
+                status=status,
+                message=cweb_response,
+            )
+            return cweb_error, [], 0
+        error_partners = (cweb_response.get("InvalidCompanies", {}) or {}).get(
+            "InvalidAlertCompany", []
+        )
+        error_partner_dicts = [
+            {
+                "cweb_sync_reference": errp.get("Company", {}).get("Reference", False),
+                "msg": errp.get("Message", ""),
+            }
+            for errp in error_partners
+        ]
+        num_partner_updated = cweb_response["NumberOfAlertsAddedOrUpdated"]
+        return error, error_partner_dicts, num_partner_updated
+
+    def action_push_followup_partners(self):
+        """
+        Add partners in self to a monitor-list on companyweb side.
+        Changes to the list take effect the next day.
+        1. Check partners have at least country and (vat or registry)
+        2. Collect erroneous partners and leave error message on record
+        3. Push valid partners
+        4. Return notification for success and error
+        5. If error, redirect to view of erroneous partners
+        Raise:
+            - Missing credentials
+            - Cweb error
+        Return:
+            - Notification
+            - View action if errors
+        """
+        if not self._cweb_ensure_credentials():
+            raise exceptions.ValidationError(
+                self.env._(
+                    "Missing Companyweb credentials on company %(company)s",
+                    company=self.env.company.name,
+                )
+            )
+        partner_errors = self.env["res.partner"]
+        partner_list = []
+        for partner in self:
+            vat = partner.vat or partner.cweb_vat
+            registry = partner.company_registry or partner.cweb_registry
+            country_code = (
+                partner.country_id.code
+                or partner.cweb_country_code
+                or get_country_code_from_vat(vat)
+            )
+            if not (vat or registry):
+                partner.cweb_error = self.env._("Missing VAT or Company Registry.")
+                partner_errors |= partner
+            elif not country_code:
+                partner.cweb_error = self.env._("Missing country.")
+                partner_errors |= partner
+            elif country_code not in ALLOWED_COUNTRY_CODES:
+                partner.cweb_error = self.env._(
+                    "Invalid country. Countries supported: %(countries)s.",
+                    countries=ALLOWED_COUNTRY_CODES,
+                )
+                partner_errors |= partner
+            else:
+                partner.cweb_error = False
+                if not partner.cweb_sync_reference:
+                    # Unique identifier to store on Companyweb side
+                    partner.cweb_sync_reference = str(uuid4())
+                partner_list.append(
+                    {
+                        "CountryCode": country_code,
+                        "Identifier": vat or registry,
+                        "IdentifierType": "VatNumber" if vat else "RegistrationNumber",
+                        "Reference": partner.cweb_sync_reference,
+                    }
+                )
+
+        cweb_error, error_partner_dicts, num_partner_updated = (
+            self._push_followup_partners(partner_list)
+        )
+        if cweb_error:
+            raise exceptions.ValidationError(cweb_error)
+        for partner_dict in error_partner_dicts:
+            if ref := partner_dict.get("cweb_sync_reference"):
+                partner = self.search([("cweb_sync_reference", "=", ref)], limit=1)
+                partner.cweb_error = partner_dict.get("msg")
+                partner_errors |= partner
+
+        msg = ""
+        msg_append = self.env._(" to Companyweb Alerts.")
+        if num_partner_updated:
+            msg = self.env._(
+                "Added %(num_partner)i contact(s)", num_partner=num_partner_updated
+            )
+        for success_partner in self - partner_errors:
+            success_partner.companyweb_sync_status = CWEB_SYNC_STATUS_PENDING
+        if partner_errors:
+            if msg:
+                msg += ". "
+            msg += self.env._(
+                "Failed to push %(num_partner_errors)i contact(s)",
+                num_partner_errors=len(partner_errors),
+            )
+            action = partner_errors._get_records_action()
+            action["name"] = "Failed contacts"
+            params = {
+                "type": "danger",
+                "message": msg + msg_append,
+                "sticky": True,
+                "next": action,
+            }
+        else:
+            params = {
+                "type": "success",
+                "message": msg + msg_append,
+                "sticky": False,
+                "next": {
+                    "type": "ir.actions.client",
+                    "tag": "soft_reload",
+                },
+            }
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": params,
+        }
+
+    @api.model
+    def _cron_companyweb_followup(self):
+        """
+        Cron to catch any data that has changed on partners on the monitor-list
+        -> Call for updated companies
+        <- Receive companies and update them in Odoo
+        -> Call for more companies and simultaneously confirm the companies received
+            in last call
+        ...
+        1. Get updates from cweb
+        2. Update Odoo
+        3. Confirm updates to cweb (done in next call)
+        4. If more updates remaining, repeat
+        """
+        Partner = self.env["res.partner"]
+        if not self._cweb_ensure_credentials():
+            raise exceptions.ValidationError(
+                self.env._(
+                    "Missing companyweb credentials on company %(company)s",
+                    company=self.env.company.name,
+                )
+            )
+        url, login, password, lang = self._get_cweb_credentials()
+        updated_partners = []
+        is_first_call = True
+        while is_first_call or updated_partners:
+            is_first_call = False
+            status, cweb_response = cweb_sync(
+                url, login, password, lang, updated_partners
+            )
+            if status != 0:
+                raise exceptions.ValidationError(
+                    self.env._(
+                        "Companyweb error %(status)i while syncing: %(message)s",
+                        status=status,
+                        message=cweb_response,
+                    )
+                )
+            remaining = (cweb_response.get("RemainingChanges", {}) or {}).get(
+                "RemainingChangesCount", 0
+            )
+            partner_datas = (cweb_response["CompanyResponses"] or {}).get(
+                "CompanyResponseV2_0", []
+            )
+            _logger.info(
+                "Companyweb: Received %i contact(s) to update. Remaining: %i.",
+                len(partner_datas),
+                remaining,
+            )
+
+            updated_partners = []
+            updated_existing_partners = []
+            for partner_data in partner_datas:
+                cweb_sync_reference = (
+                    partner_data.get("FollowUpReference", {}) or {}
+                ).get("Value", False)
+                values = Partner._cweb_parse(partner_data)
+                if cweb_sync_reference and (
+                    partner := Partner.search(
+                        [("cweb_sync_reference", "=", cweb_sync_reference)], limit=1
+                    )
+                ):
+                    if "cweb_sync" in values and values.get("cweb_sync", False):
+                        values["companyweb_sync_status"] = CWEB_SYNC_STATUS_ACTIVE
+                    partner.write(values)
+                    updated_existing_partners.append(partner.id)
+
+                # Confirm we treated all data received, even if no longer in DB
+                # (so they are removed from the update list)
+                # Sent to companyweb as confirmed in next call
+                updated_partners.append(
+                    {
+                        "CountryCode": values.get("cweb_country_code"),
+                        "RegistrationNumber": values.get("cweb_registry"),
+                    }
+                )
+            if updated_existing_partners:
+                _logger.info(
+                    "Companyweb: Updated partners with IDs %s",
+                    updated_existing_partners,
+                )
+            else:
+                _logger.info("Companyweb: No matching partners found")

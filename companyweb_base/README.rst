@@ -2,9 +2,9 @@
    :target: https://odoo-community.org/get-involved?utm_source=readme
    :alt: Odoo Community Association
 
-==========
-Companyweb
-==========
+===============================
+Companyweb Business Information
+===============================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,44 +32,56 @@ Companyweb
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-`www.companyweb.be <http://www.companyweb.be>`__
+Know exactly who you are doing business with
+============================================
 
-Companyweb is the expert in company information in Belgium.
+The Companyweb app for Odoo offers direct access to accurate, up-to-date
+and reliable business data on companies in Belgium, the Netherlands and
+Luxembourg. Gain valuable insights into the financial health, payment
+capacity, stability, and other crucial factors of your customers,
+prospects, and suppliers. This user-friendly solution supports customer
+knowledge, risk analysis and credit management directly within your Odoo
+environment.
 
-This app provides insights into the financial health of Belgian
-companies, directly from the Odoo Customer view.
+--------------
 
-Enhance the Odoo partner with Companyweb data, with one click:
+Key Features
+------------
 
-- Name and address
-- Status
-- Health barometer
-- Credit limit
-- Bankruptcy risk warnings
-- Key financial information (turnover, gross margin, profit/loss…)
-- etc
+Instantly create and enrich your Odoo partners with trusted Companyweb data
+---------------------------------------------------------------------------
 
-Copy the address from Companyweb to your Odoo partner address.
+Create new contacts in seconds by entering a company name, VAT, or
+registration number, and enrich existing records with a single click
+using the Companyweb button. Save hours of manual verification and avoid
+data entry errors and inconsistencies. Financial health assessment
+Quickly evaluate the financial health of companies with key indicators
+such as company status, financial risk indicators, credit limit, health
+barometer, and other crucial financial figures.
 
-With this valuable information you can personally evaluate each company
-and know who you are doing business with.
+Alerts Service
+--------------
 
-Try for free and get your credentials here:
-`www.companyweb.be/integrations/37/odoo <http://www.companyweb.be/integrations/37/odoo>`__
+Keep your company records consistently updated. Never miss a change of
+address, a decrease in credit limit, financial warnings, or other
+critical updates.
 
-Want to know how fast companies pay their invoices? Then also install
-the second module from Companyweb: payment experience.
+Coverage across Belgium, the Netherlands and Luxembourg
+-------------------------------------------------------
+
+Access reliable company information for companies operating in the
+Benelux region.
+
+Payment Behavior Insights
+-------------------------
+
+Gain insights into how companies pay their suppliers and make smarter
+credit and risk decisions.
 
 **Table of contents**
 
 .. contents::
    :local:
-
-Installation
-============
-
-This module can be installed in the usual way. It depends on the OCA
-``web_notify`` module.
 
 Usage
 =====
@@ -77,15 +89,28 @@ Usage
 With this integration you get detailed information about a company based
 on the VAT number of the company.
 
+Configuration
+-------------
+
+Contacts > Configuration > Companyweb
+
+|doc_config.png|
+
+Security
+--------
+
 This module comes with 2 security groups.
 
 - View Companyweb Data : can see the Companyweb data tab in contacts
 - Download Companyweb Data : can actually enhance data
 
+Usage
+-----
+
 Once your user has the correct permissions, open a partner that has a
 belgian VAT number and click on the Companyweb button.
 
-|image1|
+|doc_on_new_partner.png|
 
 If you don't see the Companyweb button, refresh your browser page and
 check that the current user is in the correct Companyweb group.
@@ -93,42 +118,31 @@ check that the current user is in the correct Companyweb group.
 If your Companyweb credentials are not known in the system or have
 changed, you will be shown a wizard to enter them.
 
-|image2|
+|doc_get_credentials.png|
 
 If everything runs smoothly you'll see a confirmation popup in the upper
 right corner of your screen.
 
-|image3|
+|doc_success_message.png|
 
 You can now view the Companyweb information in the corresponding tab.
 
-|image4|
+|doc_companyweb_data.png|
 
-You can also use the "Copy Address" button to update the partner address
+You can also use the "Fill Data" button to update the partner address
 with the one obtained from Companyweb.
 
-You can change your credentials on the user form. |image5|
+If enabled, you can add the contact to Companyweb Alerts. The data will
+automatically be updated if it has changed on Companyweb.
 
-Also available via user preferences |image6|
+|doc_companyweb_alerts.png|
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_on_new_partner.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_get_credentials.png
-.. |image3| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_success_message.png
-.. |image4| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/16.0/companyweb_base/static/description/doc_companyweb_data.png
-.. |image5| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/18.0/companyweb_base/static/description/doc_credentials.png
-.. |image6| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/18.0/companyweb_base/static/description/doc_credentials_pref.png
-
-Changelog
-=========
-
-15.0.1.0.2 (2022-02-08)
------------------------
-
-**Bugfixes**
-
-- The ``Gross Margin`` and ``Fiscal Year Profit/Loss`` field values were
-  mixed up. This is now fixed.
-  (`#135 <https://github.com/OCA/l10n-belgium/issues/135>`__)
+.. |doc_config.png| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_config.png
+.. |doc_on_new_partner.png| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_on_new_partner.png
+.. |doc_get_credentials.png| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_get_credentials.png
+.. |doc_success_message.png| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_success_message.png
+.. |doc_companyweb_data.png| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_companyweb_data.png
+.. |doc_companyweb_alerts.png| image:: https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_companyweb_alerts.png
 
 Bug Tracker
 ===========
@@ -152,6 +166,7 @@ Contributors
 ------------
 
 - Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
+- Tobias Zehntner <tobias.zehntner@acsone.eu>
 - Stéphane Bidoul <stephane.bidoul@acsone.eu>
 - Bert Van Groenendael <bert.vangroenendael@dynapps.eu>
 
@@ -171,8 +186,8 @@ the new Companyweb SOAP api. This development has been funded by
 - Companyweb <info@companyweb.be>
 - Katrien Billen <katrien@companyweb.be>
 
-In 2025, the migration to v19, together with new features backported to
-v17 and v18, have been funded by
+In 2025, the migration to v19, the migration to the SOAP API v2 together
+with new features, have been funded by
 `Companyweb <https://www.companyweb.be>`__.
 
 - Companyweb <info@companyweb.be>

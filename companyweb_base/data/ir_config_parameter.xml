@@ -4,6 +4,6 @@
         <field name="key">companyweb.alacarte</field>
         <field
             name="value"
-        >https://connect.companyweb.be/V1.3/alacarteservice.asmx</field>
+        >https://connect.companyweb.be/V2.0/alacarteservice.asmx</field>
     </record>
 </odoo>
