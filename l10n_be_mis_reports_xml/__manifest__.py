@@ -9,7 +9,7 @@
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
     "category": "Reporting",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "license": "AGPL-3",
     "depends": [
         "l10n_be_mis_reports",
