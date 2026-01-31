@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [companyweb_base](companyweb_base/) | 18.0.1.1.2 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Know who you are dealing with. Enhance Odoo partner data from companyweb.be.
 [companyweb_payment_info](companyweb_payment_info/) | 18.0.1.0.1 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Send your customer payment information to Companyweb
 [l10n_be_mis_reports](l10n_be_mis_reports/) | 18.0.1.0.0 |  | MIS Builder templates for the Belgium P&L, Balance Sheets and VAT Declaration
-[l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 18.0.1.0.0 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
+[l10n_be_mis_reports_xml](l10n_be_mis_reports_xml/) | 18.0.1.0.1 |  | Exports MIS Builder templates VAT Declaration as XML to load on the administration websites.
 [l10n_be_partner_identification](l10n_be_partner_identification/) | 18.0.1.0.0 |  | Belgium Partner Identification Numbers
 [l10n_be_vat_reports](l10n_be_vat_reports/) | 18.0.1.0.0 |  | Belgium VAT Reports
 
