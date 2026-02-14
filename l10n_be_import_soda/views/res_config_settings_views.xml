@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form.inherit.l10n_be_import_soda</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="55" />
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='default_accounts']" position="after">
+                <block title="SODA Account Mapping" id="import_soda">
+                    <setting help="SODA" id="import_soda">
+                        <field name="soda_auto_map" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
