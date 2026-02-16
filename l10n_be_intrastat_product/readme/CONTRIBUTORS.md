@@ -1,0 +1,5 @@
+- Noviat \<<https://noviat.com>\>
+  - Luc De Meyer \<<luc.demeyer@noviat.com>\>
+  - Jérémy Didderen \<<jeremy.didderen@noviat.com>\>
+- Binhex \<<https://binhex.cloud>\>
+  - Ariel Bareiros \<<a.barreiros@binhex.cloud>\>
