@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="companyweb_partner_view" model="ir.ui.view">
+        <field name="name">partner.cweb_info</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='partner_address_country']" position="after">
+                <button
+                    aria-label="Enhance"
+                    class="btn-sm btn-link"
+                    icon="/companyweb_base/static/img/logo-en.resized.png"
+                    name="cweb_button_enhance"
+                    title="Enhance Contact Data"
+                    type="object"
+                    invisible="not cweb_show_button_enhance"
+                    groups="companyweb_base.cweb_download"
+                />
+            </xpath>
+
+            <!-- Changes to standard partner view -->
+            <!-- We use Odoo's company_name for cweb_commercial_name: make it visible even if is_company -->
+            <xpath expr="//div[field[@name='company_name']]" position="attributes">
+                <attribute name="invisible" remove="is_company" separator="or" />
+            </xpath>
+            <button name="create_company" position="attributes">
+                <attribute name="invisible">is_company</attribute>
+            </button>
+            <field name="vat" position="after">
+                <!-- move company_registry under VAT -->
+                <field name="company_registry" position="move" />
+            </field>
+
+            <notebook position="inside">
+                <page
+                    groups="companyweb_base.cweb_view"
+                    invisible="not cweb_show_tab"
+                    string="Companyweb"
+                >
+                    <div
+                        class="alert alert-danger mt-3"
+                        role="alert"
+                        invisible="not cweb_error"
+                    >
+                        <div class="o_row align-items-center" title="Companyweb Error">
+                            <i class="fa fa-warning me-2" />
+                            <field name="cweb_error" />
+                        </div>
+                    </div>
+                    <group name="group_cweb_top" invisible="cweb_error">
+                        <group name="cweb_group_data">
+                            <field
+                                invisible="not cweb_lastupdate"
+                                name="cweb_lastupdate"
+                            />
+                            <field name="companyweb_sync_status" />
+                            <field
+                                name="cweb_sync_reference"
+                                invisible="not cweb_sync_reference"
+                                groups="base.group_no_one"
+                            />
+                            <button
+                                class="btn btn-primary"
+                                invisible="not cweb_show_button_address"
+                                name="cweb_button_copy_address"
+                                string="Fill Data"
+                                type="object"
+                            />
+                            <button
+                                class="btn btn-secondary oe_inline"
+                                invisible="companyweb_sync_status != 'none' or not companyweb_followup_enable or not company_registry or not country_id"
+                                name="action_push_followup_partners"
+                                string="Add to Companyweb Alerts"
+                                type="object"
+                            />
+                        </group>
+                        <group name="cweb_group_logo">
+                            <img
+                                alt="Companyweb"
+                                src="/companyweb_base/static/img/logo-en.png"
+                            />
+                        </group>
+                    </group>
+                    <group name="cweb_group_middle" invisible="cweb_error">
+                        <group
+                            name="cweb_group_global"
+                            invisible="not cweb_name_enable"
+                            string="Global"
+                        >
+                            <field
+                                invisible="not cweb_name_enable or not cweb_name"
+                                name="cweb_name"
+                                string="Name"
+                            />
+                            <field
+                                invisible="not cweb_commercial_name_enable or not cweb_commercial_name"
+                                name="cweb_commercial_name"
+                                string="Commercial Name"
+                            />
+                            <field
+                                invisible="not cweb_jur_form_enable or not cweb_jur_form"
+                                name="cweb_jur_form"
+                            />
+                            <field
+                                name="cweb_main_industry"
+                                invisible="not cweb_main_industry_enable or not cweb_main_industry"
+                            />
+                            <field
+                                name="cweb_industries"
+                                invisible="not cweb_industries_enable or not cweb_industries"
+                            />
+                            <field
+                                invisible="not cweb_startDate_enable or not cweb_startDate"
+                                name="cweb_startDate"
+                            />
+                            <field
+                                invisible="not cweb_endDate_enable or not cweb_endDate"
+                                name="cweb_endDate"
+                            />
+                            <field
+                                invisible="not cweb_prefLang_enable or not cweb_prefLang_id"
+                                name="cweb_prefLang_id"
+                                options="{'no_open': True}"
+                            />
+                            <field
+                                decoration-danger="cweb_companystatus_code != '0'"
+                                invisible="not cweb_companystatus_enable or not cweb_companystatus"
+                                name="cweb_companystatus"
+                                string="Status"
+                            />
+                            <field
+                                name="cweb_peppol"
+                                invisible="not cweb_peppol_enable"
+                            />
+                            <field
+                                name="cweb_liable_party"
+                                invisible="not cweb_liable_party_enable or not cweb_liable_party or cweb_country_code != 'NL'"
+                            />
+                        </group>
+                        <group name="cweb_address" string="Address &amp; Registry">
+                            <field
+                                groups="base.group_no_one"
+                                invisible="is_company"
+                                name="type"
+                                readonly="user_ids"
+                            />
+                            <label for="cweb_street" string="Seat" />
+                            <div class="o_address_format">
+                                <field
+                                    class="o_address_street"
+                                    name="cweb_street"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                                <field
+                                    class="o_address_zip"
+                                    name="cweb_zip"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                                <field
+                                    class="o_address_city"
+                                    name="cweb_city"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                                <field
+                                    class="o_address_country"
+                                    name="cweb_country_id"
+                                    options="{'no_open': True}"
+                                    readonly="type == 'contact' and not parent_id"
+                                />
+                            </div>
+                            <field
+                                name="cweb_phone"
+                                invisible="not cweb_phone_enable or not cweb_phone"
+                                string="Phone"
+                            />
+                            <field
+                                name="cweb_email"
+                                string="Email"
+                                invisible="not cweb_email_enable or not cweb_email"
+                            />
+                            <field
+                                name="cweb_website"
+                                string="Website"
+                                invisible="not cweb_website_enable or not cweb_website"
+                            />
+                            <field
+                                name="cweb_registry"
+                                invisible="not cweb_registry_enable or not cweb_registry"
+                            />
+                            <field
+                                invisible="not cweb_vat_liable_enable"
+                                name="cweb_vat_liable"
+                            />
+                            <field
+                                name="cweb_vat"
+                                string="VAT"
+                                invisible="not cweb_vat_enable or not cweb_vat"
+                            />
+                            <field
+                                name="cweb_rsin_number"
+                                invisible="not cweb_rsin_number_enable or not cweb_rsin_number or cweb_country_code != 'NL'"
+                            />
+                            <field name="cweb_country_code" string="Country Code" />
+                        </group>
+                    </group>
+                    <group name="cweb_group_bottom" invisible="cweb_error">
+                        <group name="cweb_financial" string="Financial">
+                            <field
+                                invisible="not cweb_balance_year"
+                                name="cweb_balance_year"
+                            />
+                            <field
+                                invisible="not cweb_closed_date"
+                                name="cweb_closed_date"
+                            />
+                            <field
+                                invisible="cweb_equityCapital_unset"
+                                name="cweb_equityCapital"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="cweb_addedValue_unset"
+                                name="cweb_addedValue"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="cweb_average_fte_unset"
+                                name="cweb_average_fte"
+                            />
+                            <field
+                                invisible="cweb_turnover_unset"
+                                name="cweb_turnover"
+                                options="{'currency_field': 'cweb_currency_id', 'digits':'12.0'}"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="cweb_result_unset"
+                                name="cweb_result"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                widget="monetary"
+                            />
+                            <field
+                                invisible="not cweb_warnings_enable or not cweb_warnings"
+                                name="cweb_warnings"
+                                class="text-danger"
+                            />
+                            <label for="cweb_url" string="Reports" />
+                            <div>
+                                <field
+                                    invisible="not cweb_url_enable or not cweb_url"
+                                    name="cweb_url"
+                                    text="Details"
+                                    widget="url"
+                                />
+                                <field
+                                    invisible="not cweb_url_report_enable or not cweb_url_report"
+                                    name="cweb_url_report"
+                                    text="Commercial Report"
+                                    widget="url"
+                                />
+                                <field
+                                    invisible="not cweb_url_payment_experience_enable or not cweb_url_payment_experience"
+                                    name="cweb_url_payment_experience"
+                                    text="Payment Experience Report"
+                                    widget="url"
+                                />
+                            </div>
+                        </group>
+                        <group name="cweb_group_barometer" string="Health">
+                            <field
+                                name="cweb_currency_id"
+                                invisible="not cweb_currency_id"
+                            />
+                            <field
+                                decoration-danger="cweb_creditLimit == 0"
+                                invisible="cweb_creditLimit_unset"
+                                name="cweb_creditLimit"
+                                string="Credit Limit"
+                                options="{'currency_field': 'cweb_currency_id'}"
+                                widget="monetary"
+                            />
+                            <field
+                                decoration-danger="cweb_creditLimit == 0"
+                                invisible="not cweb_creditLimit_info"
+                                name="cweb_creditLimit_info"
+                            />
+                            <field invisible="not cweb_image" name="cweb_image_tag" />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="res_partner_view_search_companyweb" model="ir.ui.view">
+        <field name="name">res.partner.search.companyweb</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="before">
+                <filter
+                    string="In Companyweb Alerts"
+                    name="cweb_sync"
+                    domain="[('cweb_sync','=', True)]"
+                />
+                <filter
+                    string="Companyweb Alerts Pending"
+                    name="cweb_sync_pending"
+                    domain="[('cweb_sync','=', False), ('companyweb_sync_status', '=', 'pending')]"
+                />
+                <filter
+                    string="Not in Companyweb Alerts"
+                    name="cweb_sync"
+                    domain="[('cweb_sync','=', False), ('companyweb_sync_status', '=', 'none')]"
+                />
+                <filter
+                    string="Companyweb Errors"
+                    name="cweb_errors"
+                    domain="[('cweb_error', '!=', False)]"
+                />
+                <separator />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_companyweb_push_partner" model="ir.actions.server">
+        <field name="name">Add to Companyweb Alerts</field>
+        <field name="model_id" ref="base.model_res_partner" />
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_push_followup_partners()
+        </field>
+    </record>
+</odoo>

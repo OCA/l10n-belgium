@@ -1,0 +1,24 @@
+<odoo>
+    <record model="res.groups.privilege" id="res_groups_privilege_companyweb">
+        <field name="name">Companyweb</field>
+        <field name="category_id" ref="base.module_category_master_data" />
+        <field name="sequence">15</field>
+    </record>
+    <record id="cweb_view" model="res.groups">
+        <field name="name">View Companyweb Data</field>
+        <field name="privilege_id" ref="res_groups_privilege_companyweb" />
+        <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]" />
+    </record>
+    <record id="cweb_download" model="res.groups">
+        <field name="name">Download Companyweb Data</field>
+        <field
+            name="implied_ids"
+            eval="[Command.link(ref('cweb_view')), Command.link(ref('base.group_partner_manager'))]"
+        />
+        <field name="privilege_id" ref="res_groups_privilege_companyweb" />
+        <field
+            name="user_ids"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+</odoo>

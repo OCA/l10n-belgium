@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>README.rst</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<a class="reference external image-reference" href="https://odoo-community.org/get-involved?utm_source=readme">
+<img alt="Odoo Community Association" src="https://odoo-community.org/readme-banner-image" />
+</a>
+<div class="section" id="companyweb-business-information">
+<h1>Companyweb Business Information</h1>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:43184c5ad2753e93a8c944166a1ccb1cb7beb238e66b8981f0ff13acf9b832c8
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Production/Stable" src="https://img.shields.io/badge/maturity-Production%2FStable-green.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-belgium/tree/19.0/companyweb_base"><img alt="OCA/l10n-belgium" src="https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-belgium-19-0/l10n-belgium-19-0-companyweb_base"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<div class="section" id="know-exactly-who-you-are-doing-business-with">
+<h2>Know exactly who you are doing business with</h2>
+<p>The Companyweb app for Odoo offers direct access to accurate, up-to-date
+and reliable business data on companies in Belgium, the Netherlands and
+Luxembourg. Gain valuable insights into the financial health, payment
+capacity, stability, and other crucial factors of your customers,
+prospects, and suppliers. This user-friendly solution supports customer
+knowledge, risk analysis and credit management directly within your Odoo
+environment.</p>
+<hr class="docutils" />
+<div class="section" id="key-features">
+<h3>Key Features</h3>
+</div>
+<div class="section" id="instantly-create-and-enrich-your-odoo-partners-with-trusted-companyweb-data">
+<h3>Instantly create and enrich your Odoo partners with trusted Companyweb data</h3>
+<p>Create new contacts in seconds by entering a company name, VAT, or
+registration number, and enrich existing records with a single click
+using the Companyweb button. Save hours of manual verification and avoid
+data entry errors and inconsistencies. Financial health assessment
+Quickly evaluate the financial health of companies with key indicators
+such as company status, financial risk indicators, credit limit, health
+barometer, and other crucial financial figures.</p>
+</div>
+<div class="section" id="alerts-service">
+<h3>Alerts Service</h3>
+<p>Keep your company records consistently updated. Never miss a change of
+address, a decrease in credit limit, financial warnings, or other
+critical updates.</p>
+</div>
+<div class="section" id="coverage-across-belgium-the-netherlands-and-luxembourg">
+<h3>Coverage across Belgium, the Netherlands and Luxembourg</h3>
+<p>Access reliable company information for companies operating in the
+Benelux region.</p>
+</div>
+<div class="section" id="payment-behavior-insights">
+<h3>Payment Behavior Insights</h3>
+<p>Gain insights into how companies pay their suppliers and make smarter
+credit and risk decisions.</p>
+<p><strong>Table of contents</strong></p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>With this integration you get detailed information about a company based
+on the VAT number of the company.</p>
+<div class="section" id="configuration">
+<h3>Configuration</h3>
+<p>Contacts &gt; Configuration &gt; Companyweb</p>
+<p><img alt="doc_config.png" src="https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_config.png" /></p>
+</div>
+<div class="section" id="security">
+<h3>Security</h3>
+<p>This module comes with 2 security groups.</p>
+<ul class="simple">
+<li>View Companyweb Data : can see the Companyweb data tab in contacts</li>
+<li>Download Companyweb Data : can actually enhance data</li>
+</ul>
+</div>
+<div class="section" id="usage-1">
+<h3>Usage</h3>
+<p>Once your user has the correct permissions, open a partner that has a
+belgian VAT number and click on the Companyweb button.</p>
+<p><img alt="doc_on_new_partner.png" src="https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_on_new_partner.png" /></p>
+<p>If you don’t see the Companyweb button, refresh your browser page and
+check that the current user is in the correct Companyweb group.</p>
+<p>If your Companyweb credentials are not known in the system or have
+changed, you will be shown a wizard to enter them.</p>
+<p><img alt="doc_get_credentials.png" src="https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_get_credentials.png" /></p>
+<p>If everything runs smoothly you’ll see a confirmation popup in the upper
+right corner of your screen.</p>
+<p><img alt="doc_success_message.png" src="https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_success_message.png" /></p>
+<p>You can now view the Companyweb information in the corresponding tab.</p>
+<p><img alt="doc_companyweb_data.png" src="https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_companyweb_data.png" /></p>
+<p>You can also use the “Fill Data” button to update the partner address
+with the one obtained from Companyweb.</p>
+<p>If enabled, you can add the contact to Companyweb Alerts. The data will
+automatically be updated if it has changed on Companyweb.</p>
+<p><img alt="doc_companyweb_alerts.png" src="https://raw.githubusercontent.com/OCA/l10n-belgium/19.0/companyweb_base/static/description/doc_companyweb_alerts.png" /></p>
+</div>
+</div>
+<div class="section" id="bug-tracker">
+<h2>Bug Tracker</h2>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/l10n-belgium/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_base%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h2>Credits</h2>
+<div class="section" id="authors">
+<h3>Authors</h3>
+<ul class="simple">
+<li>ACSONE SA/NV</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h3>Contributors</h3>
+<ul class="simple">
+<li>Xavier Bouquiaux &lt;<a class="reference external" href="mailto:xavier.bouquiaux&#64;acsone.eu">xavier.bouquiaux&#64;acsone.eu</a>&gt;</li>
+<li>Tobias Zehntner &lt;<a class="reference external" href="mailto:tobias.zehntner&#64;acsone.eu">tobias.zehntner&#64;acsone.eu</a>&gt;</li>
+<li>Stéphane Bidoul &lt;<a class="reference external" href="mailto:stephane.bidoul&#64;acsone.eu">stephane.bidoul&#64;acsone.eu</a>&gt;</li>
+<li>Bert Van Groenendael &lt;<a class="reference external" href="mailto:bert.vangroenendael&#64;dynapps.eu">bert.vangroenendael&#64;dynapps.eu</a>&gt;</li>
+</ul>
+</div>
+<div class="section" id="other-credits">
+<h3>Other credits</h3>
+<p>This module has been originally developed by
+<a class="reference external" href="https://acsone.eu">ACSONE</a> for Odoo version 8.</p>
+<p>It was subsequently enhanced by Jacques-Etienne Baudoux (BCIM sprl). The
+data model of that version has been preserved to facilitate porting.</p>
+<p>In 2021, the module was redeveloped under the current form, to support
+the new Companyweb SOAP api. This development has been funded by
+<a class="reference external" href="https://www.companyweb.be">Companyweb</a>.</p>
+<ul class="simple">
+<li>Companyweb &lt;<a class="reference external" href="mailto:info&#64;companyweb.be">info&#64;companyweb.be</a>&gt;</li>
+<li>Katrien Billen &lt;<a class="reference external" href="mailto:katrien&#64;companyweb.be">katrien&#64;companyweb.be</a>&gt;</li>
+</ul>
+<p>In 2025, the migration to v19, the migration to the SOAP API v2 together
+with new features, have been funded by
+<a class="reference external" href="https://www.companyweb.be">Companyweb</a>.</p>
+<ul class="simple">
+<li>Companyweb &lt;<a class="reference external" href="mailto:info&#64;companyweb.be">info&#64;companyweb.be</a>&gt;</li>
+<li>Katrien Billen &lt;<a class="reference external" href="mailto:katrien&#64;companyweb.be">katrien&#64;companyweb.be</a>&gt;</li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h3>Maintainers</h3>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/xavier-bouquiaux"><img alt="xavier-bouquiaux" src="https://github.com/xavier-bouquiaux.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/l10n-belgium/tree/19.0/companyweb_base">OCA/l10n-belgium</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
