@@ -25,7 +25,7 @@
         "wizards/credential_wizard.xml",
     ],
     "images": [
-        "static/description/doc_companyweb_data.png",
+        "static/description/banner.png",
     ],
     "external_dependencies": {
         "python": [
@@ -35,4 +35,5 @@
     },
     "depends": ["contacts"],
     "maintainers": ["xavier-bouquiaux"],
+    "application": True,
 }
