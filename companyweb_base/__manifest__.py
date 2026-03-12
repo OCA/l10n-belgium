@@ -35,4 +35,5 @@
     },
     "depends": ["contacts"],
     "maintainers": ["xavier-bouquiaux"],
+    "application": True,
 }
