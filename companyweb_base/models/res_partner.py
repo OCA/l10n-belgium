@@ -799,6 +799,7 @@ class ResPartner(models.Model):
                     if "cweb_sync" in values and values.get("cweb_sync", False):
                         values["companyweb_sync_status"] = CWEB_SYNC_STATUS_ACTIVE
                     partner.write(values)
+                    partner._cweb_copy_address()
                     updated_existing_partners.append(partner.id)
 
                 # Confirm we treated all data received, even if no longer in DB

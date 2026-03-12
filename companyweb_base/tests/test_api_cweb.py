@@ -403,6 +403,8 @@ class TestApiCweb(VCRMixin, BaseCommon):
         self.assertEqual(partner.companyweb_sync_status, CWEB_SYNC_STATUS_NONE)
         self.env["res.partner"]._cron_companyweb_followup()
         self.assertEqual(partner.companyweb_sync_status, CWEB_SYNC_STATUS_ACTIVE)
+        # Ensure new partner data has been filled to contact
+        self.assertEqual(partner.name, partner.cweb_name)
 
     @users("cwb_user")
     @freeze_time("2026-03-10")
