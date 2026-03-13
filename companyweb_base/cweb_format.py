@@ -68,7 +68,7 @@ def format_liable_party(liable_party_dict, env):
     )
     to_date = (
         tools.format_date(env, format_date(end_date))
-        if (end_date := liable_party_dict.get(DATA_KEYS["cweb_endDate"]), False)
+        if (end_date := liable_party_dict.get(DATA_KEYS["cweb_endDate"], False))
         else False
     )
     vat = liable_party_dict.get(DATA_KEYS["cweb_vat"], False)
