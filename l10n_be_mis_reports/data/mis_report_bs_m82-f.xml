@@ -660,11 +660,26 @@
     <field name="report_id" ref="new_mis_report_bs_m82_f" />
     <field name="name">rub_130_1</field>
     <field name="description">Reserves not available [130/1]</field>
-    <field name="expression">+rub_1311 +rub_1312 +rub_1313 +rub_1319</field>
+    <field name="expression">+rub_1311 +rub_1312 +rub_1313 +rub_1319+line_130</field>
     <field name="type">num</field>
     <field name="compare_method">pct</field>
     <field name="style_id" ref="mis_report_style_l10n_be_4" />
-    <field name="sequence">490</field>
+    <field name="sequence">320</field>
+  </record>
+  <record model="mis.report.kpi" id="new_mis_report_bs_m82_f_line_130">
+    <field name="report_id" ref="new_mis_report_bs_m82_f" />
+    <field name="name">line_130</field>
+    <field name="description">Legal Reserves [130]</field>
+    <field name="expression">-bals[130%]</field>
+    <field name="type">num</field>
+    <field name="compare_method">pct</field>
+    <field name="style_id" ref="mis_report_style_l10n_be_5" />
+    <field name="auto_expand_accounts" eval="True" />
+    <field
+            name="auto_expand_accounts_style_id"
+            ref="mis_report_style_l10n_be_acc_det"
+        />
+    <field name="sequence">321</field>
   </record>
   <record model="mis.report.kpi" id="new_mis_report_bs_m82_f_rub_1311">
     <field name="report_id" ref="new_mis_report_bs_m82_f" />
