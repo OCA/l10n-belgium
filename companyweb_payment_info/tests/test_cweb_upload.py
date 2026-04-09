@@ -60,16 +60,6 @@ class TestUpload(VCRMixin, TransactionCase):
         add_user = [(4, self.demo_user.id)]
         group.write({"users": add_user})
 
-    def _init_company_vat(self):
-        self.env.user.company_id.partner_id.write(
-            {
-                "country_id": False,
-                "peppol_eas": False,
-                "peppol_endpoint": False,
-            }
-        )
-        self.env.user.company_id.write({"vat": "BE0835207216"})
-
     def _init_cweb_credentials(self):
         self.demo_user.cweb_login = os.environ.get(
             "COMPANYWEB_TEST_LOGIN", "cwebtestlogin"
@@ -125,13 +115,13 @@ class TestUpload(VCRMixin, TransactionCase):
 
         self.env.user.company_id.vat = "FR23334175221"
 
-        # UserError bad on users's company
+        # UserError bad vat on users's company
         with self.assertRaises(UserError):
             self.env["companyweb_payment_info.payment_info_wizard"].with_user(
                 self.demo_user
             )._cweb_payment_info_step1()
 
-        self._init_company_vat()
+        self.env.user.company_id.vat = "BE0835207216"
 
         # UserError credentials
         result_no_credentials = (
