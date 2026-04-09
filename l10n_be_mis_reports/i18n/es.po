@@ -1542,6 +1542,13 @@ msgid "Legal Reserve [130]"
 msgstr "Reserva legal [130]"
 
 #. module: l10n_be_mis_reports
+#: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m81_f_line_130
+#: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m82_f_line_130
+#: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m87_f_line_130
+msgid "Legal Reserves [130]"
+msgstr ""
+
+#. module: l10n_be_mis_reports
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m01_f_rub_130
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m02_f_rub_130
 #: model:mis.report.kpi,description:l10n_be_mis_reports.new_mis_report_bs_m07_f_rub_130
