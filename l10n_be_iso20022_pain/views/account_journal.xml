@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="account_journal_form_view">
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='invoice_reference_type']/parent::group"
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible': [('type', 'not in', ('sale', 'bank'))]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>
