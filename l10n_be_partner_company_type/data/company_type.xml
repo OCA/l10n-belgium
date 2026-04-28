@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="aisbl" model="res.partner.company.type">
+        <field name="name">Association internationale sans but lucratif</field>
+        <field name="shortcut">AISBL</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="asbl" model="res.partner.company.type">
+        <field name="name">Association sans but lucratif</field>
+        <field name="shortcut">ASBL</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="sa" model="res.partner.company.type">
+        <field name="name">Société anonyme</field>
+        <field name="shortcut">SA</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="sc" model="res.partner.company.type">
+        <field name="name">Société coopérative</field>
+        <field name="shortcut">SC</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="scomm" model="res.partner.company.type">
+        <field name="name">Société en commandite</field>
+        <field name="shortcut">SComm</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="snc" model="res.partner.company.type">
+        <field name="name">Société en nom collectif</field>
+        <field name="shortcut">SNC</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="srl" model="res.partner.company.type">
+        <field name="name">Société à responsabilité limitée</field>
+        <field name="shortcut">SRL</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <!-- Former types before 2019 -->
+
+    <record id="scrl" model="res.partner.company.type">
+        <field name="name">Société coopérative à responsabilité limitée</field>
+        <field name="shortcut">SCRL</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+
+    <record id="sprl" model="res.partner.company.type">
+        <field name="name">Société privée à responsabilité limitée</field>
+        <field name="shortcut">SPRL</field>
+        <field name="country_ids" eval="[(4, ref('base.be'))]" />
+    </record>
+</odoo>
