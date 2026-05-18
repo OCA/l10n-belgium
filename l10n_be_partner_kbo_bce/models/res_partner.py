@@ -8,22 +8,36 @@ from odoo.exceptions import ValidationError
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    kbo_bce_number = fields.Char(
-        string="KBO/BCE Number",
-        compute=lambda s: s._compute_identification(
-            "kbo_bce_number", "l10n_be_kbo_bce"
+    company_registry = fields.Char(
+        compute=lambda s: s._compute_company_registry(
+            "company_registry", "l10n_be_kbo_bce"
         ),
         inverse=lambda s: s._inverse_identification(
-            "kbo_bce_number", "l10n_be_kbo_bce"
+            "company_registry", "l10n_be_kbo_bce"
         ),
         search=lambda s, *a: s._search_identification("l10n_be_kbo_bce", *a),
     )
 
+    def _compute_company_registry(self, field_name, category_code):
+        """
+        Compute all fields related to the company registry
+        """
+        res = super()._compute_company_registry()
+        for partner in self:
+            if partner.country_id.code == "BE":
+                partner._compute_identification(field_name, category_code)
+        return res
+
     @api.model_create_multi
     def create(self, vals_list):
+        be = self.env.ref("base.be") or self.env["res.country"].search(
+            [("code", "=", "BE")]
+        )
         for vals in vals_list:
             if vals.get("company_type", "") == "company" or vals.get("is_company"):
-                if "vat" in vals or "kbo_bce_number" in vals:
+                if ("vat" in vals or "company_registry" in vals) and (
+                    vals.get("country_id") == be.id
+                ):
                     self._sync_kbo_bce_number(vals)
         return super().create(vals_list)
 
@@ -46,24 +60,24 @@ class ResPartner(models.Model):
             if any(
                 [
                     x in vals_in
-                    for x in ["vat", "kbo_bce_number", "is_company", "country_id"]
+                    for x in ["vat", "company_registry", "is_company", "country_id"]
                 ]
             ):
                 if "vat" in vals_in:
                     vat = vals_in["vat"]
                 else:
                     vat = partner.vat
-                if "kbo_bce_number" in vals_in:
-                    kbo_bce_number = vals_in["kbo_bce_number"]
+                if "company_registry" in vals_in:
+                    company_registry = vals_in["company_registry"]
                 else:
-                    kbo_bce_number = partner.kbo_bce_number
+                    company_registry = partner.company_registry
                 if "country_id" in vals_in:
                     country_id = vals_in["country_id"]
                 else:
                     country_id = partner.country_id.id
                 sync_vals = {
                     "vat": vat,
-                    "kbo_bce_number": kbo_bce_number,
+                    "company_registry": company_registry,
                     "country_id": country_id,
                 }
                 partner._sync_kbo_bce_number(sync_vals)
@@ -73,9 +87,9 @@ class ResPartner(models.Model):
         return True
 
     def _vals_format_kbo_bce_number(self, vals):
-        rn = vals.get("kbo_bce_number")
+        rn = vals.get("company_registry")
         if rn:
-            vals["kbo_bce_number"] = self._format_kbo_bce_number(rn)
+            vals["company_registry"] = self._format_kbo_bce_number(rn)
 
     def _format_kbo_bce_number(self, number):
         res = number.replace(" ", "").replace(".", "")
@@ -98,12 +112,12 @@ class ResPartner(models.Model):
         vat = sync_vals.get("vat") and self._fix_vat_number(
             sync_vals["vat"], country_id
         )
-        kbn = sync_vals.get("kbo_bce_number") and sync_vals["kbo_bce_number"]
+        kbn = sync_vals.get("company_registry") and sync_vals["company_registry"]
         has_kbo_bce_number = False
 
         if vat and vat[0:2] == "BE" and not kbn:
             kbn = vat[2:]
-            sync_vals["kbo_bce_number"] = kbn
+            sync_vals["company_registry"] = kbn
             has_kbo_bce_number = True
 
         if kbn and not vat:
@@ -119,7 +133,7 @@ class ResPartner(models.Model):
         self._update_kbo_bce_sync_vals(sync_vals)
 
         # consistency check
-        kbn = sync_vals.get("kbo_bce_number")
+        kbn = sync_vals.get("company_registry")
         vat = sync_vals.get("vat")
         if kbn and vat:
             if kbn.replace(".", "") != self._fix_vat_number(vat, country_id)[2:]:

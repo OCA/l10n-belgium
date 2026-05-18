@@ -62,7 +62,7 @@ Authors
 Contributors
 ------------
 
--  Luc De Meyer <luc.demeyer@noviat.com>
+- Luc De Meyer <luc.demeyer@noviat.com>
 
 Maintainers
 -----------
