@@ -3,7 +3,7 @@
 {
     "name": "Belgium Partner Identification Numbers",
     "category": "Customer Relationship Management",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "depends": ["partner_identification"],
     "data": ["data/l10n_be_partner_identification.xml"],
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
