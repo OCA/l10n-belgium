@@ -8,8 +8,7 @@ from odoo.addons.base.tests.common import BaseCommon
 class TestL10nBePartnerIdentification(BaseCommon):
     def test_validate_national_registry_number(self):
         partner_id_category = self.env.ref(
-            "l10n_be_partner_identification."
-            "l10n_be_national_registry_number_category"
+            "l10n_be_partner_identification.l10n_be_national_registry_number_category"
         )
         partner_1 = self.env.ref("base.res_partner_1")
         # born before 2000
@@ -43,7 +42,7 @@ class TestL10nBePartnerIdentification(BaseCommon):
 
     def test_validate_id_card(self):
         partner_id_category = self.env.ref(
-            "l10n_be_partner_identification." "l10n_be_id_card_category"
+            "l10n_be_partner_identification.l10n_be_id_card_category"
         )
         partner_1 = self.env.ref("base.res_partner_1")
         # born before 2000
