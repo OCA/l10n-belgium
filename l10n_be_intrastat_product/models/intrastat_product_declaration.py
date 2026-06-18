@@ -243,7 +243,7 @@ class IntrastatProductDeclaration(models.Model):
             if not line[fld]:
                 raise UserError(
                     self.env._(
-                        "Error while processing %(line)s:\n" "Missing '%(line_field)s'."
+                        "Error while processing %(line)s:\nMissing '%(line_field)s'."
                     )
                     % {"line": line, "line_field": line._fields[fld].string}
                 )
