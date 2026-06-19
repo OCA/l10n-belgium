@@ -5,6 +5,6 @@
     </record>
 
     <record id="base.user_root" model="res.users">
-        <field eval="[(4, ref('group_l10n_be_intrastat_product'))]" name="groups_id" />
+        <field eval="[(4, ref('group_l10n_be_intrastat_product'))]" name="group_ids" />
     </record>
 </odoo>

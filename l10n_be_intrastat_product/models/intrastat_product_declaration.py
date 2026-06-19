@@ -80,7 +80,7 @@ class IntrastatProductDeclaration(models.Model):
                     line_vals.update(
                         {
                             "region_id": refund.src_dest_region_id.id,
-                            "transaction_id": notedict["transcation_21"].id,
+                            "transaction_id": notedict["transcation_21_origin"].id,
                         }
                     )
 
@@ -100,7 +100,7 @@ class IntrastatProductDeclaration(models.Model):
                     line_vals.update(
                         {
                             "region_id": refund.src_dest_region_id.id,
-                            "transaction_id": notedict["transcation_21"].id,
+                            "transaction_id": notedict["transcation_21_origin"].id,
                         }
                     )
         else:  # return_picking is False
@@ -190,18 +190,19 @@ class IntrastatProductDeclaration(models.Model):
                 limit=1,
             )
             if not hs_code:
-                msg = (
-                    self.env._(
-                        "Intrastat Code '%s' not found. "
-                        "\nYou can update your codes "
-                        "via the module intrastat_product_hscodes_import."
-                    )
-                    % special_code
+                msg = self.env._(
+                    "Intrastat Code '%s' not found. "
+                    "\nYou can update your codes "
+                    "via the module intrastat_product_hscodes_import.",
+                    special_code,
                 )
                 raise UserError(msg)
             notedict.update(
                 {
                     "credit_note_code_origin": hs_code,
+                    "transcation_21_origin": self.env.ref(
+                        "intrastat_product.intrastat_transaction_21"
+                    ),
                 }
             )
         else:
@@ -243,9 +244,10 @@ class IntrastatProductDeclaration(models.Model):
             if not line[fld]:
                 raise UserError(
                     self.env._(
-                        "Error while processing %(line)s:\nMissing '%(line_field)s'."
+                        "Error while processing %(line)s:\nMissing '%(line_field)s'.",
+                        line=line,
+                        line_field=line._fields[fld].string,
                     )
-                    % {"line": line, "line_field": line._fields[fld].string}
                 )
         Item = etree.SubElement(parent, "Item")
         etree.SubElement(Item, "Dim", attrib={"prop": "EXTRF"}).text = decl_code
@@ -380,7 +382,7 @@ class IntrastatProductComputationLine(models.Model):
                         not rec.invoice_id.fiscal_position_id.vat_required
                         or (
                             rec.partner_id.vat
-                            and rec.partner_id.vat.lower().strip() == "na"
+                            and rec.partner_id.vat.lower().lstrip("0") == "na"
                         )
                     )
                 )
