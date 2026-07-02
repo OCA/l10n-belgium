@@ -338,6 +338,17 @@ class ResPartner(models.Model):
                     cweb_image_tag = f'<img class="img-fluid" src="/{path}"/>'
                 except FileNotFoundError:
                     _logger.warning("File not found: %s", path)
+                    self.env["ir.logging"].sudo().create(
+                        {
+                            "name": _logger.name,
+                            "type": "server",
+                            "level": "WARNING",
+                            "message": f"File not found: {path}",
+                            "path": __name__,
+                            "func": "_compute_cweb_image_tag",
+                            "line": 0,
+                        }
+                    )
             rec.cweb_image_tag = cweb_image_tag
 
     @api.depends(*ADDRESS_FIELDS)
@@ -786,6 +797,20 @@ class ResPartner(models.Model):
                 len(partner_datas),
                 remaining,
             )
+            self.env["ir.logging"].sudo().create(
+                {
+                    "name": _logger.name,
+                    "type": "server",
+                    "level": "INFO",
+                    "message": (
+                        f"Companyweb: Received {len(partner_datas)}"
+                        f" contact(s) to update. Remaining: {remaining}."
+                    ),
+                    "path": __name__,
+                    "func": "_cron_companyweb_followup",
+                    "line": 0,
+                }
+            )
 
             updated_partners = []
             updated_existing_partners = []
@@ -819,5 +844,30 @@ class ResPartner(models.Model):
                     "Companyweb: Updated partners with IDs %s",
                     updated_existing_partners,
                 )
+                self.env["ir.logging"].sudo().create(
+                    {
+                        "name": _logger.name,
+                        "type": "server",
+                        "level": "INFO",
+                        "message": (
+                            f"Companyweb: Updated partners with IDs"
+                            f" {updated_existing_partners}"
+                        ),
+                        "path": __name__,
+                        "func": "_cron_companyweb_followup",
+                        "line": 0,
+                    }
+                )
             else:
                 _logger.info("Companyweb: No matching partners found")
+                self.env["ir.logging"].sudo().create(
+                    {
+                        "name": _logger.name,
+                        "type": "server",
+                        "level": "INFO",
+                        "message": "Companyweb: No matching partners found",
+                        "path": __name__,
+                        "func": "_cron_companyweb_followup",
+                        "line": 0,
+                    }
+                )

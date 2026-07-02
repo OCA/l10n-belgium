@@ -4,17 +4,11 @@
 
 import os
 from unittest.mock import patch
-from urllib import parse
 
-import requests
 from freezegun import freeze_time
-from requests import PreparedRequest, Session
-from vcr_unittest import VCRMixin
 
 from odoo import exceptions
 from odoo.tests import Form, new_test_user, users
-
-from odoo.addons.base.tests.common import BaseCommon
 
 from ..cweb_const import FILL_FIELD_MAP
 from ..models.res_partner import (
@@ -22,28 +16,7 @@ from ..models.res_partner import (
     CWEB_SYNC_STATUS_NONE,
     CWEB_SYNC_STATUS_PENDING,
 )
-
-_super_send = requests.Session.send
-
-TEST_LOGIN = "cwebtestlogin"
-TEST_PASSWORD = "cwebtestpassword"
-
-# How to create a test (re-do if result of test call will change):
-# 1. Write test function
-# 1.a Make sure tests work apart from request (fix any tests failing with another error
-#   than connection (Companyweb status 101 or 303)
-# 1.b If cassette in tests/cassettes already exists for this test, delete it
-# 2. Add env variables with real login data:
-#   - COMPANYWEB_TEST_LOGIN=*****
-#   - COMPANYWEB_TEST_PASSWORD=*****
-# 3. Run test -> a Casette has been created in tests/cassettes
-# 4. Search for login/password you used in the cassette and replace it with
-#   - cwebtestlogin
-#   - cwebtestpassword
-# 5. Remove env variables
-# 6. Add decorator with today's date: @freeze_time("2026-01-13") because the login hash
-#   includes the date
-# 7. Run test
+from .common import TEST_LOGIN, TEST_PASSWORD, CwebTestCommon
 
 # Values saved in cassette. We don't test
 # - dates (FakeDates)
@@ -116,23 +89,12 @@ EXPECTED_VALUES = {
 }
 
 
-class TestApiCweb(VCRMixin, BaseCommon):
-    @classmethod
-    def _request_handler(cls, s: Session, r: PreparedRequest, /, **kw):
-        """
-        Override to allow requests to the companyweb API
-        because Odoo only permits calls to localhost
-        (see https://github.com/odoo/odoo/blob/17.0/odoo/tests/common.py#L265 )
-        """
-        url = parse.urlparse(r.url)
-        if url.hostname == "connect.companyweb.be":
-            return _super_send(s, r, **kw)
-        return super()._request_handler(s=s, r=r, **kw)
+class TestApiCweb(CwebTestCommon):
+    CWEB_ALLOWED_HOSTNAMES = ("connect.companyweb.be",)
 
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.company = cls.env.company
         french = cls.env.ref("base.lang_fr")
         french.install_lang()
         french.active = True
@@ -147,12 +109,6 @@ class TestApiCweb(VCRMixin, BaseCommon):
         # Results are language-dependent
         cls.cwb_user.lang = "FR"
 
-    def _set_credentials(self):
-        self.company.cweb_login = os.environ.get("COMPANYWEB_TEST_LOGIN", TEST_LOGIN)
-        self.company.cweb_password = os.environ.get(
-            "COMPANYWEB_TEST_PASSWORD", TEST_PASSWORD
-        )
-
     def _enable_followup(self):
         self.company.write({"companyweb_followup_enable": True})
         self.assertTrue(self.company.companyweb_followup_enable)
@@ -166,14 +122,6 @@ class TestApiCweb(VCRMixin, BaseCommon):
             }
         values.update({"is_company": True})
         return self.env["res.partner"].create(values)
-
-    def _get_vcr_kwargs(self, **kwargs):
-        return {
-            "record_mode": "once",
-            "match_on": ["method", "path", "query"],
-            "filter_headers": ["Authorization"],
-            "decode_compressed_response": True,
-        }
 
     def test_ensure_credentials(self):
         self._set_credentials()

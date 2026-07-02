@@ -10,7 +10,7 @@
         <field name="code">model._cron_companyweb_followup()</field>
         <field
             name="nextcall"
-            eval="(DateTime.now().replace(hour=2,minute=0).strftime('%Y-%m-%d %H:%M:%S'))"
+            eval="(DateTime.now().replace(hour=2,minute=DateTime.now().microsecond % 60).strftime('%Y-%m-%d %H:%M:%S'))"
         />
     </record>
 </odoo>

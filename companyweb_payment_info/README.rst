@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 =======================
 Companyweb Payment Info
 =======================
@@ -10,26 +14,43 @@ Companyweb Payment Info
    !! source digest: sha256:623520ca30697616b0a77c64a7786229550a8e994c9abaa34ca25955d70e6b36
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+    :alt: Beta
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--belgium-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-belgium/tree/18.0/companyweb_payment_info
+    :target: https://github.com/OCA/l10n-belgium/tree/19.0/companyweb_payment_info
     :alt: OCA/l10n-belgium
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-belgium-18-0/l10n-belgium-18-0-companyweb_payment_info
+    :target: https://translation.odoo-community.org/projects/l10n-belgium-19-0/l10n-belgium-19-0-companyweb_payment_info
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-belgium&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module provides Companyweb customers the ability to send open
-invoices
+This module extends ``companyweb_base`` with a daily scheduled action
+that sends all open customer invoices to Companyweb's AutoPayex API.
+Companyweb uses this data to build an overview of how quickly companies
+pay their suppliers, which helps businesses assess credit risk for new
+customers.
+
+An invoice is considered open as long as it has not been fully paid.
+Partial payments are supported: the remaining outstanding amount is
+reported. Credit notes do not need to be submitted and are excluded
+automatically.
+
+Only invoices for customers in supported countries with a known VAT
+number or company registry number are submitted.
+
+The following data is shared with Companyweb:
+
+- Your company: VAT/registry number, country.
+- Per invoice: customer VAT/registry number, country, invoice number,
+  date, amount due.
 
 **Table of contents**
 
@@ -39,22 +60,33 @@ invoices
 Installation
 ============
 
-This module can be installed in the usual way. It depends on the OCA
-``companyweb_base`` module.
+This module depends on ``companyweb_base`` and ``account``. Companyweb
+credentials must be configured in ``companyweb_base`` before this module
+can send data.
+
+The AutoPayex API URL is set automatically on installation
+(``companyweb.payex.url`` system parameter). It can be adjusted in
+Settings > Technical > System Parameters if needed.
 
 Usage
 =====
 
-This module comes with 1 security groups.
+Configuration
+-------------
 
-- Upload Companyweb Data : can upload invoice to Companyweb
+1. Set up your Companyweb credentials under Contacts > Companyweb >
+   Settings.
+2. Go to Settings > Companyweb > Payment Info and enable **Send Open
+   Invoices to Companyweb** for your company (enabled by default).
 
-In order to use this module you should \* be in the right security group
-\* set a vat for the company you are logged in \* have companyweb
-credentials \* have open invoices for customer with a belgian's vat
+The scheduled action **Companyweb: Send Open Invoices** runs once per
+day and submits all posted, unpaid customer invoices to Companyweb.
+Invoices for customers without a VAT number or company registry number,
+or in unsupported countries, are skipped silently.
 
-The module's wizard helps you to configure what's needed You'll find the
-wizard under the "Customer" menu of the accounting app
+The result of each submission is logged as an info message, including
+the number of valid and invalid invoices processed and the total open
+amount reported.
 
 Bug Tracker
 ===========
@@ -62,7 +94,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-belgium/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_payment_info%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-belgium/issues/new?body=module:%20companyweb_payment_info%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -77,13 +109,14 @@ Authors
 Contributors
 ------------
 
-- Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
-- Stéphane Bidoul <stephane.bidoul@acsone.eu>
+- Xavier Bouquiaux xavier.bouquiaux@acsone.eu
+- Stéphane Bidoul stephane.bidoul@acsone.eu
+- Tobias Zehntner tobias.zehntner@acsone.eu
 
 Other credits
 -------------
 
-In 2021, the module developed under the current form, to support the new
+In 2026, the module developed under the current form, to support the new
 Companyweb SOAP api. This development has been funded by
 `Companyweb <https://www.companyweb.be>`__.
 
@@ -108,6 +141,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-xavier-bouquiaux| 
 
-This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/18.0/companyweb_payment_info>`_ project on GitHub.
+This module is part of the `OCA/l10n-belgium <https://github.com/OCA/l10n-belgium/tree/19.0/companyweb_payment_info>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

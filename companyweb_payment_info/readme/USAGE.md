@@ -1,10 +1,13 @@
-This module comes with 1 security groups.
+Configuration
+-------------
+1. Set up your Companyweb credentials under Contacts > Companyweb > Settings.
+2. Go to Settings > Companyweb > Payment Info and enable
+   **Send Open Invoices to Companyweb** for your company (enabled by default).
 
-  - Upload Companyweb Data : can upload invoice to Companyweb
+The scheduled action **Companyweb: Send Open Invoices** runs once per day and
+submits all posted, unpaid customer invoices to Companyweb. Invoices for
+customers without a VAT number or company registry number, or in unsupported
+countries, are skipped silently.
 
-In order to use this module you should \* be in the right security group
-\* set a vat for the company you are logged in \* have companyweb
-credentials \* have open invoices for customer with a belgian's vat
-
-The module's wizard helps you to configure what's needed You'll find the
-wizard under the "Customer" menu of the accounting app
+The result of each submission is logged as an info message, including the number
+of valid and invalid invoices processed and the total open amount reported.
