@@ -98,13 +98,14 @@ class ResPartner(models.Model):
         help="The official registration number of a company. \n"
         "• Belgium: KBO, BCE, CBE\n"
         "• Netherlands: KvK\n"
-        "• Luxemburg: RCS",
+        "• Luxembourg: RCS\n"
+        "• France: SIREN",
     )
     cweb_country_code_enable = fields.Boolean(**CWEB_FIELD_ARGS)
     cweb_country_code = fields.Char(
         "Companyweb Country Code",
         **CWEB_FIELD_ARGS,
-        help="The official code of Belgium, The Netherlands and Luxembourg",
+        help="The official code of Belgium, The Netherlands, Luxembourg and France",
     )
     cweb_main_industry_enable = fields.Boolean(**CWEB_FIELD_ARGS)
     cweb_main_industry = fields.Char(

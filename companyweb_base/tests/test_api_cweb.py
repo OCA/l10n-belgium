@@ -136,6 +136,7 @@ class TestApiCweb(VCRMixin, BaseCommon):
         french.install_lang()
         french.active = True
         cls.belgium = cls.env.ref("base.be")
+        cls.france = cls.env.ref("base.fr")
         cls.normal_user = new_test_user(
             cls.env, "normal_user", "base.group_partner_manager"
         )
@@ -443,3 +444,34 @@ class TestApiCweb(VCRMixin, BaseCommon):
             "Coolblue Holding (NL)\nVAT: NL 810437466 B01\nEst. 01/01/2014",
         )
         self.assertEqual(nl_partner.cweb_rsin_number, "810433941")
+
+    @users("cwb_user")
+    @freeze_time("2026-07-02")
+    def test_cweb_button_vat_fr(self):
+        self._set_credentials()
+        partner = self._create_partner(
+            {
+                "name": "Test FR",
+                "vat": "FR51306138900",
+            }
+        )
+        self.assertTrue(partner.cweb_show_button_enhance)
+        result = partner.cweb_button_enhance()
+        self.assertEqual(result.get("params", {}).get("type"), "success")
+        self.assertTrue(partner.cweb_show_tab)
+        self.assertEqual(partner.cweb_country_code, "FR")
+
+    @users("cwb_user")
+    @freeze_time("2026-07-02")
+    def test_cweb_button_registry_fr(self):
+        self._set_credentials()
+        partner = self._create_partner(
+            {
+                "name": "Test FR",
+                "company_registry": "652014051",
+                "country_id": self.france.id,
+            }
+        )
+        self.assertTrue(partner.cweb_show_button_enhance)
+        partner.cweb_button_enhance()
+        self.assertEqual(partner.cweb_country_code, "FR")
