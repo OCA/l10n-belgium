@@ -110,25 +110,26 @@ def get_balance_values(data):
         }
     )
     if balance_enable and balance_data:
-        balance_details = {
-            d[NESTED_KEYS["balance_data_key"]]: d[NESTED_KEYS["balance_data_value"]]
-            for d in balance_data[NESTED_KEYS["balance_data_dict_parent"]][
-                NESTED_KEYS["balance_data_dict_child"]
-            ]
-        }
-
         values.update(
             {
                 balance_field: balance_data[NESTED_KEYS[balance_field]]
                 for balance_field in BALANCE_FIELDS
             }
         )
-        values.update(
-            {
-                balance_field: balance_details[NESTED_KEYS[balance_field]]
-                for balance_field in BALANCE_NESTED_FIELDS
+
+        if balance_data[NESTED_KEYS["balance_data_dict_parent"]]:
+            balance_details = {
+                d[NESTED_KEYS["balance_data_key"]]: d[NESTED_KEYS["balance_data_value"]]
+                for d in balance_data[NESTED_KEYS["balance_data_dict_parent"]][
+                    NESTED_KEYS["balance_data_dict_child"]
+                ]
             }
-        )
+            values.update(
+                {
+                    balance_field: balance_details[NESTED_KEYS[balance_field]]
+                    for balance_field in BALANCE_NESTED_FIELDS
+                }
+            )
     else:
         # Set balance fields to False if not available
         values.update(
