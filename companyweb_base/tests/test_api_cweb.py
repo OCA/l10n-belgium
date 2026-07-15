@@ -1,8 +1,9 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-# API documentation : https://docs.companyweb.be
+# API documentation: https://docs.companyweb.be
 
 import os
+from unittest.mock import patch
 from urllib import parse
 
 import requests
@@ -427,6 +428,62 @@ class TestApiCweb(VCRMixin, BaseCommon):
         self.assertIn("Added 1 contact(s)", msg)
         self.assertIn("Failed to push 1 contact(s)", msg)
         self.assertIn("n’est pas un numero de registration", invalid_partner.cweb_error)
+
+    def test_push_uses_vat_country_not_address_country(self):
+        """
+        A Belgian partner (BE VAT) with a Dutch address must send CountryCode=BE
+        to the alerts API, not NL from the address.
+        """
+        self._set_credentials()
+        self._enable_followup()
+        partner = self._create_partner(
+            {
+                "name": "Test",
+                "vat": "BE0405056855",
+                "country_id": self.env.ref("base.nl").id,
+            }
+        )
+        pushed_lists = []
+
+        def mock_push(self_inner, partner_list):
+            pushed_lists.append(partner_list)
+            return "", [], 1
+
+        with patch.object(type(partner), "_push_followup_partners", mock_push):
+            partner.action_push_followup_partners()
+
+        self.assertEqual(len(pushed_lists), 1)
+        self.assertEqual(len(pushed_lists[0]), 1)
+        self.assertEqual(pushed_lists[0][0]["CountryCode"], "BE")
+
+    def test_enhance_uses_vat_country_not_address_country(self):
+        """
+        A partner with a Belgian VAT but an address in a non-allowed country (UK)
+        must not be rejected during enhance — the country is determined from the VAT,
+        not the address.
+        """
+        partner = self._create_partner(
+            {
+                "name": "Test",
+                "vat": "BE0405056855",
+                "country_id": self.env.ref("base.uk").id,
+            }
+        )
+        called_args = []
+
+        def mock_call_get(self_inner, args):
+            called_args.append(dict(args))
+            return "mocked", None
+
+        with patch.object(type(partner), "_cweb_call_get", mock_call_get):
+            errors = partner._cweb_enhance()
+
+        self.assertTrue(called_args, "API call should have been attempted")
+        self.assertEqual(called_args[0].get("country_code"), "BE")
+        self.assertFalse(
+            any("only supports companies" in (e or "") for e in errors),
+            "Partner must not be rejected due to address country",
+        )
 
     def test_nl_fields(self):
         self._set_credentials()
