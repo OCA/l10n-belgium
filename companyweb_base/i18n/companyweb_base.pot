@@ -885,6 +885,11 @@ msgid "Followup"
 msgstr ""
 
 #. module: companyweb_base
+#: model:ir.model.fields.selection,name:companyweb_base.selection__companyweb_search_wizard__country_code__fr
+msgid "France"
+msgstr ""
+
+#. module: companyweb_base
 #: model:ir.model.fields,help:companyweb_base.field_res_partner__cweb_url
 #: model:ir.model.fields,help:companyweb_base.field_res_users__cweb_url
 msgid "Further details about this company on companyweb.be"
@@ -1253,7 +1258,7 @@ msgstr ""
 #. module: companyweb_base
 #: model:ir.model.fields,help:companyweb_base.field_res_partner__cweb_country_code
 #: model:ir.model.fields,help:companyweb_base.field_res_users__cweb_country_code
-msgid "The official code of Belgium, The Netherlands and Luxembourg"
+msgid "The official code of Belgium, The Netherlands, Luxembourg and France"
 msgstr ""
 
 #. module: companyweb_base
@@ -1271,7 +1276,8 @@ msgid ""
 "The official registration number of a company. \n"
 "• Belgium: KBO, BCE, CBE\n"
 "• Netherlands: KvK\n"
-"• Luxemburg: RCS"
+"• Luxembourg: RCS\n"
+"• France: SIREN"
 msgstr ""
 
 #. module: companyweb_base
