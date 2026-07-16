@@ -1,0 +1,3 @@
+  - Xavier Bouquiaux <xavier.bouquiaux@acsone.eu>
+  - Stéphane Bidoul <stephane.bidoul@acsone.eu>
+  - Tobias Zehntner <tobias.zehntner@acsone.eu>
