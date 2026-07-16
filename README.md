@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[companyweb_base](companyweb_base/) | 19.0.1.1.2 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Know exactly who you are doing business with. Enrich Odoo contacts with Companyweb.
+[companyweb_base](companyweb_base/) | 19.0.1.1.3 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Know exactly who you are doing business with. Enrich Odoo contacts with Companyweb.
 [companyweb_payment_info](companyweb_payment_info/) | 19.0.1.0.1 | <a href='https://github.com/xavier-bouquiaux'><img src='https://github.com/xavier-bouquiaux.png' width='32' height='32' style='border-radius:50%;' alt='xavier-bouquiaux'/></a> | Send your customer payment information to Companyweb
 
 [//]: # (end addons)
