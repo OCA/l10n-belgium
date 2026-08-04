@@ -253,12 +253,17 @@ class TestApiCweb(CwebTestCommon):
         Test invalid VAT (cweb error)
         """
         self._set_credentials()
-        partner = self._create_partner(
-            {
-                "name": "Test",
-                "vat": "123123123",
-                "country_id": self.belgium.id,
-            }
+        partner = (
+            self.env["res.partner"]
+            .with_context(no_vat_validation=True)
+            .create(
+                {
+                    "name": "Test",
+                    "vat": "123123123",
+                    "country_id": self.belgium.id,
+                    "is_company": True,
+                }
+            )
         )
         with self.assertRaisesRegex(exceptions.ValidationError, "Companyweb status"):
             partner.cweb_button_enhance()
@@ -304,14 +309,26 @@ class TestApiCweb(CwebTestCommon):
             if f"fill_{cweb_field}" in disabled_fields:
                 self.assertNotEqual(partner[cweb_field], partner[odoo_field])
             else:
-                self.assertEqual(partner[cweb_field], partner[odoo_field])
+                self._assert_copied_field_equal(partner, cweb_field, odoo_field)
         self.company.sudo().write(
             {disabled_field: True for disabled_field in disabled_fields}
         )
         partner.cweb_button_copy_address()
         for cweb_field, odoo_field in FILL_FIELD_MAP.items():
             # All fields are copied
-            self.assertEqual(partner[cweb_field], partner[odoo_field])
+            self._assert_copied_field_equal(partner, cweb_field, odoo_field)
+
+    def _assert_copied_field_equal(self, partner, cweb_field, odoo_field):
+        cweb_value = partner[cweb_field]
+        odoo_value = partner[odoo_field]
+        if odoo_field == "vat":
+            # Odoo may normalize the VAT (strip spaces/dots) on write
+            # depending on whether country_id is already set at that point,
+            # while cweb_vat always keeps the raw value as scraped from
+            # Companyweb. Normalize both sides before comparing.
+            cweb_value = cweb_value.replace(" ", "").replace(".", "")
+            odoo_value = odoo_value.replace(" ", "").replace(".", "")
+        self.assertEqual(cweb_value, odoo_value)
 
     @users("normal_user")
     @freeze_time("2026-01-29")
