@@ -1,1 +1,8 @@
 vcrpy-unittest
+
+
+odoo-addon-web-json-widget @ git+https://github.com/OCA/web@refs/pull/3231/head#subdirectory=web_json_widget
+odoo-addon-l10n-be-product-cnk @ git+https://github.com/OCA/l10n-belgium@refs/pull/285/head#subdirectory=l10n_be_product_cnk
+odoo-addon-connector-importer @ git+https://github.com/OCA/connector-interfaces@refs/pull/189/head#subdirectory=connector_importer
+odoo-addon-connector-importer-api @ git+https://github.com/OCA/connector-interfaces@refs/pull/187/head#subdirectory=connector_importer_api
+odoo-addon-l10n-be-connector-importer-source-medipim @ git+https://github.com/OCA/l10n-belgium@refs/pull/286/head#subdirectory=l10n_be_connector_importer_source_medipim
