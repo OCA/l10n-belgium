@@ -1,0 +1,106 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_be_partner_company_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 08:44+0000\n"
+"PO-Revision-Date: 2025-09-29 08:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.aisbl
+msgid "AISBL"
+msgstr "AISBL"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.asbl
+msgid "ASBL"
+msgstr "ASBL"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.aisbl
+msgid "Association internationale sans but lucratif"
+msgstr "Association internationale sans but lucratif"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.asbl
+msgid "Association sans but lucratif"
+msgstr "Association sans but lucratif"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.sa
+msgid "SA"
+msgstr "SA"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.sc
+msgid "SC"
+msgstr "SC"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.scrl
+msgid "SCRL"
+msgstr "SCRL"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.scomm
+msgid "SComm"
+msgstr "SComm"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.snc
+msgid "SNC"
+msgstr "SNC"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.sprl
+msgid "SPRL"
+msgstr "SPRL"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,shortcut:l10n_be_partner_company_type.srl
+msgid "SRL"
+msgstr "SRL"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.sa
+msgid "Société anonyme"
+msgstr "Société anonyme"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.sc
+msgid "Société coopérative"
+msgstr "Société coopérative"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.scrl
+msgid "Société coopérative à responsabilité limitée"
+msgstr "Société coopérative à responsabilité limitée"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.scomm
+msgid "Société en commandite"
+msgstr "Société en commandite"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.snc
+msgid "Société en nom collectif"
+msgstr "Société en nom collectif"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.sprl
+msgid "Société privée à responsabilité limitée"
+msgstr "Société privée à responsabilité limitée"
+
+#. module: l10n_be_partner_company_type
+#: model:res.partner.company.type,name:l10n_be_partner_company_type.srl
+msgid "Société à responsabilité limitée"
+msgstr "Société à responsabilité limitée"
