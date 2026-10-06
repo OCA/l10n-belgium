@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.model.access" id="product_category_bfci_product_manager">
+        <field name="name">product.category.bfci Product Manager</field>
+        <field name="model_id" ref="model_product_bfci_category" />
+        <field name="group_id" ref="product.group_product_manager" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+    <record model="ir.model.access" id="product_category_bfci_public">
+        <field name="name">product.category.bfci Public</field>
+        <field name="model_id" ref="model_product_bfci_category" />
+        <field name="group_id" ref="base.group_public" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record model="ir.model.access" id="product_category_bfci_portal">
+        <field name="name">product.category.bfci Portal</field>
+        <field name="model_id" ref="model_product_bfci_category" />
+        <field name="group_id" ref="base.group_portal" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+</odoo>

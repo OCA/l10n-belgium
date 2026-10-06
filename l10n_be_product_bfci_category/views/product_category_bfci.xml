@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="product_category_bfci_form_view">
+        <field name="model">product.bfci.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="parent_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_category_cbip_bfci_tree_view">
+        <field name="model">product.bfci.category</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="display_name" />
+                <field name="parent_id" />
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_category_bfci_act_window">
+        <field name="name">Product Bfci Category</field>
+        <field name="res_model">product.bfci.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="menu_product_cbip_category"
+        sequence="30"
+        parent="product_usability.menu_configuration"
+        action="product_category_bfci_act_window"
+    />
+</odoo>

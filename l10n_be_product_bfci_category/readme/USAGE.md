@@ -1,0 +1,2 @@
+- Go on product form.
+- Choose the CBIP/BFCI Category.
