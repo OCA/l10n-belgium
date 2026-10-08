@@ -8,7 +8,7 @@
     "author": "ACSONE SA/NV, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
     "category": "Reporting",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["mis_builder", "l10n_be"],  # OCA/account-financial-reporting
     "data": [
@@ -35,5 +35,5 @@
         "data/mis_report_pl_deprecated.xml",
         "data/mis_report_vat.xml",
     ],
-    "installable": False,
+    "installable": True,
 }
