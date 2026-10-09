@@ -1,0 +1,1 @@
+- Launch the import manually or define a cron to automatize the process.

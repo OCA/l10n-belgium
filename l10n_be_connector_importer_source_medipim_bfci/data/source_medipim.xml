@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV (<http://acsone.eu>)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="import_source_medipim_bfci_query" model="import.source.api">
+        <field name="name">source_medipim_bfci_query</field>
+        <field name="enviroment_url">https://api.medipim.be</field>
+        <field name="url">/v4/bcfi-categories/query</field>
+        <field name="type_request">post</field>
+        <field name="type_authorization">basic_auth</field>
+        <field
+            name="data_code"
+            eval="
+{
+  'sorting': {
+    'name': {
+      'direction': 'ASC',
+      'locale': 'fr'
+    }
+  }
+}"
+        />
+    </record>
+
+    <record id="param_api_header_medipim_content_type" model="source.api.value">
+        <field name="name">Content-Type</field>
+        <field name="value">application/json</field>
+        <field name="source_api_header_id" ref="import_source_medipim_bfci_query" />
+    </record>
+
+    <record id="param_api_header_medipim_accept" model="source.api.value">
+        <field name="name">Accept</field>
+        <field name="value">application/json</field>
+        <field name="source_api_header_id" ref="import_source_medipim_bfci_query" />
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="import_recordset_medipim_bfci_category" model="import.recordset">
+        <field name="sequence" eval="15" />
+        <field
+            name="backend_id"
+            ref="l10n_be_connector_importer_source_medipim.import_backend_medipim"
+        />
+        <field name="source_model">import.source.api</field>
+        <field name="source_id" ref="import_source_medipim_bfci_query" />
+        <field name="import_type_id" ref="import_type_medipim_product_category_bfci" />
+    </record>
+</odoo>

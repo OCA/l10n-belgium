@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="import_type_medipim_product_category_bfci" model="import.type">
+        <field name="name">BFCI Category (Medipim)</field>
+        <field name="key">product_bfci_category_medipim</field>
+        <field name="options">
+- model: product.bfci.category
+  importer:
+    name: medipim.importer.record
+  options:
+    mapper:
+        name: product.bfci.category.medipim.mapper
+    importer:
+      translation_use_regional_lang: False
+      odoo_unique_key: bfci_id
+      unique_key_is_xmlid: False
+        </field>
+    </record>
+</odoo>
