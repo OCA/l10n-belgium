@@ -40,8 +40,10 @@ class MedipimRecordImporter(Component):
                         else line_value.get("fr")
                     )
                 else:
-                    result_line[tkey] = result_line.get(key).get("fr")
-            result_line[key] = result_line.get(key).get("fr")
+                    if key in result_line:
+                        result_line[tkey] = result_line.get(key).get("fr")
+            if key in result_line:
+                result_line[key] = result_line.get(key).get("fr")
         return result_line
 
     def _get_log_total_message(self, meta):
