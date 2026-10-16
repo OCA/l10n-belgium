@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page[last()]" position="after">
+                <page
+                    name="Medipim"
+                    groups="l10n_be_connector_importer_source_medipim.group_medipim_connector"
+                >
+                    <group>
+                        <group>
+                            <field name="medipim_id" />
+                        </group>
+                        <group />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="import_type_medipim_product_product" model="import.type">
+        <field name="name">Product (Medipim)</field>
+        <field name="key">product_product_medipim_stream</field>
+        <field name="options">
+- model: product.product
+  importer:
+    name: medipim.importer.record
+  options:
+    mapper:
+        name: product.product.medipim.mapper
+    importer:
+      translation_use_regional_lang: False
+      odoo_unique_key: medipim_id
+      unique_key_is_xmlid: False
+    record_handler:
+      name: medipim.product.product.handler
+      skip_fields_unchanged: True
+        </field>
+    </record>
+</odoo>

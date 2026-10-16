@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV (<http://acsone.eu>)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="import_source_medipim_product_stream" model="import.source.api">
+        <field name="name">source_medipim_product_stream</field>
+        <field name="enviroment_url">https://api.medipim.be</field>
+        <field name="url">/v4/products/stream</field>
+        <field name="type_request">post</field>
+        <field name="stream" eval="True" />
+        <field name="type_authorization">basic_auth</field>
+        <field
+            name="data_code"
+            eval="
+{
+  'filter': {
+    'apbCategory': 'medical_device',
+    'prescription': False,
+  },
+  'sorting': {
+    'name': {
+      'direction': 'ASC',
+      'locale': 'fr'
+    }
+  }
+}"
+        />
+    </record>
+
+    <record id="param_api_header_medipim_content_type" model="source.api.value">
+        <field name="name">Content-Type</field>
+        <field name="value">application/json</field>
+        <field name="source_api_header_id" ref="import_source_medipim_product_stream" />
+    </record>
+
+    <record id="param_api_header_medipim_accept" model="source.api.value">
+        <field name="name">Accept</field>
+        <field name="value">application/x-json-stream</field>
+        <field name="source_api_header_id" ref="import_source_medipim_product_stream" />
+    </record>
+
+    <!-- Category config -->
+
+    <record
+        id="import_source_medipim_product_medipim_category"
+        model="import.source.api"
+    >
+        <field name="name">source_medipim_product_medipim_category</field>
+        <field name="enviroment_url">https://api.medipim.be</field>
+        <field name="url">/v4/medipim-categories/query</field>
+        <field name="type_request">post</field>
+        <field name="type_authorization">basic_auth</field>
+        <field
+            name="data_code"
+            eval="
+{
+
+  'sorting': {
+    'name': {
+      'direction': 'ASC',
+      'locale': 'fr'
+    }
+  }
+}"
+        />
+    </record>
+
+    <record
+        id="param_api_header_medipim_category_content_type"
+        model="source.api.value"
+    >
+        <field name="name">Content-Type</field>
+        <field name="value">application/json</field>
+        <field
+            name="source_api_header_id"
+            ref="import_source_medipim_product_medipim_category"
+        />
+    </record>
+
+    <record id="param_api_header_medipim_category_accept" model="source.api.value">
+        <field name="name">Accept</field>
+        <field name="value">application/json</field>
+        <field
+            name="source_api_header_id"
+            ref="import_source_medipim_product_medipim_category"
+        />
+    </record>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="import_recordset_product_medipim_category" model="import.recordset">
+        <field name="sequence" eval="10" />
+        <field name="backend_id" ref="import_backend_medipim" />
+        <field name="source_model">import.source.api</field>
+        <field name="source_id" ref="import_source_medipim_product_medipim_category" />
+        <field
+            name="import_type_id"
+            ref="import_type_medipim_product_medipim_category"
+        />
+    </record>
+
+    <record id="import_recordset_medipim_product_product" model="import.recordset">
+        <field name="sequence" eval="45" />
+        <field name="backend_id" ref="import_backend_medipim" />
+        <field name="source_model">import.source.api</field>
+        <field name="source_id" ref="import_source_medipim_product_stream" />
+        <field name="import_type_id" ref="import_type_medipim_product_product" />
+    </record>
+</odoo>
