@@ -4,6 +4,7 @@ from io import StringIO
 from unittest.mock import patch
 
 import requests
+from markupsafe import Markup
 from requests import Response
 
 from odoo.addons.l10n_be_connector_importer_source_medipim.components.product_product.mapper import (  # noqa
@@ -39,6 +40,26 @@ class TestSourceDescriptionApiPost(ImportSourceMedipimDescriptionCommon):
         self.assertRecordValues(
             self.products,
             recordset_values,
+        )
+
+        self.products_fr = self.products.with_context(lang="fr_BE")
+        self.assertEqual(
+            self.products[0].medical_properties,
+            Markup(
+                "<ul>\n<li><span>Property 1</span></li>\n<li><span>Property 2</span></li>\n</ul>\n"  # noqa
+            ),
+        )
+        self.assertEqual(
+            self.products[0].with_context(lang="nl_BE").medical_properties,
+            Markup(
+                "<ul>\n<li><span>Specificatie 1</span></li>\n<li><span>Specificatie 2</span></li>\n</ul>\n"  # noqa
+            ),
+        )
+        self.assertEqual(
+            self.products[0].with_context(lang="fr_BE").medical_properties,
+            Markup(
+                "<ul>\n<li><span>Propriété 1</span></li>\n<li><span>Propriété 2</span></li>\n</ul>\n"  # noqa
+            ),
         )
 
     def test_update(self):

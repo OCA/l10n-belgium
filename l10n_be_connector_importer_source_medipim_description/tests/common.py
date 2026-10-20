@@ -16,6 +16,8 @@ class ImportSourceMedipimDescriptionCommon(ImportSourceMedipimCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env["res.lang"]._activate_lang("fr_BE")
+        cls.env["res.lang"]._activate_lang("nl_BE")
 
     def _get_recordset_product_1(self, modified=False) -> dict:
         """
@@ -61,10 +63,56 @@ class ImportSourceMedipimDescriptionCommon(ImportSourceMedipimCommon):
                 ],
                 "type": "properties",
                 "content": {
-                    "nl": "<ul>\n<li><span>Property 1</span></li>\n<li><span>Property 2</span></li>\n</ul>\n",  # noqa
-                    "fr": "<ul>\n<li><span>Property 1</span></li>\n<li><span>Property 2</span></li>\n</ul>\n",  # noqa
+                    "nl": "<ul>\n<li><span>Specificatie 1</span></li>\n<li><span>Specificatie 2</span></li>\n</ul>\n",  # noqa
+                    "fr": "<ul>\n<li><span>Propriété 1</span></li>\n<li><span>Propriété 2</span></li>\n</ul>\n",  # noqa
+                    "en": False,
+                    "de": False,
+                },
+                "descriptionTag": "user_generated",
+                "meta": {"createdAt": 1785499608, "updatedAt": 1785499608},
+            },
+            {
+                "id": 1000002,
+                "locales": ["en"],
+                "targetGroups": [
+                    "public",
+                    "pharmacist",
+                    "doctor",
+                    "homecare",
+                    "hospital",
+                    "nurse",
+                    "physiotherapist",
+                    "webshop",
+                ],
+                "type": "properties",
+                "content": {
+                    "nl": False,
+                    "fr": False,
                     "en": "<ul>\n<li><span>Property 1</span></li>\n<li><span>Property 2</span></li>\n</ul>\n",  # noqa
-                    "de": "<ul>\n<li><span>Property 1</span></li>\n<li><span>Property 2</span></li>\n</ul>\n",  # noqa
+                    "de": False,
+                },
+                "descriptionTag": "user_generated",
+                "meta": {"createdAt": 1785499608, "updatedAt": 1785499608},
+            },
+            {
+                "id": 1000003,
+                "locales": ["de"],
+                "targetGroups": [
+                    "public",
+                    "pharmacist",
+                    "doctor",
+                    "homecare",
+                    "hospital",
+                    "nurse",
+                    "physiotherapist",
+                    "webshop",
+                ],
+                "type": "properties",
+                "content": {
+                    "nl": False,
+                    "fr": False,
+                    "en": False,
+                    "de": "<ul>\n<li><span>Spezifikationen 1</span></li>\n<li><span>Spezifikationen 2</span></li>\n</ul>\n",  # noqa
                 },
                 "descriptionTag": "user_generated",
                 "meta": {"createdAt": 1785499608, "updatedAt": 1785499608},
@@ -86,8 +134,8 @@ class ImportSourceMedipimDescriptionCommon(ImportSourceMedipimCommon):
                 "content": {
                     "nl": "<p>Composition</p>\n",
                     "fr": "<div>Composition</div>",
-                    "en": "null",
-                    "de": "null",
+                    "en": False,
+                    "de": False,
                 },
                 "descriptionTag": "user_generated",
                 "meta": {"createdAt": 1785499665, "updatedAt": 1785499665},

@@ -11,6 +11,44 @@ class MedipimRecordImporter(Component):
     def _get_description_fields(self, result_line):
         """
         Get each description key to field
+
+        As the same description type can be spread in several keys like:
+
+        "descriptions": [
+            {
+                "id": "id",
+                "type": "usage",
+                "locales": ["fr", "nl"],
+                "content": {
+                    "nl": "nl",
+                    "fr": "fr",
+                    "en": False,
+                    "de": False,
+                }
+            },
+            {
+                "id": "id",
+                "type": "usage",
+                "locales": ["en"],
+                "content": {
+                    "nl": "False,
+                    "fr": False,
+                    "en": "en",
+                    "de": False,
+                }
+            },
+        ]
+
+        We should rebuild the field with different languages collection
+        in a new dict like
+
+        {
+            "field": {
+                "nl": "nl",
+                "fr": "fr",
+                "en": "en",
+            }
+        }
         """
         descriptions = result_line.get("descriptions")
         if descriptions:
@@ -18,7 +56,19 @@ class MedipimRecordImporter(Component):
             for description in descriptions:
                 field_type = description.get("type")
                 if field_type in mapping:
-                    result_line[mapping.get(field_type)] = description.get("content")
+                    localized_description = {}
+                    for locale in description.get("locales"):
+                        localized_description[locale] = description.get("content").get(
+                            locale
+                        )
+                    field_mapping = mapping.get(field_type)
+                    if field_mapping in result_line:
+                        for locale, value in localized_description.items():
+                            result_line[field_mapping][locale] = value
+                    else:
+                        result_line[field_mapping] = {}
+                        for locale, value in localized_description.items():
+                            result_line[field_mapping][locale] = value
         return result_line
 
     def _get_translations(self, result_line):
