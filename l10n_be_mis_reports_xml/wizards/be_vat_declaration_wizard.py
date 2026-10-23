@@ -5,7 +5,7 @@
 
 import re
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -62,11 +62,10 @@ class BeVATDeclarationWizard(models.TransientModel):
         company = self.mr_instance_id.company_id
         if not company.vat:
             raise UserError(
-                _(
-                    "Please set the {vat} field on the company "
-                    "{company_name} (id: {company_id})"
-                ).format(
-                    vat=company.__class__.vat.string,
+                self.env._(
+                    "Please set the %(vat)s field on the company "
+                    "%(company_name)s (id: %(company_id)s)",
+                    vat=company._fields["vat"].string,
                     company_name=company.name,
                     company_id=company.id,
                 )
