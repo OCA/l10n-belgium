@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="companyweb_partner_view" model="ir.ui.view">
         <field name="name">partner.cweb_info</field>
@@ -17,19 +17,6 @@
                     groups="companyweb_base.cweb_download"
                 />
             </xpath>
-
-            <!-- Changes to standard partner view -->
-            <!-- We use Odoo's company_name for cweb_commercial_name: make it visible even if is_company -->
-            <xpath expr="//div[field[@name='company_name']]" position="attributes">
-                <attribute name="invisible" remove="is_company" separator="or" />
-            </xpath>
-            <button name="create_company" position="attributes">
-                <attribute name="invisible">is_company</attribute>
-            </button>
-            <field name="vat" position="after">
-                <!-- move company_registry under VAT -->
-                <field name="company_registry" position="move" />
-            </field>
 
             <notebook position="inside">
                 <page
@@ -68,7 +55,7 @@
                             />
                             <button
                                 class="btn btn-secondary oe_inline"
-                                invisible="companyweb_sync_status != 'none' or not companyweb_followup_enable or not company_registry or not country_id"
+                                invisible="companyweb_sync_status != 'none' or not companyweb_followup_enable or not (vat or cweb_registry)"
                                 name="action_push_followup_partners"
                                 string="Add to Companyweb Alerts"
                                 type="object"

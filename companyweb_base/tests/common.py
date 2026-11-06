@@ -34,6 +34,9 @@ TEST_PASSWORD = "cwebtestpassword"
 class CwebTestCommon(VCRMixin, BaseCommon):
     # Subclasses set this to the hostname(s) their API lives on.
     CWEB_ALLOWED_HOSTNAMES = ()
+    # Run tests as superuser (v20 BaseCommon defaults to a base.group_user
+    # test user); user-specific tests use the @users decorator.
+    _test_user_groups = ()
 
     @classmethod
     def _request_handler(cls, s: Session, r: PreparedRequest, /, **kw):

@@ -50,16 +50,16 @@ class CompanywebBaseSearchWizard(models.TransientModel):
         result = super().default_get(fields)
         if "partner_id" in result:
             partner = self.env["res.partner"].browse(result["partner_id"])
+            country_code = partner._cweb_get_country_code()
             result.update(
                 {
                     "search_term": partner.name,
                     "vat": partner.vat,
-                    "company_registry": partner.company_registry,
+                    "company_registry": partner._cweb_get_registry(country_code),
                     "zip": partner.zip,
                     "city": partner.city,
-                    "country_code": (code := partner.country_id.code)
-                    in ALLOWED_COUNTRY_CODES
-                    and code
+                    "country_code": country_code in ALLOWED_COUNTRY_CODES
+                    and country_code
                     or COUNTRY_CODE_BELGIUM,
                 }
             )
@@ -67,7 +67,7 @@ class CompanywebBaseSearchWizard(models.TransientModel):
 
     def open(self):
         self.ensure_one()
-        action = self.get_formview_action()
+        action = self.get_record_default_action()
         action.update(
             {
                 "name": "Search Companyweb",

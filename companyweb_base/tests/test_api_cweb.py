@@ -107,7 +107,7 @@ class TestApiCweb(CwebTestCommon):
             cls.env, "cwb_user", "companyweb_base.cweb_download"
         )
         # Results are language-dependent
-        cls.cwb_user.lang = "FR"
+        cls.cwb_user.lang = "fr_FR"
 
     def _enable_followup(self):
         self.company.write({"companyweb_followup_enable": True})
@@ -120,7 +120,6 @@ class TestApiCweb(CwebTestCommon):
                 "name": "Test",
                 "vat": "BE0405056855",
             }
-        values.update({"is_company": True})
         return self.env["res.partner"].create(values)
 
     def test_ensure_credentials(self):
@@ -140,7 +139,7 @@ class TestApiCweb(CwebTestCommon):
     @users("cwb_user")
     def test_api2(self):
         self._set_credentials()
-        self.env["ir.config_parameter"].sudo().set_param(
+        self.env["ir.config_parameter"].sudo().set_str(
             "companyweb.alacarte",
             "https://connect.companyweb.be/V1.3/alacarteservice.asmx",
         )
@@ -197,7 +196,7 @@ class TestApiCweb(CwebTestCommon):
         partner = self._create_partner(
             {
                 "name": "Test",
-                "company_registry": "0405056855",
+                "additional_identifiers": {"BE_EN": "0405056855"},
                 "country_id": self.belgium.id,
             }
         )
@@ -261,7 +260,6 @@ class TestApiCweb(CwebTestCommon):
                     "name": "Test",
                     "vat": "123123123",
                     "country_id": self.belgium.id,
-                    "is_company": True,
                 }
             )
         )
@@ -277,7 +275,7 @@ class TestApiCweb(CwebTestCommon):
         partner = self._create_partner(
             {
                 "name": "Test",
-                "company_registry": "0405056855",
+                "additional_identifiers": {"BE_EN": "0405056855"},
                 "country_id": self.env.ref("base.uk").id,
             }
         )
@@ -317,6 +315,8 @@ class TestApiCweb(CwebTestCommon):
         for cweb_field, odoo_field in FILL_FIELD_MAP.items():
             # All fields are copied
             self._assert_copied_field_equal(partner, cweb_field, odoo_field)
+        # Registry is copied (normalized) into additional identifiers
+        self.assertEqual(partner._cweb_get_registry("BE"), "0405056855")
 
     def _assert_copied_field_equal(self, partner, cweb_field, odoo_field):
         cweb_value = partner[cweb_field]
@@ -362,7 +362,7 @@ class TestApiCweb(CwebTestCommon):
         partner = self._create_partner(
             {
                 "name": "Test",
-                "company_registry": "0878194448",
+                "additional_identifiers": {"BE_EN": "0878194448"},
                 "country_id": self.belgium.id,
                 "cweb_sync_reference": "38b9ef0a-8c8a-4c53-852e-d413470be836",
             }
@@ -380,13 +380,17 @@ class TestApiCweb(CwebTestCommon):
         self._enable_followup()
         valid_partner = self._create_partner()
         # Use specific ref saved in cassette.
-        invalid_partner = self._create_partner(
-            {
-                "name": "Test",
-                "company_registry": "123123123",
-                "country_id": self.belgium.id,
-                "cweb_sync_reference": "38b9ef0a-8c8a-4c53-852e-d413470be836",
-            }
+        invalid_partner = (
+            self.env["res.partner"]
+            .with_context(no_vat_validation=True)
+            .create(
+                {
+                    "name": "Test",
+                    "additional_identifiers": {"BE_EN": "123123123"},
+                    "country_id": self.belgium.id,
+                    "cweb_sync_reference": "38b9ef0a-8c8a-4c53-852e-d413470be836",
+                }
+            )
         )
         result = (valid_partner | invalid_partner).action_push_followup_partners()
         msg = result.get("params").get("message")
@@ -490,7 +494,7 @@ class TestApiCweb(CwebTestCommon):
         partner = self._create_partner(
             {
                 "name": "Test FR",
-                "company_registry": "652014051",
+                "additional_identifiers": {"FR_SIREN": "652014051"},
                 "country_id": self.france.id,
             }
         )

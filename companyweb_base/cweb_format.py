@@ -40,7 +40,7 @@ def format_float_value(value):
 
 def format_date(value):
     try:
-        return datetime.strptime(str(value), DATE_FORMAT)
+        return datetime.strptime(str(value), DATE_FORMAT).date()  # noqa: DTZ007
     except ValueError:
         return False
 

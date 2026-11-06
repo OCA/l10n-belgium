@@ -13,7 +13,6 @@ class ResCompany(models.Model):
     companyweb_followup_enable = fields.Boolean("Enable Contact Data Followup")
 
     fill_cweb_name = fields.Boolean(default=True)
-    fill_cweb_commercial_name = fields.Boolean(default=True)
     fill_cweb_street = fields.Boolean(default=True)
     fill_cweb_zip = fields.Boolean(default=True)
     fill_cweb_city = fields.Boolean(default=True)

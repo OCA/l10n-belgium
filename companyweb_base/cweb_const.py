@@ -22,6 +22,14 @@ ALLOWED_COUNTRY_CODES = (
     COUNTRY_CODE_LUXEMBOURG,
     COUNTRY_CODE_NETHERLANDS,
 )
+# Odoo additional identifier key (res.partner.additional_identifiers)
+# holding the company registry for each supported country
+REGISTRY_IDENTIFIER_KEYS = {
+    COUNTRY_CODE_BELGIUM: "BE_EN",  # KBO/BCE
+    COUNTRY_CODE_FRANCE: "FR_SIREN",
+    COUNTRY_CODE_LUXEMBOURG: "LU_EN",  # RCS
+    COUNTRY_CODE_NETHERLANDS: "NL_KVK",
+}
 SYNC_PAGE_SIZE = 100  # 1-100
 DATE_FORMAT = "%Y%m%d"
 HASH_ENCODING = "utf-8"
@@ -99,9 +107,9 @@ DATE_FIELDS = [
     "cweb_endDate",
 ]
 # Each key requires a config field 'fill_<field_name>' on company
+# cweb_registry is not in this map: it is stored in additional_identifiers
 FILL_FIELD_MAP = {
     "cweb_name": "name",
-    "cweb_commercial_name": "company_name",
     "cweb_street": "street",
     "cweb_zip": "zip",
     "cweb_city": "city",
@@ -110,7 +118,6 @@ FILL_FIELD_MAP = {
     "cweb_website": "website",
     "cweb_phone": "phone",
     "cweb_vat": "vat",
-    "cweb_registry": "company_registry",
 }
 
 # COMPANYWEB API DATA KEYS

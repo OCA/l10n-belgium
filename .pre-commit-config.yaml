@@ -1,7 +1,6 @@
 exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
-  ^companyweb_base/|
   ^companyweb_payment_info/|
   ^l10n_be_mis_reports/|
   # END NOT INSTALLABLE ADDONS
