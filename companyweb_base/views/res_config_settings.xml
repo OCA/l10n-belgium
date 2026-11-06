@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2024 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
@@ -40,10 +40,6 @@
                             <group>
                                 <group>
                                     <field name="fill_cweb_name" string="Name" />
-                                    <field
-                                        name="fill_cweb_commercial_name"
-                                        string="Commercial Name"
-                                    />
                                     <field name="fill_cweb_street" string="Street" />
                                     <field name="fill_cweb_zip" string="ZIP" />
                                     <field name="fill_cweb_city" string="City" />

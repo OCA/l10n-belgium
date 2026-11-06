@@ -1,7 +1,6 @@
 # Copyright 2021 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import logging
-from datetime import datetime
 from uuid import uuid4
 
 from odoo import api, exceptions, fields, models, tools
@@ -12,6 +11,7 @@ from ..cweb_const import (
     DATE_FIELDS,
     FILL_FIELD_MAP,
     FLOAT_FIELDS,
+    REGISTRY_IDENTIFIER_KEYS,
 )
 from ..cweb_format import (
     format_date,
@@ -311,15 +311,16 @@ class ResPartner(models.Model):
             company = partner.company_id or env_company
             partner.companyweb_followup_enable = company.companyweb_followup_enable
 
-    @api.depends("is_company", "vat", "country_id")
+    @api.depends("parent_id", "vat", "country_id")
     def _compute_cweb_show_button_enhance(self):
         """
-        Show button for type company if VAT starts with valid country code
-        or valid country is set
+        Show button for commercial entities (no parent company) if VAT starts
+        with valid country code or valid country is set.
+        is_company can't be used: since v20 it is computed from the VAT.
         """
         for rec in self:
             rec.cweb_show_button_enhance = bool(
-                rec.is_company
+                not rec.parent_id
                 and (
                     not rec.country_id
                     or (rec.vat and get_country_code_from_vat(rec.vat))
@@ -367,6 +368,58 @@ class ResPartner(models.Model):
             rec.cweb_show_tab = rec.cweb_error or any(
                 rec[enable_field] for enable_field in get_all_enable_fields()
             )
+
+    def _cweb_get_country_code(self, vat=None):
+        """
+        Country used to query Companyweb: Companyweb country, else country of the
+        VAT, else address country, else country of a registry identifier.
+        """
+        self.ensure_one()
+        identifiers = self.additional_identifiers or {}
+        return (
+            self.cweb_country_code
+            or get_country_code_from_vat(vat or self.vat)
+            or self.country_id.code
+            or next(
+                (
+                    country_code
+                    for country_code, key in REGISTRY_IDENTIFIER_KEYS.items()
+                    if identifiers.get(key)
+                ),
+                False,
+            )
+        )
+
+    def _cweb_get_registry(self, country_code):
+        """
+        Company registry of the partner for the given country
+        (stored in additional_identifiers since v20)
+        """
+        self.ensure_one()
+        key = REGISTRY_IDENTIFIER_KEYS.get(country_code)
+        return (key and self._get_additional_identifier(key)) or False
+
+    def _cweb_has_registry(self):
+        """Whether the partner has a registry for any Companyweb country"""
+        self.ensure_one()
+        identifiers = self.additional_identifiers or {}
+        return any(identifiers.get(key) for key in REGISTRY_IDENTIFIER_KEYS.values())
+
+    def _cweb_set_registry(self, country_code, registry):
+        """
+        Store the company registry in additional_identifiers.
+        Values are normalized (and validated) by res.partner write.
+        """
+        key = REGISTRY_IDENTIFIER_KEYS.get(country_code)
+        if not key:
+            return
+        for partner in self:
+            identifiers = dict(partner.additional_identifiers or {})
+            if registry:
+                identifiers[key] = registry
+            else:
+                identifiers.pop(key, None)
+            partner.additional_identifiers = identifiers
 
     def _cweb_format(self, values):
         """
@@ -416,7 +469,7 @@ class ResPartner(models.Model):
         Parse cweb data to odoo-field values
         """
         values = {
-            "cweb_lastupdate": datetime.now(),
+            "cweb_lastupdate": fields.Datetime.now(),
             **get_data_values(cweb_response),
             **get_nested_values(cweb_response),
             **get_balance_values(cweb_response),
@@ -436,7 +489,7 @@ class ResPartner(models.Model):
 
     def _get_cweb_credentials(self):
         IrConfigParameter = self.env["ir.config_parameter"].sudo()
-        url = IrConfigParameter.get_param("companyweb.alacarte", "")
+        url = IrConfigParameter.get_str("companyweb.alacarte")
 
         if "V2.0" not in url:
             raise exceptions.ValidationError(
@@ -484,13 +537,9 @@ class ResPartner(models.Model):
             args = {}
             if partner.vat:
                 args["vat"] = partner.vat
-            if partner.company_registry:
-                args["registry"] = partner.company_registry
-            country_code = (
-                partner.cweb_country_code
-                or get_country_code_from_vat(partner.vat)
-                or partner.country_id.code
-            )
+            country_code = partner._cweb_get_country_code()
+            if registry := partner._cweb_get_registry(country_code):
+                args["registry"] = registry
             if country_code:
                 if country_code not in ALLOWED_COUNTRY_CODES:
                     errors.append(
@@ -524,6 +573,18 @@ class ResPartner(models.Model):
             for cweb_field, odoo_field in FILL_FIELD_MAP.items():
                 if company[f"fill_{cweb_field}"]:
                     partner[odoo_field] = partner[cweb_field]
+            if company.fill_cweb_registry and partner.cweb_registry:
+                try:
+                    partner._cweb_set_registry(
+                        partner.cweb_country_code, partner.cweb_registry
+                    )
+                except exceptions.ValidationError as e:
+                    _logger.warning(
+                        "Companyweb: could not copy registry %s on partner %s: %s",
+                        partner.cweb_registry,
+                        partner.id,
+                        e,
+                    )
             partner.street2 = None
             partner.state_id = None
 
@@ -542,7 +603,7 @@ class ResPartner(models.Model):
             )
         if not self._cweb_ensure_credentials():
             return self._cweb_call_wizard_credentials()
-        if not self.vat and not self.company_registry:
+        if not self.vat and not self._cweb_has_registry():
             return self._cweb_call_wizard_search()
 
         errors = self._cweb_enhance()
@@ -666,12 +727,8 @@ class ResPartner(models.Model):
         partner_list = []
         for partner in self:
             vat = partner.vat or partner.cweb_vat
-            registry = partner.company_registry or partner.cweb_registry
-            country_code = (
-                partner.cweb_country_code
-                or get_country_code_from_vat(vat)
-                or partner.country_id.code
-            )
+            country_code = partner._cweb_get_country_code(vat=vat)
+            registry = partner._cweb_get_registry(country_code) or partner.cweb_registry
             if not (vat or registry):
                 partner.cweb_error = self.env._("Missing VAT or Company Registry.")
                 partner_errors |= partner

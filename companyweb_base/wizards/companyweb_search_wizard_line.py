@@ -22,12 +22,11 @@ class CompanywebBaseSearchWizardLine(models.TransientModel):
 
     def select(self):
         self.ensure_one()
-        country = self.env["res.country"].search([("code", "=", self.country_code)])
-        self.wizard_id.partner_id.write(
-            {
-                "company_registry": self.registry,
-                "country_id": country.id,
-            }
+        partner = self.wizard_id.partner_id
+        country = self.env["res.country"].search(
+            [("code", "=", self.country_code)], limit=1
         )
+        partner.country_id = country
+        partner._cweb_set_registry(self.country_code, self.registry)
         self.wizard_id.partner_id._cweb_enhance()
         self.wizard_id.partner_id.cweb_button_copy_address()

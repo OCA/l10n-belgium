@@ -1,7 +1,7 @@
 # Copyright 2025 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from datetime import datetime
+from datetime import UTC, datetime
 from hashlib import sha1
 
 from zeep import Client
@@ -83,7 +83,7 @@ def get_nested_values(data):
     - etc
     """
     values = {}
-    for field in NESTED_FIELDS.keys():
+    for field in NESTED_FIELDS:
         enable, value = get_value(data, field)
         values[get_enable_field(field)] = enable
         for nested_field in NESTED_FIELDS[field]:
@@ -146,7 +146,7 @@ def _cweb_create_hash(login, password, secret):
     """
     Create loginhash for API
     """
-    today = datetime.now().strftime(DATE_FORMAT)
+    today = datetime.now(UTC).strftime(DATE_FORMAT)
     text = (today + login + password + secret).lower()
     return sha1(text.encode(HASH_ENCODING)).hexdigest()
 
@@ -234,10 +234,7 @@ def _cweb_get(url, service, login, password, lang, args):
             result = (res_dict["SearchResponseList"] or {}).get(
                 "SearchResponseItem", []
             )
-        elif service == "Alerts_AddListOfCompanies":
-            # Returns dict
-            result = res_dict
-        elif service == "Alerts_FetchBulk":
+        elif service == "Alerts_AddListOfCompanies" or service == "Alerts_FetchBulk":
             # Returns dict
             result = res_dict
         elif service in ("GetCompanyByVat", "GetCompanyByRegistrationNumber"):
