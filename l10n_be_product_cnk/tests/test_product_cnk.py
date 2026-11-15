@@ -1,5 +1,7 @@
 # Copyright 2026 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from odoo.exceptions import ValidationError
+
 from odoo.addons.base.tests.common import BaseCommon
 
 
@@ -10,16 +12,22 @@ class TestProductCnk(BaseCommon):
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Product 1",
-                "cnk_code": "12345",
+                "cnk_code": "1234567",
             }
         )
 
     def test_product_cnk(self):
-        template = self.env["product.template"].search([("cnk_code", "=", "12345")])
+        template = self.env["product.template"].search([("cnk_code", "=", "1234567")])
         self.assertEqual(template.product_variant_ids, self.product)
 
-        template.cnk_code = "54321"
-        self.assertEqual(self.product.cnk_code, "54321")
+        template.cnk_code = "7654321"
+        self.assertEqual(self.product.cnk_code, "7654321")
 
         template.invalidate_recordset()
-        self.assertEqual("54321", template.cnk_code)
+        self.assertEqual("7654321", template.cnk_code)
+
+    def test_product_cnk_error(self):
+        with self.assertRaises(ValidationError):
+            self.product.cnk_code = "123456"
+
+        self.product.cnk_code = ""
