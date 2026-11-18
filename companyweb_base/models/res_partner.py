@@ -11,7 +11,7 @@ from ..cweb_const import (
     DATE_FIELDS,
     FILL_FIELD_MAP,
     FLOAT_FIELDS,
-    REGISTRY_IDENTIFIER_KEYS,
+    REGISTRY_IDENTIFIER_KEYS_BY_COUNTRY_CODE,
 )
 from ..cweb_format import (
     format_date,
@@ -383,7 +383,10 @@ class ResPartner(models.Model):
             or next(
                 (
                     country_code
-                    for country_code, key in REGISTRY_IDENTIFIER_KEYS.items()
+                    for (
+                        country_code,
+                        key,
+                    ) in REGISTRY_IDENTIFIER_KEYS_BY_COUNTRY_CODE.items()
                     if identifiers.get(key)
                 ),
                 False,
@@ -396,25 +399,28 @@ class ResPartner(models.Model):
         (stored in additional_identifiers since v20)
         """
         self.ensure_one()
-        key = REGISTRY_IDENTIFIER_KEYS.get(country_code)
+        key = REGISTRY_IDENTIFIER_KEYS_BY_COUNTRY_CODE.get(country_code)
         return (key and self._get_additional_identifier(key)) or False
 
     def _cweb_has_registry(self):
         """Whether the partner has a registry for any Companyweb country"""
         self.ensure_one()
         identifiers = self.additional_identifiers or {}
-        return any(identifiers.get(key) for key in REGISTRY_IDENTIFIER_KEYS.values())
+        return any(
+            identifiers.get(key)
+            for key in REGISTRY_IDENTIFIER_KEYS_BY_COUNTRY_CODE.values()
+        )
 
     def _cweb_set_registry(self, country_code, registry):
         """
         Store the company registry in additional_identifiers.
         Values are normalized (and validated) by res.partner write.
         """
-        key = REGISTRY_IDENTIFIER_KEYS.get(country_code)
+        key = REGISTRY_IDENTIFIER_KEYS_BY_COUNTRY_CODE.get(country_code)
         if not key:
             return
         for partner in self:
-            identifiers = dict(partner.additional_identifiers or {})
+            identifiers = partner.additional_identifiers or {}
             if registry:
                 identifiers[key] = registry
             else:

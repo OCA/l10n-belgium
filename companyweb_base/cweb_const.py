@@ -24,7 +24,7 @@ ALLOWED_COUNTRY_CODES = (
 )
 # Odoo additional identifier key (res.partner.additional_identifiers)
 # holding the company registry for each supported country
-REGISTRY_IDENTIFIER_KEYS = {
+REGISTRY_IDENTIFIER_KEYS_BY_COUNTRY_CODE = {
     COUNTRY_CODE_BELGIUM: "BE_EN",  # KBO/BCE
     COUNTRY_CODE_FRANCE: "FR_SIREN",
     COUNTRY_CODE_LUXEMBOURG: "LU_EN",  # RCS

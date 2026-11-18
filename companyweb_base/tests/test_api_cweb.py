@@ -110,7 +110,7 @@ class TestApiCweb(CwebTestCommon):
         cls.cwb_user.lang = "fr_FR"
 
     def _enable_followup(self):
-        self.company.write({"companyweb_followup_enable": True})
+        self.company.sudo().write({"companyweb_followup_enable": True})
         self.assertTrue(self.company.companyweb_followup_enable)
 
     def _create_partner(self, values=None):
