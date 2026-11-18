@@ -9,13 +9,18 @@
                 <button
                     aria-label="Enhance"
                     class="btn-sm btn-link"
-                    icon="/companyweb_base/static/img/logo-en.resized.png"
                     name="cweb_button_enhance"
                     title="Enhance Contact Data"
                     type="object"
                     invisible="not cweb_show_button_enhance"
                     groups="companyweb_base.cweb_download"
-                />
+                >
+                    <!-- v20: the icon attribute only accepts Material Symbols names -->
+                    <img
+                        alt="Companyweb"
+                        src="/companyweb_base/static/img/logo-en.resized.png"
+                    />
+                </button>
             </xpath>
 
             <notebook position="inside">
@@ -30,7 +35,7 @@
                         invisible="not cweb_error"
                     >
                         <div class="o_row align-items-center" title="Companyweb Error">
-                            <i class="fa fa-warning me-2" />
+                            <i class="oi me-2" data-icon="warning" aria-hidden="true" />
                             <field name="cweb_error" />
                         </div>
                     </div>
