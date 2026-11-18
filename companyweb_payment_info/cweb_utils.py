@@ -28,18 +28,18 @@ def cweb_send_open_invoices(
     """
     client = Client(url)
     response = client.service.SendOpenInvoices(
-        request=dict(
-            Login=login,
-            Password=password,
-            ServiceIntegrator=SERVICE_INTEGRATOR_ID,
-            LoginHash=_cweb_create_hash(login, password, SERVICE_INTEGRATOR_SECRET),
-            Language=lang,
-            PackageVersion=package_version,
-            SupplierCountry=supplier_country,
-            SupplierIdentifierType=supplier_identifier_type,
-            SupplierIdentifier=supplier_identifier,
-            InvoicesList={"InvoiceRequest": invoices_list},
-        )
+        request={
+            "Login": login,
+            "Password": password,
+            "ServiceIntegrator": SERVICE_INTEGRATOR_ID,
+            "LoginHash": _cweb_create_hash(login, password, SERVICE_INTEGRATOR_SECRET),
+            "Language": lang,
+            "PackageVersion": package_version,
+            "SupplierCountry": supplier_country,
+            "SupplierIdentifierType": supplier_identifier_type,
+            "SupplierIdentifier": supplier_identifier,
+            "InvoicesList": {"InvoiceRequest": invoices_list},
+        }
     )
     res_dict = serialize_object(response)
     status = res_dict.get("StatusCode", -1)
