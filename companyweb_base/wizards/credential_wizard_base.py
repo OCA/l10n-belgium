@@ -6,7 +6,7 @@ from odoo import models
 class CompanyWebCredentialWizardBase(models.TransientModel):
     _name = "companyweb_base.credential_wizard_base"
     _description = "Ask for Companyweb login & password"
-    _inherit = ["companyweb_base.credential_wizard_abstract"]
+    _inherit = "companyweb_base.credential_wizard_abstract"
 
     def _return_action(self):
         return (

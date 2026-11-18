@@ -12,9 +12,6 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.companyweb_followup_enable", readonly=False
     )
     fill_cweb_name = fields.Boolean(related="company_id.fill_cweb_name", readonly=False)
-    fill_cweb_commercial_name = fields.Boolean(
-        related="company_id.fill_cweb_commercial_name", readonly=False
-    )
     fill_cweb_street = fields.Boolean(
         related="company_id.fill_cweb_street", readonly=False
     )
