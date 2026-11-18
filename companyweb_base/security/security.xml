@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="res.groups.privilege" id="res_groups_privilege_companyweb">
+    <record id="res_groups_privilege_companyweb" model="res.groups.privilege">
         <field name="name">Companyweb</field>
         <field name="category_id" ref="base.module_category_master_data" />
-        <field name="sequence">15</field>
+        <field name="sequence" eval="15" />
     </record>
     <record id="cweb_view" model="res.groups">
         <field name="name">View Companyweb Data</field>

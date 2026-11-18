@@ -16,6 +16,11 @@ PAYEX_URL = "https://autopayex.companyweb.be/v4.0/AutoPayex.asmx"
 
 class TestApiCwebPaymentInfo(CwebTestCommon):
     CWEB_ALLOWED_HOSTNAMES = ("autopayex.companyweb.be",)
+    # Companyweb user that can also create and post invoices
+    _test_user_groups = (
+        "companyweb_base.cweb_download",
+        "account.group_account_invoice",
+    )
 
     @classmethod
     def setUpClass(cls):
@@ -23,20 +28,19 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
         cls.company.write(
             {
                 "country_id": cls.env.ref("base.be").id,
-                "company_registry": "0869703978",
+                "additional_identifiers": {"BE_EN": "0869703978"},
             }
         )
         cls.customer = cls.env["res.partner"].create(
             {
                 "name": "Test Customer BE",
-                "is_company": True,
                 "country_id": cls.env.ref("base.be").id,
-                "company_registry": "0405056855",
+                "additional_identifiers": {"BE_EN": "0405056855"},
             }
         )
 
     def _set_credentials(self):
-        self.env["ir.config_parameter"].sudo().set_param(
+        self.env["ir.config_parameter"].sudo().set_str(
             "companyweb.payex.url", PAYEX_URL
         )
         return super()._set_credentials()
@@ -68,7 +72,7 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
     @freeze_time("2026-07-03")
     def test_cron_send_open_invoices(self):
         self._set_credentials()
-        self.company.companyweb_payment_info_enable = True
+        self.company.sudo().companyweb_payment_info_enable = True
         invoice = self._create_open_invoice()
         self.assertEqual(invoice.payment_state, "not_paid")
 
@@ -77,7 +81,7 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
         self.assertEqual(vals["InvoiceDate"], "20260601")
         self.assertEqual(vals["CustomerCountry"], "BE")
         self.assertEqual(vals["CustomerIdentifierType"], "RegistrationNumber")
-        self.assertEqual(vals["CustomerIdentifier"], self.customer.company_registry)
+        self.assertEqual(vals["CustomerIdentifier"], "0405056855")
         self.assertEqual(vals["OpenAmountWhole"], str(int(invoice.amount_residual)))
 
         self.env["account.move"]._cron_cweb_send_open_invoices()
@@ -86,7 +90,6 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
         partner = self.env["res.partner"].create(
             {
                 "name": "No ID Customer",
-                "is_company": True,
                 "country_id": self.env.ref("base.be").id,
             }
         )
@@ -97,9 +100,8 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
         partner = self.env["res.partner"].create(
             {
                 "name": "UK Customer",
-                "is_company": True,
                 "country_id": self.env.ref("base.uk").id,
-                "company_registry": "12345678",
+                "additional_identifiers": {"BE_EN": "0405056855"},
             }
         )
         invoice = self._create_open_invoice(partner=partner)
@@ -110,7 +112,7 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
     )
     def test_cron_skips_disabled_company(self, mock_send):
         self._set_credentials()
-        self.company.companyweb_payment_info_enable = False
+        self.company.sudo().companyweb_payment_info_enable = False
         self._create_open_invoice()
         self.env["account.move"]._cron_cweb_send_open_invoices()
         mock_send.assert_not_called()
@@ -120,12 +122,16 @@ class TestApiCwebPaymentInfo(CwebTestCommon):
         "odoo.addons.companyweb_payment_info.models.account_move.cweb_send_open_invoices"
     )
     def test_cron_skips_missing_credentials(self, mock_send):
-        self.env["ir.config_parameter"].sudo().set_param(
+        self.env["ir.config_parameter"].sudo().set_str(
             "companyweb.payex.url", PAYEX_URL
         )
-        self.company.companyweb_payment_info_enable = True
-        self.company.cweb_login = False
-        self.company.cweb_password = False
+        self.company.sudo().write(
+            {
+                "companyweb_payment_info_enable": True,
+                "cweb_login": False,
+                "cweb_password": False,
+            }
+        )
         self._create_open_invoice()
         self.env["account.move"]._cron_cweb_send_open_invoices()
         mock_send.assert_not_called()

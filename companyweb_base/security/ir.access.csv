@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+cweb_downloader_right_wizard,cweb_downloader_right,companyweb_base.credential_wizard_base,companyweb_base.cweb_download,crud,
+cweb_search_wizard_access,Companyweb Search Wizard,companyweb.search.wizard,companyweb_base.cweb_download,crud,
+cweb_search_wizard_line_access,Companyweb Search Wizard Line,companyweb.search.wizard.line,companyweb_base.cweb_download,crd,

@@ -34,6 +34,8 @@ TEST_PASSWORD = "cwebtestpassword"
 class CwebTestCommon(VCRMixin, BaseCommon):
     # Subclasses set this to the hostname(s) their API lives on.
     CWEB_ALLOWED_HOSTNAMES = ()
+    # Tests run as a Companyweb user (implies cweb_view and partner manager)
+    _test_user_groups = ("companyweb_base.cweb_download",)
 
     @classmethod
     def _request_handler(cls, s: Session, r: PreparedRequest, /, **kw):
@@ -50,8 +52,10 @@ class CwebTestCommon(VCRMixin, BaseCommon):
         cls.company = cls.env.company
 
     def _set_credentials(self):
-        self.company.cweb_login = os.environ.get("COMPANYWEB_TEST_LOGIN", TEST_LOGIN)
-        self.company.cweb_password = os.environ.get(
+        # Company configuration is an admin task
+        company_sudo = self.company.sudo()
+        company_sudo.cweb_login = os.environ.get("COMPANYWEB_TEST_LOGIN", TEST_LOGIN)
+        company_sudo.cweb_password = os.environ.get(
             "COMPANYWEB_TEST_PASSWORD", TEST_PASSWORD
         )
 

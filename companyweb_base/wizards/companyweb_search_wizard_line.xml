@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2025 ACSONE SA/NV
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record model="ir.ui.view" id="companyweb_search_wizard_line_form_view">
+    <record id="companyweb_search_wizard_line_form_view" model="ir.ui.view">
         <field name="model">companyweb.search.wizard.line</field>
         <field name="arch" type="xml">
             <form>
@@ -31,7 +31,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="companyweb_search_wizard_line_list_view">
+    <record id="companyweb_search_wizard_line_list_view" model="ir.ui.view">
         <field name="model">companyweb.search.wizard.line</field>
         <field name="arch" type="xml">
             <list create="0" delete="0">

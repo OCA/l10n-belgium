@@ -20,9 +20,9 @@ class AccountMove(models.Model):
         customer_country_code = partner.country_id.code
         if customer_country_code not in ALLOWED_COUNTRY_CODES:
             return None
-        if partner.company_registry:
+        if registry := partner._cweb_get_registry(customer_country_code):
             identifier_type = "RegistrationNumber"
-            identifier = partner.company_registry
+            identifier = registry
         elif partner.vat:
             identifier_type = "VatNumber"
             identifier = partner.vat
@@ -40,7 +40,7 @@ class AccountMove(models.Model):
     @api.model
     def _cron_cweb_send_open_invoices(self):
         IrConfigParameter = self.env["ir.config_parameter"].sudo()
-        url = IrConfigParameter.get_param("companyweb.payex.url", "")
+        url = IrConfigParameter.get_str("companyweb.payex.url")
         if not url:
             _logger.warning(
                 "Companyweb: No PayEx URL configured (companyweb.payex.url), skipping."
@@ -115,9 +115,9 @@ class AccountMove(models.Model):
                 )
                 continue
 
-            if company.company_registry:
+            if registry := company.partner_id._cweb_get_registry(supplier_country_code):
                 supplier_identifier_type = "RegistrationNumber"
-                supplier_identifier = company.company_registry
+                supplier_identifier = registry
             elif company.vat:
                 supplier_identifier_type = "VatNumber"
                 supplier_identifier = company.vat

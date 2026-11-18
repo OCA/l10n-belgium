@@ -5,9 +5,9 @@
     "summary": "Send your customer payment information to Companyweb",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-belgium",
-    "version": "19.0.1.0.2",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
-    "installable": False,
+    "installable": True,
     "application": True,
     "data": [
         "data/ir_config_parameter.xml",
